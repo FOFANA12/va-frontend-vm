@@ -1,0 +1,2452 @@
+{
+  "common": {
+    "searchMinCharPlaceholder": "Tapez au moins 2 caractères pour lancer la recherche.",
+    "resultsCount": "{count} résultat | {count} résultats",
+    "pagination": "Page",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "noData": "Pas de données",
+    "searchPlaceholder": "Recherche...",
+    "author": "Auteur",
+    "view": "Aperçu",
+    "edit": "Modifier",
+    "errors": {
+      "serverErrorTitle": "Erreur du serveur",
+      "defaultErrorMessage": "Désolé, une erreur serveur est survenue lors du traitement de votre demande."
+    },
+    "form": {
+      "state": "Etat",
+      "status": "Statut",
+      "statusChangedAt": "Date de mise à jour",
+      "statusChangedBy": "Mis à jour par",
+      "stateChangedAt": "Date de mise à jour",
+      "stateChangedBy": "Mis à jour par",
+      "author": "Auteur"
+    },
+    "select": {
+      "noResults": "Aucune donnée trouvée",
+      "searchPlaceholder": "Rechercher..."
+    },
+    "table": {
+      "actions": "Gérer",
+      "state": "Etat",
+      "status": {
+        "label": "Statut",
+        "active": "Actif",
+        "inactive": "Inactif"
+      },
+      "file": {
+        "label": "Fichier",
+        "download": "Télécharger"
+      }
+    },
+    "datatable": {
+      "noDataAvailable": "Aucune donnée disponible",
+      "rowsPerPage": "Lignes par page",
+      "dropdownAll": "Tout",
+      "paginationInfo": "{from} - {to} sur {total}"
+    },
+    "buttons": {
+      "create": "Créer",
+      "save": "Enregistrer",
+      "processing": "En cours...",
+      "delete": "Supprimer",
+      "errorRetry": "Réessayer"
+    },
+    "modal": {
+      "buttons": {
+        "create": "Créer",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "close": "Fermer",
+        "viewDetails": "Voir les détails",
+        "delete": "Supprimer"
+      }
+    },
+    "entityStatus": {
+      "action": {
+        "modalTitle": "Modifier le statut de l'action",
+        "label": "Statut de l'action",
+        "placeholder": "Sélectionner un statut"
+      },
+      "indicator": {
+        "modalTitle": "Modifier le statut de l'indicateur",
+        "label": "Statut de l'indicateur",
+        "placeholder": "Sélectionner un statut"
+      },
+      "strategicObjective": {
+        "modalTitle": "Modifier le statut de l'objectif",
+        "label": "Statut de l'objectif",
+        "placeholder": "Sélectionner un statut"
+      },
+      "program": {
+        "modalTitle": "Modifier le statut du programme",
+        "label": "Statut du programme",
+        "placeholder": "Sélectionner un statut"
+      },
+      "project": {
+        "modalTitle": "Modifier le statut du projet",
+        "label": "Statut du projet",
+        "placeholder": "Sélectionner un statut"
+      },
+      "activity": {
+        "modalTitle": "Modifier le statut de l'activité",
+        "label": "Statut de l'activité",
+        "placeholder": "Sélectionner un statut"
+      }
+    },
+    "entityState": {
+      "program": {
+        "modalTitle": "Modifier état du programme",
+        "label": "Etat du programme",
+        "placeholder": "Sélectionner un état"
+      },
+      "project": {
+        "modalTitle": "Modifier état du projet",
+        "label": "Etat du projet",
+        "placeholder": "Sélectionner un état"
+      },
+      "activity": {
+        "modalTitle": "Modifier état de l'activité",
+        "label": "Etat de l'activité",
+        "placeholder": "Sélectionner un état"
+      }
+    },
+    "sweetalert": {
+      "showConfirm": {
+        "title": "Êtes-vous sûr ?",
+        "message": "Cette action est irréversible.",
+        "confirmButtonText": "Oui, supprimer",
+        "cancelButtonText": "Annuler"
+      },
+      "showConfirmValidation": {
+        "title": "Confirmation",
+        "message": "Êtes-vous sûr de vouloir continuer ?",
+        "confirmButtonText": "Confirmer",
+        "cancelButtonText": "Annuler"
+      },
+      "showErrorModal": {
+        "title": "Erreur",
+        "message": "Une erreur inattendue s'est produite. Veuillez réessayer.",
+        "confirmButtonText": "Fermer"
+      },
+      "actions": {
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet élément ?",
+        "confirmDeleteSelected": "Êtes-vous sûr de vouloir supprimer les éléments sélectionnés ?"
+      },
+      "actionPhase": {
+        "confirmUseDefaultPhases": "Voulez-vous ajouter les phases par défaut à cette action ?",
+        "confirmButtonText": "Oui, ajouter"
+      }
+    },
+    "exports": {
+      "actionPlan": "Plan d'action",
+      "bilan": "Bilan consolidé",
+      "ppm": "Plan de passation des marchés (PPM)",
+      "paa": "Plan Annuel des achats (PAA)",
+      "objective": "Objectifs",
+      "objectiveDecision": "Décisions des objectifs"
+    }
+  },
+  "charts": {
+    "forecast": "Prévision",
+    "actual": "Réalisation"
+  },
+  "header": {
+    "profile": {
+      "myProfile": "Mon profile",
+      "accountSettings": "Paramètres du compte",
+      "support": "support",
+      "logout": "Se déconnecter"
+    }
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "employees": "Gestion du personnel",
+    "suppliers": "Fournisseurs",
+    "structures": "Structures",
+    "strategicMaps": "Cartes stratégiques",
+    "strategicLevers": "Leviers stratégiques",
+    "strategicAxes": "Axes stratégiques",
+    "strategicObjectives": "Objectifs stratégiques",
+    "actionPlans": "Plans d'action",
+    "actions": "Actions",
+    "indicators": "Indicateurs stratégiques",
+    "actionFundDisbursements": "Décaissements",
+    "actionFundReceipts": "Encaissements",
+    "logActivities": "Logs d'activité",
+    "reports": "Reporting",
+    "programs": "Prorammes",
+    "projects": "Projets",
+    "activities": "Activités",
+    "strategicManagement": "Pilotage stratégique",
+    "operationalManagement": "Pilotage opérationnel",
+    "financialManagement": "Gestion financière",
+    "administrativeManagement": "Gestion administrative",
+    "organizationalManagement": "Gestion des organisations",
+    "maillage": "Maillage",
+    "monitoring": "Monitoring & Reports",
+    "settings": {
+      "title": "Paramètres",
+      "currencies": "Devises",
+      "defaultPhases": "Phases par défaut",
+      "fundingSources": "Sources de financement",
+      "procurementModes": "Modes de sélection",
+      "regions": "Régions",
+      "projectOwners": "Maîtres d'ouvrage",
+      "delegatedProjectOwners": "Maîtres d'ouvrage délégués",
+      "departments": "Départements",
+      "municipalities": "Communes",
+      "contractTypes": "Types de marchés",
+      "beneficiaries": "Bénéficiaires",
+      "stakeholders": "Parties prenantes",
+      "paymentModes": "Modes de paiement",
+      "budgetTypes": "Types de budgets",
+      "expenseTypes": "Types de dépenses",
+      "indicatorCategories": "Catégories d'indicateurs",
+      "fileTypes": "Types de fichiers",
+      "users": "Utilisateurs",
+      "roles": "Rôles et permissions"
+    }
+  },
+  "dashboard": {
+    "pageTitle": "Dashboard",
+    "structuresActiveCount": "Structures actives",
+    "strategicMapsActiveCount": "Cartes stratégiques actives",
+    "strategicAxesCount": "Axes stratégiques",
+    "leadObjectivesCount": "Objectifs pilotés",
+    "actionsCount": "Actions",
+    "realizationRate": "Taux de réalisation",
+    "disbursementRate": "Taux de décaissement",
+    "realizationIndex": "Indice de réalisation",
+    "objectivesStatus": "Statut des objectifs",
+    "failedObjectives": "Objectifs ratés",
+    "alertObjectives": "Objectifs en alerte",
+    "actionsStatus": "Statut des actions",
+    "failedActions": "Actions en vain",
+    "alertActions": "Actions en alerte",
+    "pleaseSelect": "Veuillez faire une sélection",
+    "pleaseSelectDescription": "Sélectionnez une structure et/ou une catégorie pour continuer, selon votre profil."
+  },
+  "attachment": {
+    "btnAdd": "Uploader fichier",
+    "btnUpload": "Uploader",
+    "modalUploadTitle": "Uploadé un fichier",
+    "modalViewTitle": "Aperçu d'un fichier",
+    "filter": {
+      "fileType": "Type de fichier",
+      "fileTypePlaceholder": "Type du fichier"
+    },
+    "form": {
+      "title": "Titre",
+      "titlePlaceholder": "Saisir un titre pour le fichier",
+      "originalName": "Nom du fichier",
+      "originalNamePlaceholder": "Nom original du fichier",
+      "mimeType": "Type MIME",
+      "mimeTypePlaceholder": "Type MIME",
+      "size": "Taille",
+      "sizePlaceholder": "Taille du fichier",
+      "uploadedAt": "Date d'upload",
+      "uploadedAtPlaceholder": "Date d'importation",
+      "uploadedBy": "Auteur",
+      "uploadedByPlaceholder": "Utilisateur ayant importé",
+      "file": "Fichier (Max : 5 Mo)",
+      "filePlaceholder": "Joindre un fichier",
+      "downloadFile": "Télécharger le fichier",
+      "attachedFile": "Pièce jointe",
+      "fileType": "Type de fichier",
+      "fileTypePlaceholder": "Type du fichier",
+      "comment": "Commentaire",
+      "commentPlaceholder": "Entrez le commentaire",
+      "noFile": "Aucun fichier"
+    },
+    "table": {
+      "title": "Titre",
+      "originalName": "Nom du fichier",
+      "noFile": "Aucun fichier",
+      "uploadedAt": "Date d'upload",
+      "uploadedBy": "Auteur",
+      "fileType": "Type de fichier"
+    }
+  },
+  "employee": {
+    "sections": {
+      "personalInformation": "Informations personnelles",
+      "professionalInformation": "Informations professionnelles",
+      "security": "Sécurité"
+    },
+    "list": {
+      "pageTitle": "Gestion du personnel",
+      "breadTitle": "Gestion du personnel",
+      "breadActive": "Liste des employés"
+    },
+    "create": {
+      "pageTitle": "Gestion du personnel - Création",
+      "breadTitle": "Gestion du personnel",
+      "breadActive": "Ajout d'un nouvel employé"
+    },
+    "edit": {
+      "pageTitle": "Gestion du personnel - Modification",
+      "breadTitle": "Gestion du personnel",
+      "breadActive": "Modification d'un employé"
+    },
+    "view": {
+      "pageTitle": "Gestion du personnel - Aperçu",
+      "breadTitle": "Gestion du personnel",
+      "breadActive": "Aperçu d'un employé"
+    },
+    "btnAdd": "Nouvel employé",
+    "btnCreate": "Créer",
+    "btnList": "Liste des employés",
+    "form": {
+      "name": "Nom et prénom",
+      "namePlaceholder": "Entrez le nom et prénom",
+      "email": "Email",
+      "emailPlaceholder": "Entrez l'email",
+      "phone": "Téléphone",
+      "phonePlaceholder": "Entrez le numéro de téléphone",
+      "lang": "Langue",
+      "langPlaceholder": "Sélectionnez la langue",
+      "jobTitle": "Poste",
+      "jobTitlePlaceholder": "Entrez le poste",
+      "floor": "Étage",
+      "floorPlaceholder": "Entrez l'étage",
+      "office": "Bureau",
+      "officePlaceholder": "Entrez le bureau",
+      "structure": "Structure",
+      "structurePlaceholder": "Sélectionnez une structure",
+      "role": "Rôle",
+      "rolePlaceholder": "Sélectionnez un rôle",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez le mot de passe",
+      "passwordConfirm": "Confirmation du mot de passe",
+      "passwordConfirmPlaceholder": "Confirmez le mot de passe",
+      "canLoggedIn": "Peut se connecter",
+      "canLoggedInPlaceholder": "Indiquez si l'utilisateur peut se connecter"
+    },
+    "table": {
+      "name": "Nom et prénom",
+      "structure": "Structure",
+      "jobTitle": "Poste",
+      "email": "Email",
+      "phone": "Téléphone"
+    }
+  },
+  "supplier": {
+    "sections": {
+      "generalInformation": "Informations générales",
+      "responsibleInformation": "Informations sur le responsable"
+    },
+    "tabs": {
+      "contracts": "Contrats",
+      "evaluations": "Evaluation",
+      "supplier": "Fournisseur",
+      "attachment": "Fichiers"
+    },
+    "list": {
+      "pageTitle": "Fournisseurs",
+      "breadTitle": "Fournisseurs",
+      "breadActive": "Liste des fournisseur"
+    },
+    "create": {
+      "pageTitle": "Fournisseurs - Création",
+      "breadTitle": "Fournisseurs",
+      "breadActive": "Ajout d'un nouveau fournisseur"
+    },
+    "edit": {
+      "pageTitle": "Fournisseurs - Modification",
+      "breadTitle": "Fournisseurs",
+      "breadActive": "Modification d'un fournisseur"
+    },
+    "view": {
+      "pageTitle": "Fournisseurs - Aperçu",
+      "breadTitle": "Fournisseurs",
+      "breadActive": "Aperçu d'un fournisseur"
+    },
+    "btnAdd": "Nouvel fournisseur",
+    "btnCreate": "Créer",
+    "btnList": "Liste des fournisseur",
+    "form": {
+      "companyName": "Raison socciale",
+      "companyNamePlaceholder": "Entrez la raison sociale",
+      "taxNumber": "NIF",
+      "taxNumberPlaceholder": "Saisissez le NIF",
+      "registerNumber": "Registre du commerce",
+      "registerNumberPlaceholder": "Entrez le registre du commerce",
+      "establishmentYear": "Année de création",
+      "establishmentYearPlaceholder": "Entrez l'année de création",
+      "capital": "capital",
+      "capitalPlaceholder": "Entrez le capital",
+      "annualTurnover": "Chiffre d'affaires",
+      "annualTurnoverPlaceholder": "Entrez le chiffre d'affaires",
+      "employeesCount": "Nombre d'employés",
+      "employeesCountPlaceholder": "Entrez le nombre d'employés",
+      "note": "Note",
+      "notePlaceholder": "Entrez le note",
+      "contractType": "Type de marché",
+      "contractTypePlaceholder": "Sélectionner un type de marché",
+      "name": "Nom et prénom",
+      "namePlaceholder": "Entrez le nom et prénom",
+      "phone": "Téléphone",
+      "phonePlaceholder": "Entrez le numéro de téléphone",
+      "whatsapp": "WhatsApp",
+      "whatsappPlaceholder": "Entrez le numéro de WhatsApp",
+      "email": "Email",
+      "emailPlaceholder": "Entrez l'email",
+      "address": "Adresse",
+      "addressPlaceholder": "Entrez l'adresse du fournisseur"
+    },
+    "table": {
+      "companyName": "Raison socciale",
+      "email": "Email",
+      "phone": "Téléphone",
+      "name": "Nom et prénom",
+      "taxNumber": "NIF",
+      "note": "Note"
+    }
+  },
+  "contract": {
+    "list": {
+      "pageTitle": "Gestion des contrats",
+      "breadTitle": "Gestion des contrats",
+      "breadActive": "Liste des contrats"
+    },
+    "create": {
+      "pageTitle": "Gestion des contrats - Création",
+      "breadTitle": "Gestion des contrats",
+      "breadActive": "Ajout d'un contrat"
+    },
+    "edit": {
+      "pageTitle": "Gestion des contrats - Modification",
+      "breadTitle": "Gestion des contrats",
+      "breadActive": "Modification d'un contrat"
+    },
+    "view": {
+      "pageTitle": "Gestion des contrats - Aperçu",
+      "breadTitle": "Gestion des contrats",
+      "breadActive": "Aperçu d'un contrat"
+    },
+    "btnAdd": "Nouveau contrat",
+    "btnCreate": "Créer",
+    "btnList": "Liste des contrats",
+    "form": {
+      "contractNumber": "Numéro du contrat",
+      "contractNumberPlaceholder": "Saisissez le numéro du contrat",
+      "title": "Titre du contrat",
+      "titlePlaceholder": "Entrez le titre du contrat",
+      "startDate": "Date de début",
+      "startDatePlaceholder": "Entrez la date de début",
+      "endDate": "Date de fin",
+      "endDatePlaceholder": "Entrez la date de fin",
+      "signedAt": "Date de signature",
+      "signedAtPlaceholder": "Entrez la date de signature",
+      "amount": "Montant",
+      "amountPlaceholder": "Entrez le montant",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description"
+    },
+    "table": {
+      "contractNumber": "Numéro du contrat",
+      "title": "Titre",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "amount": "Montant",
+      "signedAt": "Date de signature"
+    }
+  },
+  "supplierEvaluation": {
+    "list": {
+      "pageTitle": "Gestion des évaluations de fournisseur",
+      "breadTitle": "Gestion des évaluations de fournisseur",
+      "breadActive": "Liste des évaluations de fournisseur"
+    },
+    "create": {
+      "pageTitle": "Gestion des évaluations de fournisseur - Création",
+      "breadTitle": "Gestion des évaluations de fournisseur",
+      "breadActive": "Ajout d'une évaluation de fournisseur"
+    },
+    "edit": {
+      "pageTitle": "Gestion des évaluations de fournisseur - Modification",
+      "breadTitle": "Gestion des évaluations de fournisseur",
+      "breadActive": "Modification d'une évaluation de fournisseur"
+    },
+    "view": {
+      "pageTitle": "Gestion des évaluations de fournisseur - Aperçu",
+      "breadTitle": "Gestion des évaluations de fournisseur",
+      "breadActive": "Aperçu d'une évaluation de fournisseur"
+    },
+    "btnAdd": "Nouveau évaluation",
+    "btnCreate": "Créer",
+    "btnList": "Liste des évaluations",
+    "form": {
+      "evaluatedAt": "Date d'évaluation",
+      "evaluatedAtPlaceholder": "Gérer automatiquement par le système",
+      "evaluatedBy": "Evaluer par",
+      "evaluatedByPlaceholder": "Gérer automatiquement par le système",
+      "scoreDelay": "Note du délai",
+      "scoreDelayPlaceholder": "Entrez la note du délai",
+      "scorePrice": "Note du prix",
+      "scorePricePlaceholder": "Entrez la note du prix",
+      "scoreQuality": "Note de la qualité",
+      "scoreQualityPlaceholder": "Entrez la note de la qualité",
+      "totalScore": "Note totale",
+      "totalScorePlaceholder": "Entrez la note totale",
+      "comment": "Commentaire",
+      "commentPlaceholder": "Entrez le commentaire"
+    },
+    "table": {
+      "scoreDelay": "Note du délai",
+      "scorePrice": "Note du prix",
+      "scoreQuality": "Note de la qualité",
+      "totalScore": "Note totale",
+      "evaluatedAt": "Date d'évaluation"
+    }
+  },
+  "structure": {
+    "pageTitle": "Structures",
+    "breadTitle": "Structures",
+    "breadActive": "Structures",
+    "btnAdd": "Nouvelle structure",
+    "modalTitleCreation": "Création d'une structure",
+    "modalTitleModification": "Modification d'une structure",
+    "modalTitleOverview": "Aperçu d'une structure",
+    "form": {
+      "abbreviation": "Abréviation",
+      "abbreviationPlaceholder": "Ex. : DAF",
+      "name": "Nom",
+      "namePlaceholder": "Ex. : Direction administrative et financière",
+      "parent": "Structure parente",
+      "parentPlaceholder": "Sélectionner une structure parente",
+      "type": "Type de structure",
+      "typePlaceholder": "Sélectionner un type de structure"
+    },
+    "table": {
+      "abbreviation": "Abréviation",
+      "name": "Nom",
+      "parent": "Structure parente",
+      "type": "Type de structure"
+    }
+  },
+  "program": {
+    "sections": {
+      "descriptiveCharacteristics": "Caractéristiques descriptives",
+      "beneficiaryInformation": "Bénéficiaires",
+      "fundingSourcesInformation": "Sources de financement",
+      "statusDetail": "Détails du statut",
+      "stateDetail": "Détails de l'état"
+    },
+    "tabs": {
+      "detail": "Détails programme",
+      "status": "Statut",
+      "state": "Etat",
+      "attachment": "Fichiers"
+    },
+    "beneficiaries": {
+      "modalTitle": "Sélectionner des bénéficiaires",
+      "name": "Nom",
+      "btnValidate": "Valider la sélection",
+      "noBeneficiaries": "Aucun bénéficiaire ajouté pour l'instant.",
+      "addBeneficiary": "Ajouter un bénéficiaire"
+    },
+    "fundingSources": {
+      "name": "Nom",
+      "plannedAmount": "Montant prévu",
+      "addFunder": "Ajouter une source",
+      "noFundingSources": "Aucune source de financement ajoutée pour l'instant.",
+      "plannedBudget": "Budget prévisionnel",
+      "searchPlaceholder": "Rechercher une source de financement"
+    },
+    "list": {
+      "pageTitle": "Gestion des programmes",
+      "breadTitle": "Gestion des programmes",
+      "breadActive": "Liste des programmes"
+    },
+    "create": {
+      "pageTitle": "Gestion des programmes - Création",
+      "breadTitle": "Gestion des programmes",
+      "breadActive": "Ajout d'un nouveau programme"
+    },
+    "edit": {
+      "pageTitle": "Gestion des programmes - Modification",
+      "breadTitle": "Gestion des programmes",
+      "breadActive": "Modification d'un programme"
+    },
+    "view": {
+      "pageTitle": "Gestion des programmes - Aperçu",
+      "breadTitle": "Gestion des programmes",
+      "breadActive": "Aperçu d'un programme"
+    },
+    "btnAdd": "Nouveau  programme",
+    "btnCreate": "Créer",
+    "btnList": "Liste des programmes",
+    "form": {
+      "reference": "Référence",
+      "referencePlaceholder": "Ex. : PRG-XXXX",
+      "name": "Nom",
+      "namePlaceholder": "Entrez le nom",
+      "startDate": "Date de début",
+      "startDatePlaceholder": "Sélectionner la date de début",
+      "endDate": "Date de fin",
+      "endDatePlaceholder": "Sélectionner la date de fin",
+      "budget": "Budget",
+      "budgetPlaceholder": "Entrez le budget",
+      "currency": "Dévise",
+      "currencyPlaceholder": "Entrez le dévise",
+      "responsible": "Responsable",
+      "responsiblePlaceholder": "Sélectionner le responsable",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description",
+      "prerequisites": "Conditions préalables",
+      "prerequisitesPlaceholder": "Entrez les conditions préalables",
+      "impacts": "Impacts attendus",
+      "impactsPlaceholder": "Entrez les impacts attendus",
+      "risks": "Risques identifiés",
+      "risksPlaceholder": "Entrez les risques identifiés"
+    },
+    "table": {
+      "reference": "Référence",
+      "name": "Nom",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "budget": "Budget",
+      "responsible": "Responsable"
+    }
+  },
+  "programStatus": {
+    "btnAdd": "Nouveau statut",
+    "table": {
+      "noData": "Pas de données",
+      "date": "Date"
+    }
+  },
+  "programState": {
+    "btnAdd": "Nouvel état",
+    "table": {
+      "noData": "Pas de données",
+      "date": "Date"
+    }
+  },
+  "project": {
+    "sections": {
+      "descriptiveCharacteristics": "Caractéristiques descriptives",
+      "beneficiaryInformation": "Bénéficiaires",
+      "fundingSourcesInformation": "Sources de financement",
+      "statusDetail": "Détails du statut",
+      "stateDetail": "Détails de l'état"
+    },
+    "tabs": {
+      "detail": "Détails projet",
+      "status": "Statut",
+      "state": "Etat",
+      "attachment": "Fichiers"
+    },
+    "beneficiaries": {
+      "modalTitle": "Sélectionner des bénéficiaires",
+      "name": "Nom",
+      "btnValidate": "Valider la sélection",
+      "noBeneficiaries": "Aucun bénéficiaire ajouté pour l'instant.",
+      "addBeneficiary": "Ajouter un bénéficiaire"
+    },
+    "fundingSources": {
+      "name": "Nom",
+      "plannedAmount": "Montant prévu",
+      "addFunder": "Ajouter une source",
+      "noFundingSources": "Aucune source de financement ajoutée pour l'instant.",
+      "plannedBudget": "Budget prévisionnel",
+      "searchPlaceholder": "Rechercher une source de financement"
+    },
+    "list": {
+      "pageTitle": "Gestion des projets",
+      "breadTitle": "Gestion des projets",
+      "breadActive": "Liste des projets"
+    },
+    "create": {
+      "pageTitle": "Gestion des projets - Création",
+      "breadTitle": "Gestion des projets",
+      "breadActive": "Ajout d'un nouveau projet"
+    },
+    "edit": {
+      "pageTitle": "Gestion des projets - Modification",
+      "breadTitle": "Gestion des projets",
+      "breadActive": "Modification d'un projet"
+    },
+    "view": {
+      "pageTitle": "Gestion des projets - Aperçu",
+      "breadTitle": "Gestion des projets",
+      "breadActive": "Aperçu d'un projet"
+    },
+    "btnAdd": "Nouveau  projet",
+    "btnCreate": "Créer",
+    "btnList": "Liste des projets",
+    "form": {
+      "reference": "Référence",
+      "referencePlaceholder": "Ex. : PRJ-XXXX",
+      "name": "Nom",
+      "namePlaceholder": "Entrez le nom",
+      "startDate": "Date de début",
+      "startDatePlaceholder": "Sélectionner la date de début",
+      "endDate": "Date de fin",
+      "endDatePlaceholder": "Sélectionner la date de fin",
+      "budget": "Budget",
+      "budgetPlaceholder": "Entrez le budget",
+      "currency": "Dévise",
+      "currencyPlaceholder": "Entrez le dévise",
+      "responsible": "Responsable",
+      "responsiblePlaceholder": "Sélectionner le responsable",
+      "program": "Programme",
+      "programPlaceholder": "Sélectionner le programme",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description",
+      "prerequisites": "Conditions préalables",
+      "prerequisitesPlaceholder": "Entrez les conditions préalables",
+      "impacts": "Impacts attendus",
+      "impactsPlaceholder": "Entrez les impacts attendus",
+      "risks": "Risques identifiés",
+      "risksPlaceholder": "Entrez les risques identifiés"
+    },
+    "table": {
+      "reference": "Référence",
+      "name": "Nom",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "budget": "Budget",
+      "responsible": "Responsable",
+      "program": "Programme"
+    }
+  },
+  "projectStatus": {
+    "btnAdd": "Nouveau statut",
+    "table": {
+      "noData": "Pas de données",
+      "date": "Date"
+    }
+  },
+  "projectState": {
+    "btnAdd": "Nouvel état",
+    "table": {
+      "noData": "Pas de données",
+      "date": "Date"
+    }
+  },
+  "activity": {
+    "sections": {
+      "descriptiveCharacteristics": "Caractéristiques descriptives",
+      "beneficiaryInformation": "Bénéficiaires",
+      "fundingSourcesInformation": "Sources de financement",
+      "statusDetail": "Détails du statut",
+      "stateDetail": "Détails de l'état"
+    },
+    "tabs": {
+      "detail": "Détails projet",
+      "status": "Statut",
+      "state": "Etat",
+      "attachment": "Fichiers"
+    },
+    "beneficiaries": {
+      "modalTitle": "Sélectionner des bénéficiaires",
+      "name": "Nom",
+      "btnValidate": "Valider la sélection",
+      "noBeneficiaries": "Aucun bénéficiaire ajouté pour l'instant.",
+      "addBeneficiary": "Ajouter un bénéficiaire"
+    },
+    "fundingSources": {
+      "name": "Nom",
+      "plannedAmount": "Montant prévu",
+      "addFunder": "Ajouter une source",
+      "noFundingSources": "Aucune source de financement ajoutée pour l'instant.",
+      "plannedBudget": "Budget prévisionnel",
+      "searchPlaceholder": "Rechercher une source de financement"
+    },
+    "list": {
+      "pageTitle": "Gestion des activités",
+      "breadTitle": "Gestion des activités",
+      "breadActive": "Liste des activités"
+    },
+    "create": {
+      "pageTitle": "Gestion des activités - Création",
+      "breadTitle": "Gestion des activités",
+      "breadActive": "Ajout d'une nouvelle activité"
+    },
+    "edit": {
+      "pageTitle": "Gestion des activités - Modification",
+      "breadTitle": "Gestion des activités",
+      "breadActive": "Modification d'une activité"
+    },
+    "view": {
+      "pageTitle": "Gestion des activités - Aperçu",
+      "breadTitle": "Gestion des activités",
+      "breadActive": "Aperçu d'une activité"
+    },
+    "btnAdd": "Nouvelle  activité",
+    "btnCreate": "Créer",
+    "btnList": "Liste des activités",
+    "form": {
+      "reference": "Référence",
+      "referencePlaceholder": "Ex. : ACT-XXXX",
+      "name": "Nom",
+      "project": "Projet",
+      "projectPlaceholder": "Sélectionner un projet",
+      "namePlaceholder": "Entrez le nom",
+      "startDate": "Date de début",
+      "startDatePlaceholder": "Sélectionner la date de début",
+      "endDate": "Date de fin",
+      "endDatePlaceholder": "Sélectionner la date de fin",
+      "budget": "Budget",
+      "budgetPlaceholder": "Entrez le budget",
+      "currency": "Dévise",
+      "currencyPlaceholder": "Entrez le dévise",
+      "responsible": "Responsable",
+      "responsiblePlaceholder": "Sélectionner le responsable",
+      "region": "Région",
+      "regionPlaceholder": "Sélectionner la région",
+      "department": "Département",
+      "departmentPlaceholder": "Sélectionnez le département",
+      "municipality": "Commune",
+      "municipalityPlaceholder": "Sélectionnez une commmune",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description",
+      "prerequisites": "Conditions préalables",
+      "prerequisitesPlaceholder": "Entrez les conditions préalables",
+      "impacts": "Impacts attendus",
+      "impactsPlaceholder": "Entrez les impacts attendus",
+      "risks": "Risques identifiés",
+      "risksPlaceholder": "Entrez les risques identifiés"
+    },
+    "table": {
+      "reference": "Référence",
+      "name": "Nom",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "budget": "Budget",
+      "responsible": "Responsable",
+      "project": "Projet"
+    }
+  },
+  "activityStatus": {
+    "btnAdd": "Nouveau statut",
+    "table": {
+      "noData": "Pas de données",
+      "date": "Date"
+    }
+  },
+  "activityState": {
+    "btnAdd": "Nouvel état",
+    "table": {
+      "noData": "Pas de données",
+      "date": "Date"
+    }
+  },
+  "strategicMap": {
+    "list": {
+      "pageTitle": "Cartes stratégiques",
+      "breadTitle": "Cartes stratégiques",
+      "breadActive": "Liste des cartes stratégiques"
+    },
+    "details": {
+      "pageTitle": "Carte stratégique - Détails",
+      "breadTitle": "Cartes stratégiques",
+      "breadActive": "Détails d'une carte stratégique"
+    },
+    "tabs": {
+      "detail": "Détails de la carte",
+      "matrix": "Matrice des priorités",
+      "stakeholder": "Parties prenantes"
+    },
+    "objectives": {
+      "axisTitle": "Objectifs de l'axe",
+      "leverTitle": "Objectifs du levier",
+      "panelTitle": "Objectifs",
+      "table": {
+        "reference": "Référence",
+        "name": "Nom",
+        "startDate": "Date de début",
+        "endDate": "Date de fin",
+        "noData": "Aucun objectif trouvé."
+      }
+    },
+    "labels": {
+      "axis": "Axe stratégique",
+      "axes": "Axes stratégiques",
+      "lever": "Levier stratégique",
+      "levers": "Leviers stratégiques"
+    },
+    "modalTitleCreation": "Création d'une carte stratégique",
+    "modalTitleModification": "Modification d'une carte stratégique",
+    "modalTitleOverview": "Aperçu d'une carte stratégique",
+    "btnAdd": "Nouvelle carte stratégique",
+    "btnNewAxis": "Nouvel axe",
+    "btnNewLever": "Nouveau levier",
+    "btnCreate": "Créer",
+    "btnList": "Liste des cartes stratégiques",
+    "noAxisYet": "Aucun axe stratégique n'a encore été créé.",
+    "noLeverYet": "Aucun levier stratégique n'a encore été créé.",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Ex. : Carte stratégique de performance",
+      "description": "Description",
+      "descriptionPlaceholder": "Ex. : Suivi et évaluation des objectifs annuels",
+      "startDate": "Date de début",
+      "startDatePlaceholder": "Ex. : 2025-01-01",
+      "endDate": "Date de fin",
+      "endDatePlaceholder": "Ex. : 2025-12-31",
+      "structure": "Structure concernée",
+      "structurePlaceholder": "Sélectionner une structure"
+    },
+    "table": {
+      "name": "Nom",
+      "structure": "Structure concernée",
+      "startDate": "Date de début",
+      "endDate": "Date de fin"
+    }
+  },
+  "strategicStakeholder": {
+    "btnAdd": "Nouvelle partie prenante",
+    "modalTitleCreation": "Création d'une partie prenante",
+    "modalTitleModification": "Modification d'une partie prenante",
+    "modalTitleOverview": "Aperçu d'une partie prenante",
+    "form": {
+      "organization": "Organisation",
+      "organizationPlaceholder": "Entrez le nom de l'organisation",
+      "responsible": "Responsable",
+      "responsiblePlaceholder": "Entrez le nom du responsable",
+      "email": "Adresse email",
+      "emailPlaceholder": "Entrez l'adresse email",
+      "phone": "Téléphone",
+      "phonePlaceholder": "Entrez le numéro de téléphone"
+    },
+    "table": {
+      "organization": "Organisation",
+      "responsible": "Responsable",
+      "email": "Adresse email",
+      "phone": "Téléphone"
+    }
+  },
+  "strategicLever": {
+    "list": {
+      "pageTitle": "Gestion des leviers stratégiques",
+      "breadTitle": "Gestion des leviers stratégiques",
+      "breadActive": "Liste des leviers stratégiques"
+    },
+    "create": {
+      "pageTitle": "Gestion des leviers stratégiques - Création",
+      "breadTitle": "Gestion des leviers stratégiques",
+      "breadActive": "Ajout d'un nouveau levier stratégique"
+    },
+    "edit": {
+      "pageTitle": "Gestion des leviers stratégiques - Modification",
+      "breadTitle": "Gestion des leviers stratégiques",
+      "breadActive": "Modification d'un levier stratégique"
+    },
+    "view": {
+      "pageTitle": "Gestion des leviers stratégiques - Aperçu",
+      "breadTitle": "Gestion des leviers stratégiques",
+      "breadActive": "Aperçu d'un levier stratégique"
+    },
+    "btnAdd": "Nouveau levier stratégique",
+    "btnList": "Liste des leviers stratégiques",
+    "form": {
+      "structure": "Structure concernée",
+      "structurePlaceholder": "Sélectionner une structure",
+      "strategicMap": "Carte stratégique",
+      "strategicMapPlaceholder": "Sélectionner une carte stratégique",
+      "order": "Ordre",
+      "orderPlaceholder": "Ex. : 1",
+      "abbreviation": "Abréviation",
+      "abbreviationPlaceholder": "Ex. : INNO",
+      "name": "Nom",
+      "namePlaceholder": "Ex. : Levier Gouvernance et Innovation publique",
+      "description": "Description",
+      "descriptionPlaceholder": "Ex. : Piloter la transformation institutionnelle et renforcer la performance publique"
+    },
+    "table": {
+      "structure": "Structure concernée",
+      "strategicMap": "Carte stratégique",
+      "order": "Ordre",
+      "abbreviation": "Abréviation",
+      "name": "Nom"
+    }
+  },
+  "strategicAxis": {
+    "sections": {
+      "alignmentInfo": "Informations sur l'alignement",
+      "AxisInfo": "Informations sur l'axe stratégique"
+    },
+    "list": {
+      "pageTitle": "Gestion des axes stratégiques",
+      "breadTitle": "Gestion des axes stratégiques",
+      "breadActive": "Liste des axes stratégiques"
+    },
+    "create": {
+      "pageTitle": "Gestion des axes stratégiques - Création",
+      "breadTitle": "Gestion des axes stratégiques",
+      "breadActive": "Ajout d'un nouvel axe stratégique"
+    },
+    "edit": {
+      "pageTitle": "Gestion des axes stratégiques - Modification",
+      "breadTitle": "Gestion des axes stratégiques",
+      "breadActive": "Modification d'un axe stratégique"
+    },
+    "view": {
+      "pageTitle": "Gestion des axes stratégiques - Aperçu",
+      "breadTitle": "Gestion des axes stratégiques",
+      "breadActive": "Aperçu d'un axe stratégique"
+    },
+    "btnAdd": "Nouvel axe stratégique",
+    "btnList": "Liste des axes stratégiques",
+    "form": {
+      "parentStructure": "Structure",
+      "parentStructurePlaceholder": "Sélectionner une structure",
+      "parentMap": "Carte stratégique",
+      "parentMapPlaceholder": "Sélectionner une carte stratégique",
+      "parentElement": "Levier",
+      "parentElementPlaceholder": "Sélectionner un levier",
+      "structure": "Structure concernée",
+      "structurePlaceholder": "Sélectionner une structure",
+      "strategicMap": "Carte stratégique",
+      "strategicMapPlaceholder": "Sélectionner une carte stratégique",
+      "order": "Ordre",
+      "orderPlaceholder": "Ex. : 1",
+      "abbreviation": "Abréviation",
+      "abbreviationPlaceholder": "Ex. : INNO",
+      "name": "Nom",
+      "namePlaceholder": "Ex. : Axe Innovation",
+      "description": "Description",
+      "descriptionPlaceholder": "Ex. : Développer une culture de l'innovation et encourager la R&D"
+    },
+    "table": {
+      "structure": "Structure concernée",
+      "strategicMap": "Carte stratégique",
+      "order": "Ordre",
+      "abbreviation": "Abréviation",
+      "name": "Nom",
+      "parent": "Levier"
+    }
+  },
+  "matrixPeriod": {
+    "btnAdd": "Nouvelle période",
+    "modalTitleCreation": "Création d'une période",
+    "modalTitleModification": "Modification d'une période",
+    "modalTitleOverview": "Aperçu d'une période",
+    "noPeriodYet": "Aucune période n'a encore été créée.",
+    "selectObjectiveTooltip": "Sélectionner des objectifs",
+    "sweetalert": {
+      "confirmDetachObjective": "Voulez-vous vraiment détacher cet objectif de la période ?",
+      "confirmButtonText": "Oui, détacher"
+    },
+    "form": {
+      "attachObjectivesTitle": "Associer des objectifs",
+      "strategicAxis": "Axe stratégique",
+      "strategicAxisPlaceholder": "Sélectionnez un axe stratégique",
+      "objectives": "Objectifs stratégiques",
+      "objectivesPlaceholder": "Sélectionnez un ou plusieurs objectifs",
+      "startDate": "Date de début",
+      "startDatePlaceholder": "Sélectionner la date de début",
+      "endDate": "Date de fin",
+      "endDatePlaceholder": "Sélectionner la date de fin"
+    },
+    "objectives": {
+      "panelTitle": "Objectifs stratégiques",
+      "table": {
+        "reference": "Référence",
+        "name": "Nom",
+        "startDate": "Date de début",
+        "endDate": "Date de fin",
+        "noData": "Aucun objectif trouvé."
+      }
+    }
+  },
+  "strategicObjective": {
+    "sections": {
+      "basicInformation": "Informations générales",
+      "statusDetail": "Détails du statut"
+    },
+    "tabs": {
+      "detail": "Détails de l'objectif",
+      "alignment": "Alignement",
+      "decision": "Décisions",
+      "attachment": "Fichiers"
+    },
+    "list": {
+      "pageTitle": "Objectifs stratégiques",
+      "breadTitle": "Objectifs stratégiques",
+      "breadActive": "Liste des objectifs stratégiques"
+    },
+    "create": {
+      "pageTitle": "Objectifs stratégiques - Création",
+      "breadTitle": "Objectifs stratégiques",
+      "breadActive": "Ajout d'un nouvel objectif stratégique"
+    },
+    "edit": {
+      "pageTitle": "Objectifs stratégiques - Modification",
+      "breadTitle": "Objectifs stratégiques",
+      "breadActive": "Modification d'un objectif stratégique"
+    },
+    "view": {
+      "pageTitle": "Objectifs stratégiques - Aperçu",
+      "breadTitle": "Objectifs stratégiques",
+      "breadActive": "Aperçu d'un objectif stratégique"
+    },
+    "btnAdd": "Nouvel objectif stratégique",
+    "btnCreate": "Créer",
+    "btnList": "Liste des objectifs strategiques",
+    "form": {
+      "reference": "Référence",
+      "referencePlaceholder": "Référence",
+      "name": "Nom",
+      "namePlaceholder": "Entrez le nom",
+      "startDate": "Date de démarrage",
+      "startDatePlaceholder": "Sélectionner la date de démarrage",
+      "endDate": "Date limite",
+      "endDatePlaceholder": "Sélectionner la date limite",
+      "structure": "Structure concernée",
+      "structurePlaceholder": "Sélectionnez la structure concernée",
+      "leadStructure": "Structure pilote",
+      "leadStructurePlaceholder": "Sélectionnez la structure pilote",
+      "strategicMap": "Carte stratégique",
+      "strategicMapPlaceholder": "Sélectionnez la carte stratégique",
+      "strategicAxis": "Axe stratégique",
+      "strategicAxisPlaceholder": "Sélectionnez un axe stratégique",
+      "strategicLever": "Levier",
+      "strategicLeverPlaceholder": "Sélectionnez un levier",
+      "priority": "Niveau de priorité",
+      "priorityPlaceholder": "Sélectionnez un niveau de priorité",
+      "riskLevel": "Niveau de risque",
+      "riskLevelPlaceholder": "Sélectionnez un niveau de risque",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description"
+    },
+    "table": {
+      "reference": "Référence",
+      "name": "Nom",
+      "startDate": "Date de démarrage",
+      "endDate": "Date limite",
+      "priority": "Priorité",
+      "riskLevel": "Niveau de risque",
+      "leadStructure": "Structure pilote",
+      "structure": "Structure concernée"
+    }
+  },
+  "actionPlan": {
+    "pageTitle": "Plans d'action",
+    "breadTitle": "Plans d'action",
+    "breadActive": "Liste des plans d'action",
+    "btnAdd": "Nouveau plan d'action",
+    "modalTitleCreation": "Création d'un plan d'action",
+    "modalTitleDuplicate": "Duplication d'un plan d'action",
+    "modalTitleModification": "Modification d'un plan d'action",
+    "modalTitleOverview": "Aperçu d'un plan d'action",
+    "form": {
+      "reference": "Référence",
+      "referencePlaceholder": "Ex. : PA-ENV-2025",
+      "name": "Nom",
+      "namePlaceholder": "Ex. : Plan d'action éducation numérique",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description",
+      "structure": "Structure concernée",
+      "structurePlaceholder": "Sélectionner une structure",
+      "responsible": "Responsable",
+      "responsiblePlaceholder": "Sélectionner le responsable",
+      "startDate": "Date de début",
+      "startDatePlaceholder": "Sélectionner la date de début",
+      "endDate": "Date de fin",
+      "endDatePlaceholder": "Sélectionner la date de fin"
+    },
+    "table": {
+      "name": "Nom",
+      "reference": "Référence",
+      "structure": "Structure concernée",
+      "responsible": "Responsable",
+      "status": "Statut",
+      "startDate": "Date de début",
+      "endDate": "Date de fin"
+    }
+  },
+  "logActivity": {
+    "list": {
+      "pageTitle": "Logs d'activité",
+      "breadTitle": "Logs d'activité",
+      "breadActive": "Liste des logs d'activité"
+    },
+    "view": {
+      "pageTitle": "Logs d'activité - Aperçu",
+      "breadTitle": "Logs d'activité",
+      "breadActive": "Aperçu d'un log d'activité"
+    },
+    "btnList": "Liste des logs d'activité",
+    "sections": {
+      "properties": "Propriétés"
+    },
+    "form": {
+      "id": "Identifiant",
+      "logName": "Nom du log",
+      "logNamePlaceholder": "Ex. : auth, user, action",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description",
+      "event": "Événement",
+      "eventPlaceholder": "Ex. : created, updated, deleted",
+      "subjectType": "Type de sujet",
+      "subjectTypePlaceholder": "Ex. : App\\Models\\User",
+      "subjectId": "Identifiant du sujet",
+      "subjectIdPlaceholder": "Ex. : 123",
+      "causer": "Auteur",
+      "causerPlaceholder": "Nom de l'utilisateur",
+      "properties": "Propriétés",
+      "propertiesPlaceholder": "Informations supplémentaires (IP, navigateur, etc.)",
+      "createdAt": "Créé le",
+      "createdAtPlaceholder": "Date et heure de création"
+    },
+    "table": {
+      "createdAt": "Date de création",
+      "logName": "Nom log",
+      "event": "Événement",
+      "subject": "Sujet",
+      "causer": "Auteur",
+      "description": "Description"
+    }
+  },
+  "action": {
+    "sections": {
+      "basicInformation": "Informations générales",
+      "locationAndContext": "Zone géographique et contexte",
+      "descriptiveCharacteristics": "Caractéristiques descriptives",
+      "beneficiaryInformation": "Bénéficiaires",
+      "stakeholderInformation": "Parties prenante",
+      "fundingSourcesInformation": "Sources de financement",
+      "statusDetail": "Détails du statut"
+    },
+    "tabs": {
+      "detail": "Détails de l'action",
+      "status": "Statut",
+      "planning": "Plannification",
+      "phase": "Phases",
+      "control": "Contrôles",
+      "alignment": "Alignement",
+      "decision": "Décisions",
+      "attachment": "Fichiers",
+      "performanceReport": "Indicateurs de performance"
+    },
+    "beneficiaries": {
+      "modalTitle": "Sélectionner des bénéficiaires",
+      "name": "Nom",
+      "btnValidate": "Valider la sélection",
+      "noBeneficiaries": "Aucun bénéficiaire ajouté pour l'instant.",
+      "addBeneficiary": "Ajouter un bénéficiaire"
+    },
+    "stakeholders": {
+      "modalTitle": "Sélectionner des parties prenantes",
+      "name": "Nom",
+      "btnValidate": "Valider la sélection",
+      "noStakeholders": "Aucune partie prenante ajoutée pour l'instant.",
+      "addStakeholder": "Ajouter une partie prenante"
+    },
+    "fundingSources": {
+      "name": "Nom",
+      "plannedAmount": "Montant prévu",
+      "addFunder": "Ajouter une source",
+      "noFundingSources": "Aucune source de financement ajoutée pour l'instant.",
+      "plannedBudget": "Budget prévisionnel",
+      "searchPlaceholder": "Rechercher une source de financement"
+    },
+    "list": {
+      "pageTitle": "Gestion des actions",
+      "breadTitle": "Gestion des actions",
+      "breadActive": "Liste des actions"
+    },
+    "create": {
+      "pageTitle": "Gestion des actions - Création",
+      "breadTitle": "Gestion des actions",
+      "breadActive": "Ajout d'une nouvelle action"
+    },
+    "edit": {
+      "pageTitle": "Gestion des actions - Modification",
+      "breadTitle": "Gestion des actions",
+      "breadActive": "Modification d'une action"
+    },
+    "view": {
+      "pageTitle": "Gestion des actions - Aperçu",
+      "breadTitle": "Gestion des actions",
+      "breadActive": "Aperçu d'une action"
+    },
+    "btnAdd": "Nouvelle action",
+    "btnCreate": "Créer",
+    "btnList": "Liste des actions",
+    "downloadSelectionMode": "Plus d'information",
+    "form": {
+      "reference": "Référence",
+      "referencePlaceholder": "Référence",
+      "name": "Nom",
+      "namePlaceholder": "Entrez le nom",
+      "priority": "Niveau de priorité",
+      "priorityPlaceholder": "Sélectionnez un niveau de priorité",
+      "riskLevel": "Niveau de risque",
+      "riskLevelPlaceholder": "Sélectionnez un niveau de risque",
+      "generateDocumentType": "Type de plan",
+      "generateDocumentTypePlaceholder": "Sélectionnez un type de plan",
+      "structure": "Structure concernée",
+      "structurePlaceholder": "Sélectionnez la structure concernée",
+      "actionPlan": "Plan d'action",
+      "actionPlanPlaceholder": "Sélectionnez un plan d'action",
+      "contractType": "Type de marché",
+      "contractTypePlaceholder": "Sélectionnez un type de marché",
+      "procurementMode": "Mode de selection",
+      "procurementModePlaceholder": "Sélectionnez une mode de selection",
+      "projectOwner": "Maitre d'ouvrage",
+      "projectOwnerPlaceholder": "Sélectionnez un maître d'ouvrage",
+      "delegatedProjectOwner": "Maître d'ouvrage délégué",
+      "delegatedProjectOwnerPlaceholder": "Sélectionnez un maître d'ouvrage délégué",
+      "program": "Programme",
+      "programPlaceholder": "Sélectionnez un programme",
+      "project": "Projet",
+      "projectPlaceholder": "Sélectionnez un projet",
+      "activity": "Activité",
+      "activityPlaceholder": "Sélectionnez une activité",
+      "currency": "Devise",
+      "currencyPlaceholder": "Sélectionnez une devise",
+      "region": "Région",
+      "regionPlaceholder": "Sélectionnez une région",
+      "department": "Département",
+      "departmentPlaceholder": "Sélectionnez un département",
+      "municipality": "Commune",
+      "municipalityPlaceholder": "Sélectionnez une commune",
+      "beneficiaries": "Bénéficiaires",
+      "beneficiariesPlaceholder": "Sélectionnez des bénéficiaires",
+      "stakeholders": "Parties prenante",
+      "stakeholdersPlaceholder": "Sélectionnez des parties prenante",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description",
+      "prerequisites": "Conditions préalables",
+      "prerequisitesPlaceholder": "Entrez les conditions préalables",
+      "impacts": "Impacts attendus",
+      "impactsPlaceholder": "Entrez les impacts attendus",
+      "risks": "Risques identifiés",
+      "risksPlaceholder": "Entrez les risques identifiés"
+    },
+    "table": {
+      "reference": "Référence",
+      "name": "Nom",
+      "priority": "Niveau de priorité",
+      "riskLevel": "Niveau de risque",
+      "structure": "Structure",
+      "projectOwner": "Maitre d'ouvrage",
+      "avancement": "% Avancement",
+      "startDate": "Date de début prévisionnelle",
+      "endDate": "Date de fin prévisionnelle",
+      "totalBudget": "Budget prévisionnel",
+      "disbursementRate": "Taux de décaissement"
+    }
+  },
+  "actionStatus": {
+    "btnAdd": "Nouveau statut",
+    "table": {
+      "noData": "Pas de données",
+      "date": "Date"
+    }
+  },
+  "actionPlanning": {
+    "btnGeneratePeriods": "Générer les périodes",
+    "btnCreatePlanning": "Planifier",
+    "noPlanningYet": "Aucun planning n'a encore été défini pour cette action.",
+    "form": {
+      "startDate": "Date de début prévisionnelle",
+      "startDatePlaceholder": "Sélectionnez une date de début prévisionnelle",
+      "endDate": "Date de fin prévisionnelle",
+      "endDatePlaceholder": "Sélectionnez une date de fin prévisionnelle",
+      "frequencyUnit": "Unité de fréquence",
+      "frequencyUnitPlaceholder": "Sélectionnez une unité",
+      "frequencyValue": "Valeur de fréquence",
+      "frequencyValuePlaceholder": "Entrez une valeur"
+    },
+    "periods": {
+      "startDate": "Date de début prévisionnelle",
+      "endDate": "Date de fin prévisionnelle",
+      "progressPercent": "Avancement prévu (%)",
+      "progressPercentPlaceholder": "Sélectionnez un avancement prévu",
+      "actualProgressPercent": "Progression réelle (%)",
+      "noData": "Aucune période générée"
+    },
+    "validation": {
+      "invalidStartDate": "Date de début invalide",
+      "invalidEndDate": "Date de fin invalide",
+      "endBeforeStart": "La date de fin doit être après la date de début",
+      "invalidFrequency": "La fréquence doit être un nombre entier ≥ 1",
+      "minDuration": "La période doit couvrir au moins {value} {unit}"
+    },
+    "timeUnits": {
+      "days": "jour(s)",
+      "weeks": "semaine(s)",
+      "months": "mois",
+      "years": "an(s)"
+    }
+  },
+  "actionPhase": {
+    "btnAdd": "Nouvel phase",
+    "btnUseDefaultPhases": "Utiliser les phases par défaut",
+    "noPhaseYet": "Aucune phase n'a encore été définie pour cette action.",
+    "modalTitleCreation": "Création d'une phase",
+    "modalTitleModification": "Modification d'une phase",
+    "modalTitleOverview": "Aperçu d'une phase",
+    "panelTitle": "Phase {num}",
+    "form": {
+      "number": "Numéro",
+      "numberPlaceholder": "Entrez le numéro",
+      "name": "Nom",
+      "namePlaceholder": "Entrez le nom",
+      "startDate": "Date de début prévisionnelle",
+      "startDatePlaceholder": "Sélectionnez la date de début",
+      "endDate": "Date de fin prévisionnelle",
+      "endDatePlaceholder": "Sélectionnez la date de fin",
+      "weight": "Poids",
+      "weightPlaceholder": "Sélectionnez le poids",
+      "weightCoefficientPlaceholder": "Choisissez un poids"
+    },
+    "tasks": {
+      "panelTitle": "Tâches de la phase",
+      "addTooltip": "Ajouter une nouvelle tâche à cette phase",
+      "table": {
+        "title": "Titre de la tâche",
+        "assigned": "Assignée à",
+        "priority": "Priorité",
+        "startDate": "Date de début prévisionnelle",
+        "endDate": "Date de fin prévisionnelle",
+        "status": "État",
+        "completed": "Réalisée",
+        "inProgress": "En cours",
+        "noData": "Aucune tâche enregistrée pour cette phase."
+      }
+    }
+  },
+  "task": {
+    "modalTitleCreation": "Créer une tâche",
+    "modalTitleModification": "Modifier la tâche",
+    "modalTitleOverview": "Détails de la tâche",
+    "form": {
+      "title": "Titre",
+      "titlePlaceholder": "Entrez le titre de la tâche",
+      "description": "Description",
+      "descriptionPlaceholder": "Décrivez la tâche ici...",
+      "priority": "Priorité",
+      "priorityPlaceholder": "Sélectionnez une priorité",
+      "assigned_to": "Utilisateur assigné",
+      "responsiblePlaceholder": "Choisissez un utilisateur",
+      "startDate": "Date de début prévisionnelle",
+      "startDatePlaceholder": "Choisissez la date de début",
+      "endDate": "Date de fin prévisionnelle",
+      "endDatePlaceholder": "Choisissez la date de fin",
+      "deliverable": "Livrable attendu",
+      "deliverablePlaceholder": "Indiquez le livrable de la tâche",
+      "isCompleted": "Marquer comme complétée"
+    }
+  },
+  "actionControl": {
+    "noPlanningYet": "Désolé, cette action n'est pas encore planifiée.",
+    "notInProgress": "Désolé, cette action n'est pas encore en réalisation.",
+    "noMoreMilestones": "Tous les jalons de cette action ont déjà été contrôlés.",
+    "btnAdd": "Faire un contrôle",
+    "btnCreate": "Créer",
+    "btnList": "Liste des contrôles",
+    "form": {
+      "controlDate": "Date du contrôle",
+      "controlDatePlaceholder": "Sélectionnez la date du contrôle",
+      "actionPeriod": "Période",
+      "actionPeriodPlaceholder": "Sélectionnez une période",
+      "forecastPercent": "Progression prévue",
+      "forecastPercentPlaceholder": "Valeur prévue",
+      "actualProgressPercent": "Progression réelle",
+      "actualProgressPercentPlaceholder": "Valeur réelle",
+      "rootCause": "Cause racine",
+      "rootCausePlaceholder": "Décrivez la cause principale identifiée"
+    },
+    "phases": {
+      "name": "Nom de la phase",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "weight": "Poids (%)",
+      "progressPercent": "Progression (%)",
+      "progressPercentPlaceholder": "Sélectionnez un pourcentage",
+      "forecast": "Progression prévue",
+      "actual": "Progression réelle",
+      "noData": "Cette action n'a pas encore de phases"
+    },
+    "table": {
+      "controlDate": "Date de contrôle",
+      "actionPeriod": "Période",
+      "file": "Fichier",
+      "forecastPercent": "Prévision (%)",
+      "status": {
+        "control": "Contrôlé",
+        "noControl": "Non contrôlé"
+      },
+      "actualProgressPercent": "Progression réelle (%)"
+    }
+  },
+  "alignment": {
+    "btnAlign": "Nouvel alignement",
+    "btnAligned": "Valider l'alignement",
+    "goToStrategicObjectives": "Voir les objectifs stratégiques",
+    "goToActions": "Voir les actions",
+    "sweetalert": {
+      "confirmUnalign": "Voulez-vous vraiment désaligner cet objectif ?",
+      "confirmUnalignSelected": "Voulez-vous vraiment désaligner les objectifs sélectionnés ?",
+      "confirmButtonText": "Oui, désaligner"
+    },
+    "action": {
+      "btnList": "Objectifs alignés"
+    },
+    "objective": {
+      "btnList": "Actions alignées"
+    },
+    "form": {
+      "strategicMap": "Carte stratégique",
+      "strategicMapPlaceholder": "Sélectionnez la carte stratégique",
+      "currentActionPlan": "Plan d'action actif",
+      "strategicAxis": "Axe stratégique",
+      "strategicAxisPlaceholder": "Sélectionnez un axe stratégique",
+      "strategicLever": "Levier",
+      "strategicLeverPlaceholder": "Sélectionnez un levier",
+      "structure": "Structure",
+      "structurePlaceholder": "Sélectionnez une structure"
+    },
+    "table": {
+      "reference": "Référence",
+      "objectiveName": "Nom de l'objectif",
+      "actionName": "Nom de l'action",
+      "avancement": "% Avancement",
+      "startDate": "Date de début prévisionnelle",
+      "endDate": "Date de fin prévisionnelle",
+      "disbursementRate": "Taux de décaissement"
+    }
+  },
+  "actionFundReceipt": {
+    "sections": {
+      "basicInformation": "Informations générales",
+      "financialInformation": "Détails financiers"
+    },
+    "tabs": {
+      "detail": "Détails de l'encaissement"
+    },
+    "list": {
+      "pageTitle": "Gestion des encaissements",
+      "breadTitle": "Encaissements",
+      "breadActive": "Liste des encaissements"
+    },
+    "create": {
+      "pageTitle": "Création d'un encaissement",
+      "breadTitle": "Encaissements",
+      "breadActive": "Ajouter un encaissement"
+    },
+    "edit": {
+      "pageTitle": "Modification d'un encaissement",
+      "breadTitle": "Encaissements",
+      "breadActive": "Modifier un encaissement"
+    },
+    "view": {
+      "pageTitle": "Aperçu d'un encaissement",
+      "breadTitle": "Encaissements",
+      "breadActive": "Aperçu d'un encaissement"
+    },
+    "linkExchangeRates": "Voir les taux de change (BCM)",
+    "btnAdd": "Nouvel encaissement",
+    "btnCreate": "Créer",
+    "btnList": "Liste des encaissements",
+    "form": {
+      "reference": "Référence",
+      "referencePlaceholder": "Référence",
+      "action": "Action concernée",
+      "actionPlaceholder": "Sélectionnez une action",
+      "fundingSource": "Source de financement",
+      "fundingSourcePlaceholder": "Sélectionnez une source",
+      "currency": "Devise",
+      "currencyPlaceholder": "Sélectionnez une devise",
+      "exchangeRate": "Taux de change",
+      "exchangeRatePlaceholder": "Entrez le taux de change",
+      "amountOriginal": "Montant",
+      "amountOriginalPlaceholder": "Entrez le montant",
+      "convertedAmount": "Montant converti",
+      "convertedAmountPlaceholder": "Le montant converti sera calculé automatiquement",
+      "receiptDate": "Date de réception",
+      "receiptDatePlaceholder": "Sélectionnez une date",
+      "validityDate": "Date de validité",
+      "validityDatePlaceholder": "Sélectionnez une date"
+    },
+    "table": {
+      "reference": "Référence",
+      "action": "Action",
+      "fundingSource": "Source de financement",
+      "currency": "Devise",
+      "amountOriginal": "Montant original",
+      "convertedAmount": "Montant converti",
+      "receiptDate": "Date de réception",
+      "validityDate": "Date de validité"
+    }
+  },
+  "actionFundDisbursement": {
+    "sections": {
+      "generalInfo": "Informations générales",
+      "contractAdminInfo": "Informations contractuelles",
+      "paymentInfo": "Informations de paiement",
+      "expenseType": "Les types de dépenses"
+    },
+    "expenseTypes": {
+      "modalTitle": "Sélectionner des types de dépenses",
+      "name": "Nom",
+      "btnValidate": "Valider la sélection",
+      "noExpenseTypes": "Aucun type de dépense ajouté pour l'instant.",
+      "addExpenseType": "Ajouter un type de dépense"
+    },
+    "list": {
+      "pageTitle": "Gestion des décaissements",
+      "breadTitle": "Gestion des décaissements",
+      "breadActive": "Liste des décaissements"
+    },
+    "create": {
+      "pageTitle": "Gestion des décaissements - Création",
+      "breadTitle": "Gestion des décaissements",
+      "breadActive": "Ajout d'un nouveau décaissement"
+    },
+    "edit": {
+      "pageTitle": "Gestion des décaissements - Modification",
+      "breadTitle": "Gestion des décaissements",
+      "breadActive": "Modification d'un décaissement"
+    },
+    "view": {
+      "pageTitle": "Gestion des décaissements - Aperçu",
+      "breadTitle": "Gestion des décaissements",
+      "breadActive": "Aperçu d'un décaissement"
+    },
+    "btnAdd": "Nouveau décaissement",
+    "btnCreate": "Payer",
+    "btnList": "Liste des décaissements",
+    "form": {
+      "reference": "Référence",
+      "referencePlaceholder": "Référence générée automatiquement",
+      "action": "Action",
+      "actionPlaceholder": "Sélectionnez une action",
+      "paymentMode": "Mode de paiement",
+      "paymentModePlaceholder": "Sélectionnez un mode de paiement",
+      "budgetType": "Type de budget",
+      "budgetTypePlaceholder": "Sélectionnez un type de budget",
+      "phase": "Phase",
+      "phasePlaceholder": "Sélectionnez une phase",
+      "task": "Tâche",
+      "taskPlaceholder": "Sélectionnez une tâche",
+      "contract": "Contrat",
+      "contractPlaceholder": "Sélectionnez un contrat",
+      "supplier": "Fournisseur",
+      "supplierPlaceholder": "Sélectionnez le fournisseur",
+      "operationNumber": "Numéro de l'opération",
+      "operationNumberPlaceholder": "Saisissez le numéro de l'opération",
+      "signatureDate": "Date de signature",
+      "signatureDatePlaceholder": "Sélectionnez la date de signature",
+      "executionDate": "Date d'exécution",
+      "executionDatePlaceholder": "Sélectionnez la date d'exécution",
+      "paymentDate": "Date de paiement",
+      "paymentDatePlaceholder": "Sélectionnez la date de paiement",
+      "paymentAmount": "Montant du paiement",
+      "paymentAmountPlaceholder": "Saisissez le montant du paiement",
+      "chequeReference": "Référence du paiement",
+      "chequeReferencePlaceholder": "Saisissez la référence du paiement",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez une description ici"
+    },
+    "table": {
+      "reference": "Référence",
+      "action": "Action",
+      "contract": "Contrat",
+      "operationNumber": "Numéro de l'opération",
+      "supplier": "Fournisseur",
+      "paymentAmount": "Montant du paiement",
+      "paymentDate": "Date de paiement",
+      "executionDate": "Date d'exécution",
+      "phase": "Phase",
+      "task": "Tâche",
+      "paymentMode": "Mode de paiement"
+    }
+  },
+  "decision": {
+    "sections": {
+      "statusDetail": "Détails du statut"
+    },
+    "btnAdd": "Nouvelle décision",
+    "btnCreate": "Créer",
+    "btnList": "Liste des décisions",
+    "form": {
+      "reference": "Référence",
+      "decisionDate": "Date de la décision",
+      "decisionDatePlaceholder": "Sélectionnez la date de la décision",
+      "title": "Titre",
+      "titlePlaceholder": "Saisissez le titre de la décision",
+      "priority": "Priorité",
+      "priorityPlaceholder": "Sélectionnez une priorité",
+      "description": "Description",
+      "descriptionPlaceholder": "Saisissez une description"
+    },
+    "table": {
+      "reference": "Référence",
+      "title": "Titre",
+      "decisionDate": "Date",
+      "priority": "Priorité"
+    }
+  },
+  "decisionStatus": {
+    "btnAdd": "Nouveau statut",
+    "modalTitleCreation": "Ajout de nouveau statut",
+    "modalTitleOverview": "Aperçu du statut",
+    "form": {
+      "statusDate": "Date d'attribution",
+      "statusDatePlaceholder": "Sélectionnez la date",
+      "status": "Statut",
+      "statusPlaceholder": "Sélectionnez un statut",
+      "comment": "Commentaire",
+      "commentPlaceholder": "Saisissez un commentaire"
+    },
+    "table": {
+      "statusDate": "Date"
+    }
+  },
+  "indicator": {
+    "sections": {
+      "statusDetail": "Détails du statut"
+    },
+    "tabs": {
+      "detail": "Détails de l'indicateur",
+      "status": "Statut",
+      "planning": "Plannification",
+      "control": "Contrôles",
+      "decision": "Décisions",
+      "attachment": "Fichiers",
+      "performanceReport": "Indicateurs de performance"
+    },
+    "list": {
+      "pageTitle": "Gestion des indicateurs",
+      "breadTitle": "Gestion des indicateurs",
+      "breadActive": "Liste des indicateurs"
+    },
+    "create": {
+      "pageTitle": "Gestion des indicateurs - Création",
+      "breadTitle": "Gestion des indicateurs",
+      "breadActive": "Ajout d'un nouvel indicateur"
+    },
+    "edit": {
+      "pageTitle": "Gestion des indicateurs - Modification",
+      "breadTitle": "Gestion des indicateurs",
+      "breadActive": "Modification d'un indicateur"
+    },
+    "view": {
+      "pageTitle": "Gestion des indicateurs - Aperçu",
+      "breadTitle": "Gestion des indicateurs",
+      "breadActive": "Aperçu d'un indicateur"
+    },
+    "btnAdd": "Nouvel indicateur",
+    "btnCreate": "Créer",
+    "btnList": "Liste des indicateurs",
+    "form": {
+      "reference": "Référence",
+      "name": "Nom",
+      "namePlaceholder": "Entrez le nom",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description",
+      "leadStructure": "Structure pilote",
+      "leadStructurePlaceholder": "Sélectionnez une structure pilote",
+      "structure": "Structure concernée",
+      "structurePlaceholder": "Sélectionnez une structure",
+      "strategicMap": "Carte stratégique",
+      "strategicMapPlaceholder": "Sélectionnez la carte stratégique",
+      "strategicAxis": "Axe stratégique",
+      "strategicAxisPlaceholder": "Sélectionnez un axe stratégique",
+      "strategicLever": "Levier",
+      "strategicLeverPlaceholder": "Sélectionnez un levier",
+      "strategicObjective": "Objectif stratégique",
+      "strategicObjectivePlaceholder": "Sélectionnez l'objectif stratégique",
+      "category": "Catégorie",
+      "categoryPlaceholder": "Sélectionnez la catégorie d'indicateur",
+      "chartType": "Type de graphique",
+      "chartTypePlaceholder": "Sélectionnez un type de graphique",
+      "initialValue": "Valeur initiale",
+      "initialValuePlaceholder": "Entrez la valeur initiale",
+      "finalTargetValue": "Valeur cible finale",
+      "finalTargetValuePlaceholder": "Entrez la valeur cible finale",
+      "unit": "Unité de mesure",
+      "unitPlaceholder": "Entrez l'unité de mesure",
+      "achievedValue": "Valeur atteinte",
+      "achievedValuePlaceholder": "Entrez la valeur atteinte"
+    },
+    "table": {
+      "structure": "Structure concernée",
+      "leadStructure": "Structure pilote",
+      "reference": "Référence",
+      "chartType": "Type de graphique",
+      "initialValue": "Valeur initiale",
+      "finalTargetValue": "Valeur cible finale",
+      "achievedValue": "Valeur atteinte"
+    }
+  },
+  "indicatorStatus": {
+    "btnAdd": "Nouveau statut",
+    "table": {
+      "noData": "Pas de données",
+      "date": "Date"
+    }
+  },
+  "indicatorPlanning": {
+    "btnGeneratePeriods": "Générer les périodes",
+    "btnCreatePlanning": "Planifier",
+    "noPlanningYet": "Aucun planning n'a encore été défini pour cette action.",
+    "form": {
+      "startDate": "Date de début",
+      "startDatePlaceholder": "Sélectionnez une date de début",
+      "endDate": "Date de fin",
+      "endDatePlaceholder": "Sélectionnez une date de fin",
+      "frequencyUnit": "Unité de fréquence",
+      "frequencyUnitPlaceholder": "Sélectionnez une unité",
+      "frequencyValue": "Valeur de fréquence",
+      "frequencyValuePlaceholder": "Entrez une valeur"
+    },
+    "periods": {
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "targetValue": "Valeur cible",
+      "targetValuePlaceholder": "Entrez la valeur cible",
+      "achievedValue": "Valeur atteinte",
+      "noData": "Aucune période générée"
+    },
+    "validation": {
+      "invalidStartDate": "Date de début invalide",
+      "invalidEndDate": "Date de fin invalide",
+      "endBeforeStart": "La date de fin doit être après la date de début",
+      "invalidFrequency": "La fréquence doit être un nombre entier ≥ 1",
+      "minDuration": "La période doit couvrir au moins {value} {unit}"
+    },
+    "timeUnits": {
+      "days": "jour(s)",
+      "weeks": "semaine(s)",
+      "months": "mois",
+      "years": "an(s)"
+    }
+  },
+  "indicatorControl": {
+    "noPlanningYet": "Désolé, cet indicateur n'est pas encore planifiée.",
+    "notInProgress": "Désolé, cet indicateur n'est pas encore en réalisation.",
+    "noMoreMilestones": "Tous les jalons de cet indicateur ont déjà été contrôlés.",
+    "btnAdd": "Faire un contrôle",
+    "btnCreate": "Créer",
+    "btnList": "Liste des contrôles",
+    "form": {
+      "controlDate": "Date du contrôle",
+      "controlDatePlaceholder": "Sélectionnez la date du contrôle",
+      "indicatorPeriod": "Période",
+      "indicatorPeriodPlaceholder": "Sélectionnez une période",
+      "targetValue": "Valeur cible",
+      "targetValuePlaceholder": "Entrez la valeur cible",
+      "achievedValue": "Valeur atteinte",
+      "achievedValuePlaceholder": "Entrez la valeur atteinte",
+      "rootCause": "Cause racine",
+      "rootCausePlaceholder": "Décrivez la cause principale identifiée"
+    },
+    "table": {
+      "controlDate": "Date de contrôle",
+      "targetValue": "Valeur cible",
+      "achievedValue": "Valeur atteinte",
+      "indicatorPeriod": "Période",
+       "status": {
+        "control": "Contrôlé",
+        "noControl": "Non contrôlé"
+      }
+    }
+  },
+  "report": {
+    "pageTitle": "Reporting",
+    "plannedBudget": "Budget prévisionnel",
+    "acquiredBudget": "Budget acquis",
+    "spentBudget": "Budget consommé",
+    "availableBudget": "Budget disponible",
+    "budgetToMobilize": "Budget à mobiliser",
+    "disbursementRate": "Taux de décaissement",
+    "costVariance": "Écart de coût",
+    "overrunRate": "Taux de dépassement",
+    "disbursementByType": "Décaissement par type de budget",
+    "budgetType": "Type de budget",
+    "totalDisbursed": "Montant total décaissé",
+    "disbursement": "Décaissement",
+    "realizationRate": "Taux de réalisation",
+    "realizationIndex": "Indice de réalisation",
+    "noDisbursements": "Pas de décaissements",
+    "selectStructure": "Sélectionner une structure",
+    "selectCategory": "Sélectionner une catégorie",
+    "selectSubCategory": "Sélectionner une sous-catégorie",
+    "pleaseSelect": "Veuillez sélectionner une structure et une catégorie",
+    "pleaseSelectSubCategory": "Veuillez sélectionner une sous-catégorie",
+    "pleaseSelectDescription": "Les indicateurs apparaîtront après votre choix.",
+    "periods": {
+      "period": "Périodes",
+      "targetValue": "Valeur cible",
+      "achievedValue": "Valeur atteinte",
+      "planned": "Prévision",
+      "realized": "Réalisation",
+      "variance": "Écart de réalisation",
+      "performanceIndex": "Indice de réalisation",
+      "overallProgress": "Avancement global",
+      "noData": "Aucune donnée disponible"
+    },
+    "delay": {
+      "phase": "Phase",
+      "plannedStart": "Début prévu",
+      "plannedEnd": "Fin prévue",
+      "plannedDuration": "Durée prévue (jrs)",
+      "daysToStart": "Jours avant le début",
+      "actualStart": "Début réel",
+      "actualEnd": "Fin réelle",
+      "actualDuration": "Durée réelle (jrs)",
+      "remainingDays": "Jours restants",
+      "startDelay": "Retard de démarrage (jrs)",
+      "durationVariance": "Écart de durée (jrs)",
+      "noData": "Aucune donnée de délai disponible",
+      "durationVarianceDays": "Écart de durée (jours)",
+      "durationOverrunRate": "Taux de dépassement de durée (%)",
+      "delayVarianceDays": "Écart de délai (jours)",
+      "delayOverrunRate": "Taux de dépassement de délai (%)"
+    },
+    "sections": {
+      "budgetReport": "Indicateurs budgétaire",
+      "realizationReport": "Indicateurs de réalisation",
+      "prCourbeReport": "Courbe P&R",
+      "delayReport": "KPI délai",
+      "budgetIndicator": "Indicateurs budgétaires",
+      "realizationIndicator": "Indicateurs de réalisation",
+      "delayIndicator": "Indicateurs de délai",
+      "acquisitionsByFundingSource": "Acquisitions par source de financement",
+      "acquisitionsByCurrency": "Acquisitions par devise",
+      "expensesByStructure": "Dépenses par structure",
+      "expensesByBudgetType": "Dépenses par type de budget",
+      "expensesByExpenseType": "Dépenses par type de dépense",
+      "expensesByProcurementMode": "Dépenses par mode de passation",
+      "expensesByContractType": "Dépenses par type de contrat"
+    },
+    "fundingSource": "Source de financement",
+    "currency": "Devise",
+    "totalAmount": "Montant total",
+    "participationRate": "Taux de participation",
+    "noData": "Aucune donnée disponible",
+    "label": "Libellé"
+  },
+  "settings": {
+    "currency": {
+      "pageTitle": "Paramètres - Devises",
+      "breadTitle": "Devises",
+      "breadActive": "Devises",
+      "btnAdd": "Nouvelle devise",
+      "modalTitleCreation": "Enregistrement de nouvelle devise",
+      "modalTitleModification": "Modification d'une devise",
+      "modalTitleOverview": "Aperçu d'une devise",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Nom de la devise",
+        "code": "Code",
+        "codePlaceholder": "Code ISO de la devise",
+        "isDefault": "Est devise système"
+      },
+      "table": {
+        "name": "Nom",
+        "code": "Code",
+        "isDefault": {
+          "label": "Est devise système ?",
+          "yes": "Oui",
+          "no": "Non"
+        }
+      }
+    },
+    "defaultPhase": {
+      "pageTitle": "Paramètres – Phases par défaut",
+      "breadTitle": "Phases par défaut",
+      "breadActive": "Liste des phases par défaut",
+      "btnAdd": "Nouvel phase",
+      "modalTitleCreation": "Création d'une phase",
+      "modalTitleModification": "Modification d'une phase",
+      "modalTitleOverview": "Aperçu d'une phase",
+      "panelTitle": "Phase {num}",
+      "noPhaseYet": "Aucune phase n'a encore été définie.",
+      "form": {
+        "number": "Numéro",
+        "numberPlaceholder": "Entrez le numéro",
+        "name": "Nom",
+        "namePlaceholder": "Entrez le nom",
+        "duration": "Durée (en jours)",
+        "durationPlaceholder": "Entrez la durée en jours",
+        "weight": "Poids",
+        "weightPlaceholder": "Sélectionnez le poids",
+        "weightCoefficientPlaceholder": "Choisissez un poids"
+      }
+    },
+    "fundingSource": {
+      "pageTitle": "Paramètres - Sources de financement",
+      "breadTitle": "Sources de financement",
+      "breadActive": "Sources de financement",
+      "btnAdd": "Nouvelle source de financement",
+      "modalTitleCreation": "Création d'une source de financement",
+      "modalTitleModification": "Modification d'une source de financement",
+      "modalTitleOverview": "Aperçu d'une source de financement",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Banque mondiale",
+        "description": "Description",
+        "descriptionPlaceholder": "Ex. : Partenaire institutionnel international",
+        "structure": "Structure concernée",
+        "structurePlaceholder": "Sélectionner une structure"
+      },
+      "table": {
+        "name": "Nom",
+        "structure": "Structure concernée",
+        "description": "Description"
+      }
+    },
+    "procurementMode": {
+      "pageTitle": "Paramètres - Modes de selection",
+      "breadTitle": "Modes de selection",
+      "breadActive": "Modes de selection",
+      "btnAdd": "Nouveau mode de selection",
+      "modalTitleCreation": "Création d'un mode de selection",
+      "modalTitleModification": "Modification d'un mode de selection",
+      "modalTitleOverview": "Aperçu d'un mode de selection",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Nom d'un mode de selection",
+        "duration": "Durée (en jours)",
+        "durationPlaceholder": "Entrez la durée en jours",
+        "contractType": "Type de marché",
+        "contractTypePlaceholder": "Sélectionnez un type de marché"
+      },
+      "table": {
+        "name": "Nom",
+        "contractType": "Type de marché"
+      }
+    },
+    "projectOwner": {
+      "pageTitle": "Paramètres - Maitres d'ouvrage",
+      "breadTitle": "Maitres d'ouvrage",
+      "breadActive": "Maitres d'ouvrage",
+      "btnAdd": "Nouveau maitre d'ouvrage",
+      "modalTitleCreation": "Création d'un maitre d'ouvrage",
+      "modalTitleModification": "Modification d'un maitre d'ouvrage",
+      "modalTitleOverview": "Aperçu d'un maitre d'ouvrage",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Nom d'un maitre d'ouvrage",
+        "phone": "Téléphone",
+        "phonePlaceholder": "Numéro de téléphone",
+        "email": "Email",
+        "emailPlaceholder": "Adresse email",
+        "type": "Type",
+        "typePlaceholder": "Ex : Public, Privé, ONG",
+        "structure": "Structure concernée",
+        "structurePlaceholder": "Sélectionner une structure"
+      },
+      "table": {
+        "name": "Nom",
+        "phone": "Téléphone",
+        "email": "Email",
+        "type": "Type",
+        "structure": "Structure concernée"
+      }
+    },
+    "delegatedProjectOwner": {
+      "pageTitle": "Paramètres - Maitres de séléction délégue",
+      "breadTitle": "Maitres d'ouvrage délégué",
+      "breadActive": "Maitres d'ouvrage délégué",
+      "btnAdd": "Nouveau maitre d'ouvrage délégué",
+      "modalTitleCreation": "Création d'un maitre d'ouvrage délégué",
+      "modalTitleModification": "Modification d'un maitre d'ouvrage délégué",
+      "modalTitleOverview": "Aperçu d'un maitre d'ouvrage délégué",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Nom d'un maitre d'ouvrage délégué",
+        "phone": "Téléphone",
+        "phonePlaceholder": "Numéro de téléphone",
+        "email": "Email",
+        "emailPlaceholder": "Adresse email",
+        "projectOwner": "Maitre d'ouvrage",
+        "projectOwnerPlaceholder": "Sélectionner un maitre d'ouvrage délégué"
+      },
+      "table": {
+        "name": "Nom",
+        "phone": "Téléphone",
+        "email": "Email",
+        "type": "Type",
+        "projectOwner": "Maitre d'ouvrage"
+      }
+    },
+    "region": {
+      "pageTitle": "Paramètres - Regions",
+      "breadTitle": "Regions",
+      "breadActive": "Regions",
+      "btnAdd": "Nouvelle region",
+      "modalTitleCreation": "Création d'une region",
+      "modalTitleModification": "Modification d'une region",
+      "modalTitleOverview": "Aperçu d'une region",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Brakna",
+        "latitude": "Latitude",
+        "latitudePlaceholder": "Ex. : 20.948586",
+        "longitude": "Longitude",
+        "longitudePlaceholder": "Ex. : -17.039199"
+      },
+      "table": {
+        "name": "Nom",
+        "latitude": "Latitude",
+        "longitude": "Longitude"
+      }
+    },
+    "department": {
+      "pageTitle": "Paramètres - Départements",
+      "breadTitle": "Départements",
+      "breadActive": "Départements",
+      "btnAdd": "Nouveau département",
+      "modalTitleCreation": "Création d'un département",
+      "modalTitleModification": "Modification d'un département",
+      "modalTitleOverview": "Aperçu d'un département",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : M'bagne",
+        "latitude": "Latitude",
+        "latitudePlaceholder": "Ex. : 20.948586",
+        "longitude": "Longitude",
+        "longitudePlaceholder": "Ex. : -17.039199",
+        "region": "Région concernée",
+        "regionPlaceholder": "Sélectionner une région"
+      },
+      "table": {
+        "name": "Nom",
+        "region": "Région concernée"
+      }
+    },
+    "municipality": {
+      "pageTitle": "Paramètres - Communes",
+      "breadTitle": "Communes",
+      "breadActive": "Communes",
+      "btnAdd": "Nouvelle commune",
+      "modalTitleCreation": "Création d'une commune",
+      "modalTitleModification": "Modification d'une commune",
+      "modalTitleOverview": "Aperçu d'une commune",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Sebkha",
+        "latitude": "Latitude",
+        "latitudePlaceholder": "Ex. : 20.948586",
+        "longitude": "Longitude",
+        "longitudePlaceholder": "Ex. : -17.039199",
+        "region": "Région concerné",
+        "regionPlaceholder": "Sélectionner une région",
+        "department": "Département concerné",
+        "departmentPlaceholder": "Sélectionner un département"
+      },
+      "table": {
+        "name": "Nom",
+        "department": "Département concerné",
+        "region": "Region concerné"
+      }
+    },
+    "contractType": {
+      "pageTitle": "Paramètres - Types de marché",
+      "breadTitle": "Types de marché",
+      "breadActive": "Types de marché",
+      "btnAdd": "Nouveau type de marché",
+      "modalTitleCreation": "Création d'un type de marché",
+      "modalTitleModification": "Modification d'un type de marché",
+      "modalTitleOverview": "Aperçu d'un type de marché",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Marché à Durée de 1 mois"
+      },
+      "table": {
+        "name": "Nom"
+      }
+    },
+    "beneficiary": {
+      "pageTitle": "Paramètres - Bénéficiaires",
+      "breadTitle": "Bénéficiaires",
+      "breadActive": "Bénéficiaires",
+      "btnAdd": "Nouveau bénéficiaires",
+      "modalTitleCreation": "Création d'un bénéficiaires",
+      "modalTitleModification": "Modification d'un bénéficiaires",
+      "modalTitleOverview": "Aperçu d'un bénéficiaires",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Maria Lopez",
+        "email": "Email",
+        "emailPlaceholder": "Adresse email",
+        "phone": "Téléphone",
+        "phonePlaceholder": "Numéro de téléphone"
+      },
+      "table": {
+        "name": "Nom",
+        "email": "Email",
+        "phone": "Téléphone"
+      }
+    },
+    "stakeholder": {
+      "pageTitle": "Paramètres - Parties prenantes",
+      "breadTitle": "Parties prenantes",
+      "breadActive": "Parties prenantes",
+      "btnAdd": "Nouvelle partie prenante",
+      "modalTitleCreation": "Création d'une partie prenante",
+      "modalTitleModification": "Modification d'une partie prenante",
+      "modalTitleOverview": "Aperçu d'une partie prenante",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : ONG environnementales",
+        "email": "Email",
+        "emailPlaceholder": "Adresse email",
+        "phone": "Téléphone",
+        "phonePlaceholder": "Numéro de téléphone"
+      },
+      "table": {
+        "name": "Nom",
+        "email": "Email",
+        "phone": "Téléphone"
+      }
+    },
+    "paymentMode": {
+      "pageTitle": "Paramètres - Modes de paiement",
+      "breadTitle": "Modes de paiement",
+      "breadActive": "Modes de paiement",
+      "btnAdd": "Nouveau mode de paiement",
+      "modalTitleCreation": "Création d'un mode de paiement",
+      "modalTitleModification": "Modification d'un mode de paiement",
+      "modalTitleOverview": "Aperçu d'un mode de paiement",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Virement bancaire"
+      },
+      "table": {
+        "name": "Nom"
+      }
+    },
+    "fileType": {
+      "pageTitle": "Paramètres - Types de fichier",
+      "breadTitle": "Types de fichier",
+      "breadActive": "Types de fichier",
+      "btnAdd": "Nouveau type de fichier",
+      "modalTitleCreation": "Création d'un type de fichier",
+      "modalTitleModification": "Modification d'un type de fichier",
+      "modalTitleOverview": "Aperçu d'un type de fichier",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : AD-HOC"
+      },
+      "table": {
+        "name": "Nom"
+      }
+    },
+    "budgetType": {
+      "pageTitle": "Paramètres - Types de budget",
+      "breadTitle": "Types de budget",
+      "breadActive": "Types de budget",
+      "btnAdd": "Nouveau type de budget",
+      "modalTitleCreation": "Création d'un type de budget",
+      "modalTitleModification": "Modification d'un type de budget",
+      "modalTitleOverview": "Aperçu d'un type de budget",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Loyer"
+      },
+      "table": {
+        "name": "Nom"
+      }
+    },
+    "expenseType": {
+      "pageTitle": "Paramètres - Types de dépense",
+      "breadTitle": "Types de dépense",
+      "breadActive": "Types de dépense",
+      "btnAdd": "Nouveau type de dépense",
+      "modalTitleCreation": "Enregistrement d'un nouveau type de dépense",
+      "modalTitleModification": "Modification d'un type de dépense",
+      "modalTitleOverview": "Aperçu d'un type de dépense",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Nom du type de dépense"
+      },
+      "table": {
+        "name": "Nom"
+      }
+    },
+    "indicatorCategory": {
+      "pageTitle": "Catégories d'indicateurs",
+      "breadTitle": "Catégories d'indicateurs",
+      "breadActive": "Catégories d'indicateurs",
+      "btnAdd": "Nouvelle catégorie d'indicateurs",
+      "modalTitleCreation": "Création d'une catégorie d'indicateurs",
+      "modalTitleModification": "Modification d'une catégorie d'indicateurs",
+      "modalTitleOverview": "Aperçu d'une catégorie d'indicateurs",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Performance Financière"
+      },
+      "table": {
+        "name": "Nom"
+      }
+    },
+    "user": {
+      "pageTitle": "Paramètres - Utilisateurs",
+      "breadTitle": "Utilisateurs",
+      "breadActive": "Utilisateurs",
+      "btnAdd": "Nouvel utilisateur",
+      "modalTitleCreation": "Enregistrement de nouvel utilisateur",
+      "modalTitleModification": "Modification d'un utilisateur",
+      "modalTitleOverview": "Aperçu d'un utilisateur",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Nom complet",
+        "phone": "Téléphone",
+        "phonePlaceholder": "Numéro de téléphone",
+        "role": "Rôle",
+        "rolePlaceholder": "Sélectionnez un rôle",
+        "email": "Email",
+        "emailPlaceholder": "Adresse email",
+        "lang": "Langue",
+        "langPlaceholder": "Langue préférée",
+        "password": "Mot de passe",
+        "passwordPlaceholder": "Entrez le mot de passe",
+        "passwordConfirmation": "Confirmation du mot de passe",
+        "passwordConfirmationPlaceholder": "Confirmez le mot de passe"
+      },
+      "table": {
+        "name": "Nom",
+        "phone": "Téléphone",
+        "email": "Email",
+        "role": "Rôle",
+        "lang": "Langue"
+      }
+    },
+    "role": {
+      "sections": {
+        "permissions": "Les permissions du rôle"
+      },
+      "list": {
+        "pageTitle": "Gestion des rôles et permissions",
+        "breadTitle": "Gestion des rôles et permissions",
+        "breadActive": "Liste des rôles"
+      },
+      "create": {
+        "pageTitle": "Gestion des rôles et permissions - Création",
+        "breadTitle": "Gestion des rôles et permissions",
+        "breadActive": "Enregistrement d'un nouveau rôle"
+      },
+      "edit": {
+        "pageTitle": "Gestion des rôles et permissions - Modification",
+        "breadTitle": "Gestion des rôles et permissions",
+        "breadActive": "Modification d'un rôle"
+      },
+      "view": {
+        "pageTitle": "Gestion des rôles et permissions - Aperçu",
+        "breadTitle": "Gestion des rôles et permissions",
+        "breadActive": "Aperçu d'un rôle"
+      },
+      "btnAdd": "Nouveau rôle",
+      "btnCreate": "Créer",
+      "btnList": "Liste des rôles",
+      "form": {
+        "name": "Nom du rôle",
+        "namePlaceholder": "Entrez le nom du rôle",
+        "selectAllPermissions": {
+          "select": "Sélectionner toutes les permissions",
+          "deselect": "Désélectionner toutes les permissions"
+        },
+        "category": {
+          "selectAll": "Sélectionner tout",
+          "deselectAll": "Désélectionner tout"
+        }
+      },
+      "table": {
+        "name": "Nom du rôle"
+      }
+    }
+  },
+  "notAuthorized": {
+    "pageTitle": "404 - Accès non autorisé",
+    "title": "Accès non autorisé",
+    "code": "403",
+    "description": "Oups ! Vous n'avez pas la permission d'accéder à cette page.",
+    "btnBack": "Retour",
+    "btnHome": "Accueil"
+  },
+  "notFound": {
+    "pageTitle": "404 - Page non trouvée",
+    "title": "Page non trouvée",
+    "code": "404",
+    "description": "Oups ! La page que vous recherchez est introuvable.",
+    "btnBack": "Retour",
+    "btnHome": "Accueil"
+  },
+  "login": {
+    "pageTitle": "Connexion",
+    "title": "Connexion",
+    "subtitle": "Entrez votre email et votre mot de passe pour vous connecter !",
+    "form": {
+      "email": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "forgotPasswordLink": "Mot de passe oublié ?",
+      "btnSubmit": "Connexion"
+    },
+    "failed": "Une erreur s'est produite lors de la connexion. Veuillez vérifier vos identifiants et réessayer."
+  },
+  "forgotPassword": {
+    "pageTitle": "Mot de passe oublié",
+    "title": "Mot de passe oublié",
+    "subtitle": "Saisissez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+    "form": {
+      "email": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "btnSubmit": "Envoyer le lien",
+      "backToLogin": "Retour à la connexion"
+    },
+    "failed": "Une erreur s'est produite lors du traitement. Veuillez réessayer plus tard."
+  },
+  "resetPassword": {
+    "pageTitle": "Réinitialiser le mot de passe",
+    "title": "Réinitialiser le mot de passe",
+    "subtitle": "Veuillez définir votre nouveau mot de passe ci-dessous.",
+    "form": {
+      "email": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "password": "Nouveau mot de passe",
+      "passwordPlaceholder": "Entrez votre nouveau mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe",
+      "btnSubmit": "Réinitialiser",
+      "backToLogin": "Retour à la connexion"
+    }
+  },
+  "profile": {
+    "pageTitle": "Mon profil",
+    "breadTitle": "Mon profil",
+    "breadActive": "Mise à jour de mon profil",
+    "sections": {
+      "personalInformation": "Informations personnelles",
+      "professionalInformation": "Informations professionnelles",
+      "security": "Sécurité"
+    },
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Entrez le nom",
+      "email": "Email",
+      "emailPlaceholder": "Entrez l'email",
+      "phone": "Téléphone",
+      "phonePlaceholder": "Entrez le téléphone",
+      "lang": "Langue",
+      "langPlaceholder": "Choisissez la langue",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez le mot de passe",
+      "passwordConfirm": "Confirmation du mot de passe",
+      "passwordConfirmPlaceholder": "Confirmez le mot de passe",
+      "jobTitle": "Poste",
+      "jobTitlePlaceholder": "Entrez le poste",
+      "floor": "Étage",
+      "floorPlaceholder": "Entrez le numéro de l'étage",
+      "office": "Bureau",
+      "officePlaceholder": "Entrez le numéro de bureau",
+      "structure": "Structure",
+      "structurePlaceholder": "Structure assignée"
+    }
+  }
+}

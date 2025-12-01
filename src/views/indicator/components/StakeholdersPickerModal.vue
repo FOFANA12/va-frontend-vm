@@ -1,0 +1,177 @@
+<template>
+  <CustomModal size="lg" :isModalOpen="isModalOpen" @update:isModalOpen="closeModal">
+    <template #title>
+      <h2 class="text-md font-semibold">
+        {{ t('action.stakeholders.modalTitle') }}
+      </h2>
+    </template>
+
+    <template #body>
+      <div class="space-y-4">
+        <!-- Recherche -->
+        <Input type="text" v-model="localSearch" :placeholder="t('common.searchPlaceholder')" />
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+          <table class="min-w-full table-auto border-collapse border border-gray-300 mt-4">
+            <thead class="bg-gray-50 text-gray-700">
+              <tr>
+                <th class="p-2 border w-[5%] text-center">
+                  <input
+                    type="checkbox"
+                    :checked="allChecked"
+                    @change="toggleSelectAll"
+                    class="checkbox-primary h-5 w-5"
+                  />
+                </th>
+                <th class="text-left p-2 border">
+                  {{ t('action.stakeholders.name') }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-if="paginatedStakeholders.length === 0">
+                <td colspan="2" class="text-center text-gray-500 py-4 border">
+                  {{ t('common.noData') }}
+                </td>
+              </tr>
+              <tr
+                v-for="stakeholder in paginatedStakeholders"
+                :key="stakeholder.uuid"
+                class="bg-white even:bg-gray-50"
+              >
+                <td class="p-2 border text-center">
+                  <input
+                    type="checkbox"
+                    v-model="selectedStakeholders"
+                    :value="stakeholder"
+                    class="checkbox-primary h-5 w-5"
+                  />
+                </td>
+                <td class="p-2 border">{{ stakeholder.name }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div v-if="totalPages > 1" class="flex justify-between items-center mt-4">
+          <div class="text-sm text-gray-600">
+            {{ t('common.pagination') }} {{ currentPage }} / {{ totalPages }}
+          </div>
+          <div class="flex gap-1 items-center">
+            <button
+              class="px-2 py-1 text-sm rounded border border-gray-300 hover:bg-gray-100"
+              :disabled="currentPage === 1"
+              @click="currentPage--"
+            >
+              {{ t('common.previous') }}
+            </button>
+            <button
+              class="px-2 py-1 text-sm rounded border border-gray-300 hover:bg-gray-100"
+              :disabled="currentPage === totalPages"
+              @click="currentPage++"
+            >
+              {{ t('common.next') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template #buttons>
+      <button
+        type="button"
+        class="min-w-[100px] bg-gray-300 text-gray-700 py-2 px-3 rounded hover:bg-gray-400 transition-all"
+        @click="closeModal"
+      >
+        {{ t('common.modal.buttons.close') }}
+      </button>
+      <button
+        type="button"
+        class="min-w-[100px] bg-primary-600 text-white py-2 px-3 rounded hover:bg-primary-700 transition-all ml-2"
+        @click="confirmSelection"
+        :disabled="selectedStakeholders.length === 0"
+      >
+        {{ t('action.stakeholders.btnValidate') }}
+      </button>
+    </template>
+  </CustomModal>
+</template>
+
+<script setup>
+import { ref, computed, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useActionStore } from '@/store';
+
+const { t } = useI18n();
+const store = useActionStore();
+
+const isModalOpen = ref(false);
+const localSearch = ref('');
+const selectedStakeholders = ref([]);
+
+const itemsPerPage = ref(20);
+const currentPage = ref(1);
+
+const emit = defineEmits(['onSelect']);
+
+const filteredStakeholders = computed(() => {
+  return store.stakeholders.filter((s) =>
+    s.name.toLowerCase().includes(localSearch.value.toLowerCase())
+  );
+});
+
+const paginatedStakeholders = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage.value;
+  return filteredStakeholders.value.slice(start, start + itemsPerPage.value);
+});
+
+const totalPages = computed(() =>
+  Math.ceil(filteredStakeholders.value.length / itemsPerPage.value)
+);
+
+watch(localSearch, () => {
+  currentPage.value = 1;
+});
+
+const allChecked = computed(() => {
+  const current = paginatedStakeholders.value;
+  return (
+    current.length > 0 &&
+    current.every((s) => selectedStakeholders.value.some((sel) => sel.uuid === s.uuid))
+  );
+});
+
+const toggleSelectAll = () => {
+  const current = paginatedStakeholders.value;
+  const selectedIds = selectedStakeholders.value.map((s) => s.uuid);
+
+  if (allChecked.value) {
+    selectedStakeholders.value = selectedStakeholders.value.filter(
+      (s) => !current.some((c) => c.uuid === s.uuid)
+    );
+  } else {
+    const newItems = current.filter((s) => !selectedIds.includes(s.uuid));
+    selectedStakeholders.value.push(...newItems);
+  }
+};
+
+const confirmSelection = () => {
+  emit('onSelect', selectedStakeholders.value);
+  closeModal();
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
+  selectedStakeholders.value = [];
+  localSearch.value = '';
+  currentPage.value = 1;
+};
+
+const openModal = () => {
+  isModalOpen.value = true;
+};
+
+defineExpose({ openModal });
+</script>

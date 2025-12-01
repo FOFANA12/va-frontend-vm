@@ -1,0 +1,406 @@
+@layer base;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size-base: 1rem;
+  --border-color: #e1e7ef;
+  --input-border-color: #e1e7ef;
+  --background-color: #f8fafc;
+}
+
+/* 3️⃣ Design tokens : variables CSS
+   – regroupées par catégories : Fonts, Breakpoints, Typography, Colors, Shadows, Z-index */
+@theme {
+  /* ── 3.1 Fonts ────────────────────────────────────────────────────────── */
+  --font-*: initial;
+  --font-primary: 'Helvetica Neue', Arial, sans-serif;
+
+  /* ── 3.2 Breakpoints ─────────────────────────────────────────────────── */
+  --breakpoint-*: initial;
+  --breakpoint-2xsm: 375px;
+  --breakpoint-xsm: 425px;
+  --breakpoint-3xl: 2000px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ── 3.3 Typography ──────────────────────────────────────────────────── */
+  --text-title-2xl: 72px;
+  --text-title-2xl--line-height: 90px;
+  --text-title-xl: 60px;
+  --text-title-xl--line-height: 72px;
+  --text-title-lg: 48px;
+  --text-title-lg--line-height: 60px;
+  --text-title-md: 36px;
+  --text-title-md--line-height: 44px;
+  --text-title-sm: 30px;
+  --text-title-sm--line-height: 38px;
+  --text-theme-xl: 20px;
+  --text-theme-xl--line-height: 30px;
+  --text-theme-sm: 14px;
+  --text-theme-sm--line-height: 20px;
+  --text-theme-xs: 12px;
+  --text-theme-xs--line-height: 18px;
+
+  /* ── 3.4 Core Colors ────────────────────────────────────────────────── */
+  --color-current: currentColor;
+  --color-transparent: transparent;
+  --color-white: #ffffff;
+  --color-black: #101828;
+
+  /* ── 3.5 Brand Palette ───────────────────────────────────────────────── */
+  --color-brand-25: #f2f7ff;
+  --color-brand-50: #ecf3ff;
+  --color-brand-100: #dde9ff;
+  --color-brand-200: #c2d6ff;
+  --color-brand-300: #9cb9ff;
+  --color-brand-400: #7592ff;
+  --color-brand-500: #465fff;
+  --color-brand-600: #3641f5;
+  --color-brand-700: #2a31d8;
+  --color-brand-800: #252dae;
+  --color-brand-900: #262e89;
+  --color-brand-950: #161950;
+
+  /* ── 3.6 Supporting Palettes ─────────────────────────────────────────── */
+  /* Blue Light */
+  --color-blue-light-25: #f5fbff;
+  --color-blue-light-50: #f0f9ff;
+  --color-blue-light-100: #e0f2fe;
+  --color-blue-light-200: #b9e6fe;
+  --color-blue-light-300: #7cd4fd;
+  --color-blue-light-400: #36bffa;
+  --color-blue-light-500: #0ba5ec;
+  --color-blue-light-600: #0086c9;
+  --color-blue-light-700: #026aa2;
+  --color-blue-light-800: #065986;
+  --color-blue-light-900: #0b4a6f;
+  --color-blue-light-950: #062c41;
+
+  /* Gray */
+  --color-gray-25: #fcfcfd;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f2f4f7;
+  --color-gray-200: #e4e7ec;
+  --color-gray-300: #d0d5dd;
+  --color-gray-400: #98a2b3;
+  --color-gray-500: #667085;
+  --color-gray-600: #475467;
+  --color-gray-700: #344054;
+  --color-gray-800: #1d2939;
+  --color-gray-900: #101828;
+  --color-gray-950: #0c111d;
+  --color-gray-dark: #1a2231;
+  --color-placeholder: #98a2b3;
+
+  /* Orange */
+  --color-orange-25: #fffaf5;
+  --color-orange-50: #fff6ed;
+  --color-orange-100: #ffead5;
+  --color-orange-200: #fddcab;
+  --color-orange-300: #feb273;
+  --color-orange-400: #fd853a;
+  --color-orange-500: #fb6514;
+  --color-orange-600: #ec4a0a;
+  --color-orange-700: #c4320a;
+  --color-orange-800: #9c2a10;
+  --color-orange-900: #7e2410;
+  --color-orange-950: #511c10;
+
+  /* Success */
+  --color-success-25: #f6fef9;
+  --color-success-50: #ecfdf3;
+  --color-success-100: #d1fadf;
+  --color-success-200: #a6f4c5;
+  --color-success-300: #6ce9a6;
+  --color-success-400: #32d583;
+  --color-success-500: #12b76a;
+  --color-success-600: #039855;
+  --color-success-700: #027a48;
+  --color-success-800: #05603a;
+  --color-success-900: #054f31;
+  --color-success-950: #053321;
+
+  /* Error */
+  --color-error-25: #fffbfa;
+  --color-error-50: #fef3f2;
+  --color-error-100: #fee4e2;
+  --color-error-200: #fecdca;
+  --color-error-300: #fda29b;
+  --color-error-400: #f97066;
+  --color-error-500: #f04438;
+  --color-error-600: #d92d20;
+  --color-error-700: #b42318;
+  --color-error-800: #912018;
+  --color-error-900: #7a271a;
+  --color-error-950: #55160c;
+
+  /* Warning */
+  --color-warning-25: #fffcf5;
+  --color-warning-50: #fffaeb;
+  --color-warning-100: #fef0c7;
+  --color-warning-200: #fedf89;
+  --color-warning-300: #fec84b;
+  --color-warning-400: #fdb022;
+  --color-warning-500: #f79009;
+  --color-warning-600: #dc6803;
+  --color-warning-700: #b54708;
+  --color-warning-800: #93370d;
+  --color-warning-900: #7a2e0e;
+  --color-warning-950: #4e1d09;
+
+  /* Primary */
+  --color-primary-25: #fff8f2;
+  --color-primary-50: #ffefdf;
+  --color-primary-100: #ffd9b8;
+  --color-primary-200: #ffc089;
+  --color-primary-300: #ffa654;
+  --color-primary-400: #f78b2b;
+  --color-primary-500: #ed7613; /* base */
+  --color-primary-600: #cf600f;
+  --color-primary-700: #aa4a0e;
+  --color-primary-800: #82380e;
+  --color-primary-900: #5e280c;
+
+  /* Theme accents */
+  --color-theme-pink-500: #ee46bc;
+  --color-theme-purple-500: #7a5af8;
+
+  /* ── 3.7 Shadows ────────────────────────────────────────────────────────── */
+  --shadow-theme-md:
+    0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+  --shadow-theme-lg:
+    0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+  --shadow-theme-sm: 0px 1px 3px 0px rgba(16, 24, 40, 0.1), 0px 1px 2px 0px rgba(16, 24, 40, 0.06);
+  --shadow-theme-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  --shadow-theme-xl:
+    0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+
+  /* ── 3.8 Z-Index ───────────────────────────────────────────────────────── */
+  --z-index-1: 1;
+  --z-index-9: 9;
+  --z-index-99: 99;
+  --z-index-999: 999;
+  --z-index-9999: 9999;
+  --z-index-99999: 99999;
+  --z-index-999999: 999999;
+}
+
+/* 4️⃣ Base styles (layer base) */
+@layer base {
+  /* Réinitialisation border-color pour compat Tailwind 4 */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  /* Cursor par défaut */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    font-size: 100%; /* 16px */
+  }
+
+  /* Body global */
+  body {
+    @apply relative font-normal z-1 bg-gray-50 text-gray-900;
+    /* utilisation de ta variable CSS pour la police */
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    background-color: var(--background-color);
+  }
+
+  ::placeholder {
+    color: var(--color-placeholder);
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .app-border-color {
+    border-color: var(--border-color);
+  }
+  .input-border-color {
+    border-color: var(--input-border-color);
+  }
+  .required-star {
+    margin-inline-start: 0.25rem;
+    color: var(--color-error-500, #f04438);
+  }
+  .placeholder-color {
+    color: var(--color-placeholder);
+  }
+
+  .checkbox-primary {
+    @apply appearance-none border border-gray-300 rounded-sm relative
+           focus:outline-none transition;
+    /* Les utilitaires h-X w-X appliqués au HTML override la taille ici */
+  }
+  .checkbox-primary:checked {
+    @apply bg-[var(--color-primary-500)] border-[var(--color-primary-500)];
+  }
+  .checkbox-primary:checked::before {
+    content: '';
+    position: absolute;
+    /* ① centre le tick */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%) rotate(45deg);
+    /* ② taille du tick proportionnelle à la case */
+    width: 40%;
+    height: 70%;
+    /* ③ trait blanc fixe en px */
+    border: solid white;
+    border-width: 0 2px 2px 0;
+  }
+
+  .checkbox-primary:checked:disabled {
+    background-color: theme('colors.primary.500') !important;
+    border-color: theme('colors.primary.500') !important;
+    cursor: not-allowed !important;
+    opacity: 0.7 !important;
+  }
+
+  .format-number {
+    font-family: Arial, sans-serif !important;
+    font-feature-settings: 'tnum' 1;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* 5️⃣ Utilities personnalisées */
+@utility menu-item {
+  @apply relative flex items-center w-full gap-3 px-3 py-2 font-medium rounded-lg text-theme-sm;
+}
+@utility menu-item-active {
+  @apply bg-primary-50 dark:bg-primary-500/[0.12] dark:text-primary-400;
+}
+@utility menu-item-inactive {
+  @apply text-gray-700 hover:bg-primary-50 group-hover:text-gray-700 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-gray-300;
+}
+@utility menu-item-icon {
+  @apply text-gray-500 group-hover:text-gray-700 dark:text-gray-400;
+}
+@utility menu-item-icon-active {
+  @apply dark:text-primary-400;
+}
+@utility menu-item-icon-inactive {
+  @apply text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300;
+}
+
+@utility menu-dropdown-item {
+  @apply relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-theme-sm font-medium;
+}
+@utility menu-dropdown-item-active {
+  @apply bg-primary-50 dark:bg-primary-500/[0.12] dark:text-primary-400;
+}
+@utility menu-dropdown-item-inactive {
+  @apply text-gray-700 hover:bg-primary-50 dark:text-gray-300 dark:hover:bg-white/5;
+}
+
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    @apply size-1.5;
+  }
+  &::-webkit-scrollbar-track {
+    @apply rounded-full;
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply bg-gray-200 rounded-full dark:bg-gray-700;
+  }
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #344054;
+}
+
+/* 6️⃣ Utilities additionnelles */
+@layer utilities {
+  /* Remove Date & Time icon */
+  input[type='date']::-webkit-inner-spin-button,
+  input[type='time']::-webkit-inner-spin-button,
+  input[type='date']::-webkit-calendar-picker-indicator,
+  input[type='time']::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
+}
+
+/* 7️⃣ Hover tweaks for sidebar */
+.sidebar:hover {
+  width: 290px;
+}
+.sidebar:hover .menu-item-text {
+  display: inline;
+}
+.sidebar:hover .menu-item-arrow {
+  display: block;
+}
+.sidebar:hover .menu-dropdown {
+  display: flex;
+}
+
+/** Swal - Compact popup size **/
+.swal-compact {
+  width: 500px !important;
+  max-width: 90vw;
+  padding: 1.25rem !important;
+  border-radius: 0.5rem !important;
+}
+
+/** Swal - Button base style **/
+.swal-btn-confirm,
+.swal-btn-cancel {
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.875rem !important;
+  border-radius: 0.5rem !important;
+  min-width: 100px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+/** Swal - Confirm button style **/
+.swal-btn-confirm {
+  background-color: #ed7613 !important; /* primary-500 */
+  color: #ffffff !important;
+}
+
+.swal-btn-confirm:hover {
+  background-color: #cf600f !important; /* primary-600 */
+}
+
+/** Swal - Cancel button style **/
+.swal-btn-cancel {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+.swal-btn-cancel:hover {
+  background-color: #dc2626 !important;
+}
+
+/** Swal - Buttons layout **/
+.swal2-actions {
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100%;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}

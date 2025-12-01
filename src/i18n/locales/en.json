@@ -1,0 +1,421 @@
+{
+  "common": {
+    "noData": "Pas de données",
+    "searchPlaceholder": "Recherche...",
+    "author": "Auteur",
+    "view": "Aperçu",
+    "edit": "Modifier",
+    "errors": {
+      "serverErrorTitle": "Erreur du serveur",
+      "defaultErrorMessage": "Désolé, une erreur serveur est survenue lors du traitement de votre demande."
+    },
+    "form": {
+      "status": "Statut"
+    },
+    "table": {
+      "actions": "Actions",
+      "status": {
+        "label": "Status",
+        "active": "Actif",
+        "inactive": "Inactif"
+      }
+    },
+    "datatable": {
+      "noDataAvailable": "Aucune donnée disponible",
+      "rowsPerPage": "Lignes par page",
+      "dropdownAll": "Tout",
+      "paginationInfo": "{from} - {to} sur {total}"
+    },
+    "buttons": {
+      "create": "Créer",
+      "save": "Enregistrer",
+      "processing": "En cours...",
+      "delete": "Supprimer",
+      "errorRetry": "Réessayer"
+    },
+    "modal": {
+      "buttons": {
+        "create": "Créer",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "close": "Fermer",
+        "viewDetails": "Voir les détails",
+        "delete": "Supprimer"
+      }
+    },
+    "sweetalert": {
+      "showConfirm": {
+        "title": "Êtes-vous sûr ?",
+        "message": "Cette action est irréversible.",
+        "confirmButtonText": "Oui, supprimer",
+        "cancelButtonText": "Annuler"
+      },
+      "showConfirmValidation": {
+        "title": "Confirmation",
+        "message": "Êtes-vous sûr de vouloir continuer ?",
+        "confirmButtonText": "Confirmer",
+        "cancelButtonText": "Annuler"
+      },
+      "showErrorModal": {
+        "title": "Erreur",
+        "message": "Une erreur inattendue s'est produite. Veuillez réessayer.",
+        "confirmButtonText": "Fermer"
+      },
+      "actions": {
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet élément ?",
+        "confirmDeleteSelected": "Êtes-vous sûr de vouloir supprimer les éléments sélectionnés ?"
+      }
+    }
+  },
+  "header": {
+    "profile": {
+      "myProfile": "Mon profile",
+      "accountSettings": "Paramètres du compte",
+      "support": "support",
+      "logout": "Se déconnecter"
+    }
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "employees": "Employés",
+    "actionPlans": "Plans d'action",
+    "purchase": {
+      "title": "Achats"
+    },
+    "hr": {
+      "title": "Ressources humaines"
+    },
+    "settings": {
+      "title": "Paramètres",
+      "structures": "Structures",
+      "currencies": "Devises",
+      "fundingSources": "Sources de financement",
+      "regions": "Regions",
+      "users": "Utilisateurs"
+    }
+  },
+  "dashboard": {
+    "pageTitle": "Dashboard"
+  },
+  "employee": {
+    "sections": {
+      "personalInformation": "Informations personnelles",
+      "professionalInformation": "Informations professionnelles",
+      "security": "Sécurité"
+    },
+    "list": {
+      "pageTitle": "Gestion des employés",
+      "breadTitle": "Gestion des employés",
+      "breadActive": "Liste des employés"
+    },
+    "create": {
+      "pageTitle": "Gestion des employés - Création",
+      "breadTitle": "Gestion des employés",
+      "breadActive": "Ajout d'un nouvel employé"
+    },
+    "edit": {
+      "pageTitle": "Gestion des employés - Modification",
+      "breadTitle": "Gestion des employés",
+      "breadActive": "Modification d'un employé"
+    },
+    "view": {
+      "pageTitle": "Gestion des employés - Aperçu",
+      "breadTitle": "Gestion des employés",
+      "breadActive": "Aperçu d'un employé"
+    },
+    "btnAdd": "Nouvel un employé",
+    "btnCreate": "Créer",
+    "btnList": "Liste des employés",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Entrez le nom",
+      "email": "Email",
+      "emailPlaceholder": "Entrez l'email",
+      "phone": "Téléphone",
+      "phonePlaceholder": "Entrez le numéro de téléphone",
+      "lang": "Langue",
+      "langPlaceholder": "Sélectionnez la langue",
+      "jobTitle": "Poste",
+      "jobTitlePlaceholder": "Entrez le poste",
+      "floor": "Étage",
+      "floorPlaceholder": "Entrez l'étage",
+      "office": "Bureau",
+      "officePlaceholder": "Entrez le bureau",
+      "structure": "Structure",
+      "structurePlaceholder": "Sélectionnez une structure",
+      "role": "Rôle",
+      "rolePlaceholder": "Sélectionnez un rôle",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez le mot de passe",
+      "passwordConfirm": "Confirmation du mot de passe",
+      "passwordConfirmPlaceholder": "Confirmez le mot de passe",
+      "canLoggedIn": "Peut se connecter",
+      "canLoggedInPlaceholder": "Indiquez si l'utilisateur peut se connecter"
+    },
+    "table": {
+      "name": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "structure": "Structure",
+      "jobTitle": "Poste",
+      "floor": "Étage",
+      "office": "Bureau",
+      "status": "Statut",
+      "organizationUnit": "Unité organisationnelle",
+      "role": "Rôle",
+      "canLoggedIn": {
+        "label": "Peut se connecter",
+        "yes": "Oui",
+        "no": "Non"
+      }
+    }
+  },
+  "actionPlan": {
+    "pageTitle": "Paramètres - Plans d’action",
+    "breadTitle": "Plans d’action",
+    "breadActive": "Liste des plans d’action",
+    "btnAdd": "Nouveau plan d’action",
+    "modalTitleCreation": "Création d’un plan d’action",
+    "modalTitleModification": "Modification d’un plan d’action",
+    "modalTitleOverview": "Aperçu d’un plan d’action",
+    "form": {
+      "reference": "Référence",
+      "referencePlaceholder": "Ex. : PA-ENV-2025",
+      "name": "Nom",
+      "namePlaceholder": "Ex. : Plan d’action éducation numérique",
+      "objective": "Objectif",
+      "objectivePlaceholder": "Ex. : Déployer des outils numériques dans 100 écoles",
+      "structure": "Structure concernée",
+      "structurePlaceholder": "Sélectionner une structure",
+      "responsible": "Responsable",
+      "responsiblePlaceholder": "Sélectionner le responsable",
+      "startDate": "Date de début",
+      "startDatePlaceholder": "Sélectionner la date de début",
+      "endDate": "Date de fin",
+      "endDatePlaceholder": "Sélectionner la date de fin"
+    },
+    "table": {
+      "name": "Nom",
+      "reference": "Référence",
+      "structure": "Structure concernée",
+      "responsible": "Responsable",
+      "status": "Statut",
+      "startDate": "Date de début",
+      "endDate": "Date de fin"
+    }
+  },
+  "settings": {
+    "currency": {
+      "pageTitle": "Paramètres - Devises",
+      "breadTitle": "Devises",
+      "breadActive": "Devises",
+      "btnAdd": "Nouvelle devise",
+      "modalTitleCreation": "Enregistrement de nouvelle devise",
+      "modalTitleModification": "Modification d'une devise",
+      "modalTitleOverview": "Aperçu d'une devise",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Nom de la devise",
+        "code": "Code",
+        "codePlaceholder": "Code ISO de la devise",
+        "isDefault": "Est devise système"
+      },
+      "table": {
+        "name": "Nom",
+        "code": "Code",
+        "isDefault": {
+          "label": "Est devise système ?",
+          "yes": "Oui",
+          "no": "Oui"
+        }
+      }
+    },
+    "fundingSource": {
+      "pageTitle": "Paramètres - Sources de financement",
+      "breadTitle": "Sources de financement",
+      "breadActive": "Sources de financement",
+      "btnAdd": "Nouvelle source de financement",
+      "modalTitleCreation": "Création d’une source de financement",
+      "modalTitleModification": "Modification d’une source de financement",
+      "modalTitleOverview": "Aperçu d’une source de financement",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Banque mondiale",
+        "description": "Description",
+        "descriptionPlaceholder": "Ex. : Partenaire institutionnel international",
+        "structure": "Structure concernée",
+        "structurePlaceholder": "Sélectionner une structure"
+      },
+      "table": {
+        "name": "Nom",
+        "structure": "Structure concernée",
+        "description": "Description"
+      }
+    },
+    "structure": {
+      "pageTitle": "Paramètres - Structures",
+      "breadTitle": "Structures",
+      "breadActive": "Structures",
+      "btnAdd": "Nouvelle structure",
+      "modalTitleCreation": "Création d’une structure",
+      "modalTitleModification": "Modification d’une structure",
+      "modalTitleOverview": "Aperçu d’une structure",
+      "form": {
+        "abbreviation": "Abréviation",
+        "abbreviationPlaceholder": "Ex. : DAF",
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Direction administrative et financière",
+        "parent": "Structure parente",
+        "parentPlaceholder": "Sélectionner une structure parente"
+      },
+      "table": {
+        "abbreviation": "Abréviation",
+        "name": "Nom",
+        "parent": "Structure parente"
+      }
+    },
+
+     "region": {
+      "pageTitle": "Paramètres - regions",
+      "breadTitle": "Regions",
+      "breadActive": "Regions",
+      "btnAdd": "Nouvelle region",
+      "modalTitleCreation": "Création d’une region",
+      "modalTitleModification": "Modification d’une region",
+      "modalTitleOverview": "Aperçu d’une region",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Ex. : Brakna",
+        "latitude": "Latitude",
+        "latitudePlaceholder": "Ex. : 20.948586",
+        "longitude": "Longitude",
+        "longitudePlaceholder": "Ex. : -17.039199"
+      },
+      "table": {
+        "name": "Nom",
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+        "description": "Description"
+      }
+    },
+
+    "user": {
+      "pageTitle": "Paramètres - Utilisateurs",
+      "breadTitle": "Utilisateurs",
+      "breadActive": "Utilisateurs",
+      "btnAdd": "Nouvel utilisateur",
+      "modalTitleCreation": "Enregistrement de nouvel utilisateur",
+      "modalTitleModification": "Modification d'un utilisateur",
+      "modalTitleOverview": "Aperçu d'un utilisateur",
+      "form": {
+        "name": "Nom",
+        "namePlaceholder": "Nom complet",
+        "phone": "Téléphone",
+        "phonePlaceholder": "Numéro de téléphone",
+        "email": "Email",
+        "emailPlaceholder": "Adresse email",
+        "lang": "Langue",
+        "langPlaceholder": "Langue préférée",
+        "password": "Mot de passe",
+        "passwordPlaceholder": "Entrez le mot de passe",
+        "passwordConfirmation": "Confirmation du mot de passe",
+        "passwordConfirmationPlaceholder": "Confirmez le mot de passe"
+      },
+      "table": {
+        "name": "Nom",
+        "phone": "Téléphone",
+        "email": "Email",
+        "lang": "Langue"
+      }
+    }
+  },
+  "notAuthorized": {
+    "pageTitle": "404 - Accès non autorisé",
+    "title": "Accès non autorisé",
+    "code": "403",
+    "description": "Oups ! Vous n'avez pas la permission d'accéder à cette page.",
+    "btnBack": "Retour",
+    "btnHome": "Accueil"
+  },
+  "notFound": {
+    "pageTitle": "404 - Page non trouvée",
+    "title": "Page non trouvée",
+    "code": "404",
+    "description": "Oups ! La page que vous recherchez est introuvable.",
+    "btnBack": "Retour",
+    "btnHome": "Accueil"
+  },
+  "login": {
+    "pageTitle": "Connexion",
+    "title": "Connexion",
+    "subtitle": "Entrez votre email et votre mot de passe pour vous connecter !",
+    "form": {
+      "email": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "forgotPasswordLink": "Mot de passe oublié ?",
+      "btnSubmit": "Connexion"
+    },
+    "failed": "Une erreur s'est produite lors de la connexion. Veuillez vérifier vos identifiants et réessayer."
+  },
+  "forgotPassword": {
+    "pageTitle": "Mot de passe oublié",
+    "title": "Mot de passe oublié",
+    "subtitle": "Saisissez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+    "form": {
+      "email": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "btnSubmit": "Envoyer le lien",
+      "backToLogin": "Retour à la connexion"
+    },
+    "failed": "Une erreur s'est produite lors du traitement. Veuillez réessayer plus tard."
+  },
+  "resetPassword": {
+    "pageTitle": "Réinitialiser le mot de passe",
+    "title": "Réinitialiser le mot de passe",
+    "subtitle": "Veuillez définir votre nouveau mot de passe ci-dessous.",
+    "form": {
+      "email": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "password": "Nouveau mot de passe",
+      "passwordPlaceholder": "Entrez votre nouveau mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe",
+      "btnSubmit": "Réinitialiser",
+      "backToLogin": "Retour à la connexion"
+    }
+  },
+  "profile": {
+    "pageTitle": "Mon profil",
+    "breadTitle": "Mon profil",
+    "breadActive": "Mise à jour de mon profil",
+    "sections": {
+      "personalInformation": "Informations personnelles",
+      "professionalInformation": "Informations professionnelles",
+      "security": "Sécurité"
+    },
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Entrez le nom",
+      "email": "Email",
+      "emailPlaceholder": "Entrez l'email",
+      "phone": "Téléphone",
+      "phonePlaceholder": "Entrez le téléphone",
+      "lang": "Langue",
+      "langPlaceholder": "Choisissez la langue",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez le mot de passe",
+      "passwordConfirm": "Confirmation du mot de passe",
+      "passwordConfirmPlaceholder": "Confirmez le mot de passe",
+      "jobTitle": "Poste",
+      "jobTitlePlaceholder": "Entrez le poste",
+      "floor": "Étage",
+      "floorPlaceholder": "Entrez le numéro de l'étage",
+      "office": "Bureau",
+      "officePlaceholder": "Entrez le numéro de bureau",
+      "structure": "Structure",
+      "structurePlaceholder": "Structure assignée"
+    }
+  }
+}
