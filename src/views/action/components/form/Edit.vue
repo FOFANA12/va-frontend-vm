@@ -140,52 +140,6 @@
             />
           </div>
 
-          <!-- Contract type -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <SingleSelect
-              id="contractType"
-              name="contract_type"
-              :label="t('action.form.contractType')"
-              v-model="form.contract_type"
-              @update:modelValue="onChangeContractType"
-              :options="store.contractTypes"
-              :placeholder="t('action.form.contractTypePlaceholder')"
-              :error="form.errors.get('contract_type')"
-              :control-class="'px-3 py-2.5'"
-              :dropdown-class="'max-h-60'"
-              :option-class="'text-sm'"
-              :empty-message="t('common.select.noResults')"
-              :search-placeholder="t('common.select.searchPlaceholder')"
-              clearable
-              filterable
-              value-key="uuid"
-              label-key="name"
-              required
-            />
-          </div>
-
-          <!-- Procurement mode -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <SingleSelect
-              id="procurement_mode"
-              name="procurement_mode"
-              v-model="form.procurement_mode"
-              :label="t('action.form.procurementMode')"
-              :options="procurementModesFiltered"
-              :placeholder="t('action.form.procurementModePlaceholder')"
-              :error="form.errors.get('procurement_mode')"
-              :control-class="'px-3 py-2.5'"
-              :dropdown-class="'max-h-60'"
-              :option-class="'text-sm'"
-              :empty-message="t('common.select.noResults')"
-              :search-placeholder="t('common.select.searchPlaceholder')"
-              clearable
-              filterable
-              value-key="uuid"
-              label-key="name"
-              required
-            />
-          </div>
 
           <!-- Priority level -->
           <div class="col-span-12 md:col-span-6 lg:col-span-4">

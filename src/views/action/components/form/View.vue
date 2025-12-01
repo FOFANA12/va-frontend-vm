@@ -106,28 +106,6 @@
             />
           </div>
 
-          <!-- Contract type -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <InputReadonly
-              id="contract_type"
-              name="contract_type"
-              :label="t('action.form.contractType')"
-              :placeholder="t('action.form.contractTypePlaceholder')"
-              :modelValue="form.contract_type"
-            />
-          </div>
-
-          <!-- Procurement mode -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <InputReadonly
-              id="procurement_mode"
-              name="procurement_mode"
-              :label="t('action.form.procurementMode')"
-              :placeholder="t('action.form.procurementModePlaceholder')"
-              :modelValue="form.procurement_mode"
-            />
-          </div>
-
           <!-- Priority level -->
           <div class="col-span-12 md:col-span-6 lg:col-span-4">
             <InputReadonly

@@ -8,7 +8,6 @@ export const useActionStore = defineStore('action', () => {
 
   const structures = ref([]);
   const actionPlans = ref([]);
-  const contractTypes = ref([]);
   const projectOwners = ref([]);
   const delegatedProjectOwners = ref([]);
   const regions = ref([]);
@@ -38,8 +37,6 @@ export const useActionStore = defineStore('action', () => {
 
       structure: '',
       action_plan: '',
-      contract_type: '',
-      procurement_mode: '',
       project_owner: '',
       delegated_project_owner: '',
 
@@ -159,7 +156,6 @@ export const useActionStore = defineStore('action', () => {
   const requirements = async () => {
     structures.value = [];
     actionPlans.value = [];
-    contractTypes.value = [];
     projectOwners.value = [];
     delegatedProjectOwners.value = [];
     regions.value = [];
@@ -180,8 +176,7 @@ export const useActionStore = defineStore('action', () => {
     try {
       const { data } = await api.get(endpoints.action.requirements);
       structures.value = data.structures;
-      actionPlans.value = data.action_plans;
-      contractTypes.value = data.contract_types;
+      actionPlans.value = data.action_plans;;
       projectOwners.value = data.project_owners;
       delegatedProjectOwners.value = data.delegated_project_owners;
       regions.value = data.regions;
@@ -237,7 +232,6 @@ export const useActionStore = defineStore('action', () => {
     structures,
     actions,
     actionPlans,
-    contractTypes,
     projectOwners,
     delegatedProjectOwners,
     regions,
