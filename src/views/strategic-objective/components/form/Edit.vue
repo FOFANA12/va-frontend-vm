@@ -78,7 +78,7 @@
               name="lead_structure"
               v-model="form.lead_structure"
               :label="t('strategicObjective.form.leadStructure')"
-              :options="leadStructuresFiltered"
+              :options="store.leadStructures"
               :placeholder="t('strategicObjective.form.leadStructurePlaceholder')"
               :error="form.errors.get('lead_structure')"
               :control-class="'px-3 py-2.5'"
@@ -300,23 +300,6 @@ const strategicMapsFiltered = ref([]);
 const strategicElementsFiltered = ref([]);
 
 const selectedStructure = computed(() => store.structures.find((s) => s.uuid === form.structure));
-
-const leadStructuresFiltered = computed(() => {
-  if (!form.structure) return [];
-
-  const selectedStructure = store.structures.find((s) => s.uuid === form.structure);
-
-  if (!selectedStructure) return [];
-
-  switch (selectedStructure.type) {
-    case 'STATE':
-      return store.leadStructures.filter((s) => s.type === 'DEPARTMENT');
-    case 'DEPARTMENT':
-      return store.leadStructures.filter((s) => s.type === 'DIRECTION');
-    default:
-      return [];
-  }
-});
 
 const onChangeStructure = (structureUuid, isInit = false) => {
   if (!isInit) {

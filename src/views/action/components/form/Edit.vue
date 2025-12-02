@@ -101,7 +101,7 @@
               v-model="form.structure"
               @update:modelValue="onChangeStructure"
               :label="t('action.form.structure')"
-              :options="directionStructures"
+              :options="operationalStructures"
               :placeholder="t('action.form.structurePlaceholder')"
               :error="form.errors.get('structure')"
               :control-class="'px-3 py-2.5'"
@@ -799,8 +799,8 @@ const currentCurrencyCode = computed(() => {
   return store.defaultCurrency?.code || currencyStore.defaultCurrency?.code;
 });
 
-const directionStructures = computed(() => {
-  return store.structures.filter(s => s.type === 'DIRECTION');
+const operationalStructures = computed(() => {
+  return store.structures.filter(s => s.type === 'OPERATIONAL');
 });
 
 const getAncestorStructureUuids = (uuid) => {
@@ -876,7 +876,6 @@ const onChangeStructure = (structureUuid, isInit = false) => {
   }
 
   const parents = getAncestorStructureUuids(structureUuid);
-  console.log(parents);
   const allowed = [structureUuid, ...parents];
 
   actionPlansFiltered.value = store.actionPlans.filter((plan) =>

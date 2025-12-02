@@ -202,25 +202,17 @@ const modalTitle = computed(() => {
 const needsParent = computed(() => {
   const typeCode = context.value === 'create' ? form.type : form.type?.code ?? null;
 
-  return ['DEPARTMENT', 'DIRECTION'].includes(typeCode);
+  return ['STRATEGIC', 'OPERATIONAL', 'VIRTUAL'].includes(typeCode);
 });
 
 // Filter parent list based on type selection
 const filteredParents = computed(() => {
   if (!requirements.value.structures.length) return [];
 
-  const typeCode = context.value === 'create' ? form.type : form.type?.code ?? null;
+  // Si le type n’a pas besoin d’un parent, liste vide
+  if (!needsParent.value) return [];
 
-  if (!typeCode) return [];
-
-  switch (typeCode) {
-    case 'DEPARTMENT':
-      return requirements.value.structures.filter((s) => s.type === 'STATE');
-    case 'DIRECTION':
-      return requirements.value.structures.filter((s) => s.type === 'DEPARTMENT');
-    default:
-      return [];
-  }
+  return requirements.value.structures;
 });
 
 const closeModal = () => {
