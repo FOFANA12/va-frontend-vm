@@ -231,8 +231,8 @@ const rawMenuGroups = [
     items: [
       {
         icon: Layers,
-        name: t('sidebar.programs'),
-        path: '/programs',
+        name: t('sidebar.actionDomains'),
+        path: '/action-domains',
         permission: PERMISSIONS.ACCESS_PROGRAMS,
       },
       {

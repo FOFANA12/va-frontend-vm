@@ -6,16 +6,16 @@
       :errorMessage="errorMessage"
       :onRetry="fetchWithState"
     >
-      <Breadcrumbs :breadcrumbs="breadcrumbs" :pageTitle="t('program.create.breadTitle')" />
+      <Breadcrumbs :breadcrumbs="breadcrumbs" :pageTitle="t('actionDomain.create.breadTitle')" />
 
       <form @submit.prevent="onSubmit" @keydown="form.onKeydown($event)">
         <div class="flex justify-end mt-4 gap-4">
           <LinkButton
-            :to="{ name: 'program' }"
+            :to="{ name: 'actionDomain' }"
             variant="secondary"
             customClass="min-w-[100px] px-3 sm:px-4 text-gray-700 hover:bg-gray-400"
           >
-            {{ t('program.btnList') }}
+            {{ t('actionDomain.btnList') }}
           </LinkButton>
 
           <SubmitButton
@@ -46,13 +46,13 @@
 import { Save } from 'lucide-vue-next';
 import Form from './components/form/Edit.vue';
 
-import { useProgramStore, useAlertStore } from '@/store';
+import { useActionDomainStore, useAlertStore } from '@/store';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 
 const router = useRouter();
-const store = useProgramStore();
+const store = useActionDomainStore();
 const alertStore = useAlertStore();
 const { showSimpleAlerte } = useSwalAlerte();
 
@@ -63,8 +63,8 @@ alertStore.resetMessage();
 const breadcrumbs = [
   { title: 'sidebar.dashboard', disabled: false, to: '/' },
   { title: 'sidebar.maillage', disabled: true, to: null },
-  { title: 'sidebar.programs', disabled: false, to: { name: 'program' } },
-  { title: 'program.create.breadActive', disabled: true, to: null },
+  { title: 'sidebar.actionDomains', disabled: false, to: { name: 'actionDomain' } },
+  { title: 'actionDomain.create.breadActive', disabled: true, to: null },
 ];
 
 const {
@@ -80,7 +80,7 @@ const onSubmit = async () => {
   try {
     const result = await store.create();
     showSimpleAlerte({ icon: 'success', text: result.message });
-    router.push({ name: 'program' });
+    router.push({ name: 'actionDomain' });
   } catch (error) {
     const errors = error.errors || {};
 

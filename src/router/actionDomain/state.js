@@ -1,10 +1,10 @@
 export const programStateRoutes = (mode = 'edit') => {
-  const pageTitleKey = mode === 'show' ? 'program.view.pageTitle' : `program.${mode}.pageTitle`;
+  const pageTitleKey = mode === 'show' ? 'actionDomain.view.pageTitle' : `actionDomain.${mode}.pageTitle`;
 
   return [
     {
       path: 'states',
-      name: `program-${mode}-state`,
+      name: `actionDomain-${mode}-state`,
       component: () => import('@/views/program-state/ListPage.vue'),
       meta: { auth: true, title: pageTitleKey },
     },

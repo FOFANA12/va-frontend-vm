@@ -55,13 +55,13 @@
 </template>
 
 <script setup>
-import { useProgramStatusStore,  useProgramStore} from '@/store';
+import { useProgramStatusStore,  useActionDomainStore} from '@/store';
 const programStatusStore = useProgramStatusStore();
-const programStore = useProgramStore();
+const programStore = useActionDomainStore();
 const requirements = ref({ statuses: [] });
 
 const emit = defineEmits(['success']);
-const context = 'program';
+const context = 'actionDomain';
 const isModalOpen = ref(false);
 const currentProgramId = ref(null);
 

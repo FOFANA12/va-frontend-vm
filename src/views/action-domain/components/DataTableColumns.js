@@ -33,32 +33,32 @@ export function getColumns({ t, onEdit, onDelete, onView, formatCurrency, format
     }),
 
     columnHelper.accessor('reference', {
-      header: () => t('program.table.reference'),
+      header: () => t('actionDomain.table.reference'),
       cell: (info) => info.getValue(),
     }),
 
     columnHelper.accessor('name', {
-      header: () => t('program.table.name'),
+      header: () => t('actionDomain.table.name'),
       cell: (info) => info.getValue(),
     }),
 
     columnHelper.accessor('start_date', {
-      header: () => t('program.table.startDate'),
+      header: () => t('actionDomain.table.startDate'),
       cell: (info) => info.getValue(),
     }),
 
     columnHelper.accessor('end_date', {
-      header: () => t('program.table.endDate'),
+      header: () => t('actionDomain.table.endDate'),
       cell: (info) => info.getValue(),
     }),
 
     columnHelper.accessor('responsible', {
-      header: () => t('program.table.responsible'),
+      header: () => t('actionDomain.table.responsible'),
       cell: (info) => info.getValue(),
     }),
 
     columnHelper.accessor('budget', {
-      header: () => t('program.table.budget'),
+      header: () => t('actionDomain.table.budget'),
       cell: (info) => {
         const row = info.row.original;
         const amount = info.getValue();

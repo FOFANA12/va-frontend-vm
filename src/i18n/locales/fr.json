@@ -79,9 +79,9 @@
         "label": "Statut de l'objectif",
         "placeholder": "Sélectionner un statut"
       },
-      "program": {
-        "modalTitle": "Modifier le statut du programme",
-        "label": "Statut du programme",
+      "actionDomain": {
+        "modalTitle": "Modifier le statut de domaine d'action",
+        "label": "Statut de domaine d'action",
         "placeholder": "Sélectionner un statut"
       },
       "project": {
@@ -96,9 +96,9 @@
       }
     },
     "entityState": {
-      "program": {
-        "modalTitle": "Modifier état du programme",
-        "label": "Etat du programme",
+      "actionDomain": {
+        "modalTitle": "Modifier état de domaine d'action",
+        "label": "Etat de domaine d'action",
         "placeholder": "Sélectionner un état"
       },
       "project": {
@@ -176,7 +176,7 @@
     "actionFundReceipts": "Encaissements",
     "logActivities": "Logs d'activité",
     "reports": "Reporting",
-    "programs": "Prorammes",
+    "actionDomains": "Domaines d'actions",
     "projects": "Projets",
     "activities": "Activités",
     "strategicManagement": "Pilotage stratégique",
@@ -527,7 +527,7 @@
       "type": "Type de structure"
     }
   },
-  "program": {
+  "actionDomain": {
     "sections": {
       "descriptiveCharacteristics": "Caractéristiques descriptives",
       "beneficiaryInformation": "Bénéficiaires",
@@ -536,7 +536,7 @@
       "stateDetail": "Détails de l'état"
     },
     "tabs": {
-      "detail": "Détails programme",
+      "detail": "Détails de domaine d'action",
       "status": "Statut",
       "state": "Etat",
       "attachment": "Fichiers"
@@ -557,28 +557,28 @@
       "searchPlaceholder": "Rechercher une source de financement"
     },
     "list": {
-      "pageTitle": "Gestion des programmes",
-      "breadTitle": "Gestion des programmes",
-      "breadActive": "Liste des programmes"
+      "pageTitle": "Gestion des domaines d'action",
+      "breadTitle": "Gestion des domaines d'action",
+      "breadActive": "Liste des domaines d'action"
     },
     "create": {
-      "pageTitle": "Gestion des programmes - Création",
-      "breadTitle": "Gestion des programmes",
-      "breadActive": "Ajout d'un nouveau programme"
+      "pageTitle": "Gestion des domaines d'action - Création",
+      "breadTitle": "Gestion des domaines d'action",
+      "breadActive": "Ajout d'un nouveau domaine d'action"
     },
     "edit": {
-      "pageTitle": "Gestion des programmes - Modification",
-      "breadTitle": "Gestion des programmes",
-      "breadActive": "Modification d'un programme"
+      "pageTitle": "Gestion des domaines d'action - Modification",
+      "breadTitle": "Gestion des domaines d'action",
+      "breadActive": "Modification d'un domaine d'action"
     },
     "view": {
-      "pageTitle": "Gestion des programmes - Aperçu",
-      "breadTitle": "Gestion des programmes",
-      "breadActive": "Aperçu d'un programme"
+      "pageTitle": "Gestion des domaines d'action - Aperçu",
+      "breadTitle": "Gestion des domaines d'action",
+      "breadActive": "Aperçu d'un domaine d'action"
     },
-    "btnAdd": "Nouveau  programme",
+    "btnAdd": "Nouveau  domaine d'action",
     "btnCreate": "Créer",
-    "btnList": "Liste des programmes",
+    "btnList": "Liste des domaines d'action",
     "form": {
       "reference": "Référence",
       "referencePlaceholder": "Ex. : PRG-XXXX",
@@ -693,8 +693,8 @@
       "currencyPlaceholder": "Entrez le dévise",
       "responsible": "Responsable",
       "responsiblePlaceholder": "Sélectionner le responsable",
-      "program": "Programme",
-      "programPlaceholder": "Sélectionner le programme",
+      "actionDomain": "Domaine d'action",
+      "actionDomainPlaceholder": "Sélectionner le domaine d'action",
       "description": "Description",
       "descriptionPlaceholder": "Entrez la description",
       "prerequisites": "Conditions préalables",
@@ -711,7 +711,7 @@
       "endDate": "Date de fin",
       "budget": "Budget",
       "responsible": "Responsable",
-      "program": "Programme"
+      "actionDomain": "Domaine d'action"
     }
   },
   "projectStatus": {
@@ -1294,8 +1294,8 @@
       "projectOwnerPlaceholder": "Sélectionnez un maître d'ouvrage",
       "delegatedProjectOwner": "Maître d'ouvrage délégué",
       "delegatedProjectOwnerPlaceholder": "Sélectionnez un maître d'ouvrage délégué",
-      "program": "Programme",
-      "programPlaceholder": "Sélectionnez un programme",
+      "actionDomain": "Domaine d'action",
+      "actionDomainPlaceholder": "Sélectionnez un domaine d'action",
       "project": "Projet",
       "projectPlaceholder": "Sélectionnez un projet",
       "activity": "Activité",

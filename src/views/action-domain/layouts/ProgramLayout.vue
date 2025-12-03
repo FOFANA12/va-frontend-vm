@@ -13,46 +13,46 @@
       <Tabs class="mt-4">
         <Tab
           :to="{
-            name: isEdit ? 'program-edit' : 'program-show',
+            name: isEdit ? 'actionDomain-edit' : 'actionDomain-show',
             params: { id: route.params.id },
           }"
           :icon="isEdit ? SquarePen : Eye"
           exact
         >
-          {{ t('program.tabs.detail') }}
+          {{ t('actionDomain.tabs.detail') }}
         </Tab>
 
         <Tab
           :to="{
-            name: isEdit ? 'program-edit-status' : 'program-show-status',
+            name: isEdit ? 'actionDomain-edit-status' : 'actionDomain-show-status',
             params: { id: route.params.id },
           }"
           :icon="Activity"
-          :match-pattern="/^program-(edit|show)-status/"
+          :match-pattern="/^actionDomain-(edit|show)-status/"
         >
-          {{ t('program.tabs.status') }}
+          {{ t('actionDomain.tabs.status') }}
         </Tab>
 
         <Tab
           :to="{
-            name: isEdit ? 'program-edit-state' : 'program-show-state',
+            name: isEdit ? 'actionDomain-edit-state' : 'actionDomain-show-state',
             params: { id: route.params.id },
           }"
           :icon="TrendingUp"
-          :match-pattern="/^program-(edit|show)-state/"
+          :match-pattern="/^actionDomain-(edit|show)-state/"
         >
-          {{ t('program.tabs.state') }}
+          {{ t('actionDomain.tabs.state') }}
         </Tab>
 
         <Tab
           :to="{
-            name: isEdit ? 'program-edit-attachment' : 'program-show-attachment',
+            name: isEdit ? 'actionDomain-edit-attachment' : 'actionDomain-show-attachment',
             params: { id: route.params.id },
           }"
           :icon="Paperclip"
-          :match-pattern="/^program-(edit|show)-attachment/"
+          :match-pattern="/^actionDomain-(edit|show)-attachment/"
         >
-          {{ t('program.tabs.attachment') }}
+          {{ t('actionDomain.tabs.attachment') }}
         </Tab>
       </Tabs>
 
@@ -67,28 +67,28 @@ import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import Tabs from '@/components/ui/Tabs.vue';
 import Tab from '@/components/ui/Tab.vue';
 
-import { useProgramStore } from '@/store';
+import { useActionDomainStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import { Activity, Eye, Paperclip, SquarePen, TrendingUp } from 'lucide-vue-next';
 
 const { t } = useI18n();
 const route = useRoute();
-const store = useProgramStore();
+const store = useActionDomainStore();
 
 const isEdit = computed(() => route.name?.includes('edit'));
 const mode = computed(() => (isEdit.value ? 'edit' : 'view'));
 const previousMode = ref(mode.value);
 
 const pageTitle = computed(() =>
-  isEdit.value ? t('program.edit.breadTitle') : t('program.view.breadTitle')
+  isEdit.value ? t('actionDomain.edit.breadTitle') : t('actionDomain.view.breadTitle')
 );
 
 const breadcrumbs = computed(() => [
   { title: 'sidebar.dashboard', disabled: false, to: '/' },
   { title: 'sidebar.maillage', disabled: true, to: null },
-  { title: 'sidebar.programs', disabled: false, to: { name: 'program' } },
+  { title: 'sidebar.actionDomains', disabled: false, to: { name: 'actionDomain' } },
   {
-    title: isEdit.value ? 'program.edit.breadActive' : 'program.view.breadActive',
+    title: isEdit.value ? 'actionDomain.edit.breadActive' : 'actionDomain.view.breadActive',
     disabled: true,
     to: null,
   },

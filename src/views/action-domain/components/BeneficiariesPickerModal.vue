@@ -1,7 +1,7 @@
 <template>
   <CustomModal size="lg" :isModalOpen="isModalOpen" @update:isModalOpen="closeModal">
     <template #title>
-      <h2 class="text-md font-semibold">{{ t('program.beneficiaries.modalTitle') }}</h2>
+      <h2 class="text-md font-semibold">{{ t('actionDomain.beneficiaries.modalTitle') }}</h2>
     </template>
 
     <template #body>
@@ -23,7 +23,7 @@
                   />
                 </th>
                 <th class="text-left p-2 border">
-                  {{ t('program.beneficiaries.name') }}
+                  {{ t('actionDomain.beneficiaries.name') }}
                 </th>
               </tr>
             </thead>
@@ -91,17 +91,17 @@
         @click="confirmSelection"
         :disabled="selectedBeneficiaries.length === 0"
       >
-        {{ t('program.beneficiaries.btnValidate') }}
+        {{ t('actionDomain.beneficiaries.btnValidate') }}
       </button>
     </template>
   </CustomModal>
 </template>
 
 <script setup>
-import { useProgramStore } from '@/store';
+import { useActionDomainStore } from '@/store';
 
 const { t } = useI18n();
-const store = useProgramStore();
+const store = useActionDomainStore();
 
 const isModalOpen = ref(false);
 const localSearch = ref('');

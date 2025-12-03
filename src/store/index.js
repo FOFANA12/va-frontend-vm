@@ -9,7 +9,7 @@ export * from './contract';
 export * from './supplierEvaluation';
 export * from './structure';
 
-export * from './program';
+export * from './actionDomain'
 export * from './programStatus';
 export * from './programState';
 

@@ -3,8 +3,8 @@ import { endpoints } from '@/api/endpoints';
 import api from '@/api/axios';
 import Form from 'vform';
 
-export const useProgramStore = defineStore('program', () => {
-  const programs = ref([]);
+export const useActionDomainStore = defineStore('actionDomain', () => {
+  const actionDomains = ref([]);
   const responsibles = ref([]);
   const beneficiaries = ref([]);
   const fundingSources = ref([]);
@@ -53,7 +53,7 @@ export const useProgramStore = defineStore('program', () => {
     sortOrder = serverParams.sortOrder,
     searchTerm = serverParams.searchTerm,
   } = {}) => {
-    programs.value = [];
+    actionDomains.value = [];
 
     Object.assign(serverParams, { pageIndex, pageSize, sortBy, sortOrder, searchTerm });
 
@@ -65,19 +65,19 @@ export const useProgramStore = defineStore('program', () => {
       searchTerm,
     };
 
-    const { data } = await api.get(endpoints.program.getAll, { params });
-    programs.value = data.data;
+    const { data } = await api.get(endpoints.actionDomain.getAll, { params });
+    actionDomains.value = data.data;
     meta.value = data.meta;
   };
 
   const find = async (id, mode = 'edit') => {
     try {
-      const response = await api.get(endpoints.program.find(id, mode));
-      Object.assign(form.value, response.data.program);
+      const response = await api.get(endpoints.actionDomain.find(id, mode));
+      Object.assign(form.value, response.data.action_domain);
       return response.data;
     } catch (error) {
       if (error?.response?.data) throw error.response.data;
-      throw { message: 'Unable to fetch program.' };
+      throw { message: 'Unable to fetch action domain.' };
     }
   };
 
@@ -85,12 +85,12 @@ export const useProgramStore = defineStore('program', () => {
     form.value.clear();
     form.value.busy = true;
     try {
-      const response = await api.post(endpoints.program.create, form.value.data());
+      const response = await api.post(endpoints.actionDomain.create, form.value.data());
       return response.data;
     } catch (error) {
       form.value.errors.set(error.response?.data?.errors || {});
       if (error?.response?.data) throw error.response.data;
-      throw { message: 'Failed to create program.' };
+      throw { message: 'Failed to create action domain.' };
     } finally {
       form.value.busy = false;
     }
@@ -100,15 +100,15 @@ export const useProgramStore = defineStore('program', () => {
     form.value.clear();
     form.value.busy = true;
     try {
-      const response = await api.put(endpoints.program.update(id), form.value.data());
+      const response = await api.put(endpoints.actionDomain.update(id), form.value.data());
       resetForm();
-      Object.assign(form.value, response.data.program);
+      Object.assign(form.value, response.data.action_domain);
 
       return response.data;
     } catch (error) {
       form.value.errors.set(error.response?.data?.errors || {});
       if (error?.response?.data) throw error.response.data;
-      throw { message: 'Failed to update program.' };
+      throw { message: 'Failed to update action domain.' };
     } finally {
       form.value.busy = false;
     }
@@ -116,11 +116,11 @@ export const useProgramStore = defineStore('program', () => {
 
   const destroy = async (ids) => {
     try {
-      const response = await api.post(endpoints.program.destroy, { ids });
+      const response = await api.post(endpoints.actionDomain.destroy, { ids });
       return response.data;
     } catch (error) {
       if (error?.response?.data) throw error.response.data;
-      throw { message: 'Failed to delete program.' };
+      throw { message: 'Failed to delete action domain.' };
     }
   };
 
@@ -131,7 +131,7 @@ export const useProgramStore = defineStore('program', () => {
     defaultCurrency.value = null;
 
     try {
-      const { data } = await api.get(endpoints.program.requirements);
+      const { data } = await api.get(endpoints.actionDomain.requirements);
       responsibles.value = data.responsibles;
       beneficiaries.value = data.beneficiaries;
       fundingSources.value = data.funding_sources;
@@ -169,7 +169,7 @@ export const useProgramStore = defineStore('program', () => {
   };
 
   return {
-    programs,
+    actionDomains,
     defaultCurrency,
     responsibles,
     beneficiaries,

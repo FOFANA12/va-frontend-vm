@@ -7,7 +7,7 @@
       :onRetry="fetchWithState"
     >
       <!-- Breadcrumbs -->
-      <Breadcrumbs :breadcrumbs="breadcrumbs" :pageTitle="t('program.list.breadTitle')" />
+      <Breadcrumbs :breadcrumbs="breadcrumbs" :pageTitle="t('actionDomain.list.breadTitle')" />
 
       <!-- Action buttons -->
       <div class="flex justify-end mt-4 mb-4 gap-4">
@@ -23,12 +23,12 @@
 
         <LinkButton
           v-if="hasPermission(PERMISSIONS.CREATE_PROGRAM)"
-          :to="{ name: 'program-create' }"
+          :to="{ name: 'actionDomain-create' }"
           :icon="Plus"
           variant="primary"
           customClass="sm:px-4"
         >
-          {{ t('program.btnAdd') }}
+          {{ t('actionDomain.btnAdd') }}
         </LinkButton>
       </div>
 
@@ -45,7 +45,7 @@
       <!-- DataTable -->
       <DataTable
         :columns="columns"
-        :data="store.programs"
+        :data="store.actionDomains"
         :meta="store.meta"
         @pagination-change="onPageChange"
         @sorting-change="onSortChange"
@@ -61,7 +61,7 @@ import { Plus, Trash } from 'lucide-vue-next';
 
 import { useCurrencyFormatter } from '@/composables/useCurrencyFormatter';
 import { useThousandSeparator } from '@/composables/useThousandSeparator';
-import { useProgramStore } from '@/store';
+import { useActionDomainStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import { useDatatable } from '@/composables/useDatatable';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
@@ -76,7 +76,7 @@ const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const router = useRouter();
-const store = useProgramStore();
+const store = useActionDomainStore();
 const { formatCurrency } = useCurrencyFormatter();
 const { formatNumber } = useThousandSeparator();
 
@@ -88,15 +88,15 @@ const breadcrumbs = [
   },
   { title: 'sidebar.maillage', disabled: true, to: null },
   {
-    title: 'sidebar.programs',
+    title: 'sidebar.actionDomains',
     disabled: true,
     to: null,
   },
   {
-    title: 'program.list.breadActive',
+    title: 'actionDomain.list.breadActive',
     disabled: true,
     to: {
-      name: 'program',
+      name: 'actionDomain',
     },
   },
 ];
@@ -119,8 +119,8 @@ const { isLoading, hasError, errorMessage, fetchData: fetchWithState } = usePage
 
 const columns = getColumns({
   t,
-  onView: (id) => router.push({ name: 'program-show', params: { id } }),
-  onEdit: (id) => router.push({ name: 'program-edit', params: { id } }),
+  onView: (id) => router.push({ name: 'actionDomain-show', params: { id } }),
+  onEdit: (id) => router.push({ name: 'actionDomain-edit', params: { id } }),
   onDelete: (ids) => deleteRows(ids),
   formatCurrency,
   formatNumber,

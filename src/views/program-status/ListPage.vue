@@ -8,11 +8,11 @@
     <!-- Action buttons -->
     <div class="flex justify-end mt-4 mb-6 gap-4">
       <LinkButton
-        :to="{ name: 'program' }"
+        :to="{ name: 'actionDomain' }"
         variant="secondary"
         customClass="min-w-[100px] px-3 sm:px-3 text-gray-700 hover:bg-gray-400"
       >
-        {{ t('program.btnList') }}
+        {{ t('actionDomain.btnList') }}
       </LinkButton>
 
       <Button :icon="Plus" variant="primary" customClass="sm:px-4" @click="openStatusModal">
@@ -81,7 +81,7 @@
   
   <script setup>
 import { Plus, Trash, TrashIcon } from 'lucide-vue-next';
-import { useProgramStatusStore, useProgramStore } from '@/store';
+import { useProgramStatusStore, useActionDomainStore } from '@/store';
 import StatusBadge from '@/components/ui/StatusBadge.vue';
 
 import { usePageState } from '@/composables/usePageState';
@@ -93,7 +93,7 @@ import StatusModal from './components/StatusModal.vue';
 const { t } = useI18n();
 const route = useRoute();
 const programStatusStore = useProgramStatusStore();
-const programStore = useProgramStore();
+const programStore = useActionDomainStore();
 const { showConfirm, showSimpleAlerte, showErrorModal } = useSwalAlerte();
 const statusModal = ref(null);
 

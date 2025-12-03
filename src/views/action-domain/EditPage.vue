@@ -2,15 +2,15 @@
   <form @submit.prevent="onSubmit" @keydown="form.onKeydown($event)">
     <div class="flex justify-end mt-4 gap-4">
       <LinkButton
-        :to="{ name: 'program' }"
+        :to="{ name: 'actionDomain' }"
         variant="secondary"
         customClass="min-w-[100px] px-3 sm:px-3 text-gray-700 hover:bg-gray-400"
       >
-        {{ t('program.btnList') }}
+        {{ t('actionDomain.btnList') }}
       </LinkButton>
 
       <LinkButton
-        :to="{ name: 'program-show', params: { id: route.params.id } }"
+        :to="{ name: 'actionDomain-show', params: { id: route.params.id } }"
         variant="primary"
         class="min-w-[100px]"
       >
@@ -44,11 +44,11 @@
 import { Eye, Save } from 'lucide-vue-next';
 import Form from './components/form/Edit.vue';
 
-import { useProgramStore, useAlertStore } from '@/store';
+import { useActionDomainStore, useAlertStore } from '@/store';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 
 const route = useRoute();
-const store = useProgramStore();
+const store = useActionDomainStore();
 const alertStore = useAlertStore();
 const { showSimpleAlerte } = useSwalAlerte();
 const form = store.form;

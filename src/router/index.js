@@ -16,9 +16,10 @@ import ActionFundDisbursementRoutes from './actionFundDisbursement';
 import LogActivityRoutes from './logActivity';
 import SettingsRoutes from './settings';
 import StructureRoutes from './structure';
-import ProgramRoutes from './program';
+// import ProgramRoutes from './program';
 import ProjectRoutes from './project';
 import ActivityRoutes from './activity';
+import actionDomainRoutes from './actionDomain';
 
 const routes = [
   {
@@ -37,7 +38,8 @@ const routes = [
   ...EmployeeRoutes,
   ...SupplierRoutes,
   ...StructureRoutes,
-  ...ProgramRoutes,
+  // ...ProgramRoutes,
+  ...actionDomainRoutes,
   ...ProjectRoutes,
   ...ActivityRoutes,
   ...StrategicMapRoutes,

@@ -55,9 +55,9 @@
 </template>
 
 <script setup>
-import { useProgramStateStore,  useProgramStore} from '@/store';
+import { useProgramStateStore,  useActionDomainStore} from '@/store';
 const programStateStore = useProgramStateStore();
-const programStore = useProgramStore();
+const programStore = useActionDomainStore();
 const requirements = ref({ statuses: [] });
 
 const emit = defineEmits(['success']);

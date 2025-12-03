@@ -2,7 +2,7 @@
 import ListPage from '@/views/attachment/ListPage.vue';
 
 const route = useRoute();
-const attachableType = 'programs';
+const attachableType = 'action_domains';
 const attachableId = route.params.id;
 </script>
 
@@ -14,11 +14,11 @@ const attachableId = route.params.id;
   >
     <template #return-list-btn>
       <LinkButton
-        :to="{ name: 'program' }"
+        :to="{ name: 'actionDomain' }"
         variant="secondary"
         customClass="min-w-[100px] px-3 text-gray-700 hover:bg-gray-400"
       >
-        {{ t('program.btnList') }}
+        {{ t('actionDomain.btnList') }}
       </LinkButton>
     </template>
   </ListPage>

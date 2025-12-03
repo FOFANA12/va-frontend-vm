@@ -3,7 +3,7 @@
     <div class="w-full mx-auto bg-white rounded-lg" v-if="context !== 'create'">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
-          {{ t('program.sections.statusDetail') }}
+          {{ t('actionDomain.sections.statusDetail') }}
         </h2>
         <hr class="border-t border-gray-200 w-full mb-0" />
       </div>
@@ -45,7 +45,7 @@
     <div class="w-full mx-auto bg-white rounded-lg mt-6" v-if="context !== 'create'">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
-          {{ t('program.sections.stateDetail') }}
+          {{ t('actionDomain.sections.stateDetail') }}
         </h2>
         <hr class="border-t border-gray-200 w-full mb-0" />
       </div>
@@ -92,8 +92,8 @@
             <InputReadonly
               id="reference"
               name="reference"
-              :label="t('program.form.reference')"
-              :placeholder="t('program.form.referencePlaceholder')"
+              :label="t('actionDomain.form.reference')"
+              :placeholder="t('actionDomain.form.referencePlaceholder')"
               :modelValue="form.reference"
               readonly
             />
@@ -104,9 +104,9 @@
             <Input
               id="name"
               name="name"
-              :label="t('program.form.name')"
+              :label="t('actionDomain.form.name')"
               v-model="form.name"
-              :placeholder="t('program.form.namePlaceholder')"
+              :placeholder="t('actionDomain.form.namePlaceholder')"
               :error="form.errors.get('name')"
               :form="form"
               required
@@ -119,8 +119,8 @@
               id="start_date"
               name="start_date"
               v-model="form.start_date"
-              :label="t('program.form.startDate')"
-              :placeholder="t('program.form.startDatePlaceholder')"
+              :label="t('actionDomain.form.startDate')"
+              :placeholder="t('actionDomain.form.startDatePlaceholder')"
               :error="form.errors.get('start_date')"
               required
             />
@@ -132,8 +132,8 @@
               id="end_date"
               name="end_date"
               v-model="form.end_date"
-              :label="t('program.form.endDate')"
-              :placeholder="t('program.form.endDatePlaceholder')"
+              :label="t('actionDomain.form.endDate')"
+              :placeholder="t('actionDomain.form.endDatePlaceholder')"
               :error="form.errors.get('end_date')"
               required
             />
@@ -144,8 +144,8 @@
             <InputReadonly
               id="currency"
               name="currency"
-              :label="t('program.form.currency')"
-              :placeholder="t('program.form.currencyPlaceholder')"
+              :label="t('actionDomain.form.currency')"
+              :placeholder="t('actionDomain.form.currencyPlaceholder')"
               :modelValue="form.currency"
             />
           </div>
@@ -156,9 +156,9 @@
               id="responsible"
               name="responsible"
               v-model="form.responsible"
-              :label="t('program.form.responsible')"
+              :label="t('actionDomain.form.responsible')"
               :options="store.responsibles"
-              :placeholder="t('program.form.responsiblePlaceholder')"
+              :placeholder="t('actionDomain.form.responsiblePlaceholder')"
               :error="form.errors.get('responsible')"
               :control-class="'px-3 py-2.5'"
               :dropdown-class="'max-h-60'"
@@ -178,7 +178,7 @@
     <div class="w-full mx-auto bg-white rounded-lg my-6">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
-          {{ t('program.sections.beneficiaryInformation') }}
+          {{ t('actionDomain.sections.beneficiaryInformation') }}
         </h2>
         <hr class="border-t border-gray-200 w-full mb-0" />
       </div>
@@ -199,7 +199,7 @@
               </div>
             </div>
             <div v-else class="text-red-500 text-sm mt-2">
-              {{ t('program.beneficiaries.noBeneficiaries') }}
+              {{ t('actionDomain.beneficiaries.noBeneficiaries') }}
             </div>
           </div>
         </div>
@@ -210,7 +210,7 @@
             class="text-sm text-primary-600 hover:underline hover:text-primary-700 font-medium"
             @click="openBeneficiaryModal"
           >
-            {{ t('program.beneficiaries.addBeneficiary') }}
+            {{ t('actionDomain.beneficiaries.addBeneficiary') }}
           </button>
         </div>
       </div>
@@ -227,7 +227,7 @@
     <div class="w-full mx-auto bg-white rounded-lg my-6">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
-          {{ t('program.sections.fundingSourcesInformation') }}
+          {{ t('actionDomain.sections.fundingSourcesInformation') }}
         </h2>
         <hr class="border-t border-gray-200 w-full mb-0" />
       </div>
@@ -239,7 +239,7 @@
             mode="local"
             show-all-on-focus
             :options="store.fundingSources"
-            :placeholder="t('program.fundingSources.searchPlaceholder')"
+            :placeholder="t('actionDomain.fundingSources.searchPlaceholder')"
             @select="handleFundingSourceSelect"
             :min-chars="2"
             :max-height="300"
@@ -274,20 +274,20 @@
                 <thead class="bg-gray-50 text-gray-700 text-sm">
                   <tr>
                     <th class="p-2 border text-left w-[50%]">
-                      {{ t('program.fundingSources.name') }}
+                      {{ t('actionDomain.fundingSources.name') }}
                     </th>
                     <th class="p-2 border text-left w-[20%]">
-                      {{ t('program.fundingSources.plannedAmount') }}
+                      {{ t('actionDomain.fundingSources.plannedAmount') }}
                     </th>
                     <th class="p-2 border text-center w-[60px]">
-                      {{ t('common.table.actions') }}
+                      {{ t('actionDomain.table.actions') }}
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-if="!form.funding_sources?.length">
                     <td colspan="3" class="text-center text-red-500 py-4 border">
-                      {{ t('program.fundingSources.noFundingSources') }}
+                      {{ t('actionDomain.fundingSources.noFundingSources') }}
                     </td>
                   </tr>
                   <tr
@@ -300,7 +300,7 @@
                       <input
                         type="text"
                         v-model="source.planned_amount"
-                        :placeholder="t('program.fundingSources.plannedAmount')"
+                        :placeholder="t('actionDomain.fundingSources.plannedAmount')"
                         class="w-full py-1.5 px-3 rounded-lg text-sm text-gray-800 bg-white border focus:outline-none border-gray-300 focus:border-primary-300 focus:ring-primary-500/10"
                       />
                     </td>
@@ -321,7 +321,7 @@
                     class="font-semibold format-number bg-gray-100"
                   >
                     <td class="p-2 border text-right">
-                      {{ t('program.fundingSources.plannedBudget') }}
+                      {{ t('actionDomain.fundingSources.plannedBudget') }}
                     </td>
                     <td class="p-2 border">
                       {{ formatCurrency(totalPlannedAmount, currentCurrencyCode) }}
@@ -339,7 +339,7 @@
     <div class="w-full mx-auto bg-white rounded-lg my-6">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
-          {{ t('program.sections.descriptiveCharacteristics') }}
+          {{ t('actionDomain.sections.descriptiveCharacteristics') }}
         </h2>
         <hr class="border-t border-gray-200 w-full mb-0" />
       </div>
@@ -351,8 +351,8 @@
               id="description"
               name="description"
               v-model="form.description"
-              :label="t('program.form.description')"
-              :placeholder="t('program.form.descriptionPlaceholder')"
+              :label="t('actionDomain.form.description')"
+              :placeholder="t('actionDomain.form.descriptionPlaceholder')"
               :error="form.errors.get('description')"
               :rows="7"
             />
@@ -364,8 +364,8 @@
               id="prerequisites"
               name="prerequisites"
               v-model="form.prerequisites"
-              :label="t('program.form.prerequisites')"
-              :placeholder="t('program.form.prerequisitesPlaceholder')"
+              :label="t('actionDomain.form.prerequisites')"
+              :placeholder="t('actionDomain.form.prerequisitesPlaceholder')"
               :error="form.errors.get('prerequisites')"
               :rows="7"
             />
@@ -377,8 +377,8 @@
               id="impacts"
               name="impacts"
               v-model="form.impacts"
-              :label="t('program.form.impacts')"
-              :placeholder="t('program.form.impactsPlaceholder')"
+              :label="t('actionDomain.form.impacts')"
+              :placeholder="t('actionDomain.form.impactsPlaceholder')"
               :error="form.errors.get('impacts')"
               :rows="7"
             />
@@ -390,8 +390,8 @@
               id="risks"
               name="risks"
               v-model="form.risks"
-              :label="t('program.form.risks')"
-              :placeholder="t('program.form.risksPlaceholder')"
+              :label="t('actionDomain.form.risks')"
+              :placeholder="t('actionDomain.form.risksPlaceholder')"
               :error="form.errors.get('risks')"
               :rows="7"
             />
@@ -404,14 +404,14 @@
 </template>
   
   <script setup>
-import { useProgramStore, useSettingsCurrencyStore, useAlertStore } from '@/store';
+import { useActionDomainStore, useSettingsCurrencyStore, useAlertStore } from '@/store';
 import SearchInput from '@/components/ui/SearchInput.vue';
 import TagBadge from '../TagBadge.vue';
 import BeneficiariesPickerModal from '../BeneficiariesPickerModal.vue';
 import { useCurrencyFormatter } from '@/composables/useCurrencyFormatter';
 import { Trash2 } from 'lucide-vue-next';
 
-const store = useProgramStore();
+const store = useActionDomainStore();
 const alertStore = useAlertStore();
 
 const props = defineProps({
