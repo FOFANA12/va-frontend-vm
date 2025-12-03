@@ -1,7 +1,6 @@
-// import { programAttachmentRoutes } from './attachment';
 import { actionDomainAttachmentRoutes } from './attachment';
-import { programStatusRoutes } from './status';
-import { programStateRoutes } from './state';
+import { actionDomainStatusRoutes } from './status';
+import { actionDomainStateRoutes } from './state';
 
 export default [
   {
@@ -14,13 +13,12 @@ export default [
         component: () => import('@/views/action-domain/EditPage.vue'),
         meta: {
           auth: true,
-          title: 'program.edit.pageTitle',
+          title: 'actionDomain.edit.pageTitle',
         },
       },
-      // ...programAttachmentRoutes('edit'),
       ...actionDomainAttachmentRoutes('edit'),
-      ...programStatusRoutes('edit'),
-      ...programStateRoutes('edit'),
+      ...actionDomainStatusRoutes('edit'),
+      ...actionDomainStateRoutes('edit'),
     ],
   },
   {
@@ -36,10 +34,9 @@ export default [
           title: 'actionDomain.view.pageTitle',
         },
       },
-      // ...programAttachmentRoutes('show'),
       ...actionDomainAttachmentRoutes('show'),
-      ...programStatusRoutes('show'),
-      ...programStateRoutes('show'),
+      ...actionDomainStatusRoutes('show'),
+      ...actionDomainStateRoutes('show'),
     ],
   },
 ];

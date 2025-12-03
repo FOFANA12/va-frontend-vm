@@ -15,8 +15,8 @@
         {{ t('actionDomain.btnList') }}
       </LinkButton>
 
-      <Button :icon="Plus" variant="primary" customClass="sm:px-4" @click="openStatusModal">
-        {{ t('programStatus.btnAdd') }}
+      <Button :icon="Plus" variant="primary" customClass="sm:px-4" @click="openStateModal">
+        {{ t('actionDomainState.btnAdd') }}
       </Button>
     </div>
 
@@ -26,7 +26,7 @@
         <thead class="bg-white text-gray-700">
           <tr>
             <th class="w-2/5 px-4 py-1.5 border-b border-gray-300 text-left">
-              {{ t('programStatus.table.date') }}
+              {{ t('actionDomainState.table.date') }}
             </th>
             <th class="w-2/5 px-4 py-1.5 border-b border-gray-300 text-left">
               {{ t('common.table.status.label') }}
@@ -40,28 +40,28 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-if="!programStatusStore.statuses || programStatusStore.statuses.length === 0">
+          <tr v-if="!actionDomainStateStore.states || actionDomainStateStore.states.length === 0">
             <td colspan="4" class="bg-white text-center py-4 text-gray-500 border border-gray-100">
-              {{ t('programStatus.table.noData') }}
+              {{ t('actionDomainState.table.noData') }}
             </td>
           </tr>
           <tr
-            v-for="item in programStatusStore.statuses"
+            v-for="item in actionDomainStateStore.states"
             :key="item.uuid"
             class="bg-white hover:bg-gray-50 transition"
           >
             <td class="px-4 py-2 border-t border-gray-200">
-              {{ item.status_date }}
+              {{ item.state_date }}
             </td>
             <td class="px-4 py-2 border-t border-gray-200">
-              <StatusBadge :status="item.status" />
+              <StatusBadge :status="item.state" />
             </td>
             <td class="px-4 py-2 border-t border-gray-200">
               {{ item.author }}
             </td>
             <td class="px-4 py-2 border-t border-gray-200 text-center">
               <button
-                v-if="programStatusStore.statuses.length > 1"
+                v-if="actionDomainStateStore.states.length > 1"
                 type="button"
                 class="text-red-500 hover:text-red-700 transition"
                 @click.stop.prevent="deleteRows([item.id])"
@@ -75,27 +75,28 @@
     </div>
 
     <!-- Modal -->
-    <StatusModal ref="statusModal" @success="handleSuccess" />
+    <StateModal ref="stateModal" @success="handleSuccess" />
   </PageStateWrapper>
 </template>
   
   <script setup>
 import { Plus, Trash, TrashIcon } from 'lucide-vue-next';
-import { useProgramStatusStore, useActionDomainStore } from '@/store';
+import { useActionDomainStateStore, useActionDomainStore } from '@/store';
 import StatusBadge from '@/components/ui/StatusBadge.vue';
 
 import { usePageState } from '@/composables/usePageState';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
-import StatusModal from './components/StatusModal.vue';
+import StateModal from './components/StateModal.vue';
 
 const { t } = useI18n();
 const route = useRoute();
-const programStatusStore = useProgramStatusStore();
-const programStore = useActionDomainStore();
+const actionDomainStateStore = useActionDomainStateStore();
+const actionDomainStore = useActionDomainStore();
+
 const { showConfirm, showSimpleAlerte, showErrorModal } = useSwalAlerte();
-const statusModal = ref(null);
+const stateModal = ref(null);
 
 const {
   isLoading,
@@ -103,11 +104,11 @@ const {
   errorMessage,
   fetchData: fetchWithState,
 } = usePageState(async () => {
-  await programStatusStore.getAll(route.params.id);
+  await actionDomainStateStore.getAll(route.params.id);
 });
 
-const openStatusModal = () => {
-  statusModal.value?.openStatusModal(route.params.id);
+const openStateModal = () => {
+  stateModal.value?.openStateModal(route.params.id);
 };
 
 const handleSuccess = async (result) => {
@@ -125,12 +126,12 @@ const deleteRows = async (ids) => {
 
   if (confirm.isConfirmed) {
     try {
-      const result = await programStatusStore.destroy(ids, route.params.id);
+      const result = await actionDomainStateStore.destroy(ids, route.params.id);
       showSimpleAlerte({ icon: 'success', text: result.message });
 
-      programStore.form.status = result.status?.status ?? null;
-      programStore.form.status_changed_at = result.status?.status_date ?? null;
-      programStore.form.status_changed_by = result.status?.author ?? null;
+      actionDomainStore.form.state = result.state?.state ?? null;
+      actionDomainStore.form.state_changed_at = result.state?.state_date ?? null;
+      actionDomainStore.form.state_changed_by = result.state?.author ?? null;
 
       await fetchWithState();
     } catch (error) {

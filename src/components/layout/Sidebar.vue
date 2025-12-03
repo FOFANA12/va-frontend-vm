@@ -233,7 +233,7 @@ const rawMenuGroups = [
         icon: Layers,
         name: t('sidebar.actionDomains'),
         path: '/action-domains',
-        permission: PERMISSIONS.ACCESS_PROGRAMS,
+        permission: PERMISSIONS.ACCESS_ACTION_DOMAINS,
       },
       {
         icon: FolderCog,

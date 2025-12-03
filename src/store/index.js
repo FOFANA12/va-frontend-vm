@@ -10,8 +10,8 @@ export * from './supplierEvaluation';
 export * from './structure';
 
 export * from './actionDomain'
-export * from './programStatus';
-export * from './programState';
+export * from './actionDomainStatus';
+export * from './actionDomainState'
 
 export * from './project';
 export * from './projectStatus';

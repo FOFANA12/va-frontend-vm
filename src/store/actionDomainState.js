@@ -3,8 +3,8 @@ import { endpoints } from '@/api/endpoints';
 import api from '@/api/axios';
 import Form from 'vform';
 
-export const useProgramStatusStore = defineStore('programStatus', () => {
-  const statuses = ref([]);
+export const useActionDomainStateStore = defineStore('actionDomainState', () => {
+  const states = ref([]);
 
   const form = ref(
     new Form({
@@ -12,41 +12,41 @@ export const useProgramStatusStore = defineStore('programStatus', () => {
     })
   );
 
-  const getAll = async (programId) => {
-    statuses.value = [];
+  const getAll = async (actionDomainId) => {
+    states.value = [];
 
-    const { data } = await api.get(endpoints.programStatus.getAll(programId));
-    statuses.value = data;
+    const { data } = await api.get(endpoints.actionDomainState.getAll(actionDomainId));
+    states.value = data;
   };
 
-  const create = async (programId) => {
+  const create = async (actionDomainId) => {
     form.value.clear();
     form.value.busy = true;
     try {
-      const response = await api.post(endpoints.programStatus.create(programId), form.value.data());
+      const response = await api.post(endpoints.actionDomainState.create(actionDomainId), form.value.data());
       return response.data;
     } catch (error) {
       form.value.errors.set(error.response?.data?.errors || {});
       if (error?.response?.data) throw error.response.data;
-      throw { message: 'Failed to update program status.' };
+      throw { message: 'Failed to update action domain state.' };
     } finally {
       form.value.busy = false;
     }
   };
 
-  const destroy = async (ids, programId) => {
+  const destroy = async (ids, actionDomainId) => {
     try {
-      const response = await api.post(endpoints.programStatus.destroy(programId), { ids });
+      const response = await api.post(endpoints.actionDomainState.destroy(actionDomainId), { ids });
       return response.data;
     } catch (error) {
       if (error?.response?.data) throw error.response.data;
-      throw { message: 'Failed to delete program statuses.' };
+      throw { message: 'Failed to delete action domain states.' };
     }
   };
 
-  const requirements = async (programId) => {
+  const requirements = async (actionDomainId) => {
     try {
-      const { data } = await api.get(endpoints.programStatus.requirements(programId));
+      const { data } = await api.get(endpoints.actionDomainState.requirements(actionDomainId));
       return data;
     } catch (error) {
       throw { message: 'Failed to load requirements.' };
@@ -61,7 +61,7 @@ export const useProgramStatusStore = defineStore('programStatus', () => {
   };
 
   return {
-    statuses,
+    states,
     form,
     getAll,
     create,

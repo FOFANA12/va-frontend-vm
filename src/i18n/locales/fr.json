@@ -176,7 +176,7 @@
     "actionFundReceipts": "Encaissements",
     "logActivities": "Logs d'activité",
     "reports": "Reporting",
-    "actionDomains": "Domaines d'actions",
+    "actionDomains": "Domaines d'action",
     "projects": "Projets",
     "activities": "Activités",
     "strategicManagement": "Pilotage stratégique",
@@ -612,14 +612,14 @@
       "responsible": "Responsable"
     }
   },
-  "programStatus": {
+  "actionDomainStatus": {
     "btnAdd": "Nouveau statut",
     "table": {
       "noData": "Pas de données",
       "date": "Date"
     }
   },
-  "programState": {
+  "actionDomainState": {
     "btnAdd": "Nouvel état",
     "table": {
       "noData": "Pas de données",

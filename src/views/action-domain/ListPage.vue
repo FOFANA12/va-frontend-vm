@@ -12,7 +12,7 @@
       <!-- Action buttons -->
       <div class="flex justify-end mt-4 mb-4 gap-4">
         <Button
-          v-if="hasPermission(PERMISSIONS.DELETE_PROGRAM) && selectedRows.length > 0"
+          v-if="hasPermission(PERMISSIONS.DELETE_ACTION_DOMAIN) && selectedRows.length > 0"
           :icon="Trash"
           variant="danger-outline"
           customClass="sm:px-4"
@@ -22,7 +22,7 @@
         </Button>
 
         <LinkButton
-          v-if="hasPermission(PERMISSIONS.CREATE_PROGRAM)"
+          v-if="hasPermission(PERMISSIONS.CREATE_ACTION_DOMAIN)"
           :to="{ name: 'actionDomain-create' }"
           :icon="Plus"
           variant="primary"

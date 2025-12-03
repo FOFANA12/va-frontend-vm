@@ -55,30 +55,30 @@
 </template>
 
 <script setup>
-import { useProgramStateStore,  useActionDomainStore} from '@/store';
-const programStateStore = useProgramStateStore();
-const programStore = useActionDomainStore();
+import { useActionDomainStateStore,  useActionDomainStore} from '@/store';
+const actionDomainStateStore = useActionDomainStateStore();
+const actionDomainStore = useActionDomainStore();
 const requirements = ref({ statuses: [] });
 
 const emit = defineEmits(['success']);
-const context = 'program';
+const context = 'actionDomain';
 const isModalOpen = ref(false);
-const currentProgramId = ref(null);
+const currentActionDomainId = ref(null);
 
-const form = programStateStore.form;
+const form = actionDomainStateStore.form;
 
 const closeModal = () => {
   isModalOpen.value = false;
-  programStateStore.resetForm();
+  actionDomainStateStore.resetForm();
 };
 
 const onSubmit = async () => {
   try {
-    const result = await programStateStore.create(currentProgramId.value);
+    const result = await actionDomainStateStore.create(currentActionDomainId.value);
     
-    programStore.form.state = result.state.state;
-    programStore.form.state_changed_at = result.state.state_date;
-    programStore.form.state_changed_by = result.state.author;
+    actionDomainStore.form.state = result.state.state;
+    actionDomainStore.form.state_changed_at = result.state.state_date;
+    actionDomainStore.form.state_changed_by = result.state.author;
 
     onSuccess(result);
   } catch (error) {
@@ -96,21 +96,21 @@ const onError = (error) => {
   isModalOpen.value = true;
 };
 
-const loadRequirements = async (programId) => {
+const loadRequirements = async (actionDomainId) => {
   try {
-    const result = await programStateStore.requirements(programId);
+    const result = await actionDomainStateStore.requirements(actionDomainId);
     requirements.value = result;
   } catch (err) {
     console.error('Error loading requirements:', err);
   }
 };
 
-const openStateModal = async (programId) => {
-  currentProgramId.value = programId;
-  programStateStore.resetForm();
+const openStateModal = async (actionDomainId) => {
+  currentActionDomainId.value = actionDomainId;
+  actionDomainStateStore.resetForm();
 
   try {
-    await loadRequirements(programId);
+    await loadRequirements(actionDomainId);
     isModalOpen.value = true;
   } catch (err) {
     console.error('Failed to open modal:', err);

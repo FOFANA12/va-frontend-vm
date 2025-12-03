@@ -26,8 +26,8 @@ import decisionStatus from './decisionStatus';
 
 import structure from './structure';
 import actionDomain from './actionDomain';
-import programStatus from './programStatus';
-import programState from './programState';
+import actionDomainStatus from './actionDomainStatus';
+import actionDomainState from './actionDomainState';
 
 import project from './project';
 import projectStatus from './projectStatus';
@@ -103,8 +103,8 @@ export const endpoints = {
   contract,
   supplierEvaluation,
   actionDomain,
-  programStatus,
-  programState,
+  actionDomainStatus,
+  actionDomainState,
 
   project,
   projectStatus,
