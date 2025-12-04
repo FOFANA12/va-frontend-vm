@@ -1,13 +1,11 @@
 import currencyRoutes from './currency';
 import fundingSourceRoutes from './fundingSource';
-import procurementModeRoutes from './procurementMode';
 import projectOwnerRoutes from './projectOwner';
 import userRoutes from './user';
 import regionRoutes from './region';
 import delegatedProjectOwnerRoutes from './delegatedProjectOwner';
 import departmentRoutes from './department';
 import municipalityRoutes from './municipality';
-import contractTypeRoutes from './contractType';
 import beneficiaryRoutes from './beneficiary';
 import stakeholderRoutes from './stakeholder';
 import paymentModeRoute from './paymentMode';
@@ -21,14 +19,12 @@ import roleRoutes from './role';
 export default [
   ...currencyRoutes,
   ...fundingSourceRoutes,
-  ...procurementModeRoutes,
   ...projectOwnerRoutes,
   ...delegatedProjectOwnerRoutes,
   ...userRoutes,
   ...regionRoutes,
   ...departmentRoutes,
   ...municipalityRoutes,
-  ...contractTypeRoutes,
   ...beneficiaryRoutes,
   ...stakeholderRoutes,
   ...paymentModeRoute,

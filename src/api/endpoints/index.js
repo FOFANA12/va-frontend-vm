@@ -49,7 +49,6 @@ import logActivity from './logActivity';
 
 import currencySettings from './settings/currency';
 import fundingSourceSettings from './settings/fundingSource';
-import procurementModeSettings from './settings/procurementMode';
 import projectOwnerSettings from './settings/projectOwner';
 import delegatedProjectOwnerSettings from './settings/delegatedProjectOwner';
 import userSettings from './settings/user';
@@ -57,7 +56,6 @@ import regionSettings from './settings/region';
 import fileTypeSettings from './settings/fileType';
 import departmentSettings from './settings/department';
 import municipalitySettings from './settings/municipality';
-import contractTypeSettings from './settings/contractType';
 import expenseTypeSettings from './settings/expenseType';
 import beneficiarySettings from './settings/beneficiary';
 import stakeholderSettings from './settings/stakeholder';
@@ -118,13 +116,11 @@ export const endpoints = {
     fileType: fileTypeSettings,
     currency: currencySettings,
     fundingSource: fundingSourceSettings,
-    procurementMode: procurementModeSettings,
     region: regionSettings,
     projectOwner: projectOwnerSettings,
     delegatedProjectOwner: delegatedProjectOwnerSettings,
     department: departmentSettings,
     municipality: municipalitySettings,
-    contractType: contractTypeSettings,
     user: userSettings,
     beneficiary: beneficiarySettings,
     stakeholder: stakeholderSettings,

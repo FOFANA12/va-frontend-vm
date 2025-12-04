@@ -291,18 +291,6 @@ const rawMenuGroups = [
         permission: PERMISSIONS.ACCESS_FILE_TYPES,
       },
       {
-        icon: FileSignature,
-        name: t('sidebar.settings.contractTypes'),
-        path: '/settings/contract-types',
-        permission: PERMISSIONS.ACCESS_CONTRACT_TYPES,
-      },
-      {
-        icon: Folders,
-        name: t('sidebar.settings.procurementModes'),
-        path: '/settings/procurement-modes',
-        permission: PERMISSIONS.ACCESS_PROCUREMENT_MODES,
-      },
-      {
         icon: Users,
         name: t('sidebar.settings.projectOwners'),
         path: '/settings/project-owners',
