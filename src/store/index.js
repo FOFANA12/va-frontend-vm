@@ -9,13 +9,13 @@ export * from './contract';
 export * from './supplierEvaluation';
 export * from './structure';
 
-export * from './actionDomain'
+export * from './actionDomain';
 export * from './actionDomainStatus';
-export * from './actionDomainState'
+export * from './actionDomainState';
 
-export * from './project';
-export * from './projectStatus';
-export * from './projectState';
+export * from './strategicDomain';
+export * from './strategicDomainState';
+export * from './strategicDomainStatus';
 
 export * from './activity';
 export * from './activityStatus';

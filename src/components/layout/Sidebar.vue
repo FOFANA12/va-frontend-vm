@@ -237,9 +237,9 @@ const rawMenuGroups = [
       },
       {
         icon: FolderCog,
-        name: t('sidebar.projects'),
-        path: '/projects',
-        permission: PERMISSIONS.ACCESS_PROJECTS,
+        name: t('sidebar.strategicDomains'),
+        path: '/strategic-domains',
+        permission: PERMISSIONS.STRATEGIC_DOMAINS,
       },
       {
         icon: Activity,

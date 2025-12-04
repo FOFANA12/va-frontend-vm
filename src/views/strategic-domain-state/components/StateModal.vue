@@ -1,0 +1,121 @@
+<template>
+  <CustomModal size="md" :isModalOpen="isModalOpen" @update:isModalOpen="closeModal">
+    <template #title>
+      <h2 class="text-md font-semibold">{{ t(`common.entityState.${context}.modalTitle`) }}</h2>
+    </template>
+
+    <template #body>
+      <form @submit.prevent="onSubmit" @keydown="form.onKeydown($event)">
+        <div class="grid grid-cols-12 gap-6">
+          <div class="col-span-12">
+            <SingleSelect
+              id="state"
+              name="state"
+              v-model="form.state"
+              :options="requirements.states"
+              :label="t(`common.entityState.${context}.label`)"
+              :placeholder="t(`common.entityState.${context}.placeholder`)"
+              :error="form.errors.get('state')"
+              :control-class="'px-3 py-2.5'"
+              :dropdown-class="'max-h-60'"
+              :option-class="'text-sm'"
+              :empty-message="t('common.select.noResults')"
+              :search-placeholder="t('common.select.searchPlaceholder')"
+              value-key="code"
+              label-key="name"
+              clearable
+              required
+            />
+          </div>
+        </div>
+      </form>
+    </template>
+
+    <template #buttons>
+      <div class="flex gap-4 items-center">
+        <Button
+          variant="secondary"
+          customClass="min-w-[100px] bg-gray-300 text-gray-700 px-3 rounded-lg hover:bg-gray-400 transition-all flex justify-center"
+          @click="closeModal"
+        >
+          {{ t('common.modal.buttons.close') }}
+        </Button>
+
+        <Button
+          variant="primary"
+          customClass="min-w-[100px] bg-primary-500 text-white px-3 rounded-lg hover:bg-primary-600 transition-all flex justify-center"
+          @click="onSubmit"
+          type="submit"
+        >
+          {{ t('common.modal.buttons.save') }}
+        </Button>
+      </div>
+    </template>
+  </CustomModal>
+</template>
+
+<script setup>
+import { useStrategicDomainStateStore,  useStrategicDomainStore} from '@/store';
+const strategicDomainStateStore = useStrategicDomainStateStore();
+const strategicDomainStore = useStrategicDomainStore();
+const requirements = ref({ statuses: [] });
+
+const emit = defineEmits(['success']);
+const context = 'strategicDomain';
+const isModalOpen = ref(false);
+const currentStrategicDomainId = ref(null);
+
+const form = strategicDomainStateStore.form;
+
+const closeModal = () => {
+  isModalOpen.value = false;
+  strategicDomainStateStore.resetForm();
+};
+
+const onSubmit = async () => {
+  try {
+    const result = await strategicDomainStateStore.create(currentStrategicDomainId.value);
+    
+    strategicDomainStore.form.state = result.state.state;
+    strategicDomainStore.form.state_changed_at = result.state.state_date;
+    strategicDomainStore.form.state_changed_by = result.state.author;
+
+    onSuccess(result);
+  } catch (error) {
+    onError(error);
+  }
+};
+
+const onSuccess = (result) => {
+  closeModal();
+  emit('success', result);
+};
+
+const onError = (error) => {
+  console.error('Error submitting form:', error);
+  isModalOpen.value = true;
+};
+
+const loadRequirements = async (strategicDomainId) => {
+  try {
+    const result = await strategicDomainStateStore.requirements(strategicDomainId);
+    requirements.value = result;
+  } catch (err) {
+    console.error('Error loading requirements:', err);
+  }
+};
+
+const openStateModal = async (strategicDomainId) => {
+  currentStrategicDomainId.value = strategicDomainId;
+  strategicDomainStateStore.resetForm();
+
+  try {
+    await loadRequirements(strategicDomainId);
+    isModalOpen.value = true;
+  } catch (err) {
+    console.error('Failed to open modal:', err);
+  }
+};
+
+defineExpose({ openStateModal });
+</script>

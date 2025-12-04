@@ -5,7 +5,7 @@ import { actionDomainStateRoutes } from './state';
 export default [
   {
     path: '/action-domains/edit/:id',
-    component: () => import('@/views/action-domain/layouts/ProgramLayout.vue'),
+    component: () => import('@/views/action-domain/layouts/ActionDomainLayout.vue'),
     children: [
       {
         path: '',
@@ -23,7 +23,7 @@ export default [
   },
   {
     path: '/action-domains/show/:id',
-    component: () => import('@/views/action-domain/layouts/ProgramLayout.vue'),
+    component: () => import('@/views/action-domain/layouts/ActionDomainLayout.vue'),
     children: [
       {
         path: '',

@@ -29,9 +29,9 @@ import actionDomain from './actionDomain';
 import actionDomainStatus from './actionDomainStatus';
 import actionDomainState from './actionDomainState';
 
-import project from './project';
-import projectStatus from './projectStatus';
-import projectState from './projectState';
+import strategicDomain from './strategicDomain';
+import strategicDomainState from './strategicDomainState';
+import strategicDomainStatus from './strategicDomainStatus';
 
 import activity from './activity';
 import activityStatus from './activityStatus';
@@ -106,9 +106,9 @@ export const endpoints = {
   actionDomainStatus,
   actionDomainState,
 
-  project,
-  projectStatus,
-  projectState,
+  strategicDomain,
+  strategicDomainStatus,
+  strategicDomainState,
 
   activity,
   activityStatus,

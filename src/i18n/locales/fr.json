@@ -84,9 +84,9 @@
         "label": "Statut de domaine d'action",
         "placeholder": "Sélectionner un statut"
       },
-      "project": {
-        "modalTitle": "Modifier le statut du projet",
-        "label": "Statut du projet",
+      "strategicDomain": {
+        "modalTitle": "Modifier le statut du domaine stratégique",
+        "label": "Statut du domaine stratégique",
         "placeholder": "Sélectionner un statut"
       },
       "activity": {
@@ -101,9 +101,9 @@
         "label": "Etat de domaine d'action",
         "placeholder": "Sélectionner un état"
       },
-      "project": {
-        "modalTitle": "Modifier état du projet",
-        "label": "Etat du projet",
+      "strategicDomain": {
+        "modalTitle": "Modifier état du domaine stratégique",
+        "label": "Etat du domaine stratégique",
         "placeholder": "Sélectionner un état"
       },
       "activity": {
@@ -177,7 +177,7 @@
     "logActivities": "Logs d'activité",
     "reports": "Reporting",
     "actionDomains": "Domaines d'action",
-    "projects": "Projets",
+    "strategicDomains": "Domaines stratégique",
     "activities": "Activités",
     "strategicManagement": "Pilotage stratégique",
     "operationalManagement": "Pilotage opérationnel",
@@ -626,7 +626,7 @@
       "date": "Date"
     }
   },
-  "project": {
+  "strategicDomain": {
     "sections": {
       "descriptiveCharacteristics": "Caractéristiques descriptives",
       "beneficiaryInformation": "Bénéficiaires",
@@ -635,7 +635,7 @@
       "stateDetail": "Détails de l'état"
     },
     "tabs": {
-      "detail": "Détails projet",
+      "detail": "Détails domaine stratégique",
       "status": "Statut",
       "state": "Etat",
       "attachment": "Fichiers"
@@ -656,28 +656,28 @@
       "searchPlaceholder": "Rechercher une source de financement"
     },
     "list": {
-      "pageTitle": "Gestion des projets",
-      "breadTitle": "Gestion des projets",
-      "breadActive": "Liste des projets"
+      "pageTitle": "Gestion des domaines stratégique",
+      "breadTitle": "Gestion des domaines stratégique",
+      "breadActive": "Liste des domaines stratégique"
     },
     "create": {
-      "pageTitle": "Gestion des projets - Création",
-      "breadTitle": "Gestion des projets",
-      "breadActive": "Ajout d'un nouveau projet"
+      "pageTitle": "Gestion des domaines stratégique - Création",
+      "breadTitle": "Gestion des domaines stratégique",
+      "breadActive": "Ajout d'un nouveau domaines stratégique"
     },
     "edit": {
-      "pageTitle": "Gestion des projets - Modification",
-      "breadTitle": "Gestion des projets",
-      "breadActive": "Modification d'un projet"
+      "pageTitle": "Gestion des domaines stratégique - Modification",
+      "breadTitle": "Gestion des domaines stratégique",
+      "breadActive": "Modification d'un domaine stratégique"
     },
     "view": {
-      "pageTitle": "Gestion des projets - Aperçu",
-      "breadTitle": "Gestion des projets",
-      "breadActive": "Aperçu d'un projet"
+      "pageTitle": "Gestion des domaines stratégique - Aperçu",
+      "breadTitle": "Gestion des domaines stratégique",
+      "breadActive": "Aperçu d'un domaine stratégique"
     },
-    "btnAdd": "Nouveau  projet",
+    "btnAdd": "Nouveau  domaine stratégique",
     "btnCreate": "Créer",
-    "btnList": "Liste des projets",
+    "btnList": "Liste des domaines stratégique",
     "form": {
       "reference": "Référence",
       "referencePlaceholder": "Ex. : PRJ-XXXX",
@@ -714,14 +714,14 @@
       "actionDomain": "Domaine d'action"
     }
   },
-  "projectStatus": {
+  "strategicDomainStatus": {
     "btnAdd": "Nouveau statut",
     "table": {
       "noData": "Pas de données",
       "date": "Date"
     }
   },
-  "projectState": {
+  "strategicDomainState": {
     "btnAdd": "Nouvel état",
     "table": {
       "noData": "Pas de données",
@@ -737,7 +737,7 @@
       "stateDetail": "Détails de l'état"
     },
     "tabs": {
-      "detail": "Détails projet",
+      "detail": "Détails domaine stratégique",
       "status": "Statut",
       "state": "Etat",
       "attachment": "Fichiers"
@@ -784,8 +784,8 @@
       "reference": "Référence",
       "referencePlaceholder": "Ex. : ACT-XXXX",
       "name": "Nom",
-      "project": "Projet",
-      "projectPlaceholder": "Sélectionner un projet",
+      "strategicDomain": "Domaine stratégique",
+      "strategicDomainPlaceholder": "Sélectionner un domaine stratégique",
       "namePlaceholder": "Entrez le nom",
       "startDate": "Date de début",
       "startDatePlaceholder": "Sélectionner la date de début",
@@ -819,7 +819,7 @@
       "endDate": "Date de fin",
       "budget": "Budget",
       "responsible": "Responsable",
-      "project": "Projet"
+      "strategicDomain": "Domaine stratégique"
     }
   },
   "activityStatus": {
@@ -1296,8 +1296,8 @@
       "delegatedProjectOwnerPlaceholder": "Sélectionnez un maître d'ouvrage délégué",
       "actionDomain": "Domaine d'action",
       "actionDomainPlaceholder": "Sélectionnez un domaine d'action",
-      "project": "Projet",
-      "projectPlaceholder": "Sélectionnez un projet",
+      "strategicDomain": "Domaine stratégique",
+      "strategicDomainPlaceholder": "Sélectionnez un domaine stratégique",
       "activity": "Activité",
       "activityPlaceholder": "Sélectionnez une activité",
       "currency": "Devise",
