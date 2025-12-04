@@ -243,9 +243,9 @@ const rawMenuGroups = [
       },
       {
         icon: Activity,
-        name: t('sidebar.activities'),
-        path: '/activities',
-        permission: PERMISSIONS.ACCESS_ACTIVITIES,
+        name: t('sidebar.capabilityDomains'),
+        path: '/capability-domains',
+        permission: PERMISSIONS.ACCESS_CAPABILITY_DOMAINS,
       },
     ],
   },

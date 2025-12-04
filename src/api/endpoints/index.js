@@ -33,9 +33,9 @@ import strategicDomain from './strategicDomain';
 import strategicDomainState from './strategicDomainState';
 import strategicDomainStatus from './strategicDomainStatus';
 
-import activity from './activity';
-import activityStatus from './activityStatus';
-import activityState from './activityState';
+import capabilityDomain from './capabilityDomain';
+import capabilityDomainState from './capabilityDomainState';
+import capabilityDomainStatus from './capabilityDomainStatus';
 
 import indicator from './indicator';
 import indicatorPlanning from './indicatorPlanning';
@@ -110,9 +110,9 @@ export const endpoints = {
   strategicDomainStatus,
   strategicDomainState,
 
-  activity,
-  activityStatus,
-  activityState,
+  capabilityDomain,
+  capabilityDomainStatus,
+  capabilityDomainState,
 
   settings: {
     fileType: fileTypeSettings,

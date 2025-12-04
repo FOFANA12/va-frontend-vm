@@ -17,9 +17,9 @@ export * from './strategicDomain';
 export * from './strategicDomainState';
 export * from './strategicDomainStatus';
 
-export * from './activity';
-export * from './activityStatus';
-export * from './activityState';
+export * from './capabilityDomain'
+export * from './capabilityDomainState'
+export * from './capabilityDomainStatus';
 
 export * from './strategicMap';
 export * from './strategicStakeholder';

@@ -16,9 +16,9 @@ import ActionFundDisbursementRoutes from './actionFundDisbursement';
 import LogActivityRoutes from './logActivity';
 import SettingsRoutes from './settings';
 import StructureRoutes from './structure';
-import ActivityRoutes from './activity';
-import actionDomainRoutes from './actionDomain';
-import strategicDomainRoutes from './strategicDomain';
+import ActionDomainRoutes from './actionDomain';
+import StrategicDomainRoutes from './strategicDomain';
+import CapabilityDomainRoutes from './capabilityDomain';
 
 const routes = [
   {
@@ -37,9 +37,9 @@ const routes = [
   ...EmployeeRoutes,
   ...SupplierRoutes,
   ...StructureRoutes,
-  ...actionDomainRoutes,
-  ...strategicDomainRoutes,
-  ...ActivityRoutes,
+  ...ActionDomainRoutes,
+  ...StrategicDomainRoutes,
+  ...CapabilityDomainRoutes,
   ...StrategicMapRoutes,
   ...StrategicLeverRoutes,
   ...StrategicAxisRoutes,
