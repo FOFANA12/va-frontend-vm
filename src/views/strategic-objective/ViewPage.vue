@@ -9,6 +9,7 @@
     </LinkButton>
 
     <LinkButton
+      v-if="hasPermission(PERMISSIONS.UPDATE_STRATEGIC_OBJECTIVE)"
       :to="{ name: 'strategicObjective-edit', params: { id: route.params.id } }"
       variant="primary"
       class="min-w-[100px]"
@@ -17,7 +18,12 @@
       {{ t('common.edit') }}
     </LinkButton>
 
-    <LinkButton :to="{ name: 'strategicObjective-create' }" variant="primary" class="min-w-[100px]">
+    <LinkButton
+      v-if="hasPermission(PERMISSIONS.CREATE_STRATEGIC_OBJECTIVE)"
+      :to="{ name: 'strategicObjective-create' }"
+      variant="primary"
+      class="min-w-[100px]"
+    >
       <Plus class="w-5 h-5 mr-2" />
       {{ t('strategicObjective.btnAdd') }}
     </LinkButton>
@@ -35,6 +41,10 @@ import Form from './components/form/View.vue';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 
 import StatusModal from './components/StatusModal.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const statusModalRef = ref();
 const route = useRoute();

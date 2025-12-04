@@ -1,5 +1,6 @@
 <script setup>
 import ListPage from '@/views/attachment/ListPage.vue';
+import PERMISSIONS from '@/constants/permissions';
 
 const route = useRoute();
 const attachableType = 'actions';
@@ -11,6 +12,10 @@ const attachableId = route.params.id;
     v-if="attachableId && attachableType"
     :attachable-type="attachableType"
     :attachable-id="attachableId"
+    :permissions="{
+      access: PERMISSIONS.ACT_ACCESS_FILES,
+      manage: PERMISSIONS.ACT_MANAGE_FILES,
+    }"
   >
     <template #return-list-btn>
       <LinkButton

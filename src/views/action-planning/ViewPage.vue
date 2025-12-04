@@ -14,7 +14,12 @@
         {{ t('action.btnList') }}
       </LinkButton>
 
-      <LinkButton :to="editRoute" variant="primary" class="min-w-[100px]">
+      <LinkButton
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PLANNING)"
+        :to="editRoute"
+        variant="primary"
+        class="min-w-[100px]"
+      >
         <Edit class="w-5 h-5 mr-2" />
         {{ isPlanned ? t('common.edit') : t('actionPlanning.btnCreatePlanning') }}
       </LinkButton>
@@ -46,6 +51,10 @@ import { useActionPlanningStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import PerformanceLineChart from '@/components/ui/charts/PerformanceLineChart.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { formatDate } = useDateTimeFormatter();
 
@@ -90,7 +99,7 @@ const chartDatasets = computed(() => {
       data: form.periods.map((p) => p.progress_percent),
       borderColor: '#f97316',
       backgroundColor: 'transparent',
-    }
+    },
   ];
 
   return datasets;

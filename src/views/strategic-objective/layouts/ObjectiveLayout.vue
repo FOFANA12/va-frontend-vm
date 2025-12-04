@@ -23,6 +23,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.OBJ_ACCESS_ALIGNMENT)"
           :to="{
             name: isEdit
               ? 'strategicObjective-edit-alignment'
@@ -36,6 +37,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.OBJ_ACCESS_DECISIONS)"
           :to="{
             name: isEdit ? 'strategicObjective-edit-decision' : 'strategicObjective-show-decision',
             params: { id: route.params.id },
@@ -47,6 +49,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.OBJ_ACCESS_FILES)"
           :to="{
             name: isEdit
               ? 'strategicObjective-edit-attachment'
@@ -74,6 +77,10 @@ import Tab from '@/components/ui/Tab.vue';
 import { useStrategicObjectiveStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import { Eye, Puzzle, ScrollTextIcon, SquarePen } from 'lucide-vue-next';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();

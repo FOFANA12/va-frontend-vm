@@ -10,6 +10,7 @@
       </LinkButton>
 
       <LinkButton
+        v-if="hasPermission(PERMISSIONS.READ_STRATEGIC_OBJECTIVES)"
         :to="{ name: 'strategicObjective-show', params: { id: route.params.id } }"
         variant="primary"
         class="min-w-[100px]"
@@ -50,6 +51,10 @@ import { useStrategicObjectiveStore } from '@/store';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import StatusModal from './components/StatusModal.vue';
 
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
+
 const route = useRoute();
 const store = useStrategicObjectiveStore();
 const { showSimpleAlerte } = useSwalAlerte();
@@ -71,6 +76,5 @@ const onSubmit = async () => {
     showSimpleAlerte({ icon: 'success', text: result.message });
   } catch (_error) {}
 };
-
 </script>
     

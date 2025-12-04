@@ -23,6 +23,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.IND_ACCESS_STATUS)"
           :to="{
             name: isEdit ? 'indicator-edit-status' : 'indicator-show-status',
             params: { id: route.params.id },
@@ -34,6 +35,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.IND_ACCESS_PLANNING)"
           :to="{
             name: 'indicator-show-planning-show',
             params: { id: route.params.id },
@@ -45,6 +47,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.IND_ACCESS_CONTROL)"
           :to="{
             name: isEdit ? 'indicator-edit-control' : 'indicator-show-control',
             params: { id: route.params.id },
@@ -56,6 +59,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.IND_ACCESS_FILES)"
           :to="{
             name: isEdit ? 'indicator-edit-attachment' : 'indicator-show-attachment',
             params: { id: route.params.id },
@@ -67,6 +71,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.IND_ACCESS_REPORTING)"
           :to="{
             name: isEdit ? 'indicator-edit-performanceReport' : 'indicator-show-performanceReport',
             params: { id: route.params.id },
@@ -78,6 +83,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.IND_ACCESS_DECISIONS)"
           :to="{
             name: isEdit ? 'indicator-edit-decision' : 'indicator-show-decision',
             params: { id: route.params.id },
@@ -87,17 +93,6 @@
         >
           {{ t('indicator.tabs.decision') }}
         </Tab>
-
-        <!-- <Tab
-          :to="{
-            name: isEdit ? 'indicator-edit-control' : 'indicator-show-control',
-            params: { id: route.params.id },
-          }"
-          :icon="SquareCheckBigIcon"
-          :match-pattern="/^indicator-(edit|show)-control/"
-        >
-          {{ t('indicator.tabs.control') }}
-        </Tab> -->
       </Tabs>
 
       <!-- Route content -->
@@ -122,6 +117,10 @@ import {
   SquareCheckBigIcon,
   SquarePen,
 } from 'lucide-vue-next';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();

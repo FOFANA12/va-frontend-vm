@@ -16,7 +16,7 @@
       </LinkButton>
 
       <Button
-        v-if="selectedRows.length > 0"
+        v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_ALIGNMENT) && selectedRows.length > 0"
         :icon="Trash"
         variant="danger-outline"
         customClass="sm:px-4"
@@ -25,7 +25,13 @@
         {{ t('common.buttons.delete') }} ({{ selectedRows.length }})
       </Button>
 
-      <LinkButton :to="alignmentRoute" :icon="Plus" variant="primary" customClass="sm:px-4">
+      <LinkButton
+        v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_ALIGNMENT)"
+        :to="alignmentRoute"
+        :icon="Plus"
+        variant="primary"
+        customClass="sm:px-4"
+      >
         {{ t('alignment.btnAlign') }}
       </LinkButton>
     </div>
@@ -63,6 +69,10 @@ import { useSwalAlerte } from '@/composables/useSwalAlerte';
 
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import { getColumns } from './components/DataTableColumns';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();
@@ -116,7 +126,6 @@ const resetPageAndRefresh = async (clearSearch = false) => {
 };
 
 const unalign = async (ids) => {
-  
   const isMultiple = Array.isArray(ids) && ids.length > 1;
   const confirmationMessage = isMultiple
     ? t('alignment.sweetalert.confirmUnalignSelected')
@@ -124,7 +133,10 @@ const unalign = async (ids) => {
 
   const confirmButtonText = t('alignment.sweetalert.confirmButtonText');
 
-  const confirm = await showConfirm({ message: confirmationMessage, confirmButtonText: confirmButtonText });
+  const confirm = await showConfirm({
+    message: confirmationMessage,
+    confirmButtonText: confirmButtonText,
+  });
 
   if (confirm.isConfirmed) {
     try {

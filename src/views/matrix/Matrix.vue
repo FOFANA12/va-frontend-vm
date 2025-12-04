@@ -15,7 +15,13 @@
         {{ t('strategicMap.btnList') }}
       </LinkButton>
 
-      <Button :icon="Plus" variant="primary" customClass="sm:px-4" @click="openCreatePeriodModal">
+      <Button
+        v-if="hasPermission(PERMISSIONS.MANAGE_PRIORITY_MATRIX)"
+        :icon="Plus"
+        variant="primary"
+        customClass="sm:px-4"
+        @click="openCreatePeriodModal"
+      >
         {{ t('matrixPeriod.btnAdd') }}
       </Button>
     </div>
@@ -47,6 +53,7 @@
 
             <div class="flex items-center gap-4 mr-4">
               <button
+                v-if="hasPermission(PERMISSIONS.MANAGE_PRIORITY_MATRIX)"
                 type="button"
                 class="text-primary-500 hover:text-primary-800 transition-colors"
                 @click.stop.prevent="openEditPeriodModal(period.id)"
@@ -54,6 +61,7 @@
                 <Edit class="w-5 h-5" />
               </button>
               <button
+                v-if="hasPermission(PERMISSIONS.MANAGE_PRIORITY_MATRIX)"
                 type="button"
                 class="text-red-500 hover:text-red-700 transition-colors"
                 @click.stop.prevent="deletePeriod(period.id)"
@@ -185,6 +193,10 @@ import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import PeriodModal from './components/PeriodModal.vue';
 import AttachObjectivesModal from './components/AttachObjectivesModal.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const expanded = ref(0);
 const periodModal = ref(null);

@@ -100,7 +100,7 @@
             <td class="px-4 py-2 border-t border-gray-200 text-center">
               <div class="flex justify-center gap-2">
                 <button
-                  v-if="!item.id && currentPeriod(item.period_id)"
+                  v-if="!item.id && currentPeriod(item.period_id) && hasPermission(PERMISSIONS.ACT_MANAGE_CONTROL)"
                   @click="onCreate(item.period_id)"
                   class="text-primary-500 hover:text-primary-700"
                 >
@@ -108,7 +108,7 @@
                 </button>
 
                 <button
-                  v-if="item.id"
+                  v-if="item.id && hasPermission(PERMISSIONS.ACT_MANAGE_CONTROL)"
                   @click="onView?.(item.id)"
                   class="text-gray-500 hover:text-gray-700"
                 >
@@ -116,7 +116,7 @@
                 </button>
 
                 <button
-                  v-if="item.id"
+                  v-if="item.id && hasPermission(PERMISSIONS.ACT_MANAGE_CONTROL)"
                   @click="deleteRow(item.id)"
                   class="text-red-600 hover:text-red-800"
                 >
@@ -138,8 +138,11 @@ import StatusBadge from '@/components/ui/StatusBadge.vue';
 
 import { usePageState } from '@/composables/usePageState';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
-
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();

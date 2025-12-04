@@ -23,6 +23,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.ACT_ACCESS_PLANNING)"
           :to="{
             name: 'action-show-planning-show',
             params: { id: route.params.id },
@@ -34,6 +35,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.ACT_ACCESS_PHASES)"
           :to="{
             name: isEdit ? 'action-edit-phase' : 'action-show-phase',
             params: { id: route.params.id },
@@ -45,6 +47,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.ACT_ACCESS_CONTROL)"
           :to="{
             name: isEdit ? 'action-edit-control' : 'action-show-control',
             params: { id: route.params.id },
@@ -56,6 +59,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.ACT_ACCESS_STATUS)"
           :to="{
             name: isEdit ? 'action-edit-status' : 'action-show-status',
             params: { id: route.params.id },
@@ -67,6 +71,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.ACT_ACCESS_REPORTING)"
           :to="{
             name: isEdit ? 'action-edit-performanceReport' : 'action-show-performanceReport',
             params: { id: route.params.id },
@@ -78,6 +83,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.ACT_ACCESS_ALIGNMENT)"
           :to="{
             name: isEdit ? 'action-edit-alignment' : 'action-show-alignment',
             params: { id: route.params.id },
@@ -89,6 +95,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.ACT_ACCESS_DECISIONS)"
           :to="{
             name: isEdit ? 'action-edit-decision' : 'action-show-decision',
             params: { id: route.params.id },
@@ -100,6 +107,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.ACT_ACCESS_FILES)"
           :to="{
             name: isEdit ? 'action-edit-attachment' : 'action-show-attachment',
             params: { id: route.params.id },
@@ -137,6 +145,10 @@ import {
   SquarePen,
 } from 'lucide-vue-next';
 
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
+
 const { t } = useI18n();
 const route = useRoute();
 const store = useActionStore();
@@ -151,7 +163,7 @@ const pageTitle = computed(() =>
 
 const breadcrumbs = computed(() => [
   { title: 'sidebar.dashboard', disabled: false, to: '/' },
-  { title: 'sidebar.operationalManagement', disabled: true, to: null},
+  { title: 'sidebar.operationalManagement', disabled: true, to: null },
   { title: 'sidebar.actions', disabled: false, to: { name: 'action' } },
   {
     title: isEdit.value ? 'action.edit.breadActive' : 'action.view.breadActive',

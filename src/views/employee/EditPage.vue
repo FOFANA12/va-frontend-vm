@@ -19,6 +19,7 @@
           </LinkButton>
 
           <LinkButton
+            v-if="hasPermission(PERMISSIONS.READ_EMPLOYEES)"
             :to="{ name: 'employee-show', params: { id: route.params.id } }"
             variant="primary"
             class="min-w-[100px]"
@@ -59,6 +60,10 @@ import { useEmployeeStore } from '@/store';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const route = useRoute();
 const store = useEmployeeStore();

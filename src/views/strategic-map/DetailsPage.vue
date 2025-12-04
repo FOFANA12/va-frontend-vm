@@ -37,7 +37,7 @@
           <!-- Header -->
           <template #title>
             <div class="flex items-center justify-between w-full">
-              <h2 class="text-md font-medium text-gray-700 m-0 text-primary-600 font-bold uppercase">
+              <h2 class="text-md m-0 text-primary-600 font-bold uppercase">
                 {{ elementLabel }} {{ elt.order }} – {{ elt.name }}
               </h2>
 

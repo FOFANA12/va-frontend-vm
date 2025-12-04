@@ -10,6 +10,7 @@
       </LinkButton>
 
       <LinkButton
+        v-if="hasPermission(PERMISSIONS.READ_INDICATORS)"
         :to="{ name: 'indicator-show', params: { id: route.params.id } }"
         variant="primary"
         class="min-w-[100px]"
@@ -47,6 +48,10 @@ import Form from './components/form/Edit.vue';
 import StatusModal from './components/StatusModal.vue';
 import { useIndicatorStore, useAlertStore } from '@/store';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const route = useRoute();
 const store = useIndicatorStore();

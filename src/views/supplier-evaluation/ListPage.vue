@@ -16,7 +16,7 @@
       </LinkButton>
 
       <Button
-        v-if="selectedRows.length > 0"
+        v-if="hasPermission(PERMISSIONS.SUP_MANAGE_EVALUATIONS) && selectedRows.length > 0"
         :icon="Trash"
         variant="danger-outline"
         customClass="sm:px-4"
@@ -25,11 +25,16 @@
         {{ t('common.buttons.delete') }} ({{ selectedRows.length }})
       </Button>
 
-      <LinkButton :to="createRoute" :icon="Plus" variant="primary" customClass="sm:px-4">
+      <LinkButton
+        v-if="hasPermission(PERMISSIONS.SUP_MANAGE_EVALUATIONS)"
+        :to="createRoute"
+        :icon="Plus"
+        variant="primary"
+        customClass="sm:px-4"
+      >
         {{ t('supplierEvaluation.btnAdd') }}
       </LinkButton>
     </div>
-
 
     <!-- DataTable -->
     <DataTable
@@ -53,6 +58,10 @@ import { useDatatable } from '@/composables/useDatatable';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import { getColumns } from './components/DataTableColumns';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();
@@ -135,7 +144,7 @@ const deleteRows = async (ids) => {
       resetSelectionKey.value++;
       selectedRows.value = [];
       await resetPageAndRefresh(true);
-      await fetchData();      
+      await fetchData();
       supplierStore.form.note = result.supplier.note;
     } catch (error) {
       showErrorModal({

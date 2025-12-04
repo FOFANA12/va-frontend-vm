@@ -20,6 +20,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.ACCESS_PRIORITY_MATRIX)"
           :to="{
             name: 'strategicMap-show-matrix',
             params: { id: route.params.id },
@@ -31,6 +32,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.ACCESS_STAKEHOLDERS)"
           :to="{
             name: 'strategicMap-show-stakeholder',
             params: { id: route.params.id },
@@ -59,6 +61,10 @@ import Tab from '@/components/ui/Tab.vue';
 const { t } = useI18n();
 const route = useRoute();
 const store = useStrategicMapStore();
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const pageTitle = computed(() => t('strategicMap.details.pageTitle'));
 

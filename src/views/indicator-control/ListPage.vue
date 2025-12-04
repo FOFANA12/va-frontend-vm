@@ -36,6 +36,9 @@
             <th class="w-1/10 px-4 py-1.5 border-b border-gray-300 text-left">
               {{ t('indicatorControl.table.achievedValue') }}
             </th>
+            <th class="w-1/10 px-4 py-1.5 border-b border-gray-300 text-left">
+              {{ t('indicatorControl.table.file') }}
+            </th>
             <th class="px-4 py-1.5 border-b border-gray-300 text-center w-[120px]">
               {{ t('common.table.actions') }}
             </th>
@@ -43,7 +46,7 @@
         </thead>
         <tbody>
           <tr v-if="!store.indicatorControls || store.indicatorControls.length === 0">
-            <td colspan="6" class="bg-white text-center py-4 text-gray-500 border border-gray-100">
+            <td colspan="7" class="bg-white text-center py-4 text-gray-500 border border-gray-100">
               {{ t('indicatorControl.noPlanningYet') }}
             </td>
           </tr>
@@ -77,11 +80,30 @@
             <td class="px-4 py-2 border-t border-gray-200">
               {{ item.achieved_value }}
             </td>
-
+            <td class="px-4 py-2 border-t border-gray-200">
+              <template v-if="item.download_url">
+                <a
+                  :href="item.download_url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-1 text-primary-600 hover:underline"
+                >
+                  <FileDown size="16" />
+                  <span class="text-sm">{{ t('common.table.file.download') }}</span>
+                </a>
+              </template>
+              <template v-else>
+                <span class="text-gray-400">-</span>
+              </template>
+            </td>
             <td class="px-4 py-2 border-t border-gray-200 text-center">
               <div class="flex justify-center gap-2">
                 <button
-                  v-if="!item.id && currentPeriod(item.period_id)"
+                  v-if="
+                    !item.id &&
+                    currentPeriod(item.period_id) &&
+                    hasPermission(PERMISSIONS.IND_MANAGE_CONTROL)
+                  "
                   @click="onCreate(item.period_id)"
                   class="text-primary-500 hover:text-primary-700"
                 >
@@ -89,7 +111,7 @@
                 </button>
 
                 <button
-                  v-if="item.id"
+                  v-if="item.id && hasPermission(PERMISSIONS.IND_MANAGE_CONTROL)"
                   @click="onView?.(item.id)"
                   class="text-gray-500 hover:text-gray-700"
                 >
@@ -97,7 +119,7 @@
                 </button>
 
                 <button
-                  v-if="item.id"
+                  v-if="item.id && hasPermission(PERMISSIONS.IND_MANAGE_CONTROL)"
                   @click="deleteRow([item.id])"
                   class="text-red-600 hover:text-red-800"
                 >
@@ -119,8 +141,11 @@ import StatusBadge from '@/components/ui/StatusBadge.vue';
 
 import { usePageState } from '@/composables/usePageState';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
-
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();

@@ -15,7 +15,12 @@
           {{ t('decision.btnList') }}
         </LinkButton>
 
-        <LinkButton :to="showRoute" variant="primary" class="min-w-[100px]">
+        <LinkButton
+          v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_DECISIONS)"
+          :to="showRoute"
+          variant="primary"
+          class="min-w-[100px]"
+        >
           <Eye class="w-5 h-5 mr-2" />
           {{ t('common.view') }}
         </LinkButton>
@@ -56,6 +61,10 @@ import { useDecisionStore } from '@/store';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const route = useRoute();
 const store = useDecisionStore();

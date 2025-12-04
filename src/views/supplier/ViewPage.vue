@@ -10,6 +10,7 @@
       </LinkButton>
 
       <LinkButton
+        v-if="hasPermission(PERMISSIONS.UPDATE_SUPPLIER)"
         :to="{ name: 'supplier-edit', params: { id: route.params.id } }"
         variant="primary"
         class="min-w-[100px]"
@@ -18,7 +19,12 @@
         {{ t('common.edit') }}
       </LinkButton>
 
-      <LinkButton :to="{ name: 'supplier-create' }" variant="primary" class="min-w-[100px]">
+      <LinkButton
+        v-if="hasPermission(PERMISSIONS.CREATE_SUPPLIER)"
+        :to="{ name: 'supplier-create' }"
+        variant="primary"
+        class="min-w-[100px]"
+      >
         <Plus class="w-5 h-5 mr-2" />
         {{ t('supplier.btnAdd') }}
       </LinkButton>
@@ -33,6 +39,11 @@
   <script setup>
 import { Edit, Plus } from 'lucide-vue-next';
 import Form from './components/form/View.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
+
 const route = useRoute();
 </script>
       

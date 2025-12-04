@@ -1847,7 +1847,8 @@
       "targetValue": "Valeur cible",
       "achievedValue": "Valeur atteinte",
       "indicatorPeriod": "Période",
-       "status": {
+      "file": "Fichier",
+      "status": {
         "control": "Contrôlé",
         "noControl": "Non contrôlé"
       }

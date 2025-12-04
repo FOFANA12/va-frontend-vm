@@ -10,6 +10,7 @@
       </LinkButton>
 
       <LinkButton
+        v-if="hasPermission(PERMISSIONS.READ_ACTIONS)"
         :to="{ name: 'action-show', params: { id: route.params.id } }"
         variant="primary"
         class="min-w-[100px]"
@@ -45,6 +46,10 @@ import { Eye, Save } from 'lucide-vue-next';
 import Form from './components/form/Edit.vue';
 import { useActionStore, useAlertStore } from '@/store';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const route = useRoute();
 const store = useActionStore();

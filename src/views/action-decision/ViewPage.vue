@@ -14,12 +14,22 @@
         {{ t('decision.btnList') }}
       </LinkButton>
 
-      <LinkButton :to="editRoute" variant="primary" class="min-w-[100px]">
+      <LinkButton
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_DECISIONS)"
+        :to="editRoute"
+        variant="primary"
+        class="min-w-[100px]"
+      >
         <Edit class="w-5 h-5 mr-2" />
         {{ t('common.edit') }}
       </LinkButton>
 
-      <LinkButton :to="createRoute" variant="primary" class="min-w-[100px]">
+      <LinkButton
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_DECISIONS)"
+        :to="createRoute"
+        variant="primary"
+        class="min-w-[100px]"
+      >
         <Plus class="w-5 h-5 mr-2" />
         {{ t('decision.btnAdd') }}
       </LinkButton>
@@ -30,9 +40,8 @@
     </div>
 
     <div class="mt-6">
-      <DecisionStatus @refresh-decision="fetchWithState"/>
+      <DecisionStatus @refresh-decision="fetchWithState" />
     </div>
-
   </PageStateWrapper>
 </template>
 
@@ -45,11 +54,17 @@ import { useDecisionStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
+
 const route = useRoute();
 const store = useDecisionStore();
 store.resetForm();
 
-const backRoute = computed(() => { return { name: route.name.replace(/-show$/, ''), params: { id: route.params.id } }});
+const backRoute = computed(() => {
+  return { name: route.name.replace(/-show$/, ''), params: { id: route.params.id } };
+});
 
 const editRoute = computed(() => {
   return {

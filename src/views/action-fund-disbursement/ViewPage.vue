@@ -22,6 +22,7 @@
           </LinkButton>
 
           <LinkButton
+            v-if="hasPermission(PERMISSIONS.UPDATE_FUND_DISBURSEMENT)"
             :to="{ name: 'action-fund-disbursement-edit', params: { id: route.params.id } }"
             variant="primary"
             class="min-w-[100px]"
@@ -31,6 +32,7 @@
           </LinkButton>
 
           <LinkButton
+            v-if="hasPermission(PERMISSIONS.CREATE_FUND_DISBURSEMENT)"
             :to="{ name: 'action-fund-disbursement-create' }"
             variant="primary"
             class="min-w-[100px]"
@@ -55,6 +57,10 @@ import Form from './components/form/View.vue';
 import { useActionFundDisbursementStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const route = useRoute();
 const store = useActionFundDisbursementStore();

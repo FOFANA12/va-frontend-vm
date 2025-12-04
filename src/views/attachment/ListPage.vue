@@ -8,7 +8,7 @@
     <!-- Action buttons -->
     <div class="flex justify-end mt-4 mb-4 gap-4">
       <Button
-        v-if="selectedRows.length > 0"
+        v-if="canManage && selectedRows.length > 0"
         :icon="Trash"
         variant="danger-outline"
         customClass="sm:px-4"
@@ -19,13 +19,19 @@
 
       <slot name="return-list-btn" />
 
-      <Button :icon="Plus" variant="primary" customClass="sm:px-4" @click="openUploadModal">
+      <Button
+        v-if="canManage"
+        :icon="Plus"
+        variant="primary"
+        customClass="sm:px-4"
+        @click="openUploadModal"
+      >
         {{ t('attachment.btnAdd') }}
       </Button>
     </div>
 
     <!-- Filters -->
-    <FilterPanel v-model="filters" @filter="onFilter" v-if="attachableType === 'actions'"/>
+    <FilterPanel v-model="filters" @filter="onFilter" v-if="attachableType === 'actions'" />
 
     <!-- Search -->
     <div class="w-full md:w-1/2 relative mb-2">
@@ -69,6 +75,9 @@ import ViewModal from './components/ViewModal.vue';
 import { getColumns } from './components/DataTableColumns';
 import FilterPanel from './components/FilterPanel.vue';
 
+import { usePermission } from '@/composables/usePermissions';
+const { hasPermission } = usePermission();
+
 const props = defineProps({
   attachableType: {
     type: String,
@@ -80,7 +89,15 @@ const props = defineProps({
     required: true,
     default: null,
   },
+  permissions: {
+    type: Object,
+    required: true,
+    validator: (p) => p.access && p.manage,
+  },
 });
+
+const canAccess = computed(() => hasPermission(props.permissions.access));
+const canManage = computed(() => hasPermission(props.permissions.manage));
 
 const { t } = useI18n();
 const store = useAttachmentStore();
@@ -119,6 +136,8 @@ const columns = getColumns({
   onView: (id) => openViewModal(id),
   onDelete: (ids) => deleteRows(ids),
   attachableType: props.attachableType,
+  canAccess,
+  canManage
 });
 
 const openUploadModal = () => uploadModal.value.openModal(props.attachableType, props.attachableId);

@@ -2,7 +2,6 @@
 import { FolderOpen, Eye, Edit, Trash } from 'lucide-vue-next';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
-
 const { hasPermission } = usePermission();
 
 const props = defineProps({
@@ -25,7 +24,7 @@ const props = defineProps({
     </button>
 
     <button
-      v-if="hasPermission(PERMISSIONS.READ_ALL_STRATEGIC_MAPS)"
+      v-if="hasPermission(PERMISSIONS.READ_SINGLE_STRATEGIC_MAP)"
       @click="onView?.(row.id)"
       class="text-gray-500 hover:text-gray-700"
     >

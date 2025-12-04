@@ -3,7 +3,7 @@ import RowActions from './RowActions.vue';
 
 const columnHelper = createColumnHelper();
 
-export function getColumns({ t, onDelete, onView, attachableType }) {
+export function getColumns({ t, onDelete, onView, attachableType, canAccess, canManage }) {
   const colums = [
     columnHelper.display({
       id: 'select',
@@ -99,6 +99,8 @@ export function getColumns({ t, onDelete, onView, attachableType }) {
             row: row.original,
             onView,
             onDelete,
+            canAccess,
+            canManage,
           })
         ),
     })

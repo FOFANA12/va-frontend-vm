@@ -15,7 +15,13 @@
         {{ t('indicator.btnList') }}
       </LinkButton>
 
-      <Button :icon="Plus" variant="primary" customClass="sm:px-4" @click="openStatusModal">
+      <Button
+        v-if="hasPermission(PERMISSIONS.IND_MANAGE_STATUS)"
+        :icon="Plus"
+        variant="primary"
+        customClass="sm:px-4"
+        @click="openStatusModal"
+      >
         {{ t('indicatorStatus.btnAdd') }}
       </Button>
     </div>
@@ -61,7 +67,7 @@
             </td>
             <td class="px-4 py-2 border-t border-gray-200 text-center">
               <button
-                v-if="indicatorStatusStore.statuses.length > 1"
+                v-if="hasPermission(PERMISSIONS.IND_MANAGE_STATUS) && indicatorStatusStore.statuses.length > 1"
                 type="button"
                 class="text-red-500 hover:text-red-700 transition"
                 @click.stop.prevent="deleteRows([item.id])"
@@ -89,6 +95,10 @@ import { useSwalAlerte } from '@/composables/useSwalAlerte';
 
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import StatusModal from './components/StatusModal.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();

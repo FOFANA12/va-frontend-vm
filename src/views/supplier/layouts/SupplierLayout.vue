@@ -21,6 +21,7 @@
           {{ t('supplier.tabs.supplier') }}
         </Tab>
         <Tab
+          v-if="hasPermission(PERMISSIONS.SUP_ACCESS_CONTRACTS)"
           :to="{
             name: isEdit ? 'supplier-edit-contract' : 'supplier-show-contract',
             params: { id: route.params.id },
@@ -31,6 +32,7 @@
           {{ t('supplier.tabs.contracts') }}
         </Tab>
         <Tab
+          v-if="hasPermission(PERMISSIONS.SUP_ACCESS_EVALUATIONS)"
           :to="{
             name: isEdit ? 'supplier-edit-evaluation' : 'supplier-show-evaluation',
             params: { id: route.params.id },
@@ -42,6 +44,7 @@
         </Tab>
 
         <Tab
+          v-if="hasPermission(PERMISSIONS.SUP_ACCESS_FILES)"
           :to="{
             name: isEdit ? 'supplier-edit-attachment' : 'supplier-show-attachment',
             params: { id: route.params.id },
@@ -67,6 +70,10 @@ import { usePageState } from '@/composables/usePageState';
 import { Eye, FileText, Paperclip, SquarePen } from 'lucide-vue-next';
 import Tabs from '@/components/ui/Tabs.vue';
 import Tab from '@/components/ui/Tab.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();

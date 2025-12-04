@@ -19,6 +19,7 @@
           </LinkButton>
 
           <LinkButton
+          v-if="hasPermission(PERMISSIONS.UPDATE_FUND_RECEIPT)"
             :to="{ name: 'action-fund-receipt-edit', params: { id: route.params.id } }"
             variant="primary"
             class="min-w-[100px]"
@@ -28,6 +29,7 @@
           </LinkButton>
 
           <LinkButton
+          v-if="hasPermission(PERMISSIONS.CREATE_FUND_RECEIPT)"
             :to="{ name: 'action-fund-receipt-create' }"
             variant="primary"
             class="min-w-[100px]"
@@ -52,6 +54,10 @@ import Form from './components/form/View.vue';
 import { useActionFundReceiptStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const route = useRoute();
 const store = useActionFundReceiptStore();

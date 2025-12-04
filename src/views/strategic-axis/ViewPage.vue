@@ -19,6 +19,7 @@
           </LinkButton>
 
           <LinkButton
+            v-if="hasPermission(PERMISSIONS.UPDATE_STRATEGIC_AXIS)"
             :to="{ name: 'strategic-axes-edit', params: { id: route.params.id } }"
             variant="primary"
             class="min-w-[100px]"
@@ -28,6 +29,7 @@
           </LinkButton>
 
           <LinkButton
+            v-if="hasPermission(PERMISSIONS.CREATE_STRATEGIC_AXIS)"
             :to="{ name: 'strategic-axes-create' }"
             variant="primary"
             class="min-w-[100px]"
@@ -52,6 +54,10 @@ import Form from './components/form/View.vue';
 import { useStrategicAxisStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const route = useRoute();
 const store = useStrategicAxisStore();

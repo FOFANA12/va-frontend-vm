@@ -1,5 +1,8 @@
 <script setup>
 import { Eye, Edit, Trash } from 'lucide-vue-next';
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const props = defineProps({
   row: Object,
@@ -12,6 +15,7 @@ const props = defineProps({
 <template>
   <div class="flex justify-center gap-2">
     <button
+      v-if="hasPermission(PERMISSIONS.SUP_MANAGE_CONTRACTS)"
       @click="onView?.(row.id)"
       class="text-gray-500 hover:text-gray-700"
     >
@@ -19,6 +23,7 @@ const props = defineProps({
     </button>
 
     <button
+      v-if="hasPermission(PERMISSIONS.SUP_MANAGE_CONTRACTS)"
       @click="onEdit?.(row.id)"
       class="text-primary-500 hover:text-primary-800"
     >
@@ -26,6 +31,7 @@ const props = defineProps({
     </button>
 
     <button
+      v-if="hasPermission(PERMISSIONS.SUP_MANAGE_CONTRACTS)"
       @click="onDelete?.([row.id])"
       class="text-red-600 hover:text-red-800"
     >

@@ -10,6 +10,7 @@
       </LinkButton>
 
       <LinkButton
+        v-if="hasPermission(PERMISSIONS.READ_SUPPLIERS)"
         :to="{ name: 'supplier-show', params: { id: route.params.id } }"
         variant="primary"
         class="min-w-[100px]"
@@ -47,11 +48,14 @@ import Form from './components/form/Edit.vue';
 import { useSupplierStore } from '@/store';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
+
 const route = useRoute();
 const store = useSupplierStore();
 const { showSimpleAlerte } = useSwalAlerte();
 const form = store.form;
-
 
 const onSubmit = async () => {
   try {

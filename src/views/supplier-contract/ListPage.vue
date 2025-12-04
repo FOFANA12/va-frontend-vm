@@ -16,7 +16,7 @@
       </LinkButton>
 
       <Button
-        v-if="selectedRows.length > 0"
+        v-if="hasPermission(PERMISSIONS.SUP_MANAGE_CONTRACTS) && selectedRows.length > 0"
         :icon="Trash"
         variant="danger-outline"
         customClass="sm:px-4"
@@ -25,7 +25,13 @@
         {{ t('common.buttons.delete') }} ({{ selectedRows.length }})
       </Button>
 
-      <LinkButton :to="createRoute" :icon="Plus" variant="primary" customClass="sm:px-4">
+      <LinkButton
+        v-if="hasPermission(PERMISSIONS.SUP_MANAGE_CONTRACTS)"
+        :to="createRoute"
+        :icon="Plus"
+        variant="primary"
+        customClass="sm:px-4"
+      >
         {{ t('contract.btnAdd') }}
       </LinkButton>
     </div>
@@ -66,6 +72,10 @@ const { formatCurrency } = useCurrencyFormatter();
 import DatatableSearchInput from '@/components/ui/DatatableSearchInput.vue';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import { getColumns } from './components/DataTableColumns';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();

@@ -8,7 +8,7 @@
     <!-- Action buttons -->
     <div class="flex justify-end mt-4 mb-4 gap-4">
       <Button
-        v-if="selectedRows.length > 0"
+        v-if="hasPermission(PERMISSIONS.MANAGE_STAKEHOLDERS) && selectedRows.length > 0"
         :icon="Trash"
         variant="danger-outline"
         customClass="sm:px-4"
@@ -25,7 +25,13 @@
         {{ t('strategicMap.btnList') }}
       </LinkButton>
 
-      <Button :icon="Plus" variant="primary" customClass="sm:px-4" @click="openCreateModal">
+      <Button
+        v-if="hasPermission(PERMISSIONS.MANAGE_STAKEHOLDERS)"
+        :icon="Plus"
+        variant="primary"
+        customClass="sm:px-4"
+        @click="openCreateModal"
+      >
         {{ t('strategicStakeholder.btnAdd') }}
       </Button>
     </div>
@@ -70,6 +76,10 @@ import DatatableSearchInput from '@/components/ui/DatatableSearchInput.vue';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import Modal from './components/Modal.vue';
 import { getColumns } from './components/DataTableColumns';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();

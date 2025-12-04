@@ -16,7 +16,7 @@
       </LinkButton>
 
       <Button
-        v-if="selectedRows.length > 0"
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_ALIGNMENT) && selectedRows.length > 0"
         :icon="Trash"
         variant="danger-outline"
         customClass="sm:px-4"
@@ -26,7 +26,7 @@
       </Button>
 
       <LinkButton
-        v-if="actionStore.form.is_planned"
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_ALIGNMENT) && actionStore.form.is_planned"
         :to="alignmentRoute"
         :icon="Plus"
         variant="primary"
@@ -69,6 +69,10 @@ import { useSwalAlerte } from '@/composables/useSwalAlerte';
 
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import { getColumns } from './components/DataTableColumns';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();

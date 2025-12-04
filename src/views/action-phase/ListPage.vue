@@ -16,7 +16,7 @@
       </LinkButton>
 
       <Button
-        v-if="actionStore.form.is_planned"
+        v-if="actionStore.form.is_planned && hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
         :icon="RefreshCw"
         variant="primary-outline"
         customClass="sm:px-4"
@@ -25,7 +25,13 @@
         {{ t('actionPhase.btnUseDefaultPhases') }}
       </Button>
 
-      <Button :icon="Plus" variant="primary" customClass="sm:px-4" @click="openCreateModal">
+      <Button
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
+        :icon="Plus"
+        variant="primary"
+        customClass="sm:px-4"
+        @click="openCreateModal"
+      >
         {{ t('actionPhase.btnAdd') }}
       </Button>
     </div>
@@ -55,7 +61,10 @@
               {{ t('actionPhase.panelTitle', { num: phase.number }) }}
             </h2>
 
-            <div class="flex items-center gap-4 mr-4">
+            <div
+              class="flex items-center gap-4 mr-4"
+              v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
+            >
               <button
                 type="button"
                 class="text-primary-500 hover:text-primary-800 transition-colors"
@@ -166,6 +175,7 @@
                 </h2>
 
                 <button
+                  v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
                   type="button"
                   class="text-green-500 hover:text-green-700 transition-colors"
                   @click.stop.prevent="openCreateTaskModal(phase.id)"
@@ -179,7 +189,7 @@
               <table class="min-w-full table-auto border-collapse">
                 <thead class="bg-gray-50 text-gray-700 font-semibold">
                   <tr>
-                    <th class="w-[25%] px-4 py-2 border-b border-gray-300 text-left ">
+                    <th class="w-[25%] px-4 py-2 border-b border-gray-300 text-left">
                       {{ t('actionPhase.tasks.table.title') }}
                     </th>
                     <th class="w-[12%] px-4 py-2 border-b border-gray-300 text-left">
@@ -240,6 +250,7 @@
 
                     <td class="px-4 py-2 border-t border-gray-200 text-center">
                       <button
+                        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
                         type="button"
                         class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium transition"
                         :class="
@@ -262,6 +273,7 @@
                     <td class="px-4 py-2 border-t border-gray-200 text-center">
                       <div class="flex justify-center gap-3">
                         <button
+                          v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
                           type="button"
                           class="text-gray-500 hover:text-gray-800 transition"
                           @click.stop.prevent="openViewTaskModal(task.id)"
@@ -269,6 +281,7 @@
                           <Eye class="w-5 h-5" />
                         </button>
                         <button
+                          v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
                           type="button"
                           class="text-primary-500 hover:text-primary-800 transition"
                           @click.stop.prevent="openEditTaskModal(task.id)"
@@ -276,6 +289,7 @@
                           <Edit class="w-5 h-5" />
                         </button>
                         <button
+                          v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
                           type="button"
                           class="text-red-500 hover:text-red-700 transition"
                           @click.stop.prevent="onDeleteTask(task.id)"
@@ -320,6 +334,10 @@ const { t } = useI18n();
 const actionStore = useActionStore();
 const phaseStore = useActionPhaseStore();
 const taskStore = useTaskStore();
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const {
   isLoading,
@@ -366,7 +384,7 @@ const toggleTask = async (task) => {
 const handleUseDefaultPhases = async () => {
   const confirm = await showConfirm({
     message: t('common.sweetalert.actionPhase.confirmUseDefaultPhases'),
-    confirmButtonText: t('common.sweetalert.actionPhase.confirmButtonText')
+    confirmButtonText: t('common.sweetalert.actionPhase.confirmButtonText'),
   });
 
   if (confirm.isConfirmed) {
