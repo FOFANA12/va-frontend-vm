@@ -20,6 +20,7 @@ export const useActionStore = defineStore('action', () => {
   const riskLevels = ref([]);
   const priorityLevels = ref([]);
   const generateDocumentTypes = ref([]);
+  const users = ref([]);
 
   const beneficiaries = ref([]);
   const stakeholders = ref([]);
@@ -36,6 +37,8 @@ export const useActionStore = defineStore('action', () => {
       currency: '',
 
       structure: '',
+      responsible_structure: '',
+      responsible: '',
       action_plan: '',
       project_owner: '',
       delegated_project_owner: '',
@@ -172,11 +175,12 @@ export const useActionStore = defineStore('action', () => {
     stakeholders.value = [];
     fundingSources.value = [];
     defaultCurrency.value = null;
+    users.value = [];
 
     try {
       const { data } = await api.get(endpoints.action.requirements);
       structures.value = data.structures;
-      actionPlans.value = data.action_plans;;
+      actionPlans.value = data.action_plans;
       projectOwners.value = data.project_owners;
       delegatedProjectOwners.value = data.delegated_project_owners;
       regions.value = data.regions;
@@ -189,6 +193,7 @@ export const useActionStore = defineStore('action', () => {
       riskLevels.value = data.risk_levels;
       priorityLevels.value = data.priority_levels;
       generateDocumentTypes.value = data.generate_document_types;
+      users.value = data.users;
 
       beneficiaries.value = data.beneficiaries;
       stakeholders.value = data.stakeholders;
@@ -244,6 +249,7 @@ export const useActionStore = defineStore('action', () => {
     riskLevels,
     priorityLevels,
     generateDocumentTypes,
+    users,
     beneficiaries,
     stakeholders,
     fundingSources,

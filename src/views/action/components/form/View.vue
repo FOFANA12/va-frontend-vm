@@ -196,6 +196,42 @@
       </div>
     </div>
 
+    <!-- Responsible Structure & Responsible -->
+    <div class="w-full mx-auto bg-white rounded-lg my-6">
+      <div class="card-header">
+        <h2 class="text-xl p-4 pt-2 pb-2">
+          {{ t('action.sections.responsible') }}
+        </h2>
+        <hr class="border-t border-gray-200 w-full mb-0" />
+      </div>
+
+      <div class="card-body p-4">
+        <div class="grid grid-cols-12 gap-4">
+          <!-- Responsible Structure -->
+          <div class="col-span-12 md:col-span-6">
+            <InputReadonly
+              id="responsible_structure"
+              name="responsible_structure"
+              :label="t('action.form.responsibleStructure')"
+              :placeholder="t('action.form.responsibleStructurePlaceholder')"
+              :modelValue="form.responsible_structure"
+            />
+          </div>
+
+          <!-- Responsible User -->
+          <div class="col-span-12 md:col-span-6">
+            <InputReadonly
+              id="responsible"
+              name="responsible"
+              :label="t('action.form.responsible')"
+              :placeholder="t('action.form.responsiblePlaceholder')"
+              :modelValue="form.responsible"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="w-full mx-auto bg-white rounded-lg my-6">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
@@ -239,7 +275,7 @@
           </div>
 
           <!-- Program -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+          <!-- <div class="col-span-12 md:col-span-6 lg:col-span-4">
             <InputReadonly
               id="program"
               name="program"
@@ -247,10 +283,10 @@
               :placeholder="t('action.form.programPlaceholder')"
               :modelValue="form.program"
             />
-          </div>
+          </div> -->
 
           <!-- Project -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+          <!-- <div class="col-span-12 md:col-span-6 lg:col-span-4">
             <InputReadonly
               id="project"
               name="project"
@@ -258,10 +294,10 @@
               :placeholder="t('action.form.projectPlaceholder')"
               :modelValue="form.project"
             />
-          </div>
+          </div> -->
 
           <!-- Activity -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+          <!-- <div class="col-span-12 md:col-span-6 lg:col-span-4">
             <InputReadonly
               id="activity"
               name="activity"
@@ -269,7 +305,7 @@
               :placeholder="t('action.form.activityPlaceholder')"
               :modelValue="form.activity"
             />
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

@@ -140,7 +140,6 @@
             />
           </div>
 
-
           <!-- Priority level -->
           <div class="col-span-12 md:col-span-6 lg:col-span-4">
             <SingleSelect
@@ -291,6 +290,65 @@
       </div>
     </div>
 
+    <!-- Responsible Structure & Responsible -->
+    <div class="w-full mx-auto bg-white rounded-lg my-6">
+      <div class="card-header">
+        <h2 class="text-xl p-4 pt-2 pb-2">
+          {{ t('action.sections.responsible') }}
+        </h2>
+        <hr class="border-t border-gray-200 w-full mb-0" />
+      </div>
+
+      <div class="card-body p-4">
+        <div class="grid grid-cols-12 gap-4">
+          <!-- Responsible Structure -->
+          <div class="col-span-12 md:col-span-6">
+            <SingleSelect
+              id="responsible_structure"
+              name="responsible_structure"
+              v-model="form.responsible_structure"
+              :label="t('action.form.responsibleStructure')"
+              :options="responsibleStructuresFiltered"
+              @update:modelValue="onChangeResponsibleStructure"
+              :placeholder="t('action.form.responsibleStructurePlaceholder')"
+              :error="form.errors.get('responsible_structure')"
+              clearable
+              filterable
+              value-key="uuid"
+              label-key="name"
+              :control-class="'px-3 py-2.5'"
+              :dropdown-class="'max-h-60'"
+              :option-class="'text-sm'"
+              :empty-message="t('common.select.noResults')"
+              :search-placeholder="t('common.select.searchPlaceholder')"
+            />
+          </div>
+
+          <!-- Responsible User -->
+          <div class="col-span-12 md:col-span-6">
+            <SingleSelect
+              id="responsible"
+              name="responsible"
+              v-model="form.responsible"
+              :label="t('action.form.responsible')"
+              :options="responsibleUsersFiltered"
+              :placeholder="t('action.form.responsiblePlaceholder')"
+              :error="form.errors.get('responsible')"
+              clearable
+              filterable
+              value-key="uuid"
+              label-key="name"
+              :control-class="'px-3 py-2.5'"
+              :dropdown-class="'max-h-60'"
+              :option-class="'text-sm'"
+              :empty-message="t('common.select.noResults')"
+              :search-placeholder="t('common.select.searchPlaceholder')"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="w-full mx-auto bg-white rounded-lg my-6">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
@@ -368,7 +426,7 @@
             />
           </div>
 
-          <!-- Program -->
+          <!-- Program
           <div class="col-span-12 md:col-span-6 lg:col-span-4">
             <SingleSelect
               id="program"
@@ -389,10 +447,10 @@
               value-key="uuid"
               label-key="name"
             />
-          </div>
+          </div> -->
 
           <!-- Project -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+          <!-- <div class="col-span-12 md:col-span-6 lg:col-span-4">
             <SingleSelect
               id="project"
               name="project"
@@ -412,10 +470,10 @@
               value-key="uuid"
               label-key="name"
             />
-          </div>
+          </div> -->
 
           <!-- Activity -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+          <!-- <div class="col-span-12 md:col-span-6 lg:col-span-4">
             <SingleSelect
               id="activity"
               name="activity"
@@ -434,7 +492,7 @@
               value-key="uuid"
               label-key="name"
             />
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -738,7 +796,9 @@ const activitiesFiltered = ref([]);
 const actionPlansFiltered = ref([]);
 const projectOwnersFiltered = ref([]);
 const delegatedProjectOwnersFiltered = ref([]);
-const procurementModesFiltered = ref([]);
+
+const responsibleStructuresFiltered = ref([]);
+const responsibleUsersFiltered = ref([]);
 
 const modalBeneficiary = ref(null);
 const modalStakeholder = ref(null);
@@ -754,13 +814,22 @@ const currentCurrencyCode = computed(() => {
 });
 
 const operationalStructures = computed(() => {
-  return store.structures.filter(s => s.type === 'OPERATIONAL');
+  return store.structures.filter((s) => s.type === 'OPERATIONAL');
 });
 
 const getAncestorStructureUuids = (uuid) => {
   const parent = store.structures.find((s) => s.uuid === uuid)?.parent_uuid;
   if (!parent) return [];
   return [parent, ...getAncestorStructureUuids(parent)];
+};
+
+const getDescendantStructureUuids = (uuid) => {
+  const children = store.structures.filter((s) => s.parent_uuid === uuid).map((s) => s.uuid);
+
+  if (!children.length) return [];
+
+  const nested = children.flatMap((child) => getDescendantStructureUuids(child));
+  return [...children, ...nested];
 };
 
 const fundingSourcesFiltered = computed(() => {
@@ -826,6 +895,8 @@ const onChangeStructure = (structureUuid, isInit = false) => {
     actionPlansFiltered.value = [];
     projectOwnersFiltered.value = [];
     delegatedProjectOwnersFiltered.value = [];
+    responsibleStructuresFiltered.value = [];
+    responsibleUsersFiltered.value = [];
     return;
   }
 
@@ -843,9 +914,35 @@ const onChangeStructure = (structureUuid, isInit = false) => {
   if (isInit && form.project_owner) {
     onChangeProjectOwner(form.project_owner, true);
   }
+
+  const descendants = getDescendantStructureUuids(structureUuid);
+  responsibleStructuresFiltered.value = store.structures.filter((s) =>
+    descendants.includes(s.uuid)
+  );
+
+  if (isInit && form.responsible_structure) {
+    onChangeResponsibleStructure(form.responsible_structure, true);
+  }
 };
 
-const onChangeProjectOwner = (projectOwnerUuid) => {
+const onChangeResponsibleStructure = (structureUuid, isInit = false) => {
+  if (!isInit) {
+    form.responsible = null;
+  }
+
+  if (!structureUuid) {
+    responsibleUsersFiltered.value = [];
+    return;
+  }
+
+  responsibleUsersFiltered.value = store.users.filter((u) => u.structure_uuid === structureUuid);
+};
+
+const onChangeProjectOwner = (projectOwnerUuid, isInit = false) => {
+   if (!isInit) {
+    form.delegated_project_owner = null;
+  }
+
   if (!projectOwnerUuid) {
     delegatedProjectOwnersFiltered.value = [];
     return;
@@ -854,16 +951,6 @@ const onChangeProjectOwner = (projectOwnerUuid) => {
   delegatedProjectOwnersFiltered.value = store.delegatedProjectOwners.filter(
     (dpo) => dpo.project_owner_uuid === projectOwnerUuid
   );
-};
-
-const onChangeContractType = (contractTypeUuid) => {
-  if (!contractTypeUuid) {
-    procurementModesFiltered.value = [];
-    return;
-  }
-
-  const type = store.contractTypes.find((item) => item.uuid === contractTypeUuid);
-  procurementModesFiltered.value = type?.procurement_modes || [];
 };
 
 const onChangeRegion = (regionUuid, isInit = false) => {
@@ -933,8 +1020,8 @@ onMounted(async () => {
 
   if (props.context !== 'create') {
     if (form.structure) onChangeStructure(form.structure, true);
-    if (form.project_owner) onChangeProjectOwner(form.project_owner);
-    if (form.contract_type) onChangeContractType(form.contract_type);
+    if (form.project_owner) onChangeProjectOwner(form.project_owner, true);
+    if (form.responsible_structure) onChangeResponsibleStructure(form.responsible_structure, true);
 
     if (form.region) onChangeRegion(form.region, true);
     if (form.department) onChangeDepartment(form.department, true);

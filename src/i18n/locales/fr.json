@@ -1212,7 +1212,8 @@
       "beneficiaryInformation": "Bénéficiaires",
       "stakeholderInformation": "Parties prenante",
       "fundingSourcesInformation": "Sources de financement",
-      "statusDetail": "Détails du statut"
+      "statusDetail": "Détails du statut",
+      "responsible": "Structure Responsable & Responsable"
     },
     "tabs": {
       "detail": "Détails de l'action",
@@ -1284,12 +1285,12 @@
       "generateDocumentTypePlaceholder": "Sélectionnez un type de plan",
       "structure": "Structure concernée",
       "structurePlaceholder": "Sélectionnez la structure concernée",
+      "responsibleStructure": "Structure responsable",
+      "responsibleStructurePlaceholder": "Sélectionnez la structure responsable",
+      "responsible": "Responsable",
+      "responsiblePlaceholder": "Sélectionnez le responsable",
       "actionPlan": "Plan d'action",
       "actionPlanPlaceholder": "Sélectionnez un plan d'action",
-      "contractType": "Type de marché",
-      "contractTypePlaceholder": "Sélectionnez un type de marché",
-      "procurementMode": "Mode de selection",
-      "procurementModePlaceholder": "Sélectionnez une mode de selection",
       "projectOwner": "Maitre d'ouvrage",
       "projectOwnerPlaceholder": "Sélectionnez un maître d'ouvrage",
       "delegatedProjectOwner": "Maître d'ouvrage délégué",
