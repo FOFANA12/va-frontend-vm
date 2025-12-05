@@ -37,6 +37,10 @@ import capabilityDomain from './capabilityDomain';
 import capabilityDomainState from './capabilityDomainState';
 import capabilityDomainStatus from './capabilityDomainStatus';
 
+import elementaryLevel from './elementaryLevel';
+import elementaryLevelState from './elementaryLevelState';
+import elementaryLevelStatus from './elementaryLevelStatus';
+
 import indicator from './indicator';
 import indicatorPlanning from './indicatorPlanning';
 import indicatorControl from './indicatorControl';
@@ -111,6 +115,10 @@ export const endpoints = {
   capabilityDomain,
   capabilityDomainStatus,
   capabilityDomainState,
+  
+  elementaryLevel,
+  elementaryLevelState,
+  elementaryLevelStatus,
 
   settings: {
     fileType: fileTypeSettings,

@@ -1,9 +1,8 @@
 <script setup>
 import ListPage from '@/views/attachment/ListPage.vue';
 import PERMISSIONS from '@/constants/permissions';
-
 const route = useRoute();
-const attachableType = 'capability_domains';
+const attachableType = 'elementary_levels';
 const attachableId = route.params.id;
 </script>
 
@@ -13,17 +12,17 @@ const attachableId = route.params.id;
     :attachable-type="attachableType"
     :attachable-id="attachableId"
     :permissions="{
-      access: PERMISSIONS.CD_ACCESS_FILES,
-      manage: PERMISSIONS.CD_MANAGE_FILES,
+      access: PERMISSIONS.EML_ACCESS_FILES,
+      manage: PERMISSIONS.EML_MANAGE_FILES,
     }"
   >
     <template #return-list-btn>
       <LinkButton
-        :to="{ name: 'capabilityDomain' }"
+        :to="{ name: 'elementaryLevel' }"
         variant="secondary"
         customClass="min-w-[100px] px-3 text-gray-700 hover:bg-gray-400"
       >
-        {{ t('capabilityDomain.btnList') }}
+        {{ t('elementaryLevel.btnList') }}
       </LinkButton>
     </template>
   </ListPage>

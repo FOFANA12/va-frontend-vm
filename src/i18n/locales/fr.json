@@ -93,6 +93,11 @@
         "modalTitle": "Modifier le statut du domaine capacitaire",
         "label": "Statut du domaine capacitaire",
         "placeholder": "Sélectionner un statut"
+      },
+      "elementaryLevel": {
+        "modalTitle": "Modifier le statut du niveau élémentaire",
+        "label": "Statut du niveau élémentaire",
+        "placeholder": "Sélectionner un statut"
       }
     },
     "entityState": {
@@ -109,6 +114,11 @@
       "capabilityDomain": {
         "modalTitle": "Modifier état du domaine capacitaire",
         "label": "Etat du domaine capacitaire",
+        "placeholder": "Sélectionner un état"
+      },
+      "elementaryLevel": {
+        "modalTitle": "Modifier état du niveau élémentaire",
+        "label": "Etat du niveau élémentaire",
         "placeholder": "Sélectionner un état"
       }
     },
@@ -179,6 +189,7 @@
     "actionDomains": "Domaines d'action",
     "strategicDomains": "Domaines stratégique",
     "capabilityDomains": "Domaines capacitaire",
+    "elementaryLevels": "Niveau élémentaire",
     "strategicManagement": "Pilotage stratégique",
     "operationalManagement": "Pilotage opérationnel",
     "financialManagement": "Gestion financière",
@@ -822,14 +833,108 @@
       "strategicDomain": "Domaine stratégique"
     }
   },
-  "capabilityDomainStatus": {
+  "elementaryLevel": {
+    "sections": {
+      "descriptiveCharacteristics": "Caractéristiques descriptives",
+      "beneficiaryInformation": "Bénéficiaires",
+      "fundingSourcesInformation": "Sources de financement",
+      "statusDetail": "Détails du statut",
+      "stateDetail": "Détails de l'état"
+    },
+    "tabs": {
+      "detail": "Détails niveau élémentaire",
+      "status": "Statut",
+      "state": "Etat",
+      "attachment": "Fichiers"
+    },
+    "beneficiaries": {
+      "modalTitle": "Sélectionner des bénéficiaires",
+      "name": "Nom",
+      "btnValidate": "Valider la sélection",
+      "noBeneficiaries": "Aucun bénéficiaire ajouté pour l'instant.",
+      "addBeneficiary": "Ajouter un bénéficiaire"
+    },
+    "fundingSources": {
+      "name": "Nom",
+      "plannedAmount": "Montant prévu",
+      "addFunder": "Ajouter une source",
+      "noFundingSources": "Aucune source de financement ajoutée pour l'instant.",
+      "plannedBudget": "Budget prévisionnel",
+      "searchPlaceholder": "Rechercher une source de financement"
+    },
+    "list": {
+      "pageTitle": "Gestion des niveaux élémentaire",
+      "breadTitle": "Gestion des niveaux élémentaire",
+      "breadActive": "Liste des niveaux élémentaire"
+    },
+    "create": {
+      "pageTitle": "Gestion des niveaux élémentaire - Création",
+      "breadTitle": "Gestion des niveaux élémentaire",
+      "breadActive": "Ajout d'un nouveau niveau élémentaire"
+    },
+    "edit": {
+      "pageTitle": "Gestion des niveaux élémentaire - Modification",
+      "breadTitle": "Gestion des niveaux élémentaire",
+      "breadActive": "Modification d'un niveau élémentaire"
+    },
+    "view": {
+      "pageTitle": "Gestion des niveaux élémentaire - Aperçu",
+      "breadTitle": "Gestion des niveaux élémentaire",
+      "breadActive": "Aperçu d'un niveaux élémentaire"
+    },
+    "btnAdd": "Nouveau niveau élémentaire",
+    "btnCreate": "Créer",
+    "btnList": "Liste des niveaux élémentaire",
+    "form": {
+      "reference": "Référence",
+      "referencePlaceholder": "Ex. : ACT-XXXX",
+      "name": "Nom",
+      "capabilityDomain": "Domaine capacitaire",
+      "capabilityDomainPlaceholder": "Sélectionner un niveau élémentaire",
+      "namePlaceholder": "Entrez le nom",
+      "startDate": "Date de début",
+      "startDatePlaceholder": "Sélectionner la date de début",
+      "endDate": "Date de fin",
+      "endDatePlaceholder": "Sélectionner la date de fin",
+      "budget": "Budget",
+      "budgetPlaceholder": "Entrez le budget",
+      "currency": "Dévise",
+      "currencyPlaceholder": "Entrez le dévise",
+      "responsible": "Responsable",
+      "responsiblePlaceholder": "Sélectionner le responsable",
+      "region": "Région",
+      "regionPlaceholder": "Sélectionner la région",
+      "department": "Département",
+      "departmentPlaceholder": "Sélectionnez le département",
+      "municipality": "Commune",
+      "municipalityPlaceholder": "Sélectionnez une commmune",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description",
+      "prerequisites": "Conditions préalables",
+      "prerequisitesPlaceholder": "Entrez les conditions préalables",
+      "impacts": "Impacts attendus",
+      "impactsPlaceholder": "Entrez les impacts attendus",
+      "risks": "Risques identifiés",
+      "risksPlaceholder": "Entrez les risques identifiés"
+    },
+    "table": {
+      "reference": "Référence",
+      "name": "Nom",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "budget": "Budget",
+      "responsible": "Responsable",
+      "capabilityDomain": "Domaine capacitaire"
+    }
+  },
+  "elementaryLevelStatus": {
     "btnAdd": "Nouveau statut",
     "table": {
       "noData": "Pas de données",
       "date": "Date"
     }
   },
-  "capabilityDomainState": {
+  "elementaryLevelState": {
     "btnAdd": "Nouvel état",
     "table": {
       "noData": "Pas de données",

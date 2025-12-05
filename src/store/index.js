@@ -21,6 +21,10 @@ export * from './capabilityDomain'
 export * from './capabilityDomainState'
 export * from './capabilityDomainStatus';
 
+export * from './elementaryLevel';
+export * from './elementaryLevelState';
+export * from './elementaryLevelStatus';
+
 export * from './strategicMap';
 export * from './strategicStakeholder';
 export * from './matrixPeriod';

@@ -98,6 +98,8 @@ const props = defineProps({
 
 const canAccess = computed(() => hasPermission(props.permissions.access));
 const canManage = computed(() => hasPermission(props.permissions.manage));
+console.log("canManage ?", canManage.value);
+console.log("User permissions:", usePermission().permissions);
 
 const { t } = useI18n();
 const store = useAttachmentStore();

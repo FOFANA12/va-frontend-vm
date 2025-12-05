@@ -18,6 +18,7 @@ import SettingsRoutes from './settings';
 import StructureRoutes from './structure';
 import ActionDomainRoutes from './actionDomain';
 import StrategicDomainRoutes from './strategicDomain';
+import elementaryLevelRoutes from './elementaryLevel';
 import CapabilityDomainRoutes from './capabilityDomain';
 
 const routes = [
@@ -40,6 +41,7 @@ const routes = [
   ...ActionDomainRoutes,
   ...StrategicDomainRoutes,
   ...CapabilityDomainRoutes,
+  ...elementaryLevelRoutes,
   ...StrategicMapRoutes,
   ...StrategicLeverRoutes,
   ...StrategicAxisRoutes,

@@ -94,6 +94,7 @@ import {
   ListOrdered,
   Sliders,
   ShieldCheck,
+  ChartBar,
 } from 'lucide-vue-next';
 import { useSidebar } from '@/composables/useSidebar';
 import PERMISSIONS from '@/constants/permissions';
@@ -246,6 +247,12 @@ const rawMenuGroups = [
         name: t('sidebar.capabilityDomains'),
         path: '/capability-domains',
         permission: PERMISSIONS.ACCESS_CAPABILITY_DOMAINS,
+      },
+      {
+        icon: ChartBar,
+        name: t('sidebar.elementaryLevels'),
+        path: '/elementary-levels',
+        permission: PERMISSIONS.ACCESS_ELEMENTARY_LEVELS,
       },
     ],
   },

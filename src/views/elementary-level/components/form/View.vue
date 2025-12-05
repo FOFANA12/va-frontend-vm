@@ -3,7 +3,7 @@
     <div class="w-full mx-auto bg-white rounded-lg">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
-          {{ t('capabilityDomain.sections.statusDetail') }}
+          {{ t('elementaryLevel.sections.statusDetail') }}
         </h2>
         <hr class="border-t border-gray-200 w-full mb-0" />
       </div>
@@ -45,7 +45,7 @@
     <div class="w-full mx-auto bg-white rounded-lg mt-6">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
-          {{ t('capabilityDomain.sections.stateDetail') }}
+          {{ t('elementaryLevel.sections.stateDetail') }}
         </h2>
         <hr class="border-t border-gray-200 w-full mb-0" />
       </div>
@@ -92,8 +92,8 @@
             <InputReadonly
               id="reference"
               name="reference"
-              :label="t('capabilityDomain.form.reference')"
-              :placeholder="t('capabilityDomain.form.referencePlaceholder')"
+              :label="t('elementaryLevel.form.reference')"
+              :placeholder="t('elementaryLevel.form.referencePlaceholder')"
               :modelValue="form.reference"
               readonly
             />
@@ -104,8 +104,8 @@
             <InputReadonly
               id="name"
               name="name"
-              :label="t('capabilityDomain.form.name')"
-              :placeholder="t('capabilityDomain.form.namePlaceholder')"
+              :label="t('elementaryLevel.form.name')"
+              :placeholder="t('elementaryLevel.form.namePlaceholder')"
               :modelValue="form.name"
               readonly
             />
@@ -116,8 +116,8 @@
             <InputReadonly
               id="startDate"
               name="startDate"
-              :label="t('capabilityDomain.form.startDate')"
-              :placeholder="t('capabilityDomain.form.startDatePlaceholder')"
+              :label="t('elementaryLevel.form.startDate')"
+              :placeholder="t('elementaryLevel.form.startDatePlaceholder')"
               :modelValue="form.start_date"
               readonly
             />
@@ -128,8 +128,8 @@
             <InputReadonly
               id="endDate"
               name="endDate"
-              :label="t('capabilityDomain.form.endDate')"
-              :placeholder="t('capabilityDomain.form.endDatePlaceholder')"
+              :label="t('elementaryLevel.form.endDate')"
+              :placeholder="t('elementaryLevel.form.endDatePlaceholder')"
               :modelValue="form.end_date"
               readonly
             />
@@ -140,8 +140,8 @@
             <InputReadonly
               id="currency"
               name="currency"
-              :label="t('capabilityDomain.form.currency')"
-              :placeholder="t('capabilityDomain.form.currencyPlaceholder')"
+              :label="t('elementaryLevel.form.currency')"
+              :placeholder="t('elementaryLevel.form.currencyPlaceholder')"
               :modelValue="form.currency"
               readonly
             />
@@ -152,21 +152,21 @@
             <InputReadonly
               id="responsible"
               name="responsible"
-              :label="t('capabilityDomain.form.responsible')"
-              :placeholder="t('capabilityDomain.form.responsiblePlaceholder')"
+              :label="t('elementaryLevel.form.responsible')"
+              :placeholder="t('elementaryLevel.form.responsiblePlaceholder')"
               :modelValue="form.responsible"
               readonly
             />
           </div>
 
-          <!-- Strategic domain -->
+          <!-- Capability domain -->
           <div class="col-span-12 md:col-span-6 lg:col-span-4">
             <InputReadonly
-              id="strategic_domain"
-              name="strategic_domain"
-              :label="t('capabilityDomain.form.strategicDomain')"
-              :placeholder="t('capabilityDomain.form.strategicDomainPlaceholder')"
-              :modelValue="form.strategic_domain"
+              id="capability_domain"
+              name="capability_domain"
+              :label="t('elementaryLevel.form.capabilityDomain')"
+              :placeholder="t('elementaryLevel.form.capabilityDomainPlaceholder')"
+              :modelValue="form.capability_domain"
               readonly
             />
           </div>
@@ -177,7 +177,7 @@
     <div class="w-full mx-auto bg-white rounded-lg my-6">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
-          {{ t('capabilityDomain.sections.beneficiaryInformation') }}
+          {{ t('elementaryLevel.sections.beneficiaryInformation') }}
         </h2>
         <hr class="border-t border-gray-200 w-full mb-0" />
       </div>
@@ -196,7 +196,7 @@
               </div>
             </div>
             <div v-else class="text-red-500 text-sm mt-2">
-              {{ t('capabilityDomain.beneficiaries.noBeneficiaries') }}
+              {{ t('elementaryLevel.beneficiaries.noBeneficiaries') }}
             </div>
           </div>
         </div>
@@ -206,7 +206,7 @@
     <div class="w-full mx-auto bg-white rounded-lg my-6">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
-          {{ t('capabilityDomain.sections.fundingSourcesInformation') }}
+          {{ t('elementaryLevel.sections.fundingSourcesInformation') }}
         </h2>
         <hr class="border-t border-gray-200 w-full mb-0" />
       </div>
@@ -217,17 +217,17 @@
             <thead class="bg-gray-50 text-gray-700 text-sm">
               <tr>
                 <th class="p-2 border text-left w-[50%]">
-                  {{ t('capabilityDomain.fundingSources.name') }}
+                  {{ t('elementaryLevel.fundingSources.name') }}
                 </th>
                 <th class="p-2 border text-left w-[20%]">
-                  {{ t('capabilityDomain.fundingSources.plannedAmount') }}
+                  {{ t('elementaryLevel.fundingSources.plannedAmount') }}
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr v-if="!form.funding_sources?.length">
                 <td colspan="3" class="text-center text-red-500 py-4 border">
-                  {{ t('capabilityDomain.fundingSources.noFundingSources') }}
+                  {{ t('elementaryLevel.fundingSources.noFundingSources') }}
                 </td>
               </tr>
               <tr
@@ -247,7 +247,7 @@
                 class="font-semibold format-number bg-gray-100"
               >
                 <td class="p-2 border text-right">
-                  {{ t('capabilityDomain.fundingSources.plannedBudget') }}
+                  {{ t('elementaryLevel.fundingSources.plannedBudget') }}
                 </td>
                 <td class="p-2 border">
                   {{ formatCurrency(totalPlannedAmount, currentCurrencyCode) }}
@@ -262,7 +262,7 @@
     <div class="w-full mx-auto bg-white rounded-lg my-6">
       <div class="card-header">
         <h2 class="text-xl p-4 pt-2 pb-2">
-          {{ t('capabilityDomain.sections.descriptiveCharacteristics') }}
+          {{ t('elementaryLevel.sections.descriptiveCharacteristics') }}
         </h2>
         <hr class="border-t border-gray-200 w-full mb-0" />
       </div>
@@ -274,8 +274,8 @@
               id="description"
               name="description"
               v-model="form.description"
-              :label="t('capabilityDomain.form.description')"
-              :placeholder="t('capabilityDomain.form.descriptionPlaceholder')"
+              :label="t('elementaryLevel.form.description')"
+              :placeholder="t('elementaryLevel.form.descriptionPlaceholder')"
               :error="form.errors.get('description')"
               :rows="7"
             />
@@ -287,8 +287,8 @@
               id="prerequisites"
               name="prerequisites"
               v-model="form.prerequisites"
-              :label="t('capabilityDomain.form.prerequisites')"
-              :placeholder="t('capabilityDomain.form.prerequisitesPlaceholder')"
+              :label="t('elementaryLevel.form.prerequisites')"
+              :placeholder="t('elementaryLevel.form.prerequisitesPlaceholder')"
               :error="form.errors.get('prerequisites')"
               :rows="7"
             />
@@ -300,8 +300,8 @@
               id="impacts"
               name="impacts"
               v-model="form.impacts"
-              :label="t('capabilityDomain.form.impacts')"
-              :placeholder="t('capabilityDomain.form.impactsPlaceholder')"
+              :label="t('elementaryLevel.form.impacts')"
+              :placeholder="t('elementaryLevel.form.impactsPlaceholder')"
               :error="form.errors.get('impacts')"
               :rows="7"
             />
@@ -313,8 +313,8 @@
               id="risks"
               name="risks"
               v-model="form.risks"
-              :label="t('capabilityDomain.form.risks')"
-              :placeholder="t('capabilityDomain.form.risksPlaceholder')"
+              :label="t('elementaryLevel.form.risks')"
+              :placeholder="t('elementaryLevel.form.risksPlaceholder')"
               :error="form.errors.get('risks')"
               :rows="7"
             />
@@ -326,10 +326,10 @@
 </template>
   
 <script setup>
-import { useCapabilityDomainStore, useSettingsCurrencyStore } from '@/store';
+import { useElementaryLevelStore, useSettingsCurrencyStore } from '@/store';
 import { useCurrencyFormatter } from '@/composables/useCurrencyFormatter';
 import TagBadge from '../TagBadge.vue';
-const store = useCapabilityDomainStore();
+const store = useElementaryLevelStore();
 const currencyStore = useSettingsCurrencyStore();
 
 const form = store.form;
