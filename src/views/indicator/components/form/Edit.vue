@@ -371,7 +371,6 @@
 import { useIndicatorStore } from '@/store';
 
 const store = useIndicatorStore();
-const emit = defineEmits(['open-status-modal']);
 const props = defineProps({
   context: {
     type: String,
@@ -394,10 +393,6 @@ const selectedStructure = computed(() => {
 
   return store.structures.find((s) => s.uuid === form.structure) || null;
 });
-
-const openStatusModal = () => {
-  emit('open-status-modal', form.id, form.status);
-};
 
 const onChangeStructure = (structureUuid, isInit = false) => {
   if (!isInit) {

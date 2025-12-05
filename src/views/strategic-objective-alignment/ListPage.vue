@@ -16,7 +16,7 @@
       </LinkButton>
 
       <Button
-        v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_ALIGNMENT) && selectedRows.length > 0"
+        v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_ALIGNMENT) && alignmentAllowed && selectedRows.length > 0"
         :icon="Trash"
         variant="danger-outline"
         customClass="sm:px-4"
@@ -26,7 +26,7 @@
       </Button>
 
       <LinkButton
-        v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_ALIGNMENT)"
+        v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_ALIGNMENT) && alignmentAllowed"
         :to="alignmentRoute"
         :icon="Plus"
         variant="primary"
@@ -49,8 +49,8 @@
     <!-- DataTable -->
     <DataTable
       :columns="columns"
-      :data="store.alignments"
-      :meta="store.meta"
+      :data="alignmentStore.alignments"
+      :meta="alignmentStore.meta"
       @pagination-change="onPageChange"
       @sorting-change="onSortChange"
       @row-selection-change="onRowSelectionChange"
@@ -62,7 +62,7 @@
   <script setup>
 import { Plus, Trash } from 'lucide-vue-next';
 
-import { useStrategicObjectiveAlignmentStore } from '@/store';
+import { useStrategicObjectiveAlignmentStore, useStrategicObjectiveStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import { useDatatable } from '@/composables/useDatatable';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
@@ -70,14 +70,22 @@ import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import { getColumns } from './components/DataTableColumns';
 
+import { useObjectiveRules } from '@/composables/useObjectiveRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
+const { canManageAlignment } = useObjectiveRules();
 const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
-const store = useStrategicObjectiveAlignmentStore();
+const objectiveStore = useStrategicObjectiveStore();
+const alignmentStore = useStrategicObjectiveAlignmentStore();
+
+const objective = computed(() => objectiveStore.form);
+const objectiveStatus = computed(() => objective.value?.status);
+const alignmentAllowed = computed(() => canManageAlignment(objectiveStatus.value));
 
 const alignmentRoute = computed(() => {
   return {
@@ -99,9 +107,9 @@ const {
   onSortChange,
   onRowSelectionChange,
 } = useDatatable(
-  (args) => store.getAll({ ...args, objectiveId: route.params.id }),
+  (args) => alignmentStore.getAll({ ...args, objectiveId: route.params.id }),
   { id: 'id', desc: true },
-  store
+  alignmentStore
 );
 
 const { isLoading, hasError, errorMessage, fetchData: fetchWithState } = usePageState(fetchData);
@@ -116,13 +124,14 @@ const columns = getColumns({
     window.open(url, '_blank');
   },
   onUnalign: (ids) => unalign(ids),
+  objectiveStatus
 });
 
 const resetPageAndRefresh = async (clearSearch = false) => {
   if (clearSearch) searchTerm.value = null;
-  store.resetServerParams();
-  pagination.value.pageIndex = store.meta.current_page - 1;
-  pagination.value.pageSize = store.meta.per_page;
+  alignmentStore.resetServerParams();
+  pagination.value.pageIndex = alignmentStore.meta.current_page - 1;
+  pagination.value.pageSize = alignmentStore.meta.per_page;
 };
 
 const unalign = async (ids) => {
@@ -140,7 +149,7 @@ const unalign = async (ids) => {
 
   if (confirm.isConfirmed) {
     try {
-      const result = await store.unalign(ids);
+      const result = await alignmentStore.unalign(ids);
       showSimpleAlerte({ icon: 'success', text: result.message });
       resetSelectionKey.value++;
       selectedRows.value = [];

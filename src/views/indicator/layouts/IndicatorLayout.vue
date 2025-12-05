@@ -37,7 +37,7 @@
         <Tab
           v-if="hasPermission(PERMISSIONS.IND_ACCESS_PLANNING)"
           :to="{
-            name: 'indicator-show-planning-show',
+            name: isEdit ? 'indicator-edit-planning-show' : 'indicator-show-planning-show',
             params: { id: route.params.id },
           }"
           :icon="Calendar"
@@ -114,6 +114,7 @@ import {
   Calendar,
   Eye,
   Paperclip,
+  ScrollTextIcon,
   SquareCheckBigIcon,
   SquarePen,
 } from 'lucide-vue-next';

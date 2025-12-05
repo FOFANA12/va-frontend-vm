@@ -6,7 +6,7 @@ const props = defineProps({
   onView: Function,
   onDelete: Function,
   canAccess: Boolean,
-  canManage: Boolean,
+  canDelete: Boolean,
 });
 </script>
 
@@ -16,7 +16,7 @@ const props = defineProps({
       <Eye class="h-4.5 w-4.5" />
     </button>
 
-    <button v-if="canManage" @click="onDelete?.([row.id])" class="text-red-600 hover:text-red-800">
+    <button v-if="canDelete" @click="onDelete?.([row.id])" class="text-red-600 hover:text-red-800">
       <Trash class="h-4 w-4" />
     </button>
   </div>

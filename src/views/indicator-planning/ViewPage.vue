@@ -15,7 +15,7 @@
       </LinkButton>
 
       <LinkButton
-        v-if="hasPermission(PERMISSIONS.IND_MANAGE_PLANNING)"
+        v-if="canManagePlanningAllowed"
         :to="editRoute"
         variant="primary"
         class="min-w-[100px]"
@@ -47,24 +47,44 @@ import { Edit, Plus } from 'lucide-vue-next';
 import Form from './components/form/View.vue';
 import { useDateTimeFormatter } from '@/composables/useDateTimeFormatter';
 
-import { useIndicatorPlanningStore } from '@/store';
+import { useIndicatorPlanningStore, useIndicatorStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import PerformanceLineChart from '@/components/ui/charts/PerformanceLineChart.vue';
 
+import { useIndicatorRules } from '@/composables/useIndicatorRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
+const { canPlanned } = useIndicatorRules();
 const { hasPermission } = usePermission();
 
 const { formatDate } = useDateTimeFormatter();
 
 const { t } = useI18n();
 const route = useRoute();
-const store = useIndicatorPlanningStore();
-store.resetForm();
-const form = store.form;
+const planningStore = useIndicatorPlanningStore();
+planningStore.resetForm();
+const form = planningStore.form;
 
 const isPlanned = computed(() => !!form.is_planned);
+
+const indicatorStore = useIndicatorStore();
+const indicator = computed(() => indicatorStore.form);
+const indicatorStatus = computed(() => indicator.value?.status);
+
+const controlStarted = computed(() => {
+  const value = parseFloat(indicator.achieved_value);
+  return !isNaN(value) && value > 0;
+});
+
+const canManagePlanningAllowed = computed(() => {
+  return (
+    hasPermission(PERMISSIONS.IND_MANAGE_PLANNING) &&
+    canPlanned(indicatorStatus.value) &&
+    !controlStarted.value
+  );
+});
 
 const backRoute = computed(() => {
   return { name: 'indicator' };
@@ -82,7 +102,7 @@ const {
   hasError,
   errorMessage,
   fetchData: fetchWithState,
-} = usePageState(async () => await store.find(route.params.id, 'view'));
+} = usePageState(async () => await planningStore.find(route.params.id, 'view'));
 
 const chartLabels = computed(() => {
   return (form.periods || []).map(

@@ -4,7 +4,7 @@ import StatusBadge from '@/components/ui/StatusBadge.vue';
 
 const columnHelper = createColumnHelper();
 
-export function getColumns({ t, onUnalign, onView }) {
+export function getColumns({ t, onUnalign, onView, objectiveStatus }) {
   return [
     columnHelper.display({
       id: 'select',
@@ -93,6 +93,7 @@ export function getColumns({ t, onUnalign, onView }) {
             row: row.original,
             onView,
             onUnalign,
+            objectiveStatus,
           })
         ),
     }),

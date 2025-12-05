@@ -1,8 +1,10 @@
 <script setup>
 import { Eye, Edit, Trash, Copy } from 'lucide-vue-next';
+import { useActionRules } from '@/composables/useActionRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
 
+const { isLocked } = useActionRules();
 const { hasPermission } = usePermission();
 
 const props = defineProps({
@@ -12,6 +14,13 @@ const props = defineProps({
   onDelete: Function,
   onCopy: Function,
 });
+
+const controlStarted = computed(() => {
+  const value = parseFloat(props.row?.actual_progress_percent);
+  return !isNaN(value) && value > 0;
+});
+const isActionLocked = computed(() => isLocked(props.row.status));
+
 </script>
 
 <template>
@@ -33,7 +42,7 @@ const props = defineProps({
     </button>
 
     <button
-      v-if="hasPermission(PERMISSIONS.UPDATE_ACTION)"
+      v-if="hasPermission(PERMISSIONS.UPDATE_ACTION) && !controlStarted && !isActionLocked"
       @click="onEdit?.(row.id)"
       class="text-primary-500 hover:text-primary-800"
     >
@@ -41,7 +50,7 @@ const props = defineProps({
     </button>
 
     <button
-      v-if="hasPermission(PERMISSIONS.DELETE_ACTION)"
+      v-if="hasPermission(PERMISSIONS.DELETE_ACTION) && !controlStarted && !isActionLocked"
       @click="onDelete?.([row.id])"
       class="text-red-600 hover:text-red-800"
     >

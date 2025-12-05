@@ -45,13 +45,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-if="!store.actionControls || store.actionControls.length === 0">
+          <tr v-if="!actionControlStore.actionControls || actionControlStore.actionControls.length === 0">
             <td colspan="7" class="bg-white text-center py-4 text-gray-500 border border-gray-100">
               {{ t('actionControl.noPlanningYet') }}
             </td>
           </tr>
           <tr
-            v-for="(item, index) in store.actionControls"
+            v-for="(item, index) in actionControlStore.actionControls"
             :key="index"
             class="bg-white hover:bg-gray-50 transition"
           >
@@ -100,7 +100,7 @@
             <td class="px-4 py-2 border-t border-gray-200 text-center">
               <div class="flex justify-center gap-2">
                 <button
-                  v-if="!item.id && currentPeriod(item.period_id) && hasPermission(PERMISSIONS.ACT_MANAGE_CONTROL)"
+                  v-if="!item.id && currentPeriod(item.period_id) && hasPermission(PERMISSIONS.ACT_MANAGE_CONTROL) && canCreateAllowed"
                   @click="onCreate(item.period_id)"
                   class="text-primary-500 hover:text-primary-700"
                 >
@@ -116,7 +116,7 @@
                 </button>
 
                 <button
-                  v-if="item.id && hasPermission(PERMISSIONS.ACT_MANAGE_CONTROL)"
+                  v-if="item.id && hasPermission(PERMISSIONS.ACT_MANAGE_CONTROL) && canManageAllowed"
                   @click="deleteRow(item.id)"
                   class="text-red-600 hover:text-red-800"
                 >
@@ -133,22 +133,32 @@
   
   <script setup>
 import { Eye, FileDown, PlusIcon, Trash } from 'lucide-vue-next';
-import { useActionControlStore } from '@/store';
+import { useActionControlStore, useActionStore } from '@/store';
 import StatusBadge from '@/components/ui/StatusBadge.vue';
 
 import { usePageState } from '@/composables/usePageState';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 
+import { useActionRules } from '@/composables/useActionRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
 const { hasPermission } = usePermission();
+const { canCreateControl, canManageControl } = useActionRules();
 
 const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
-const store = useActionControlStore();
+const actionControlStore = useActionControlStore();
+const actionStore = useActionStore();
 const { showConfirm, showSimpleAlerte, showErrorModal } = useSwalAlerte();
+
+const action = computed(() => actionStore.form);
+const actionStatus = computed(() => action.value?.status);
+
+const canCreateAllowed = computed(() => canCreateControl(actionStatus.value));
+const canManageAllowed = computed(() => canManageControl(actionStatus.value));
 
 const {
   isLoading,
@@ -156,7 +166,7 @@ const {
   errorMessage,
   fetchData: fetchWithState,
 } = usePageState(async () => {
-  await store.getAll(route.params.id);
+  await actionControlStore.getAll(route.params.id);
 });
 const getRouteName = (suffix) => {
   return `action-${route.name.includes('edit') ? 'edit' : 'show'}-${suffix}`;
@@ -187,7 +197,7 @@ const deleteRow = async (id) => {
 
   if (confirm.isConfirmed) {
     try {
-      const result = await store.destroy(id);
+      const result = await actionControlStore.destroy(id);
       showSimpleAlerte({ icon: 'success', text: result.message });
       await fetchWithState();
     } catch (error) {
@@ -200,8 +210,8 @@ const deleteRow = async (id) => {
 };
 
 const currentPeriod = (periodId) => {
-  if (store.actionControls.length === 0) return null;
-  const p = store.actionControls.find((item) => item.id === null);
+  if (actionControlStore.actionControls.length === 0) return null;
+  const p = actionControlStore.actionControls.find((item) => item.id === null);
 
   if (p.period_id === periodId) return p;
   return null;

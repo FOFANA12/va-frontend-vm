@@ -1,0 +1,86 @@
+export function useIndicatorRules() {
+  // Normalize
+  const normalizeStatus = (status) => {
+    if (!status) return null;
+    if (typeof status === 'string') return status;
+    if (typeof status === 'object' && status.code) return status.code;
+    return null;
+  };
+
+  const isClosed = (status) => normalizeStatus(status) === 'closed';
+  const isStopped = (status) => normalizeStatus(status) === 'stopped';
+  const isLocked = (status) => {
+    const code = normalizeStatus(status);
+    return code === 'closed' || code === 'stopped';
+  };
+
+  // -------------------------------------------------------------------
+  // 🔵 Règle : Gestion d’un indicateur (edit, delete)
+  // - gestion : interdit seulement si closed/stopped
+  // -------------------------------------------------------------------
+  const canManageIndicator = (status) => {
+    const code = normalizeStatus(status);
+    return code !== 'closed' && code !== 'stopped';
+  };
+
+  // -------------------------------------------------------------------
+  // 🔵 Règle : Planning de l’indicateur (create/edit/delete planning)
+  // - autorisé si status ∈ [created, planned, in_progress]
+  // - interdit si closed ou stopped
+  // -------------------------------------------------------------------
+  const canPlanned = (status) => {
+    const code = normalizeStatus(status);
+    return code !== 'closed' && code !== 'stopped';
+  };
+
+  // -------------------------------------------------------------------
+  // 🔵 CONTRÔLE
+  // ✔️ Création d’un contrôle : uniquement si status === "in_progress"
+  // ✔️ Gestion (edit/delete) des contrôles : autorisé tant que NOT closed/stopped
+  // -------------------------------------------------------------------
+  const canCreateControl = (status) => normalizeStatus(status) === 'in_progress';
+
+  const canManageControl = (status) => {
+    const code = normalizeStatus(status);
+    return code !== 'closed' && code !== 'stopped';
+  };
+
+  // ---------------------------------------------------------
+  // 🔵 DECISIONS
+  // - création : uniquement "in_progress"
+  // - gestion : interdit seulement si closed/stopped
+  // ---------------------------------------------------------
+  const canCreateDecision = (status) => normalizeStatus(status) === 'in_progress';
+
+  const canManageDecision = (status) => {
+    const code = normalizeStatus(status);
+    return code !== 'closed' && code !== 'stopped';
+  };
+
+  // ---------------------------------------------------------
+  // 🔵 FICHIERS
+  // - upload : toujours autorisé
+  // - suppression : interdit si closed/stopped
+  // ---------------------------------------------------------
+  const canUploadFile = () => true;
+
+  const canDeleteFile = (status) => {
+    const code = normalizeStatus(status);
+    return code !== 'closed' && code !== 'stopped';
+  };
+
+  return {
+    normalizeStatus,
+    isClosed,
+    isStopped,
+    isLocked,
+    canManageIndicator,
+    canCreateDecision,
+    canManageDecision,
+    canUploadFile,
+    canDeleteFile,
+    canPlanned,
+    canCreateControl,
+    canManageControl,
+  };
+}

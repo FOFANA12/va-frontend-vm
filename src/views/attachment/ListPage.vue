@@ -8,7 +8,7 @@
     <!-- Action buttons -->
     <div class="flex justify-end mt-4 mb-4 gap-4">
       <Button
-        v-if="canManage && selectedRows.length > 0"
+        v-if="canDelete && selectedRows.length > 0"
         :icon="Trash"
         variant="danger-outline"
         customClass="sm:px-4"
@@ -20,7 +20,7 @@
       <slot name="return-list-btn" />
 
       <Button
-        v-if="canManage"
+        v-if="canUpload"
         :icon="Plus"
         variant="primary"
         customClass="sm:px-4"
@@ -94,10 +94,21 @@ const props = defineProps({
     required: true,
     validator: (p) => p.access && p.manage,
   },
+  rules: {
+    type: Object,
+    default: () => ({
+      canUpload: () => true,
+      canDelete: () => true,
+    }),
+  },
 });
 
+
 const canAccess = computed(() => hasPermission(props.permissions.access));
-const canManage = computed(() => hasPermission(props.permissions.manage));
+const hasManagePermission = computed(() => hasPermission(props.permissions.manage));
+
+const canUpload = computed(() => hasManagePermission.value && props.rules.canUpload());
+const canDelete = computed(() => hasManagePermission.value && props.rules.canDelete());
 
 const { t } = useI18n();
 const store = useAttachmentStore();
@@ -137,7 +148,7 @@ const columns = getColumns({
   onDelete: (ids) => deleteRows(ids),
   attachableType: props.attachableType,
   canAccess,
-  canManage
+  canDelete,
 });
 
 const openUploadModal = () => uploadModal.value.openModal(props.attachableType, props.attachableId);

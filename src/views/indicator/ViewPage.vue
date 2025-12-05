@@ -9,7 +9,7 @@
     </LinkButton>
 
     <LinkButton
-      v-if="hasPermission(PERMISSIONS.UPDATE_INDICATOR)"
+      v-if="hasPermission(PERMISSIONS.UPDATE_INDICATOR) && !controlStarted && !isIndicatorLocked"
       :to="{ name: 'indicator-edit', params: { id: route.params.id } }"
       variant="primary"
       class="min-w-[100px]"
@@ -30,35 +30,34 @@
   </div>
 
   <div class="mt-6">
-    <Form @open-status-modal="openStatusModal" />
+    <Form />
   </div>
-  <StatusModal ref="statusModalRef" @success="handleSuccess" />
 </template>
       
   <script setup>
+import { useAlertStore, useIndicatorStore } from '@/store';
 import { Edit, Plus } from 'lucide-vue-next';
 import Form from './components/form/View.vue';
-import StatusModal from './components/StatusModal.vue';
-import { useSwalAlerte } from '@/composables/useSwalAlerte';
-import { useAlertStore } from '@/store';
-const { showSimpleAlerte } = useSwalAlerte();
-
+import { useIndicatorRules } from '@/composables/useIndicatorRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
+const { isLocked } = useIndicatorRules();
 const { hasPermission } = usePermission();
 
 const route = useRoute();
 const alertStore = useAlertStore();
 alertStore.resetMessage();
 
-const statusModalRef = ref();
+const indicatorStore = useIndicatorStore();
+const indicator = computed(() => indicatorStore.form);
+const indicatorStatus = computed(() => indicator.value?.status);
 
-const openStatusModal = (indicatorId, currentStatus) => {
-  statusModalRef.value?.openStatusModal(indicatorId, currentStatus);
-};
+const controlStarted = computed(() => {
+  const value = parseFloat(indicator.achieved_value);
+  return !isNaN(value) && value > 0;
+});
 
-const handleSuccess = (result) => {
-  showSimpleAlerte({ icon: 'success', text: result.message });
-};
+const isIndicatorLocked = computed(() => isLocked(indicatorStatus.value));
 </script>
       

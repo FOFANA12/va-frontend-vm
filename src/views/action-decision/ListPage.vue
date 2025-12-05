@@ -16,7 +16,7 @@
       </LinkButton>
 
       <Button
-        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_DECISIONS) && selectedRows.length > 0"
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_DECISIONS)  && canManageAllowed && selectedRows.length > 0"
         :icon="Trash"
         variant="danger-outline"
         customClass="sm:px-4"
@@ -26,7 +26,7 @@
       </Button>
 
       <LinkButton
-        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_DECISIONS)"
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_DECISIONS) && canCreateAllowed"
         :to="createRoute"
         :icon="Plus"
         variant="primary"
@@ -49,8 +49,8 @@
     <!-- DataTable -->
     <DataTable
       :columns="columns"
-      :data="store.decisions"
-      :meta="store.meta"
+      :data="decisionStore.decisions"
+      :meta="decisionStore.meta"
       @pagination-change="onPageChange"
       @sorting-change="onSortChange"
       @row-selection-change="onRowSelectionChange"
@@ -62,7 +62,7 @@
   <script setup>
 import { Plus, Trash } from 'lucide-vue-next';
 
-import { useDecisionStore } from '@/store';
+import { useDecisionStore, useActionStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import { useDatatable } from '@/composables/useDatatable';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
@@ -70,14 +70,24 @@ import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import { getColumns } from './components/DataTableColumns';
 
+import { useActionRules } from '@/composables/useActionRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
+const { canCreateDecision, canManageDecision } = useActionRules();
 const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
-const store = useDecisionStore();
+const actionStore = useActionStore();
+const decisionStore = useDecisionStore();
+
+const action = computed(() => actionStore.form);
+const actionStatus = computed(() => action.value?.status);
+const canCreateAllowed = computed(() => canCreateDecision(actionStatus.value));
+const canManageAllowed = computed(() => canManageDecision(actionStatus.value));
+
 
 const createRoute = computed(() => {
   return {
@@ -99,9 +109,9 @@ const {
   onSortChange,
   onRowSelectionChange,
 } = useDatatable(
-  (args) => store.getAll({ ...args, decidableType: 'actions', decidableId: route.params.id }),
+  (args) => decisionStore.getAll({ ...args, decidableType: 'actions', decidableId: route.params.id }),
   { id: 'id', desc: true },
-  store
+  decisionStore
 );
 
 const { isLoading, hasError, errorMessage, fetchData: fetchWithState } = usePageState(fetchData);
@@ -129,13 +139,14 @@ const columns = getColumns({
       },
     }),
   onDelete: (id) => deleteRows(id),
+  actionStatus
 });
 
 const resetPageAndRefresh = async (clearSearch = false) => {
   if (clearSearch) searchTerm.value = null;
-  store.resetServerParams();
-  pagination.value.pageIndex = store.meta.current_page - 1;
-  pagination.value.pageSize = store.meta.per_page;
+  decisionStore.resetServerParams();
+  pagination.value.pageIndex = decisionStore.meta.current_page - 1;
+  pagination.value.pageSize = decisionStore.meta.per_page;
 };
 
 const deleteRows = async (ids) => {
@@ -148,7 +159,7 @@ const deleteRows = async (ids) => {
 
   if (confirm.isConfirmed) {
     try {
-      const result = await store.destroy(ids);
+      const result = await decisionStore.destroy(ids);
       showSimpleAlerte({ icon: 'success', text: result.message });
       resetSelectionKey.value++;
       selectedRows.value = [];

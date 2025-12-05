@@ -76,7 +76,7 @@ import Tab from '@/components/ui/Tab.vue';
 
 import { useStrategicObjectiveStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
-import { Eye, Puzzle, ScrollTextIcon, SquarePen } from 'lucide-vue-next';
+import { Eye, Paperclip, Puzzle, ScrollTextIcon, SquarePen } from 'lucide-vue-next';
 
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';

@@ -2,9 +2,18 @@
 import ListPage from '@/views/attachment/ListPage.vue';
 import PERMISSIONS from '@/constants/permissions';
 
+import { useIndicatorRules } from '@/composables/useIndicatorRules';
+import { useIndicatorStore } from '@/store';
+
 const route = useRoute();
+const indicatorStore = useIndicatorStore();
+
+const { canUploadFile, canDeleteFile } = useIndicatorRules();
+
 const attachableType = 'indicators';
 const attachableId = route.params.id;
+
+const indicatorStatus = computed(() => indicatorStore.form?.status);
 </script>
 
 <template>
@@ -15,6 +24,10 @@ const attachableId = route.params.id;
     :permissions="{
       access: PERMISSIONS.IND_ACCESS_FILES,
       manage: PERMISSIONS.IND_MANAGE_FILES,
+    }"
+    :rules="{
+      canUpload: () => canUploadFile(indicatorStatus),
+      canDelete: () => canDeleteFile(indicatorStatus),
     }"
   >
     <template #return-list-btn>

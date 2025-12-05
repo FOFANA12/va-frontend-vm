@@ -5,7 +5,7 @@ import StatusBadge from '@/components/ui/StatusBadge.vue';
 
 const columnHelper = createColumnHelper();
 
-export function getColumns({ t, onEdit, onDelete, onView }) {
+export function getColumns({ t, onEdit, onDelete, onView, actionStatus }) {
   const columns = [
     columnHelper.display({
       id: 'select',
@@ -108,6 +108,7 @@ export function getColumns({ t, onEdit, onDelete, onView }) {
             onView,
             onEdit,
             onDelete,
+            actionStatus,
           })
         ),
     }),

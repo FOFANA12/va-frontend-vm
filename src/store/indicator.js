@@ -29,6 +29,7 @@ export const useIndicatorStore = defineStore('indicator', () => {
       initial_value: '',
       final_tartget_value: '',
       unit: '',
+      is_planned: false,
     })
   );
 

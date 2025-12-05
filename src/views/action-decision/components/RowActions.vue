@@ -1,27 +1,31 @@
 <script setup>
 import { Eye, Edit, Trash } from 'lucide-vue-next';
+import { useActionRules } from '@/composables/useActionRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
+const { canManageDecision } = useActionRules();
 const { hasPermission } = usePermission();
 const props = defineProps({
   row: Object,
   onView: Function,
   onEdit: Function,
   onDelete: Function,
+  actionStatus: { type: [String, Object, null], required: false, default: null },
 });
+
+const allowed = computed(() => canManageDecision(props.actionStatus));
+
 </script>
 
 <template>
   <div class="flex justify-center gap-2">
-    <button
-      @click="onView?.(row.id)"
-      class="text-gray-500 hover:text-gray-700"
-    >
+    <button @click="onView?.(row.id)" class="text-gray-500 hover:text-gray-700">
       <Eye class="h-4.5 w-4.5" />
     </button>
 
     <button
-      v-if="hasPermission(PERMISSIONS.ACT_MANAGE_DECISIONS)"
+      v-if="hasPermission(PERMISSIONS.ACT_MANAGE_DECISIONS) && allowed"
       @click="onEdit?.(row.id)"
       class="text-primary-500 hover:text-primary-800"
     >
@@ -29,7 +33,7 @@ const props = defineProps({
     </button>
 
     <button
-      v-if="hasPermission(PERMISSIONS.ACT_MANAGE_DECISIONS)"
+      v-if="hasPermission(PERMISSIONS.ACT_MANAGE_DECISIONS) && allowed"
       @click="onDelete?.([row.id])"
       class="text-red-600 hover:text-red-800"
     >

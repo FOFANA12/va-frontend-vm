@@ -45,13 +45,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-if="!store.indicatorControls || store.indicatorControls.length === 0">
+          <tr
+            v-if="
+              !indicatorControlStore.indicatorControls ||
+              indicatorControlStore.indicatorControls.length === 0
+            "
+          >
             <td colspan="7" class="bg-white text-center py-4 text-gray-500 border border-gray-100">
               {{ t('indicatorControl.noPlanningYet') }}
             </td>
           </tr>
           <tr
-            v-for="(item, index) in store.indicatorControls"
+            v-for="(item, index) in indicatorControlStore.indicatorControls"
             :key="index"
             class="bg-white hover:bg-gray-50 transition"
           >
@@ -102,7 +107,8 @@
                   v-if="
                     !item.id &&
                     currentPeriod(item.period_id) &&
-                    hasPermission(PERMISSIONS.IND_MANAGE_CONTROL)
+                    hasPermission(PERMISSIONS.IND_MANAGE_CONTROL) &&
+                    canCreateAllowed
                   "
                   @click="onCreate(item.period_id)"
                   class="text-primary-500 hover:text-primary-700"
@@ -119,7 +125,9 @@
                 </button>
 
                 <button
-                  v-if="item.id && hasPermission(PERMISSIONS.IND_MANAGE_CONTROL)"
+                  v-if="
+                    item.id && hasPermission(PERMISSIONS.IND_MANAGE_CONTROL) && canManageAllowed
+                  "
                   @click="deleteRow([item.id])"
                   class="text-red-600 hover:text-red-800"
                 >
@@ -136,22 +144,32 @@
   
   <script setup>
 import { Eye, FileDown, PlusIcon, Trash } from 'lucide-vue-next';
-import { useIndicatorControlStore } from '@/store';
+import { useIndicatorControlStore, useIndicatorStore } from '@/store';
 import StatusBadge from '@/components/ui/StatusBadge.vue';
 
 import { usePageState } from '@/composables/usePageState';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 
+import { useIndicatorRules } from '@/composables/useIndicatorRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
 const { hasPermission } = usePermission();
+const { canCreateControl, canManageControl } = useIndicatorRules();
 
 const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
-const store = useIndicatorControlStore();
+const indicatorControlStore = useIndicatorControlStore();
+const indicatorStore = useIndicatorStore();
 const { showConfirm, showSimpleAlerte, showErrorModal } = useSwalAlerte();
+
+const indicator = computed(() => indicatorStore.form);
+const indicatorStatus = computed(() => indicator.value?.status);
+
+const canCreateAllowed = computed(() => canCreateControl(indicatorStatus.value));
+const canManageAllowed = computed(() => canManageControl(indicatorStatus.value));
 
 const {
   isLoading,
@@ -159,7 +177,7 @@ const {
   errorMessage,
   fetchData: fetchWithState,
 } = usePageState(async () => {
-  await store.getAll(route.params.id);
+  await indicatorControlStore.getAll(route.params.id);
 });
 const getRouteName = (suffix) => {
   return `indicator-${route.name.includes('edit') ? 'edit' : 'show'}-${suffix}`;
@@ -190,7 +208,7 @@ const deleteRow = async (id) => {
 
   if (confirm.isConfirmed) {
     try {
-      const result = await store.destroy(id);
+      const result = await indicatorControlStore.destroy(id);
       showSimpleAlerte({ icon: 'success', text: result.message });
       await fetchWithState();
     } catch (error) {
@@ -203,8 +221,8 @@ const deleteRow = async (id) => {
 };
 
 const currentPeriod = (periodId) => {
-  if (store.indicatorControls.length === 0) return null;
-  const p = store.indicatorControls.find((item) => item.id === null);
+  if (indicatorControlStore.indicatorControls.length === 0) return null;
+  const p = indicatorControlStore.indicatorControls.find((item) => item.id === null);
 
   if (p.period_id === periodId) return p;
   return null;

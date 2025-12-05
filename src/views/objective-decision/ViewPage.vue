@@ -15,7 +15,7 @@
       </LinkButton>
 
       <LinkButton
-        v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_DECISIONS)"
+        v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_DECISIONS) && canManageAllowed"
         :to="editRoute"
         variant="primary"
         class="min-w-[100px]"
@@ -25,7 +25,7 @@
       </LinkButton>
 
       <LinkButton
-        v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_DECISIONS)"
+        v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_DECISIONS) && canCreateAllowed"
         :to="createRoute"
         variant="primary"
         class="min-w-[100px]"
@@ -50,17 +50,27 @@ import { Edit, Plus } from 'lucide-vue-next';
 import Form from './components/form/View.vue';
 import DecisionStatus from '@/views/decision-status/DecisionStatus.vue';
 
-import { useDecisionStore } from '@/store';
+import { useDecisionStore, useStrategicObjectiveStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 
+import { useObjectiveRules } from '@/composables/useObjectiveRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
+const { canCreateDecision, canManageDecision } = useObjectiveRules();
 const { hasPermission } = usePermission();
 
 const route = useRoute();
-const store = useDecisionStore();
-store.resetForm();
+const decisionStore = useDecisionStore();
+const objectiveStore = useStrategicObjectiveStore();
+decisionStore.resetForm();
+
+const objective = computed(() => objectiveStore.form);
+const objectiveStatus = computed(() => objective.value?.status);
+
+const canCreateAllowed = computed(() => canCreateDecision(objectiveStatus.value));
+const canManageAllowed = computed(() => canManageDecision(objectiveStatus.value));
 
 const backRoute = computed(() => {
   return { name: route.name.replace(/-show$/, ''), params: { id: route.params.id } };
@@ -85,7 +95,7 @@ const {
   hasError,
   errorMessage,
   fetchData: fetchWithState,
-} = usePageState(async () => await store.find(route.params.decisionId, 'view'));
+} = usePageState(async () => await decisionStore.find(route.params.decisionId, 'view'));
 
 onMounted(async () => {
   await fetchWithState();

@@ -1,7 +1,10 @@
 <script setup>
 import { Eye, Edit, Trash } from 'lucide-vue-next';
+import { useObjectiveRules } from '@/composables/useObjectiveRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
+const { canManageDecision } = useObjectiveRules();
 const { hasPermission } = usePermission();
 
 const props = defineProps({
@@ -9,7 +12,11 @@ const props = defineProps({
   onView: Function,
   onEdit: Function,
   onDelete: Function,
+  objectiveStatus: { type: [String, Object, null], required: false, default: null },
 });
+
+const allowed = computed(() => canManageDecision(props.objectiveStatus));
+
 </script>
 
 <template>
@@ -22,7 +29,7 @@ const props = defineProps({
     </button>
 
     <button
-      v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_DECISIONS)"
+      v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_DECISIONS) && allowed"
       @click="onEdit?.(row.id)"
       class="text-primary-500 hover:text-primary-800"
     >
@@ -30,7 +37,7 @@ const props = defineProps({
     </button>
 
     <button
-      v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_DECISIONS)"
+      v-if="hasPermission(PERMISSIONS.OBJ_MANAGE_DECISIONS) && allowed"
       @click="onDelete?.([row.id])"
       class="text-red-600 hover:text-red-800"
     >

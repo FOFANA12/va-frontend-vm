@@ -58,6 +58,7 @@ export const useActionStore = defineStore('action', () => {
       funding_sources: [],
       beneficiaries: [],
       stakeholders: [],
+      is_planned: false,
     })
   );
 

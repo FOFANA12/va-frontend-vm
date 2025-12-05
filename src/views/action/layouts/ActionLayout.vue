@@ -25,7 +25,7 @@
         <Tab
           v-if="hasPermission(PERMISSIONS.ACT_ACCESS_PLANNING)"
           :to="{
-            name: 'action-show-planning-show',
+             name: isEdit ? 'action-edit-planning-show' : 'action-show-planning-show',
             params: { id: route.params.id },
           }"
           :icon="Calendar"

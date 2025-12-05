@@ -221,15 +221,9 @@
   
 <script setup>
 import { useIndicatorStore } from '@/store';
-import StateBadge from '@/components/ui/StateBadge.vue';
 
 const store = useIndicatorStore();
-const emit = defineEmits(['open-status-modal']);
 
 const form = store.form;
-
-const openStatusModal = () => {
-  emit('open-status-modal', form.id, form.status);
-};
 </script>
   

@@ -16,7 +16,11 @@
       </LinkButton>
 
       <Button
-        v-if="actionStore.form.is_planned && hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
+        v-if="
+          actionStore.form.is_planned &&
+          hasPermission(PERMISSIONS.ACT_MANAGE_PHASES) &&
+          canManagePhases
+        "
         :icon="RefreshCw"
         variant="primary-outline"
         customClass="sm:px-4"
@@ -26,7 +30,7 @@
       </Button>
 
       <Button
-        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES) && canManagePhases"
         :icon="Plus"
         variant="primary"
         customClass="sm:px-4"
@@ -63,7 +67,7 @@
 
             <div
               class="flex items-center gap-4 mr-4"
-              v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
+              v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES) && canManagePhases"
             >
               <button
                 type="button"
@@ -73,6 +77,7 @@
                 <Edit class="w-5 h-5" />
               </button>
               <button
+                v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES) && canManagePhases"
                 type="button"
                 class="text-red-500 hover:text-red-700 transition-colors"
                 @click.stop.prevent="onDeletePhase(phase.id)"
@@ -175,7 +180,7 @@
                 </h2>
 
                 <button
-                  v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
+                  v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES) && canManagePhases"
                   type="button"
                   class="text-green-500 hover:text-green-700 transition-colors"
                   @click.stop.prevent="openCreateTaskModal(phase.id)"
@@ -250,7 +255,7 @@
 
                     <td class="px-4 py-2 border-t border-gray-200 text-center">
                       <button
-                        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
+                        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES) && canManagePhases"
                         type="button"
                         class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium transition"
                         :class="
@@ -281,7 +286,7 @@
                           <Eye class="w-5 h-5" />
                         </button>
                         <button
-                          v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
+                          v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES) && canManagePhases"
                           type="button"
                           class="text-primary-500 hover:text-primary-800 transition"
                           @click.stop.prevent="openEditTaskModal(task.id)"
@@ -289,7 +294,7 @@
                           <Edit class="w-5 h-5" />
                         </button>
                         <button
-                          v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES)"
+                          v-if="hasPermission(PERMISSIONS.ACT_MANAGE_PHASES) && canManagePhases"
                           type="button"
                           class="text-red-500 hover:text-red-700 transition"
                           @click.stop.prevent="onDeleteTask(task.id)"
@@ -323,6 +328,9 @@ import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import PhaseModal from './components/PhaseModal.vue';
 import TaskModal from './components/TaskModal.vue';
+import { useActionRules } from '@/composables/useActionRules';
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
 
 const expanded = ref(0);
 const phaseModal = ref(null);
@@ -335,9 +343,13 @@ const actionStore = useActionStore();
 const phaseStore = useActionPhaseStore();
 const taskStore = useTaskStore();
 
-import { usePermission } from '@/composables/usePermissions';
-import PERMISSIONS from '@/constants/permissions';
+const { isLocked } = useActionRules();
 const { hasPermission } = usePermission();
+
+const actionStatus = computed(() => actionStore.form?.status);
+const isActionLocked = computed(() => isLocked(actionStatus.value));
+
+const canManagePhases = computed(() => !isActionLocked.value);
 
 const {
   isLoading,

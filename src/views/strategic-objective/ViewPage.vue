@@ -9,7 +9,7 @@
     </LinkButton>
 
     <LinkButton
-      v-if="hasPermission(PERMISSIONS.UPDATE_STRATEGIC_OBJECTIVE)"
+      v-if="hasPermission(PERMISSIONS.UPDATE_STRATEGIC_OBJECTIVE) && !isObjectiveLocked"
       :to="{ name: 'strategicObjective-edit', params: { id: route.params.id } }"
       variant="primary"
       class="min-w-[100px]"
@@ -36,15 +36,23 @@
 </template>
       
   <script setup>
+import { useStrategicObjectiveStore } from '@/store';
 import { Edit, Plus } from 'lucide-vue-next';
 import Form from './components/form/View.vue';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
-
 import StatusModal from './components/StatusModal.vue';
-
+import { useObjectiveRules } from '@/composables/useObjectiveRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
+const { isLocked } = useObjectiveRules();
 const { hasPermission } = usePermission();
+
+const objectiveStore = useStrategicObjectiveStore();
+const objective = computed(() => objectiveStore.form);
+const objectiveStatus = computed(() => objective.value?.status);
+
+const isObjectiveLocked = computed(() => isLocked(objectiveStatus.value));
 
 const statusModalRef = ref();
 const route = useRoute();

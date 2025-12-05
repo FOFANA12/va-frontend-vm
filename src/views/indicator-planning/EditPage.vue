@@ -86,6 +86,7 @@ const onSubmit = async () => {
 
   try {
     const result = await store.update(route.params.id);
+    store.form.is_planned = true;
     showSimpleAlerte({ icon: 'success', text: result.message });
   } catch (error) {
     const errors = error.errors || {};

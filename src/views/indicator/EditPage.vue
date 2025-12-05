@@ -36,16 +36,14 @@
     </div>
 
     <div class="mt-6">
-      <Form context="edit" @open-status-modal="openStatusModal" />
+      <Form context="edit" />
     </div>
   </form>
-  <StatusModal ref="statusModalRef" @success="handleSuccess" />
 </template>
     
 <script setup>
 import { Eye, Save } from 'lucide-vue-next';
 import Form from './components/form/Edit.vue';
-import StatusModal from './components/StatusModal.vue';
 import { useIndicatorStore, useAlertStore } from '@/store';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
 
@@ -59,16 +57,6 @@ const alertStore = useAlertStore();
 const { showSimpleAlerte } = useSwalAlerte();
 const form = store.form;
 alertStore.resetMessage();
-
-const statusModalRef = ref();
-
-const openStatusModal = (IndicatorId, currentStatus) => {
-  statusModalRef.value?.openStatusModal(IndicatorId, currentStatus);
-};
-
-const handleSuccess = (result) => {
-  showSimpleAlerte({ icon: 'success', text: result.message });
-};
 
 const onSubmit = async () => {
   alertStore.resetMessage();

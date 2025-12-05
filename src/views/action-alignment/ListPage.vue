@@ -16,7 +16,7 @@
       </LinkButton>
 
       <Button
-        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_ALIGNMENT) && selectedRows.length > 0"
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_ALIGNMENT) && alignmentAllowed && selectedRows.length > 0"
         :icon="Trash"
         variant="danger-outline"
         customClass="sm:px-4"
@@ -26,7 +26,7 @@
       </Button>
 
       <LinkButton
-        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_ALIGNMENT) && actionStore.form.is_planned"
+        v-if="hasPermission(PERMISSIONS.ACT_MANAGE_ALIGNMENT) && actionStore.form.is_planned && alignmentAllowed"
         :to="alignmentRoute"
         :icon="Plus"
         variant="primary"
@@ -49,8 +49,8 @@
     <!-- DataTable -->
     <DataTable
       :columns="columns"
-      :data="store.alignments"
-      :meta="store.meta"
+      :data="alignmentStore.alignments"
+      :meta="alignmentStore.meta"
       @pagination-change="onPageChange"
       @sorting-change="onSortChange"
       @row-selection-change="onRowSelectionChange"
@@ -70,15 +70,22 @@ import { useSwalAlerte } from '@/composables/useSwalAlerte';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 import { getColumns } from './components/DataTableColumns';
 
+import { useActionRules } from '@/composables/useActionRules';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
+
+const { canManageAlignment } = useActionRules();
 const { hasPermission } = usePermission();
 
 const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
-const store = useActionAlignmentStore();
 const actionStore = useActionStore();
+const alignmentStore = useActionAlignmentStore();
+
+const action = computed(() => actionStore.form);
+const actionStatus = computed(() => action.value?.status);
+const alignmentAllowed = computed(() => canManageAlignment(actionStatus.value));
 
 const alignmentRoute = computed(() => {
   return {
@@ -100,9 +107,9 @@ const {
   onSortChange,
   onRowSelectionChange,
 } = useDatatable(
-  (args) => store.getAll({ ...args, actionId: route.params.id }),
+  (args) => alignmentStore.getAll({ ...args, actionId: route.params.id }),
   { id: 'id', desc: true },
-  store
+  alignmentStore
 );
 
 const { isLoading, hasError, errorMessage, fetchData: fetchWithState } = usePageState(fetchData);
@@ -121,9 +128,9 @@ const columns = getColumns({
 
 const resetPageAndRefresh = async (clearSearch = false) => {
   if (clearSearch) searchTerm.value = null;
-  store.resetServerParams();
-  pagination.value.pageIndex = store.meta.current_page - 1;
-  pagination.value.pageSize = store.meta.per_page;
+  alignmentStore.resetServerParams();
+  pagination.value.pageIndex = alignmentStore.meta.current_page - 1;
+  pagination.value.pageSize = alignmentStore.meta.per_page;
 };
 
 const unalign = async (ids) => {
@@ -141,7 +148,7 @@ const unalign = async (ids) => {
 
   if (confirm.isConfirmed) {
     try {
-      const result = await store.unalign(ids);
+      const result = await alignmentStore.unalign(ids);
       showSimpleAlerte({ icon: 'success', text: result.message });
       resetSelectionKey.value++;
       selectedRows.value = [];
