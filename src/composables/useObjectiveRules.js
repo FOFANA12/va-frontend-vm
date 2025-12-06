@@ -14,22 +14,10 @@ export function useObjectiveRules() {
   };
 
   // ---------------------------------------------------------
-  // 🔵 MODIFICATION DE L’OBJECTIF
-  // - interdit dès "engaged", "closed", "stopped"
-  // ---------------------------------------------------------
-  const canEditObjective = (status) => {
-    const code = normalizeStatus(status);
-    return code !== 'engaged';
-  };
-
-  // ---------------------------------------------------------
   // 🔵 ALIGNEMENT
   // - autorisé si NON closed et NON stopped
   // ---------------------------------------------------------
-  const canManageAlignment = (status) => {
-    const code = normalizeStatus(status);
-    return code !== 'closed' && code !== 'stopped';
-  };
+  const canManageAlignment = (status) => !isLocked(status);
 
   // ---------------------------------------------------------
   // 🔵 DECISIONS
@@ -38,10 +26,7 @@ export function useObjectiveRules() {
   // ---------------------------------------------------------
   const canCreateDecision = (status) => normalizeStatus(status) === 'engaged';
 
-  const canManageDecision = (status) => {
-    const code = normalizeStatus(status);
-    return code !== 'closed' && code !== 'stopped';
-  };
+  const canManageDecision = (status) => !isLocked(status);
 
   // ---------------------------------------------------------
   // 🔵 FICHIERS
@@ -50,17 +35,13 @@ export function useObjectiveRules() {
   // ---------------------------------------------------------
   const canUploadFile = () => true;
 
-  const canDeleteFile = (status) => {
-    const code = normalizeStatus(status);
-    return code !== 'closed' && code !== 'stopped';
-  };
+  const canDeleteFile = (status) => !isLocked(status);
 
   return {
     normalizeStatus,
     isClosed,
     isStopped,
     isLocked,
-    canEditObjective,
     canManageAlignment,
     canCreateDecision,
     canManageDecision,

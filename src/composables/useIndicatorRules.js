@@ -18,20 +18,14 @@ export function useIndicatorRules() {
   // 🔵 Règle : Gestion d’un indicateur (edit, delete)
   // - gestion : interdit seulement si closed/stopped
   // -------------------------------------------------------------------
-  const canManageIndicator = (status) => {
-    const code = normalizeStatus(status);
-    return code !== 'closed' && code !== 'stopped';
-  };
+  const canManageIndicator = (status) => !isLocked(status);
 
   // -------------------------------------------------------------------
   // 🔵 Règle : Planning de l’indicateur (create/edit/delete planning)
   // - autorisé si status ∈ [created, planned, in_progress]
   // - interdit si closed ou stopped
   // -------------------------------------------------------------------
-  const canPlanned = (status) => {
-    const code = normalizeStatus(status);
-    return code !== 'closed' && code !== 'stopped';
-  };
+  const canPlanned = (status) => !isLocked(status);
 
   // -------------------------------------------------------------------
   // 🔵 CONTRÔLE
@@ -40,10 +34,7 @@ export function useIndicatorRules() {
   // -------------------------------------------------------------------
   const canCreateControl = (status) => normalizeStatus(status) === 'in_progress';
 
-  const canManageControl = (status) => {
-    const code = normalizeStatus(status);
-    return code !== 'closed' && code !== 'stopped';
-  };
+  const canManageControl = (status) => !isLocked(status);
 
   // ---------------------------------------------------------
   // 🔵 DECISIONS
@@ -52,10 +43,7 @@ export function useIndicatorRules() {
   // ---------------------------------------------------------
   const canCreateDecision = (status) => normalizeStatus(status) === 'in_progress';
 
-  const canManageDecision = (status) => {
-    const code = normalizeStatus(status);
-    return code !== 'closed' && code !== 'stopped';
-  };
+  const canManageDecision = (status) => !isLocked(status);
 
   // ---------------------------------------------------------
   // 🔵 FICHIERS
@@ -64,10 +52,7 @@ export function useIndicatorRules() {
   // ---------------------------------------------------------
   const canUploadFile = () => true;
 
-  const canDeleteFile = (status) => {
-    const code = normalizeStatus(status);
-    return code !== 'closed' && code !== 'stopped';
-  };
+  const canDeleteFile = (status) => !isLocked(status);
 
   return {
     normalizeStatus,
