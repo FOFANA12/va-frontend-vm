@@ -10,6 +10,7 @@
       </LinkButton>
 
       <LinkButton
+       v-if="hasPermission(PERMISSIONS.UPDATE_ELEMENTARY_LEVEL)"
         :to="{ name: 'elementaryLevel-edit', params: { id: route.params.id } }"
         variant="primary"
         class="min-w-[100px]"
@@ -19,6 +20,7 @@
       </LinkButton>
 
       <LinkButton
+       v-if="hasPermission(PERMISSIONS.CREATE_ELEMENTARY_LEVEL)"
         :to="{ name: 'elementaryLevel-create' }"
         variant="primary"
         class="min-w-[100px]"
@@ -42,6 +44,10 @@ import { useAlertStore } from '@/store';
 const route = useRoute();
 const alertStore = useAlertStore();
 alertStore.resetMessage();
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 </script>
       

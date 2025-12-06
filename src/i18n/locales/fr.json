@@ -547,7 +547,7 @@
       "stateDetail": "Détails de l'état"
     },
     "tabs": {
-      "detail": "Détails de domaine d'action",
+      "detail": "Détails du domaine d'action",
       "status": "Statut",
       "state": "Etat",
       "attachment": "Fichiers"
@@ -646,7 +646,7 @@
       "stateDetail": "Détails de l'état"
     },
     "tabs": {
-      "detail": "Détails domaine stratégique",
+      "detail": "Détails du domaine stratégique",
       "status": "Statut",
       "state": "Etat",
       "attachment": "Fichiers"
@@ -748,7 +748,7 @@
       "stateDetail": "Détails de l'état"
     },
     "tabs": {
-      "detail": "Détails domaine stratégique",
+      "detail": "Détails du domaine stratégique",
       "status": "Statut",
       "state": "Etat",
       "attachment": "Fichiers"
@@ -842,7 +842,7 @@
       "stateDetail": "Détails de l'état"
     },
     "tabs": {
-      "detail": "Détails niveau élémentaire",
+      "detail": "Détails du niveau élémentaire",
       "status": "Statut",
       "state": "Etat",
       "attachment": "Fichiers"
@@ -1318,7 +1318,8 @@
       "stakeholderInformation": "Parties prenante",
       "fundingSourcesInformation": "Sources de financement",
       "statusDetail": "Détails du statut",
-      "responsible": "Structure Responsable & Responsable"
+      "responsible": "Structure Responsable & Responsable",
+      "level4": "Informations supplémentaires"
     },
     "tabs": {
       "detail": "Détails de l'action",
@@ -1406,6 +1407,8 @@
       "strategicDomainPlaceholder": "Sélectionnez un domaine stratégique",
       "capabilityDomain": "Domaine capacitaire",
       "capabilityDomainPlaceholder": "Sélectionnez un domaine capacitaire",
+      "elementaryLevel": "Niveau élémentaire",
+      "elementaryLevelPlaceholder": "Sélectionnez un niveau élémentaire",
       "currency": "Devise",
       "currencyPlaceholder": "Sélectionnez une devise",
       "region": "Région",

@@ -10,6 +10,7 @@
       </LinkButton>
 
       <LinkButton
+        v-if="hasPermission(PERMISSIONS.READ_ELEMENTARY_LEVELS)"
         :to="{ name: 'elementaryLevel-show', params: { id: route.params.id } }"
         variant="primary"
         class="min-w-[100px]"
@@ -53,6 +54,10 @@ const alertStore = useAlertStore();
 const { showSimpleAlerte } = useSwalAlerte();
 const form = store.form;
 alertStore.resetMessage();
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const onSubmit = async () => {
   alertStore.resetMessage();

@@ -138,7 +138,7 @@ const columns = getColumns({
       },
     }),
   onDelete: (id) => deleteRows(id),
-  indicatorStatus
+  indicatorStatus: indicatorStatus.value
 });
 
 const resetPageAndRefresh = async (clearSearch = false) => {

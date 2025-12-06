@@ -2,7 +2,6 @@
 import { Eye, Edit, Trash } from 'lucide-vue-next';
 import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
-
 const { hasPermission } = usePermission();
 
 const props = defineProps({

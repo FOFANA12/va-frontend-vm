@@ -140,7 +140,7 @@ const columns = getColumns({
       },
     }),
   onDelete: (id) => deleteRows(id),
-  objectiveStatus
+  objectiveStatus: objectiveStatus.value
 });
 
 const resetPageAndRefresh = async (clearSearch = false) => {

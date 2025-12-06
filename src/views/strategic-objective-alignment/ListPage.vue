@@ -124,7 +124,7 @@ const columns = getColumns({
     window.open(url, '_blank');
   },
   onUnalign: (ids) => unalign(ids),
-  objectiveStatus
+  objectiveStatus: objectiveStatus.value
 });
 
 const resetPageAndRefresh = async (clearSearch = false) => {

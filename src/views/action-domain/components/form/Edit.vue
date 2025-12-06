@@ -280,7 +280,7 @@
                       {{ t('actionDomain.fundingSources.plannedAmount') }}
                     </th>
                     <th class="p-2 border text-center w-[60px]">
-                      {{ t('actionDomain.table.actions') }}
+                      {{ t('common.table.actions') }}
                     </th>
                   </tr>
                 </thead>

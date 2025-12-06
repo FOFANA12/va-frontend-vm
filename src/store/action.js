@@ -13,9 +13,12 @@ export const useActionStore = defineStore('action', () => {
   const regions = ref([]);
   const departments = ref([]);
   const municipalities = ref([]);
-  const programs = ref([]);
-  const projects = ref([]);
-  const activities = ref([]);
+
+  const actionDomains = ref([]);
+  const strategicDomains = ref([]);
+  const capabilityDomains = ref([]);
+  const elementaryLevels = ref([]);
+
   const statusActions = ref([]);
   const riskLevels = ref([]);
   const priorityLevels = ref([]);
@@ -46,9 +49,9 @@ export const useActionStore = defineStore('action', () => {
       region: '',
       department: '',
       municipality: '',
-      program: '',
-      project: '',
-      activity: '',
+      action_domain: '',
+      strategic_domain: '',
+      capability_domain: '',
 
       description: '',
       prerequisites: '',
@@ -165,9 +168,10 @@ export const useActionStore = defineStore('action', () => {
     regions.value = [];
     departments.value = [];
     municipalities.value = [];
-    programs.value = [];
-    projects.value = [];
-    activities.value = [];
+    actionDomains.value = [];
+    strategicDomains.value = [];
+    capabilityDomains.value = [];
+    elementaryLevels.value = [];
     statusActions.value = [];
     riskLevels.value = [];
     priorityLevels.value = [];
@@ -187,9 +191,10 @@ export const useActionStore = defineStore('action', () => {
       regions.value = data.regions;
       departments.value = data.departments;
       municipalities.value = data.municipalities;
-      programs.value = data.programs;
-      projects.value = data.projects;
-      activities.value = data.activities;
+      actionDomains.value = data.action_domains;
+      strategicDomains.value = data.strategic_domains;
+      capabilityDomains.value = data.capability_domains;
+      elementaryLevels.value = data.elementary_levels;
       statusActions.value = data.action_status;
       riskLevels.value = data.risk_levels;
       priorityLevels.value = data.priority_levels;
@@ -243,9 +248,10 @@ export const useActionStore = defineStore('action', () => {
     regions,
     departments,
     municipalities,
-    programs,
-    projects,
-    activities,
+    actionDomains,
+    strategicDomains,
+    capabilityDomains,
+    elementaryLevels,
     statusActions,
     riskLevels,
     priorityLevels,

@@ -13,8 +13,8 @@ const attachableId = route.params.id;
     :attachable-type="attachableType"
     :attachable-id="attachableId"
     :permissions="{
-      access: PERMISSIONS.ACT_ACCESS_FILES,
-      manage: PERMISSIONS.ACT_MANAGE_FILES,
+      access: PERMISSIONS.ACCESS_ACTION_DOMAINS,
+      manage: PERMISSIONS.ACCESS_ACTION_DOMAINS,
     }"
   >
     <template #return-list-btn>

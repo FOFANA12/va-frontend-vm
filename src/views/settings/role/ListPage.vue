@@ -116,7 +116,7 @@ const columns = getColumns({
   t,
   onView: (id) => router.push({ name: 'settings-role-show', params: { id } }),
   onEdit: (id) => router.push({ name: 'settings-role-edit', params: { id } }),
-  onDelete: (ids) => deleteRows([ids]),
+  onDelete: (ids) => deleteRows(ids),
 });
 
 const resetPageAndRefresh = async (clearSearch = false) => {

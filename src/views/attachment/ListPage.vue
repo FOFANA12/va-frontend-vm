@@ -147,8 +147,8 @@ const columns = getColumns({
   onView: (id) => openViewModal(id),
   onDelete: (ids) => deleteRows(ids),
   attachableType: props.attachableType,
-  canAccess,
-  canDelete,
+  canAccess: canAccess.value,
+  canDelete: canDelete.value,
 });
 
 const openUploadModal = () => uploadModal.value.openModal(props.attachableType, props.attachableId);

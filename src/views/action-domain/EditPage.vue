@@ -10,6 +10,7 @@
       </LinkButton>
 
       <LinkButton
+       v-if="hasPermission(PERMISSIONS.READ_ACTION_DOMAINS)"
         :to="{ name: 'actionDomain-show', params: { id: route.params.id } }"
         variant="primary"
         class="min-w-[100px]"
@@ -46,6 +47,10 @@ import Form from './components/form/Edit.vue';
 
 import { useActionDomainStore, useAlertStore } from '@/store';
 import { useSwalAlerte } from '@/composables/useSwalAlerte';
+
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 
 const route = useRoute();
 const store = useActionDomainStore();

@@ -290,6 +290,109 @@
       </div>
     </div>
 
+    <div class="w-full mx-auto bg-white rounded-lg my-6">
+      <div class="card-header">
+        <h2 class="text-xl p-4 pt-2 pb-2">
+          {{ t('action.sections.level4') }}
+        </h2>
+        <hr class="border-t border-gray-200 w-full mb-0" />
+      </div>
+      <div class="card-body p-4">
+        <div class="grid grid-cols-12 gap-4">
+          <!-- Action Domain -->
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <SingleSelect
+              id="action_domain"
+              name="action_domain"
+              v-model="form.action_domain"
+              :label="t('action.form.actionDomain')"
+              :options="store.actionDomains"
+              @update:modelValue="onChangeActionDomain"
+              :placeholder="t('action.form.actionDomainPlaceholder')"
+              :error="form.errors.get('action_domain')"
+              clearable
+              filterable
+              value-key="uuid"
+              label-key="name"
+              :control-class="'px-3 py-2.5'"
+              :dropdown-class="'max-h-60'"
+              :option-class="'text-sm'"
+              :empty-message="t('common.select.noResults')"
+              :search-placeholder="t('common.select.searchPlaceholder')"
+            />
+          </div>
+
+          <!-- Strategic Domain -->
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <SingleSelect
+              id="strategic_domain"
+              name="strategic_domain"
+              v-model="form.strategic_domain"
+              :label="t('action.form.strategicDomain')"
+              :options="strategicDomainsFiltered"
+              @update:modelValue="onChangeStrategicDomain"
+              :placeholder="t('action.form.strategicDomainPlaceholder')"
+              :error="form.errors.get('strategic_domain')"
+              clearable
+              filterable
+              value-key="uuid"
+              label-key="name"
+              :control-class="'px-3 py-2.5'"
+              :dropdown-class="'max-h-60'"
+              :option-class="'text-sm'"
+              :empty-message="t('common.select.noResults')"
+              :search-placeholder="t('common.select.searchPlaceholder')"
+            />
+          </div>
+
+          <!-- Capability Domain -->
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <SingleSelect
+              id="capability_domain"
+              name="capability_domain"
+              v-model="form.capability_domain"
+              :label="t('action.form.capabilityDomain')"
+              :options="capabilityDomainsFiltered"
+              @update:modelValue="onChangeCapabilityDomain"
+              :placeholder="t('action.form.capabilityDomainPlaceholder')"
+              :error="form.errors.get('capability_domain')"
+              clearable
+              filterable
+              value-key="uuid"
+              label-key="name"
+              :control-class="'px-3 py-2.5'"
+              :dropdown-class="'max-h-60'"
+              :option-class="'text-sm'"
+              :empty-message="t('common.select.noResults')"
+              :search-placeholder="t('common.select.searchPlaceholder')"
+            />
+          </div>
+
+          <!-- Elementary Level -->
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <SingleSelect
+              id="elementary_level"
+              name="elementary_level"
+              v-model="form.elementary_level"
+              :label="t('action.form.elementaryLevel')"
+              :options="elementaryLevelsFiltered"
+              :placeholder="t('action.form.elementaryLevelPlaceholder')"
+              :error="form.errors.get('elementary_level')"
+              clearable
+              filterable
+              value-key="uuid"
+              label-key="name"
+              :control-class="'px-3 py-2.5'"
+              :dropdown-class="'max-h-60'"
+              :option-class="'text-sm'"
+              :empty-message="t('common.select.noResults')"
+              :search-placeholder="t('common.select.searchPlaceholder')"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Responsible Structure & Responsible -->
     <div class="w-full mx-auto bg-white rounded-lg my-6">
       <div class="card-header">
@@ -425,74 +528,6 @@
               label-key="name"
             />
           </div>
-
-          <!-- Program
-          <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <SingleSelect
-              id="program"
-              name="program"
-              v-model="form.program"
-              :label="t('action.form.program')"
-              :options="store.programs"
-              @update:modelValue="onChangeProgram"
-              :placeholder="t('action.form.programPlaceholder')"
-              :error="form.errors.get('program')"
-              :control-class="'px-3 py-2.5'"
-              :dropdown-class="'max-h-60'"
-              :option-class="'text-sm'"
-              :empty-message="t('common.select.noResults')"
-              :search-placeholder="t('common.select.searchPlaceholder')"
-              clearable
-              filterable
-              value-key="uuid"
-              label-key="name"
-            />
-          </div> -->
-
-          <!-- Project -->
-          <!-- <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <SingleSelect
-              id="project"
-              name="project"
-              v-model="form.project"
-              :label="t('action.form.project')"
-              :options="projectsFiltered"
-              @update:modelValue="onChangeProject"
-              :placeholder="t('action.form.projectPlaceholder')"
-              :error="form.errors.get('project')"
-              :control-class="'px-3 py-2.5'"
-              :dropdown-class="'max-h-60'"
-              :option-class="'text-sm'"
-              :empty-message="t('common.select.noResults')"
-              :search-placeholder="t('common.select.searchPlaceholder')"
-              clearable
-              filterable
-              value-key="uuid"
-              label-key="name"
-            />
-          </div> -->
-
-          <!-- Activity -->
-          <!-- <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <SingleSelect
-              id="activity"
-              name="activity"
-              v-model="form.activity"
-              :label="t('action.form.activity')"
-              :options="activitiesFiltered"
-              :placeholder="t('action.form.activityPlaceholder')"
-              :error="form.errors.get('activity')"
-              :control-class="'px-3 py-2.5'"
-              :dropdown-class="'max-h-60'"
-              :option-class="'text-sm'"
-              :empty-message="t('common.select.noResults')"
-              :search-placeholder="t('common.select.searchPlaceholder')"
-              clearable
-              filterable
-              value-key="uuid"
-              label-key="name"
-            />
-          </div> -->
         </div>
       </div>
     </div>
@@ -790,8 +825,9 @@ const props = defineProps({
 const departmentsFiltered = ref([]);
 const municipalitiesFiltered = ref([]);
 
-const projectsFiltered = ref([]);
-const activitiesFiltered = ref([]);
+const strategicDomainsFiltered = ref([]);
+const capabilityDomainsFiltered = ref([]);
+const elementaryLevelsFiltered = ref([]);
 
 const actionPlansFiltered = ref([]);
 const projectOwnersFiltered = ref([]);
@@ -939,7 +975,7 @@ const onChangeResponsibleStructure = (structureUuid, isInit = false) => {
 };
 
 const onChangeProjectOwner = (projectOwnerUuid, isInit = false) => {
-   if (!isInit) {
+  if (!isInit) {
     form.delegated_project_owner = null;
   }
 
@@ -983,32 +1019,59 @@ const onChangeDepartment = (departmentUuid, isInit = false) => {
   );
 };
 
-const onChangeProgram = (programUuid, isInit = false) => {
+const onChangeActionDomain = (uuid, isInit = false) => {
   if (!isInit) {
-    form.project = null;
-    form.activity = null;
+    form.strategic_domain = null;
+    form.capability_domain = null;
+    form.elementary_level = null;
   }
 
-  if (!programUuid) {
-    projectsFiltered.value = [];
-    activitiesFiltered.value = [];
+  if (!uuid) {
+    strategicDomainsFiltered.value = [];
+    capabilityDomainsFiltered.value = [];
+    elementaryLevelsFiltered.value = [];
     return;
   }
 
-  projectsFiltered.value = store.projects.filter((p) => p.program_uuid === programUuid);
+  strategicDomainsFiltered.value = store.strategicDomains.filter(
+    (p) => p.action_domain_uuid === uuid
+  );
 
-  if (isInit && form.project) onChangeProject(form.project, true);
+  if (isInit && form.strategic_domain) onChangeStrategicDomain(form.strategic_domain, true);
 };
 
-const onChangeProject = (projectUuid, isInit = false) => {
-  if (!isInit) form.activity = null;
+const onChangeStrategicDomain = (uuid, isInit = false) => {
+  if (!isInit) {
+    form.capability_domain = null;
+    form.elementary_level = null;
+  }
 
-  if (!projectUuid) {
-    activitiesFiltered.value = [];
+  if (!uuid) {
+    capabilityDomainsFiltered.value = [];
+    elementaryLevelsFiltered.value = [];
     return;
   }
 
-  activitiesFiltered.value = store.activities.filter((a) => a.project_uuid === projectUuid);
+  capabilityDomainsFiltered.value = store.capabilityDomains.filter(
+    (p) => p.strategic_domain_uuid === uuid
+  );
+
+  if (isInit && form.capability_domain) onChangeCapabilityDomain(form.capability_domain, true);
+};
+
+const onChangeCapabilityDomain = (uuid, isInit = false) => {
+  if (!isInit) {
+    form.elementary_level = null;
+  }
+
+  if (!uuid) {
+    elementaryLevelsFiltered.value = [];
+    return;
+  }
+
+  elementaryLevelsFiltered.value = store.elementaryLevels.filter(
+    (a) => a.capability_domain_uuid === uuid
+  );
 };
 
 onMounted(async () => {
@@ -1026,8 +1089,9 @@ onMounted(async () => {
     if (form.region) onChangeRegion(form.region, true);
     if (form.department) onChangeDepartment(form.department, true);
 
-    if (form.program) onChangeProgram(form.program, true);
-    if (form.project) onChangeProject(form.project, true);
+    if (form.action_domain) onChangeActionDomain(form.action_domain, true);
+    if (form.strategic_domain) onChangeStrategicDomain(form.strategic_domain, true);
+    if (form.capability_domain) onChangeCapabilityDomain(form.capability_domain, true);
   }
 });
 </script>

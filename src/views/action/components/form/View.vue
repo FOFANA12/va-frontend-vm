@@ -196,6 +196,63 @@
       </div>
     </div>
 
+    <div class="w-full mx-auto bg-white rounded-lg my-6">
+      <div class="card-header">
+        <h2 class="text-xl p-4 pt-2 pb-2">
+          {{ t('action.sections.level4') }}
+        </h2>
+        <hr class="border-t border-gray-200 w-full mb-0" />
+      </div>
+
+      <div class="card-body p-4">
+        <div class="grid grid-cols-12 gap-4">
+          <!-- Action Domain -->
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <InputReadonly
+              id="action_domain"
+              name="action_domain"
+              :label="t('action.form.actionDomain')"
+              :placeholder="t('action.form.actionDomainPlaceholder')"
+              :modelValue="form.action_domain"
+            />
+          </div>
+
+          <!-- Strategic Domain -->
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <InputReadonly
+              id="strategic_domain"
+              name="strategic_domain"
+              :label="t('action.form.strategicDomain')"
+              :placeholder="t('action.form.strategicDomainPlaceholder')"
+              :modelValue="form.strategic_domain"
+            />
+          </div>
+
+          <!-- Capability Domain -->
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <InputReadonly
+              id="capability_domain"
+              name="capability_domain"
+              :label="t('action.form.capabilityDomain')"
+              :placeholder="t('action.form.capabilityDomainPlaceholder')"
+              :modelValue="form.capability_domain"
+            />
+          </div>
+
+          <!-- Elementary Level -->
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <InputReadonly
+              id="elementary_level"
+              name="elementary_level"
+              :label="t('action.form.elementaryLevel')"
+              :placeholder="t('action.form.elementaryLevelPlaceholder')"
+              :modelValue="form.elementary_level"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Responsible Structure & Responsible -->
     <div class="w-full mx-auto bg-white rounded-lg my-6">
       <div class="card-header">

@@ -10,6 +10,7 @@
       </LinkButton>
 
       <LinkButton
+        v-if="hasPermission(PERMISSIONS.UPDATE_ACTION_DOMAIN)"
         :to="{ name: 'actionDomain-edit', params: { id: route.params.id } }"
         variant="primary"
         class="min-w-[100px]"
@@ -18,7 +19,12 @@
         {{ t('common.edit') }}
       </LinkButton>
 
-      <LinkButton :to="{ name: 'actionDomain-create' }" variant="primary" class="min-w-[100px]">
+      <LinkButton
+        v-if="hasPermission(PERMISSIONS.CREATE_ACTION_DOMAIN)"
+        :to="{ name: 'actionDomain-create' }"
+        variant="primary"
+        class="min-w-[100px]"
+      >
         <Plus class="w-5 h-5 mr-2" />
         {{ t('actionDomain.btnAdd') }}
       </LinkButton>
@@ -39,5 +45,8 @@ const route = useRoute();
 const alertStore = useAlertStore();
 alertStore.resetMessage();
 
+import { usePermission } from '@/composables/usePermissions';
+import PERMISSIONS from '@/constants/permissions';
+const { hasPermission } = usePermission();
 </script>
       
