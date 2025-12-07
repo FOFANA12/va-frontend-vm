@@ -833,6 +833,20 @@
       "strategicDomain": "Domaine stratégique"
     }
   },
+    "capabilityDomainStatus": {
+    "btnAdd": "Nouveau statut",
+    "table": {
+      "noData": "Pas de données",
+      "date": "Date"
+    }
+  },
+  "capabilityDomainState": {
+    "btnAdd": "Nouvel état",
+    "table": {
+      "noData": "Pas de données",
+      "date": "Date"
+    }
+  },
   "elementaryLevel": {
     "sections": {
       "descriptiveCharacteristics": "Caractéristiques descriptives",
