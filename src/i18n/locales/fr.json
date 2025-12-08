@@ -357,7 +357,7 @@
     "list": {
       "pageTitle": "Fournisseurs",
       "breadTitle": "Fournisseurs",
-      "breadActive": "Liste des fournisseur"
+      "breadActive": "Liste des fournisseurs"
     },
     "create": {
       "pageTitle": "Fournisseurs - Création",
@@ -376,7 +376,7 @@
     },
     "btnAdd": "Nouvel fournisseur",
     "btnCreate": "Créer",
-    "btnList": "Liste des fournisseur",
+    "btnList": "Liste des fournisseurs",
     "form": {
       "companyName": "Raison socciale",
       "companyNamePlaceholder": "Entrez la raison sociale",

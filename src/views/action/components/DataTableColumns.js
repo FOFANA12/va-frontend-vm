@@ -65,7 +65,7 @@ export function getColumns({ t, onEdit, onDelete, onView, onCopy, formatCurrency
 
     columnHelper.accessor('structure', {
       header: () => t('action.table.structure'),
-      cell: (info) => info.getValue()?.toUpperCase(),
+      cell: (info) => info.getValue(),
     }),
 
     columnHelper.accessor('project_owner', {
