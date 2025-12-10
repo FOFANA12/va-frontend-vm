@@ -1,6 +1,7 @@
 import { actionDomainAttachmentRoutes } from './attachment';
 import { actionDomainStatusRoutes } from './status';
 import { actionDomainStateRoutes } from './state';
+import { actionDomainReportRoutes } from './report';
 
 export default [
   {
@@ -19,6 +20,7 @@ export default [
       ...actionDomainAttachmentRoutes('edit'),
       ...actionDomainStatusRoutes('edit'),
       ...actionDomainStateRoutes('edit'),
+      ...actionDomainReportRoutes('edit'),
     ],
   },
   {
@@ -37,6 +39,7 @@ export default [
       ...actionDomainAttachmentRoutes('show'),
       ...actionDomainStatusRoutes('show'),
       ...actionDomainStateRoutes('show'),
+      ...actionDomainReportRoutes('show'),
     ],
   },
 ];

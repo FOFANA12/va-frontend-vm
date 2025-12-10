@@ -1,6 +1,7 @@
 import { strategicDomainAttachmentRoutes } from './attachment';
 import { strategicDomainStatusRoutes } from './status';
 import { strategicDomainStateRoutes } from './state';
+import { strategicDomainReportRoutes } from './report';
 
 export default [
   {
@@ -19,6 +20,7 @@ export default [
       ...strategicDomainAttachmentRoutes('edit'),
       ...strategicDomainStatusRoutes('edit'),
       ...strategicDomainStateRoutes('edit'),
+      ...strategicDomainReportRoutes('edit'),
     ],
   },
   {
@@ -37,6 +39,7 @@ export default [
       ...strategicDomainAttachmentRoutes('show'),
       ...strategicDomainStatusRoutes('show'),
       ...strategicDomainStateRoutes('show'),
+      ...strategicDomainReportRoutes('show'),
     ],
   },
 ];

@@ -7,4 +7,5 @@ export default {
   create: `${base.API}/action-domains`,
   update: (id) => `${base.API}/action-domains/${id}`,
   destroy: `${base.API}/action-domains/destroy`,
+  getPerformanceReport: (id) => `${base.API}/report-action-domains/${id}/performance`,
 };

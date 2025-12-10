@@ -1,7 +1,7 @@
 import { capabilityDomainAttachmentRoutes } from './attachment';
 import { capabilityDomainStatusRoutes } from './status';
 import { capabilityDomainStateRoutes } from './state';
-
+import { capabilityDomainReportRoutes } from './report';
 export default [
   {
     path: '/capability-domains/edit/:id',
@@ -19,6 +19,7 @@ export default [
       ...capabilityDomainAttachmentRoutes('edit'),
       ...capabilityDomainStatusRoutes('edit'),
       ...capabilityDomainStateRoutes('edit'),
+      ...capabilityDomainReportRoutes('edit'),
     ],
   },
   {
@@ -37,6 +38,7 @@ export default [
       ...capabilityDomainAttachmentRoutes('show'),
       ...capabilityDomainStatusRoutes('show'),
       ...capabilityDomainStateRoutes('show'),
+      ...capabilityDomainReportRoutes('show'),
     ],
   },
 ];

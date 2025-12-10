@@ -7,4 +7,5 @@ export default {
   create: `${base.API}/elementary-levels`,
   update: (id) => `${base.API}/elementary-levels/${id}`,
   destroy: `${base.API}/elementary-levels/destroy`,
+  getPerformanceReport: (id) => `${base.API}/report-elementary-levels/${id}/performance`,
 };

@@ -1,7 +1,7 @@
 import { elementaryLevelAttachmentRoutes } from './attachment';
 import { elementaryLevelStatusRoutes } from './status';
 import { elementaryLevelStateRoutes } from './state';
-
+import { elementaryLevelReportRoutes } from './report';
 export default [
   {
     path: '/elementary-levels/edit/:id',
@@ -19,6 +19,7 @@ export default [
       ...elementaryLevelAttachmentRoutes('edit'),
       ...elementaryLevelStatusRoutes('edit'),
       ...elementaryLevelStateRoutes('edit'),
+      ...elementaryLevelReportRoutes('edit'),
     ],
   },
   {
@@ -37,6 +38,7 @@ export default [
       ...elementaryLevelAttachmentRoutes('show'),
       ...elementaryLevelStatusRoutes('show'),
       ...elementaryLevelStateRoutes('show'),
+      ...elementaryLevelReportRoutes('show'),
     ],
   },
 ];

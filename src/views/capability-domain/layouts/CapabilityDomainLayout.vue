@@ -54,6 +54,17 @@
         >
           {{ t('capabilityDomain.tabs.attachment') }}
         </Tab>
+        
+        <Tab
+          :to="{
+            name: isEdit ? 'capabilityDomain-edit-performanceReport' : 'capabilityDomain-show-performanceReport',
+            params: { id: route.params.id },
+          }"
+          :icon="BarChart3"
+          :match-pattern="/^capabilityDomain-(edit|show)-performanceReport/"
+        >
+          {{ t('capabilityDomain.tabs.performanceReport') }}
+        </Tab>
       </Tabs>
 
       <!-- Route content -->
@@ -75,6 +86,7 @@ import {
   Paperclip,
   SquarePen,
   TrendingUp,
+  BarChart3
 } from 'lucide-vue-next';
 
 const { t } = useI18n();

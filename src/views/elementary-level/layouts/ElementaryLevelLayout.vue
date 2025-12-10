@@ -54,6 +54,17 @@
         >
           {{ t('elementaryLevel.tabs.attachment') }}
         </Tab>
+         
+        <Tab
+          :to="{
+            name: isEdit ? 'elementaryLevel-edit-performanceReport' : 'elementaryLevel-show-performanceReport',
+            params: { id: route.params.id },
+          }"
+          :icon="BarChart3"
+          :match-pattern="/^elementaryLevel-(edit|show)-performanceReport/"
+        >
+          {{ t('elementaryLevel.tabs.performanceReport') }}
+        </Tab>
       </Tabs>
 
       <!-- Route content -->
@@ -75,6 +86,7 @@ import {
   Paperclip,
   SquarePen,
   TrendingUp,
+  BarChart3,
 } from 'lucide-vue-next';
 
 const { t } = useI18n();

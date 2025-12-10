@@ -550,7 +550,8 @@
       "detail": "Détails du domaine d'action",
       "status": "Statut",
       "state": "Etat",
-      "attachment": "Fichiers"
+      "attachment": "Fichiers",
+      "performanceReport": "Reporting"
     },
     "beneficiaries": {
       "modalTitle": "Sélectionner des bénéficiaires",
@@ -649,7 +650,8 @@
       "detail": "Détails du domaine stratégique",
       "status": "Statut",
       "state": "Etat",
-      "attachment": "Fichiers"
+      "attachment": "Fichiers",
+      "performanceReport": "Reporting"
     },
     "beneficiaries": {
       "modalTitle": "Sélectionner des bénéficiaires",
@@ -751,7 +753,8 @@
       "detail": "Détails du domaine stratégique",
       "status": "Statut",
       "state": "Etat",
-      "attachment": "Fichiers"
+      "attachment": "Fichiers",
+      "performanceReport": "Reporting"
     },
     "beneficiaries": {
       "modalTitle": "Sélectionner des bénéficiaires",
@@ -859,7 +862,8 @@
       "detail": "Détails du niveau élémentaire",
       "status": "Statut",
       "state": "Etat",
-      "attachment": "Fichiers"
+      "attachment": "Fichiers",
+      "performanceReport": "Reporting"
     },
     "beneficiaries": {
       "modalTitle": "Sélectionner des bénéficiaires",

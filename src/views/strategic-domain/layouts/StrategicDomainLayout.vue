@@ -54,6 +54,17 @@
         >
           {{ t('strategicDomain.tabs.attachment') }}
         </Tab>
+
+        <Tab
+          :to="{
+            name: isEdit ? 'actionDomain-edit-performanceReport' : 'actionDomain-show-performanceReport',
+            params: { id: route.params.id },
+          }"
+          :icon="BarChart3"
+          :match-pattern="/^actionDomain-(edit|show)-performanceReport/"
+        >
+          {{ t('actionDomain.tabs.performanceReport') }}
+        </Tab>
       </Tabs>
 
       <!-- Route content -->
@@ -69,7 +80,7 @@ import Tab from '@/components/ui/Tab.vue';
 
 import { useStrategicDomainStore } from '@/store';
 import { usePageState } from '@/composables/usePageState';
-import { Activity, Eye, Paperclip, SquarePen, TrendingUp } from 'lucide-vue-next';
+import { Activity, Eye, Paperclip, SquarePen, TrendingUp, BarChart3 } from 'lucide-vue-next';
 
 const { t } = useI18n();
 const route = useRoute();

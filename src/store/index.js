@@ -12,18 +12,22 @@ export * from './structure';
 export * from './actionDomain';
 export * from './actionDomainStatus';
 export * from './actionDomainState';
+export * from './actionDomainReport'
 
 export * from './strategicDomain';
 export * from './strategicDomainState';
 export * from './strategicDomainStatus';
+export * from './strategicDomainReport'
 
 export * from './capabilityDomain'
 export * from './capabilityDomainState'
 export * from './capabilityDomainStatus';
+export * from './capabilityDomainReport'
 
 export * from './elementaryLevel';
 export * from './elementaryLevelState';
 export * from './elementaryLevelStatus';
+export * from './elementaryLevelReport';
 
 export * from './strategicMap';
 export * from './strategicStakeholder';
