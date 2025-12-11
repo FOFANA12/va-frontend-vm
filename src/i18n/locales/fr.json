@@ -551,7 +551,7 @@
       "status": "Statut",
       "state": "Etat",
       "attachment": "Fichiers",
-      "performanceReport": "Reporting"
+      "report": "Reporting"
     },
     "beneficiaries": {
       "modalTitle": "Sélectionner des bénéficiaires",
@@ -836,7 +836,7 @@
       "strategicDomain": "Domaine stratégique"
     }
   },
-    "capabilityDomainStatus": {
+  "capabilityDomainStatus": {
     "btnAdd": "Nouveau statut",
     "table": {
       "noData": "Pas de données",
@@ -2033,6 +2033,12 @@
       "delayVarianceDays": "Écart de délai (jours)",
       "delayOverrunRate": "Taux de dépassement de délai (%)"
     },
+    "counts": {
+      "strategicDomains": "Nbre Domaines stratégiques",
+      "capabilityDomains": "Nbre Domaines capacitaires",
+      "elementaryLevels": "Nbre Niveaux élémentaires",
+      "actions": "Nbre Actions"
+    },
     "sections": {
       "budgetReport": "Indicateurs budgétaire",
       "realizationReport": "Indicateurs de réalisation",
@@ -2047,7 +2053,8 @@
       "expensesByBudgetType": "Dépenses par type de budget",
       "expensesByExpenseType": "Dépenses par type de dépense",
       "expensesByProcurementMode": "Dépenses par mode de passation",
-      "expensesByContractType": "Dépenses par type de contrat"
+      "expensesByContractType": "Dépenses par type de contrat",
+      "counters": "Synthèse générale"
     },
     "fundingSource": "Source de financement",
     "currency": "Devise",

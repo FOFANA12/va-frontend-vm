@@ -3,9 +3,9 @@ export const actionDomainReportRoutes = (mode = 'edit') => {
 
   return [
     {
-      path: 'performance-report',
-      name: `actionDomain-${mode}-performanceReport`,
-      component: () => import('@/views/action-Domain-report/PerformanceReportPage.vue'),
+      path: 'report',
+      name: `actionDomain-${mode}-report`,
+      component: () => import('@/views/action-Domain-report/ReportPage.vue'),
       meta: { auth: true, title: pageTitleKey },
     },
   ];

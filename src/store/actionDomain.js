@@ -142,6 +142,16 @@ export const useActionDomainStore = defineStore('actionDomain', () => {
     }
   };
 
+  const getGlobalReport = async (actionDomainId) => {
+
+    try {
+      const { data } = await api.get(endpoints.actionDomain.getGlobalReport(actionDomainId));
+      return data;
+    } catch (error) {
+      throw { message: 'Failed to load report.' };
+    }
+  };
+
   const resetForm = () => {
     form.value.clear();
     form.value.errors.clear();
@@ -185,5 +195,6 @@ export const useActionDomainStore = defineStore('actionDomain', () => {
     requirements,
     resetForm,
     resetServerParams,
+    getGlobalReport
   };
 });
