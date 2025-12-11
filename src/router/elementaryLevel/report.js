@@ -3,9 +3,9 @@ export const elementaryLevelReportRoutes = (mode = 'edit') => {
 
   return [
     {
-      path: 'performance-report',
-      name: `elementaryLevel-${mode}-performanceReport`,
-      component: () => import('@/views/elementary-level-report/PerformanceReportPage.vue'),
+      path: 'report',
+      name: `elementaryLevel-${mode}-report`,
+      component: () => import('@/views/elementary-level-report/ReportPage.vue'),
       meta: { auth: true, title: pageTitleKey },
     },
   ];

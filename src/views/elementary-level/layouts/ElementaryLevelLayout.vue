@@ -57,13 +57,13 @@
          
         <Tab
           :to="{
-            name: isEdit ? 'elementaryLevel-edit-performanceReport' : 'elementaryLevel-show-performanceReport',
+            name: isEdit ? 'elementaryLevel-edit-report' : 'elementaryLevel-show-report',
             params: { id: route.params.id },
           }"
           :icon="BarChart3"
-          :match-pattern="/^elementaryLevel-(edit|show)-performanceReport/"
+          :match-pattern="/^elementaryLevel-(edit|show)-report/"
         >
-          {{ t('elementaryLevel.tabs.performanceReport') }}
+          {{ t('elementaryLevel.tabs.report') }}
         </Tab>
       </Tabs>
 

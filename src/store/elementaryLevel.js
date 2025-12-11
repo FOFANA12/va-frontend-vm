@@ -147,6 +147,15 @@ export const useElementaryLevelStore = defineStore('elementaryLevel', () => {
     }
   };
 
+  const getGlobalReport = async (elementaryLevelId) => {
+    try {
+      const { data } = await api.get(endpoints.elementaryLevel.getGlobalReport(elementaryLevelId));
+      return data;
+    } catch (error) {
+      throw { message: 'Failed to load report.' };
+    }
+  };
+
   const resetForm = () => {
     form.value.clear();
     form.value.errors.clear();
@@ -191,5 +200,6 @@ export const useElementaryLevelStore = defineStore('elementaryLevel', () => {
     requirements,
     resetForm,
     resetServerParams,
+    getGlobalReport
   };
 });
