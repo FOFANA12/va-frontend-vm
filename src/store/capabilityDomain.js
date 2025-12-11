@@ -147,6 +147,15 @@ export const useCapabilityDomainStore = defineStore('capabilityDomain', () => {
     }
   };
 
+  const getGlobalReport = async (capabilityDomainId) => {
+    try {
+      const { data } = await api.get(endpoints.capabilityDomain.getGlobalReport(capabilityDomainId));
+      return data;
+    } catch (error) {
+      throw { message: 'Failed to load report.' };
+    }
+  };
+
   const resetForm = () => {
     form.value.clear();
     form.value.errors.clear();
@@ -191,5 +200,6 @@ export const useCapabilityDomainStore = defineStore('capabilityDomain', () => {
     requirements,
     resetForm,
     resetServerParams,
+    getGlobalReport
   };
 });

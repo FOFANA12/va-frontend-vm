@@ -3,9 +3,9 @@ export const capabilityDomainReportRoutes = (mode = 'edit') => {
 
   return [
     {
-      path: 'performance-report',
-      name: `capabilityDomain-${mode}-performanceReport`,
-      component: () => import('@/views/capability-Domain-report/PerformanceReportPage.vue'),
+      path: 'report',
+      name: `capabilityDomain-${mode}-report`,
+      component: () => import('@/views/capability-Domain-report/ReportPage.vue'),
       meta: { auth: true, title: pageTitleKey },
     },
   ];
