@@ -267,7 +267,7 @@
                   : 'text-green-600 font-bold'
               "
             >
-              {{ indicatorReport?.average_realisation_rate ?? 0 }} %
+              {{ budgetReport?.average_realisation_rate ?? 0 }} %
             </span>
           </li>
         </ul>
@@ -332,10 +332,6 @@ const counterReport = computed(() => {
 
 const budgetReport = computed(() => {
   return result.value?.budget;
-});
-
-const indicatorReport = computed(() => {
-  return result.value?.indicators;
 });
 
 const {
