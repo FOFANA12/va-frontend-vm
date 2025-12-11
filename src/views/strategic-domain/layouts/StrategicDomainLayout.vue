@@ -57,13 +57,13 @@
 
         <Tab
           :to="{
-            name: isEdit ? 'actionDomain-edit-performanceReport' : 'actionDomain-show-performanceReport',
+            name: isEdit ? 'strategicDomain-edit-report' : 'strategicDomain-show-report',
             params: { id: route.params.id },
           }"
           :icon="BarChart3"
-          :match-pattern="/^actionDomain-(edit|show)-performanceReport/"
+          :match-pattern="/^strategicDomain-(edit|show)-report/"
         >
-          {{ t('actionDomain.tabs.performanceReport') }}
+          {{ t('strategicDomain.tabs.report') }}
         </Tab>
       </Tabs>
 

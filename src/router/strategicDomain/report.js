@@ -3,9 +3,9 @@ export const strategicDomainReportRoutes = (mode = 'edit') => {
 
   return [
     {
-      path: 'performance-report',
-      name: `strategicDomain-${mode}-performanceReport`,
-      component: () => import('@/views/strategic-Domain-report/PerformanceReportPage.vue'),
+      path: 'report',
+      name: `strategicDomain-${mode}-report`,
+      component: () => import('@/views/strategic-Domain-report/ReportPage.vue'),
       meta: { auth: true, title: pageTitleKey },
     },
   ];

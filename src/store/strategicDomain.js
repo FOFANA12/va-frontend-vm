@@ -146,6 +146,16 @@ export const useStrategicDomainStore = defineStore('strategicDomain', () => {
     }
   };
 
+  const getGlobalReport = async (strategicDomainId) => {
+
+    try {
+      const { data } = await api.get(endpoints.strategicDomain.getGlobalReport(strategicDomainId));
+      return data;
+    } catch (error) {
+      throw { message: 'Failed to load report.' };
+    }
+  };
+
   const resetForm = () => {
     form.value.clear();
     form.value.errors.clear();
@@ -190,5 +200,6 @@ export const useStrategicDomainStore = defineStore('strategicDomain', () => {
     requirements,
     resetForm,
     resetServerParams,
+    getGlobalReport
   };
 });

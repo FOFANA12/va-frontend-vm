@@ -651,7 +651,7 @@
       "status": "Statut",
       "state": "Etat",
       "attachment": "Fichiers",
-      "performanceReport": "Reporting"
+      "report": "Reporting"
     },
     "beneficiaries": {
       "modalTitle": "Sélectionner des bénéficiaires",
