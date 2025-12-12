@@ -73,7 +73,7 @@ const {
   hasError,
   errorMessage,
   fetchData: fetchWithState,
-} = usePageState(async () => await store.requirements());
+} = usePageState( () => {});
 
 const onSubmit = async () => {
   try {
@@ -84,7 +84,6 @@ const onSubmit = async () => {
 };
 
 onMounted(async () => {
-  console.log('ici');
   await fetchWithState();
 });
 </script>

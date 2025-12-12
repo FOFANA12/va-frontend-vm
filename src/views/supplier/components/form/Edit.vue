@@ -148,28 +148,6 @@
 
       <div class="card-body p-4">
         <div class="grid grid-cols-12 gap-4">
-          <!-- Contract type -->
-          <div class="col-span-12 md:col-span-4">
-            <SingleSelect
-              id="contract_type"
-              name="contract_type"
-              v-model="form.contract_type"
-              :options="store.contractTypes"
-              :label="t('supplier.form.contractType')"
-              :placeholder="t('supplier.form.contractTypePlaceholder')"
-              :error="form.errors.get('contract_type')"
-              :control-class="'px-3 py-2.5'"
-              :dropdown-class="'max-h-60'"
-              :option-class="'text-sm'"
-              :empty-message="t('common.select.noResults')"
-              :search-placeholder="t('common.select.searchPlaceholder')"
-              value-key="uuid"
-              label-key="name"
-              clearable
-              filterable
-              required
-            />
-          </div>
           <!-- Name -->
           <div class="col-span-12 md:col-span-4">
             <Input

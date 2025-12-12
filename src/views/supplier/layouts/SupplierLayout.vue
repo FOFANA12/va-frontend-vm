@@ -107,7 +107,7 @@ const {
   fetchData: fetchWithState,
 } = usePageState(async () => {
   if (mode.value === 'edit') {
-    await Promise.all([store.requirements([route.params.id]), store.find(route.params.id, 'edit')]);
+    await store.find(route.params.id, 'edit');
   } else {
     await store.find(route.params.id, 'view');
   }

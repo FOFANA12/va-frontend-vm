@@ -156,7 +156,7 @@
               v-model="form.supplier"
               @update:modelValue="onChangeSupplier"
               :label="t('actionFundDisbursement.form.supplier')"
-              :options="filteredSuppliers"
+              :options="store.suppliers"
               :placeholder="t('actionFundDisbursement.form.supplierPlaceholder')"
               :error="form.errors.get('supplier')"
               :control-class="'px-3 py-2.5'"
@@ -446,7 +446,6 @@ const store = useActionFundDisbursementStore();
 
 const phases = ref([]);
 const tasks = ref([]);
-const filteredSuppliers = ref([]);
 const contracts = ref([]);
 const modalExpenseType = ref(null);
 
@@ -487,7 +486,6 @@ const onChangeAction = (actionUuid, isInit = false) => {
     tasks.value = [];
     form.phase = null;
     form.task = null;
-    filteredSuppliers.value = [];
     return;
   }
 
@@ -500,14 +498,6 @@ const onChangeAction = (actionUuid, isInit = false) => {
     form.phase = null;
     form.task = null;
     tasks.value = [];
-  }
-
-  if (selectedAction?.contract_type_uuid) {
-    filteredSuppliers.value = store.suppliers.filter(
-      (s) => s.contract_type_uuid === selectedAction.contract_type_uuid
-    );
-  } else {
-    filteredSuppliers.value = [];
   }
 
   if (!isInit) {
@@ -573,7 +563,6 @@ const clearFile = () => {
 
 onMounted(async () => {
   await nextTick();
-  filteredSuppliers.value = [];
 
   if (props.context !== 'create') {
     if (form.action) onChangeAction(form.action?.uuid || form.action, true);

@@ -14,7 +14,7 @@
           <!-- Company name -->
           <div class="col-span-12 md:col-span-4">
             <InputReadonly
-              id="contract_type"
+              id="company_name"
               name="company_name"
               :label="t('supplier.form.companyName')"
               :placeholder="t('supplier.form.companyNamePlaceholder')"
@@ -120,16 +120,7 @@
 
       <div class="card-body p-4">
         <div class="grid grid-cols-12 gap-4">
-          <!-- Contract type -->
-          <div class="col-span-12 md:col-span-4">
-            <InputReadonly
-              id="contract_type"
-              name="contract_type"
-              :label="t('supplier.form.contractType')"
-              :placeholder="t('supplier.form.contractTypePlaceholder')"
-              :modelValue="form.contract_type"
-            />
-          </div>
+
           <!-- Name -->
           <div class="col-span-12 md:col-span-4">
             <InputReadonly

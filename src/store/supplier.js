@@ -119,18 +119,7 @@ export const useSupplierStore = defineStore('supplier', () => {
       throw { message: 'Failed to delete suppliers.' };
     }
   };
-  const requirements = async () => {
-    contractTypes.value = [];
 
-    try {
-      const { data } = await api.get(endpoints.supplier.requirements);
-      contractTypes.value = data.contract_types;
-
-      return data;
-    } catch (error) {
-      throw { message: 'Failed to load requirements.' };
-    }
-  };
   const resetForm = () => {
     form.value.clear();
     form.value.errors.clear();
@@ -168,7 +157,6 @@ export const useSupplierStore = defineStore('supplier', () => {
     create,
     update,
     destroy,
-    requirements,
     resetForm,
     resetServerParams,
   };
