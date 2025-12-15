@@ -321,7 +321,7 @@ onMounted(async () => {
   await nextTick();
 
   parentFilteredStructures.value = store.structures.filter((s) => s.type === 'STATE');
-  filteredStructures.value = store.structures.filter((s) => s.type === 'DEPARTMENT');
+  filteredStructures.value = store.structures.filter((s) => s.type === 'STRATEGIC');
 
   if (props.context === 'edit') {
     if (form.structure) onChangeStructure(form.structure, true);
