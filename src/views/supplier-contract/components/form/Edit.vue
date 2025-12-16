@@ -104,10 +104,9 @@
 
         <!-- Signed At -->
         <div class="col-span-12 md:col-span-6 lg:col-span-4">
-          <Input
+          <DatePicker
             id="signed_at"
             name="signed_at"
-            type="date"
             :label="t('contract.form.signedAt')"
             :placeholder="t('contract.form.signedAtPlaceholder')"
             v-model="form.signed_at"
@@ -118,10 +117,9 @@
 
         <!-- Start Date -->
         <div class="col-span-12 md:col-span-6 lg:col-span-4">
-          <Input
+          <DatePicker
             id="start_date"
             name="start_date"
-            type="date"
             :label="t('contract.form.startDate')"
             :placeholder="t('contract.form.startDatePlaceholder')"
             v-model="form.start_date"
@@ -132,10 +130,9 @@
 
         <!-- End Date -->
         <div class="col-span-12 md:col-span-6 lg:col-span-4">
-          <Input
+          <DatePicker
             id="end_date"
             name="end_date"
-            type="date"
             :label="t('contract.form.endDate')"
             :placeholder="t('contract.form.endDatePlaceholder')"
             v-model="form.end_date"

@@ -68,6 +68,7 @@ import budgetTypeSettings from './settings/budgetType';
 import indicatorCategorySettings from './settings/indicatorCategory';
 import defaultPhaseSettings from './settings/defaultPhase';
 import roleSettings from './settings/role';
+import maillageReport from './maillageReport';
 
 export const endpoints = {
   auth,
@@ -98,6 +99,7 @@ export const endpoints = {
   indicatorControl,
   indicatorStatus,
   report,
+  maillageReport,
   dashboard,
   logActivity,
 

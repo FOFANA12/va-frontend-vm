@@ -272,6 +272,12 @@ const rawMenuGroups = [
         path: '/log-activities',
         permission: PERMISSIONS.ACCESS_LOGS,
       },
+      {
+        icon: BarChart,
+        name: t('sidebar.maillageReports'),
+        path: '/maillage-reports',
+        permission: PERMISSIONS.ACCESS_REPORTING,
+      },
     ],
   },
   {

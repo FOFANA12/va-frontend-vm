@@ -54,4 +54,5 @@ export * from './logActivity';
 export * from './settings';
 export * from './alert';
 export * from './structureReport';
+export * from './maillageReport';
 export * from './dashboard';

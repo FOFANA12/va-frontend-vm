@@ -31,7 +31,13 @@ const routes = [
   {
     path: '/structure-reports',
     name: 'structure-reports',
-    component: () => import('@/views/structure-report/ReportPage.vue'),
+    component: () => import('@/views/structure-report/StructureReportPage.vue'),
+    meta: { title: 'report.pageTitle', auth: true },
+  },
+  {
+    path: '/maillage-reports',
+    name: 'maillage-reports',
+    component: () => import('@/views/maillage-report/MaillageReportPage.vue'),
     meta: { title: 'report.pageTitle', auth: true },
   },
   ...AuthRoutes,
