@@ -29,9 +29,9 @@ const routes = [
     meta: { title: 'dashboard.pageTitle', auth: true },
   },
   {
-    path: '/reports',
-    name: 'reports',
-    component: () => import('@/views/report/ReportPage.vue'),
+    path: '/structure-reports',
+    name: 'structure-reports',
+    component: () => import('@/views/structure-report/ReportPage.vue'),
     meta: { title: 'report.pageTitle', auth: true },
   },
   ...AuthRoutes,

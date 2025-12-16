@@ -185,7 +185,7 @@
     "actionFundDisbursements": "Décaissements",
     "actionFundReceipts": "Encaissements",
     "logActivities": "Logs d'activité",
-    "reports": "Reporting",
+    "reports": "Reporting structure",
     "actionDomains": "Domaines d'action",
     "strategicDomains": "Domaines stratégique",
     "capabilityDomains": "Domaines capacitaire",
@@ -196,7 +196,7 @@
     "administrativeManagement": "Gestion administrative",
     "organizationalManagement": "Gestion des organisations",
     "maillage": "Maillage",
-    "monitoring": "Monitoring & Reports",
+    "monitoring": "Monitoring & Reporting",
     "settings": {
       "title": "Paramètres",
       "currencies": "Devises",
@@ -1982,7 +1982,7 @@
     }
   },
   "report": {
-    "pageTitle": "Reporting",
+    "pageTitle": "Reporting Structure",
     "plannedBudget": "Budget prévisionnel",
     "acquiredBudget": "Budget acquis",
     "spentBudget": "Budget consommé",

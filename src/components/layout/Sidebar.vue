@@ -263,7 +263,7 @@ const rawMenuGroups = [
       {
         icon: BarChart,
         name: t('sidebar.reports'),
-        path: '/reports',
+        path: '/structure-reports',
         permission: PERMISSIONS.ACCESS_REPORTING,
       },
       {
