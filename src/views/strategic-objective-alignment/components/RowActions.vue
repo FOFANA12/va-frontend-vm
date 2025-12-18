@@ -14,7 +14,6 @@ const props = defineProps({
   objectiveStatus: { type: [String, Object, null], required: false, default: null },
 });
 const allowed = computed(() => canManageAlignment(props.objectiveStatus));
-console.log(objectiveStatus);
 </script>
 
 <template>
