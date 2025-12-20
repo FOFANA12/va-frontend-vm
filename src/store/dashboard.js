@@ -27,9 +27,39 @@ export const useDahsboardReportStore = defineStore('dashboardReport', () => {
     }
   };
 
+  const getStrategicReport = async (structureId) => {
+    try {
+      const { data } = await api.get(endpoints.dashboard.getStrategicDashboard(structureId));
+      return data;
+    } catch (error) {
+      throw { message: 'Failed to load strategic report.' };
+    }
+  };
+
+  const getOperationalReport = async (structureId) => {
+    try {
+      const { data } = await api.get(endpoints.dashboard.getOperationalDashboard(structureId));
+      return data;
+    } catch (error) {
+      throw { message: 'Failed to load operational report.' };
+    }
+  };
+
+  const getFinancialReport = async (structureId) => {
+    try {
+      const { data } = await api.get(endpoints.dashboard.getFinancialDashboard(structureId));
+      return data;
+    } catch (error) {
+      throw { message: 'Failed to load financial report.' };
+    }
+  };
+
   return {
     structures,
     requirements,
     getGeneralReport,
+    getStrategicReport,
+    getOperationalReport,
+    getFinancialReport
   };
 });

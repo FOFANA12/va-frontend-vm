@@ -32,6 +32,9 @@
         </LinkButton>
       </div>
 
+      <!-- Filters -->
+      <FilterPanel v-model="filters" @filter="onFilter" />
+
       <!-- Search -->
       <div class="w-full md:w-1/2 relative mb-2">
         <DatatableSearchInput
@@ -72,8 +75,11 @@ import { usePermission } from '@/composables/usePermissions';
 import PERMISSIONS from '@/constants/permissions';
 const { hasPermission } = usePermission();
 
+import FilterPanel from './components/FilterPanel.vue';
+
 const { t } = useI18n();
 const router = useRouter();
+const route = useRoute();
 const store = useIndicatorStore();
 
 const breadcrumbs = [
@@ -121,6 +127,18 @@ const columns = getColumns({
   onDelete: (ids) => deleteRows(ids),
 });
 
+const filters = ref({
+  status: route.query.status ?? '',
+  state: route.query.state ?? '',
+  category: route.query.category ?? '',
+});
+
+const onFilter = async (activeFilters) => {
+  store.setFilters(activeFilters);
+  pagination.value.pageIndex = 0;
+  await fetchData();
+};
+
 const resetPageAndRefresh = async (clearSearch = false) => {
   if (clearSearch) searchTerm.value = null;
   store.resetServerParams();
@@ -154,6 +172,17 @@ const deleteRows = async (ids) => {
 };
 
 onMounted(async () => {
+  await store.getFilters();
+
+  const hasQueryFilters = route.query.status || route.query.state || route.query.category;
+
+  if (hasQueryFilters) {
+    store.setFilters(filters.value);
+    pagination.value.pageIndex = 0;
+    await fetchWithState();
+    return;
+  }
+
   await resetPageAndRefresh(true);
   await fetchWithState();
 });

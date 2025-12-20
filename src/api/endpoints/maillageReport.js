@@ -1,10 +1,8 @@
 import base from './urlBase';
 
 export default {
-  requirements: `${base.API}/report-maillage/requirements`,
-  getPerformanceReport: (id) => `${base.API}/report-maillage/${id}/performance`,
-  statistics: {
-    getAcquisitionReport: (id) => `${base.API}/report-maillage/${id}/statistics/acquisitions`,
-    getGlobalExpenseReport: (id) => `${base.API}/report-maillage/${id}/statistics/expenses`,
-  },
+  getActionDomainReport: () => `${base.API}/report-maillage/action-domain`,
+  getStrategicDomainReport: () => `${base.API}/report-maillage/strategic-domain`,
+  getCapabilityDomainReport: () => `${base.API}/report-maillage/capability-domain`,
+  getElementaryLevelReport: () => `${base.API}/report-maillage/elementary-level`,
 };

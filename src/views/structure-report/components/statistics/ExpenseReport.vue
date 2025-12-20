@@ -98,40 +98,6 @@
       />
     </div>
   </div>
-
-  <!-- Dépenses par mode de passation -->
-  <div class="w-full mx-auto rounded-lg mb-6" v-if="expensesByProcurementMode.length > 0">
-    <div class="card-header">
-      <h2 class="text-lg p-4 px-0 pt-2 pb-2">
-        {{ t('report.sections.expensesByProcurementMode') }}
-      </h2>
-      <hr class="border-t border-gray-200 w-full mb-0" />
-    </div>
-    <div class="card-body pt-4">
-      <TableWithParticipation
-        :items="expensesByProcurementMode"
-        labelKey="name"
-        valueKey="total_amount"
-        :total="expensesByProcurementModeTotal"
-        :currency="currentCurrencyCode"
-      />
-    </div>
-    <div class="card-body pt-4">
-      <HorizontalBarChart
-        :labels="expensesByProcurementMode.map((m) => m.name)"
-        :datasets="[
-          {
-            label: t('report.participationRate'),
-            data: expensesByProcurementMode.map((m) =>
-              calcParticipation(m.total_amount, expensesByProcurementModeTotal)
-            ),
-            backgroundColor: procurementColors,
-          },
-        ]"
-        unit="%"
-      />
-    </div>
-  </div>
 </template>
 
 <script setup>
@@ -152,7 +118,6 @@ const props = defineProps({
 const expensesByBudgetType = computed(() => props.data?.expenses_by_budget_type || []);
 const expensesByExpenseType = computed(() => props.data?.expenses_by_expense_type || []);
 const expensesByStructure = computed(() => props.data?.expenses_by_structure || []);
-const expensesByProcurementMode = computed(() => props.data?.expenses_by_procurement_mode || []);
 
 const expensesByStructureTotal = computed(() =>
   expensesByStructure.value.reduce((sum, i) => sum + (Number(i.total_amount) || 0), 0)
@@ -163,9 +128,7 @@ const expensesByBudgetTypeTotal = computed(() =>
 const expensesByExpenseTypeTotal = computed(() =>
   expensesByExpenseType.value.reduce((sum, i) => sum + (Number(i.total_amount) || 0), 0)
 );
-const expensesByProcurementModeTotal = computed(() =>
-  expensesByProcurementMode.value.reduce((sum, i) => sum + (Number(i.total_amount) || 0), 0)
-);
+
 
 const budgetColors = computed(() =>
   chroma.scale('Set2').mode('lch').colors(expensesByBudgetType.value.length)
@@ -175,9 +138,6 @@ const expenseColors = computed(() =>
 );
 const structureColors = computed(() =>
   chroma.scale('Set3').mode('lch').colors(expensesByStructure.value.length)
-);
-const procurementColors = computed(() =>
-  chroma.scale('Dark2').mode('lch').colors(expensesByProcurementMode.value.length)
 );
 
 const currentCurrencyCode = computed(() => currencyStore.defaultCurrency?.code || 'MRU');

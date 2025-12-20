@@ -223,6 +223,8 @@
   },
   "dashboard": {
     "pageTitle": "Dashboard",
+    "objectivesStatusDistribution": "Répartition des statuts des objectifs",
+    "seeDetails": "Voir les détails",
     "structuresActiveCount": "Structures actives",
     "strategicMapsActiveCount": "Cartes stratégiques actives",
     "strategicAxesCount": "Axes stratégiques",
@@ -235,10 +237,35 @@
     "failedObjectives": "Objectifs ratés",
     "alertObjectives": "Objectifs en alerte",
     "actionsStatus": "Statut des actions",
-    "failedActions": "Actions en vain",
+    "failedActions": "Actions non alignées",
     "alertActions": "Actions en alerte",
     "pleaseSelect": "Veuillez faire une sélection",
-    "pleaseSelectDescription": "Sélectionnez une structure et/ou une catégorie pour continuer, selon votre profil."
+    "pleaseSelectDescription": "Sélectionnez une structure et/ou une catégorie pour continuer, selon votre profil.",
+    "noObjectivesStatusData": "Aucune donnée disponible",
+    "objectivesStateDistribution": "Répartition des états des objectifs",
+    "noObjectivesStateData": "Aucune donnée d'état disponible",
+    "indicatorsStatusDistribution": "Répartition des statuts des indicateurs",
+    "indicatorsStateDistribution": "Répartition des états des indicateurs",
+    "noIndicatorsStatusData": "Aucune donnée de statut disponible",
+    "noIndicatorsStateData": "Aucune donnée d'état disponible",
+    "indicatorsCount": "Indicateurs suivis",
+    "indicatorCategories": "Catégories d'indicateurs",
+    "noIndicatorCategoryData": "Aucune catégorie d'indicateurs disponible",
+    "actionsStatusDistribution": "Répartition par statut des actions",
+    "actionsStateDistribution": "Répartition par état des actions",
+    "noActionsStatusData": "Aucune donnée disponible pour les statuts des actions.",
+    "noActionsStateData": "Aucune donnée disponible pour les états des actions.",
+    "plannedBudget": "Budget prévisionnel",
+    "acquiredBudget": "Budget acquis",
+    "spentBudget": "Budget consommé",
+    "availableBudget": "Budget disponible",
+    "budgetToMobilize": "Budget à mobiliser",
+
+    "disbursementByExpenseTypes": "Décaissement par type de dépense",
+    "noDisbursementExpenseTypeData": "Aucune donnée de décaissement par type de dépense.",
+
+    "disbursementByBudgetTypes": "Décaissement par type de budget",
+    "noDisbursementBudgetTypeData": "Aucune donnée de décaissement par type de budget."
   },
   "attachment": {
     "btnAdd": "Uploader fichier",
@@ -1190,6 +1217,16 @@
       "decision": "Décisions",
       "attachment": "Fichiers"
     },
+    "filter": {
+      "nature": "Nature",
+      "naturePlaceholder": "Sélectionner une nature",
+      "failed": "Objectifs ratés",
+      "alert": "Objectifs en alerte",
+      "status": "Statut",
+      "statusPlaceholder": "Sélectionner un statut",
+      "state": "État",
+      "statePlaceholder": "Sélectionner un état"
+    },
     "list": {
       "pageTitle": "Objectifs stratégiques",
       "breadTitle": "Objectifs stratégiques",
@@ -1339,6 +1376,16 @@
       "statusDetail": "Détails du statut",
       "responsible": "Structure Responsable & Responsable",
       "level4": "Informations supplémentaires"
+    },
+    "filter": {
+      "nature": "Nature",
+      "naturePlaceholder": "Sélectionner une nature",
+      "failed": "Actions non alignées",
+      "alert": "Actions en alerte",
+      "status": "Statut",
+      "statusPlaceholder": "Sélectionner un statut",
+      "state": "État",
+      "statePlaceholder": "Sélectionner un état"
     },
     "tabs": {
       "detail": "Détails de l'action",
@@ -1844,6 +1891,14 @@
       "attachment": "Fichiers",
       "performanceReport": "Indicateurs de performance"
     },
+    "filter": {
+      "category": "Catégorie",
+      "categoryPlaceholder": "Sélectionner une catégorie",
+      "status": "Statut",
+      "statusPlaceholder": "Sélectionner un statut",
+      "state": "État",
+      "statePlaceholder": "Sélectionner un état"
+    },
     "list": {
       "pageTitle": "Gestion des indicateurs",
       "breadTitle": "Gestion des indicateurs",
@@ -2005,6 +2060,8 @@
     "pleaseSelect": "Veuillez sélectionner une structure et une catégorie",
     "pleaseSelectSubCategory": "Veuillez sélectionner une sous-catégorie",
     "pleaseSelectDescription": "Les indicateurs apparaîtront après votre choix.",
+    "pleaseSelectMaillage": "Veuillez sélectionner une catégorie",
+    "pleaseSelectDescriptionMaillage": "Les indicateurs apparaîtront après votre choix.",
     "periods": {
       "period": "Périodes",
       "targetValue": "Valeur cible",
@@ -2035,6 +2092,7 @@
       "delayOverrunRate": "Taux de dépassement de délai (%)"
     },
     "counts": {
+      "actionDomains": "Nbre Domaines d'actions",
       "strategicDomains": "Nbre Domaines stratégiques",
       "capabilityDomains": "Nbre Domaines capacitaires",
       "elementaryLevels": "Nbre Niveaux élémentaires",
@@ -2055,7 +2113,9 @@
       "expensesByExpenseType": "Dépenses par type de dépense",
       "expensesByProcurementMode": "Dépenses par mode de passation",
       "expensesByContractType": "Dépenses par type de contrat",
-      "counters": "Synthèse générale"
+      "counters": "Synthèse générale",
+      "operationalInformations": "Informations opérationnelles",
+      "financialSituation": "Situation financière"
     },
     "fundingSource": "Source de financement",
     "currency": "Devise",

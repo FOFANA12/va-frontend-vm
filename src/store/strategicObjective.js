@@ -14,6 +14,9 @@ export const useStrategicObjectiveStore = defineStore('strategicObjective', () =
   const riskLevels = ref([]);
   const statuses = ref([]);
 
+  const filterStatuses = ref([]);
+  const filterStates = ref([]);
+
   const form = ref(
     new Form({
       name: '',
@@ -34,6 +37,9 @@ export const useStrategicObjectiveStore = defineStore('strategicObjective', () =
     sortBy: 'id',
     sortOrder: 'desc',
     searchTerm: '',
+    status: null,
+    state: null,
+    nature: null,
   });
 
   const meta = ref({
@@ -51,10 +57,22 @@ export const useStrategicObjectiveStore = defineStore('strategicObjective', () =
     sortBy = serverParams.sortBy,
     sortOrder = serverParams.sortOrder,
     searchTerm = serverParams.searchTerm,
+    status = serverParams.status,
+    state = serverParams.state,
+    nature = serverParams.nature,
   } = {}) => {
     strategicObjectives.value = [];
 
-    Object.assign(serverParams, { pageIndex, pageSize, sortBy, sortOrder, searchTerm });
+    Object.assign(serverParams, {
+      pageIndex,
+      pageSize,
+      sortBy,
+      sortOrder,
+      searchTerm,
+      status,
+      state,
+      nature,
+    });
 
     const params = {
       page: pageIndex + 1,
@@ -62,6 +80,9 @@ export const useStrategicObjectiveStore = defineStore('strategicObjective', () =
       sortBy,
       sortOrder,
       searchTerm,
+      status,
+      state,
+      nature,
     };
 
     const { data } = await api.get(endpoints.strategicObjective.getAll, { params });
@@ -130,7 +151,7 @@ export const useStrategicObjectiveStore = defineStore('strategicObjective', () =
     strategicElements.value = [];
     priorities.value = [];
     riskLevels.value = [];
-   
+
     try {
       const { data } = await api.get(endpoints.strategicObjective.requirements);
       structures.value = data.structures;
@@ -139,10 +160,33 @@ export const useStrategicObjectiveStore = defineStore('strategicObjective', () =
       strategicElements.value = data.strategic_elements ?? [];
       priorities.value = data.priority_levels;
       riskLevels.value = data.risk_levels;
-   
+
       return data;
     } catch (error) {
       throw { message: 'Failed to load requirements.' };
+    }
+  };
+
+  const setFilters = (filters) => {
+    serverParams.status = filters.status || '';
+    serverParams.state = filters.state || '';
+    serverParams.nature = filters.nature || '';
+    serverParams.pageIndex = 0;
+  };
+
+  const getFilters = async () => {
+    filterStatuses.value = [];
+    filterStates.value = [];
+
+    try {
+      const { data } = await api.get(endpoints.strategicObjective.filters);
+
+      filterStatuses.value = data.statuses;
+      filterStates.value = data.states;
+
+      return data;
+    } catch (error) {
+      throw { message: 'Failed to load filters.' };
     }
   };
 
@@ -184,6 +228,9 @@ export const useStrategicObjectiveStore = defineStore('strategicObjective', () =
       sortBy: 'id',
       sortOrder: 'desc',
       searchTerm: '',
+      status: null,
+      state: null,
+      nature: null,
     });
 
     meta.value = {
@@ -208,6 +255,8 @@ export const useStrategicObjectiveStore = defineStore('strategicObjective', () =
     meta,
     serverParams,
     statuses,
+    filterStatuses,
+    filterStates,
     getAll,
     find,
     create,
@@ -217,6 +266,8 @@ export const useStrategicObjectiveStore = defineStore('strategicObjective', () =
     resetForm,
     resetServerParams,
     getStatuses,
-    updateStatus
+    updateStatus,
+    setFilters,
+    getFilters,
   };
 });

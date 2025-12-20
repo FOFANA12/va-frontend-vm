@@ -3,56 +3,46 @@ import { endpoints } from '@/api/endpoints';
 import api from '@/api/axios';
 
 export const useMaillageReportStore = defineStore('maillageReport', () => {
-  const maillages = ref([]);
-
-  const requirements = async () => {
-    maillages.value = [];
-
+  const getActionDomainReport = async () => {
     try {
-      const { data } = await api.get(endpoints.maillageReport.requirements);
-      maillages.value = data.maillages;
-
+      const { data } = await api.get(endpoints.maillageReport.getActionDomainReport());
       return data;
     } catch (error) {
-      throw { message: 'Failed to load requirements.' };
+      throw { message: 'Failed to load report.' };
     }
   };
 
-  const getPerformanceReport = async (structureId) => {
+  const getStrategicDomainReport = async () => {
     try {
-      const { data } = await api.get(endpoints.maillageReport.getPerformanceReport(structureId));
+      const { data } = await api.get(endpoints.maillageReport.getStrategicDomainReport());
       return data;
     } catch (error) {
-      throw { message: 'Failed to load performance maillage report.' };
+      throw { message: 'Failed to load report.' };
     }
   };
 
-  //Statistics
-  const getAcquisitionReport = async (structureId) => {
+  const getCapabilityDomainReport = async () => {
     try {
-      const { data } = await api.get(endpoints.maillageReport.statistics.getAcquisitionReport(structureId));
+      const { data } = await api.get(endpoints.maillageReport.getCapabilityDomainReport());
       return data;
     } catch (error) {
-      throw { message: 'Failed to load acquisition maillage report.' };
+      throw { message: 'Failed to load report.' };
     }
   };
 
-  const getGlobalExpenseReport = async (structureId) => {
+  const getElementaryLevelReport = async () => {
     try {
-      const { data } = await api.get(
-        endpoints.maillageReport.statistics.getGlobalExpenseReport(structureId)
-      );
+      const { data } = await api.get(endpoints.maillageReport.getElementaryLevelReport());
       return data;
     } catch (error) {
-      throw { message: 'Failed to load general expense maillage report.' };
+      throw { message: 'Failed to load report.' };
     }
   };
 
   return {
-    maillages,
-    requirements,
-    getPerformanceReport,
-    getAcquisitionReport,
-    getGlobalExpenseReport,
+    getActionDomainReport,
+    getStrategicDomainReport,
+    getCapabilityDomainReport,
+    getElementaryLevelReport,
   };
 });

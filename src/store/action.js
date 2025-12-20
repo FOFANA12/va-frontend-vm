@@ -31,6 +31,9 @@ export const useActionStore = defineStore('action', () => {
 
   const defaultCurrency = ref(null);
 
+  const filterStatuses = ref([]);
+  const filterStates = ref([]);
+
   const form = ref(
     new Form({
       name: '',
@@ -71,6 +74,9 @@ export const useActionStore = defineStore('action', () => {
     sortBy: 'id',
     sortOrder: 'desc',
     searchTerm: '',
+    status: null,
+    state: null,
+    nature: null,
   });
 
   const meta = ref({
@@ -88,10 +94,22 @@ export const useActionStore = defineStore('action', () => {
     sortBy = serverParams.sortBy,
     sortOrder = serverParams.sortOrder,
     searchTerm = serverParams.searchTerm,
+    status = serverParams.status,
+    state = serverParams.state,
+    nature = serverParams.nature,
   } = {}) => {
     actions.value = [];
 
-    Object.assign(serverParams, { pageIndex, pageSize, sortBy, sortOrder, searchTerm });
+    Object.assign(serverParams, {
+      pageIndex,
+      pageSize,
+      sortBy,
+      sortOrder,
+      searchTerm,
+      status,
+      state,
+      nature,
+    });
 
     const params = {
       page: pageIndex + 1,
@@ -99,6 +117,9 @@ export const useActionStore = defineStore('action', () => {
       sortBy,
       sortOrder,
       searchTerm,
+      status,
+      state,
+      nature,
     };
 
     const { data } = await api.get(endpoints.action.getAll, { params });
@@ -213,6 +234,29 @@ export const useActionStore = defineStore('action', () => {
     }
   };
 
+  const setFilters = (filters) => {
+    serverParams.status = filters.status || '';
+    serverParams.state = filters.state || '';
+    serverParams.nature = filters.nature || '';
+    serverParams.pageIndex = 0;
+  };
+
+  const getFilters = async () => {
+    filterStatuses.value = [];
+    filterStates.value = [];
+
+    try {
+      const { data } = await api.get(endpoints.action.filters);
+
+      filterStatuses.value = data.statuses;
+      filterStates.value = data.states;
+
+      return data;
+    } catch (error) {
+      throw { message: 'Failed to load filters.' };
+    }
+  };
+
   const resetForm = () => {
     form.value.clear();
     form.value.errors.clear();
@@ -227,6 +271,9 @@ export const useActionStore = defineStore('action', () => {
       sortBy: 'id',
       sortOrder: 'desc',
       searchTerm: '',
+      status: null,
+      state: null,
+      nature: null,
     });
 
     meta.value = {
@@ -264,6 +311,8 @@ export const useActionStore = defineStore('action', () => {
     form,
     meta,
     serverParams,
+    filterStatuses,
+    filterStates,
     getAll,
     find,
     create,
@@ -272,5 +321,7 @@ export const useActionStore = defineStore('action', () => {
     requirements,
     resetForm,
     resetServerParams,
+    setFilters,
+    getFilters,
   };
 });

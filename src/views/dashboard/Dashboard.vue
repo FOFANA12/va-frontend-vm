@@ -77,6 +77,9 @@ import { usePageState } from '@/composables/usePageState';
 import PageStateWrapper from '@/components/layout/PageStateWrapper.vue';
 
 import GeneralReport from './components/GeneralReport.vue';
+import StrategicReport from './components/StrategicReport.vue';
+import OperationalReport from './components/OperationalReport.vue';
+import FinancialReport from './components/FinancialReport.vue';
 
 const authStore = useAuthStore();
 const dashboardReportStore = useDahsboardReportStore();
@@ -97,7 +100,12 @@ const currentStructure = computed(() => {
   return structureReportStore.structures.find((s) => s.id === selectedStructure.value);
 });
 
-const categories = [{ key: 'general', label: 'Dashboard Général', component: GeneralReport }];
+const categories = [
+  { key: 'general', label: 'Vue Générale', component: GeneralReport },
+  { key: 'strategic', label: 'Vue Stratégique', component: StrategicReport },
+  { key: 'operational', label: 'Vue Opérationnelle', component: OperationalReport },
+  { key: 'financial', label: 'Vue Financière', component: FinancialReport },
+];
 
 const activeComponent = computed(() => {
   const cat = categories.find((c) => c.key === selectedCategory.value);
@@ -127,6 +135,12 @@ watch([selectedCategory, selectedStructure], async () => {
 
   if (selectedCategory.value === 'general') {
     reportData.value = await dashboardReportStore.getGeneralReport(currentStructure.value.id);
+  } else if (selectedCategory.value === 'strategic') {
+    reportData.value = await dashboardReportStore.getStrategicReport(currentStructure.value.id);
+  } else if (selectedCategory.value === 'operational') {
+    reportData.value = await dashboardReportStore.getOperationalReport(currentStructure.value.id);
+  } else if (selectedCategory.value === 'financial') {
+    reportData.value = await dashboardReportStore.getFinancialReport(currentStructure.value.id);
   }
 });
 

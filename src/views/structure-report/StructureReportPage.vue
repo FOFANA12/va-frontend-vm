@@ -51,10 +51,10 @@
           v-if="!selectedStructure || !selectedCategory"
         >
           <p class="text-lg font-medium">
-            {{ t('report.pleaseSelect') }}
+            {{ t('report.pleaseSelectMaillage') }}
           </p>
           <p class="text-sm text-gray-400 mt-1">
-            {{ t('report.pleaseSelectDescription') }}
+            {{ t('report.pleaseSelectDescriptionMaillage') }}
           </p>
         </div>
 

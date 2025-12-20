@@ -9,7 +9,7 @@ export const useStructureReportStore = defineStore('structureReport', () => {
     structures.value = [];
 
     try {
-      const { data } = await api.get(endpoints.report.requirements);
+      const { data } = await api.get(endpoints.structureReport.requirements);
       structures.value = data.structures;
 
       return data;
@@ -20,7 +20,7 @@ export const useStructureReportStore = defineStore('structureReport', () => {
 
   const getPerformanceReport = async (structureId) => {
     try {
-      const { data } = await api.get(endpoints.report.getPerformanceReport(structureId));
+      const { data } = await api.get(endpoints.structureReport.getPerformanceReport(structureId));
       return data;
     } catch (error) {
       throw { message: 'Failed to load performance report.' };
@@ -30,7 +30,7 @@ export const useStructureReportStore = defineStore('structureReport', () => {
   //Statistics
   const getAcquisitionReport = async (structureId) => {
     try {
-      const { data } = await api.get(endpoints.report.statistics.getAcquisitionReport(structureId));
+      const { data } = await api.get(endpoints.structureReport.statistics.getAcquisitionReport(structureId));
       return data;
     } catch (error) {
       throw { message: 'Failed to load acquisition report.' };
@@ -40,7 +40,7 @@ export const useStructureReportStore = defineStore('structureReport', () => {
   const getGlobalExpenseReport = async (structureId) => {
     try {
       const { data } = await api.get(
-        endpoints.report.statistics.getGlobalExpenseReport(structureId)
+        endpoints.structureReport.statistics.getGlobalExpenseReport(structureId)
       );
       return data;
     } catch (error) {

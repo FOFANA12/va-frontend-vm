@@ -3,6 +3,7 @@ import base from './urlBase';
 export default {
   getAll: `${base.API}/actions?mode=list`,
   requirements: `${base.API}/actions/requirements`,
+  filters: `${base.API}/actions/requirements?mode=filters`,
   find: (id, mode = 'edit') => `${base.API}/actions/${id}?mode=${mode}`,
   create: `${base.API}/actions`,
   update: (id) => `${base.API}/actions/${id}`,

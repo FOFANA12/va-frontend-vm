@@ -47,7 +47,8 @@ import indicatorControl from './indicatorControl';
 import indicatorStatus from './indicatorStatus';
 
 import dashboard from './dashboard';
-import report from './report';
+import structureReport from './structureReport';
+import maillageReport from './maillageReport';
 
 import logActivity from './logActivity';
 
@@ -68,7 +69,6 @@ import budgetTypeSettings from './settings/budgetType';
 import indicatorCategorySettings from './settings/indicatorCategory';
 import defaultPhaseSettings from './settings/defaultPhase';
 import roleSettings from './settings/role';
-import maillageReport from './maillageReport';
 
 export const endpoints = {
   auth,
@@ -98,7 +98,7 @@ export const endpoints = {
   indicatorPlanning,
   indicatorControl,
   indicatorStatus,
-  report,
+  structureReport,
   maillageReport,
   dashboard,
   logActivity,

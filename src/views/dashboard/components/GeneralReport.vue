@@ -76,57 +76,117 @@
           {{ reportData?.realization_index ?? 0 }}
         </p>
       </div>
-    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-      <!-- Objectives Chart -->
-      <div class="bg-white rounded-lg p-4">
-        <h3 class="text-base font-semibold text-gray-700 mb-4">
-          {{ t('dashboard.objectivesStatus') }}
-        </h3>
-        <PieChart
-          :labels="[t('dashboard.failedObjectives'), t('dashboard.alertObjectives')]"
-          :datasets="[
-            {
-              data: [
-                reportData?.failed_objectives_count ?? 0,
-                reportData?.alert_objectives_count ?? 0,
-              ],
-              backgroundColor: ['#ef4444', '#f59e0b'], // rouge + orange
-            },
-          ]"
-          unit=""
-          :height="250"
-        />
+      <!-- Failed Objectives -->
+      <div class="p-4 bg-red-50 border border-red-200 rounded-lg relative">
+        <p class="text-sm font-semibold text-red-700 mb-1">
+          {{ t('dashboard.failedObjectives') }}
+        </p>
+
+        <p class="text-2xl font-bold text-red-900">
+          {{ reportData?.failed_objectives_count ?? 0 }}
+        </p>
+
+        <!-- Bouton de lien -->
+        <router-link
+          :to="{ name: 'strategicObjective', query: { nature: 'failed' } }"
+          class="text-xs text-red-700 underline absolute bottom-2 right-4 hover:text-red-900"
+        >
+          {{ t('dashboard.seeDetails') }}
+        </router-link>
       </div>
 
-      <!-- Actions Chart -->
-      <div class="bg-white rounded-lg p-4">
-        <h3 class="text-base font-semibold text-gray-700 mb-4">
-          {{ t('dashboard.actionsStatus') }}
-        </h3>
-        <PieChart
-          :labels="[t('dashboard.failedActions'), t('dashboard.alertActions')]"
-          :datasets="[
-            {
-              data: [reportData?.failed_actions_count ?? 0, reportData?.alert_actions_count ?? 0],
-              backgroundColor: ['#dc2626', '#eab308'], // rouge foncé + jaune
-            },
-          ]"
-          unit=""
-          :height="250"
-        />
+      <!-- Alert Objectives -->
+      <div class="p-4 bg-orange-50 border border-orange-200 rounded-lg relative">
+        <p class="text-sm font-semibold text-orange-700 mb-1">
+          {{ t('dashboard.alertObjectives') }}
+        </p>
+
+        <p class="text-2xl font-bold text-orange-900">
+          {{ reportData?.alert_objectives_count ?? 0 }}
+        </p>
+
+        <router-link
+          :to="{ name: 'strategicObjective', query: { nature: 'alert' } }"
+          class="text-xs text-orange-700 underline absolute bottom-2 right-4 hover:text-orange-900"
+        >
+          {{ t('dashboard.seeDetails') }}
+        </router-link>
+      </div>
+
+      <!-- Failed Actions -->
+      <div class="p-4 bg-red-100 border border-red-300 rounded-lg relative">
+        <p class="text-sm font-semibold text-red-800 mb-1">
+          {{ t('dashboard.failedActions') }}
+        </p>
+
+        <p class="text-2xl font-bold text-red-900">
+          {{ reportData?.failed_actions_count ?? 0 }}
+        </p>
+
+        <router-link
+          :to="{ name: 'action', query: { nature: 'failed' } }"
+          class="text-xs text-red-800 underline absolute bottom-2 right-4 hover:text-red-900"
+        >
+          {{ t('dashboard.seeDetails') }}
+        </router-link>
+      </div>
+
+      <!-- Alert Actions -->
+      <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg relative">
+        <p class="text-sm font-semibold text-yellow-700 mb-1">
+          {{ t('dashboard.alertActions') }}
+        </p>
+
+        <p class="text-2xl font-bold text-yellow-800">
+          {{ reportData?.alert_actions_count ?? 0 }}
+        </p>
+
+        <router-link
+          :to="{ name: 'action', query: { nature: 'alert' } }"
+          class="text-xs text-yellow-700 underline absolute bottom-2 right-4 hover:text-yellow-900"
+        >
+          {{ t('dashboard.seeDetails') }}
+        </router-link>
       </div>
     </div>
 
+    <!-- Status Objective Chart -->
+    <div class="col-span-1 md:col-span-2 bg-white rounded-lg p-4 mt-6">
+      <h3 class="text-base font-semibold text-gray-700 mb-4">
+        {{ t('dashboard.objectivesStatusDistribution') }}
+      </h3>
+
+      <!-- Si la liste est vide -->
+      <div v-if="!reportData?.objectives_status_distribution?.length" class="text-gray-500 text-sm">
+        {{ t('dashboard.noObjectivesStatusData') }}
+      </div>
+
+      <!-- Sinon affiche les cartes -->
+      <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div
+          v-for="status in reportData.objectives_status_distribution"
+          :key="status.code"
+          class="p-4 rounded-lg border"
+          :style="{
+            borderColor: status.color,
+            backgroundColor: status.color + '20',
+          }"
+        >
+          <!-- Nom (déjà traduit côté backend) -->
+          <p class="text-sm font-semibold mb-1" :style="{ color: status.color }">
+            {{ status.name }}
+          </p>
+
+          <!-- Pourcentage -->
+          <p class="text-2xl font-bold" :style="{ color: status.color }">{{ status.value }} %</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import PieChart from '@/components/ui/charts/PieChart.vue';
-
-const { t } = useI18n();
-
 const props = defineProps({
   reportData: {
     type: Object,

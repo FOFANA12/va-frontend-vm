@@ -14,6 +14,10 @@ export const useIndicatorStore = defineStore('indicator', () => {
 
   const statuses = ref([]);
 
+  const filterStatuses = ref([]);
+  const filterStates = ref([]);
+  const filterCategories = ref([]);
+
   const form = ref(
     new Form({
       structure: '',
@@ -39,6 +43,9 @@ export const useIndicatorStore = defineStore('indicator', () => {
     sortBy: 'id',
     sortOrder: 'desc',
     searchTerm: '',
+    status: null,
+    state: null,
+    category: null,
   });
 
   const meta = ref({
@@ -56,10 +63,22 @@ export const useIndicatorStore = defineStore('indicator', () => {
     sortBy = serverParams.sortBy,
     sortOrder = serverParams.sortOrder,
     searchTerm = serverParams.searchTerm,
+    status = serverParams.status,
+    state = serverParams.state,
+    category = serverParams.category,
   } = {}) => {
     indicators.value = [];
 
-    Object.assign(serverParams, { pageIndex, pageSize, sortBy, sortOrder, searchTerm });
+    Object.assign(serverParams, {
+      pageIndex,
+      pageSize,
+      sortBy,
+      sortOrder,
+      searchTerm,
+      status,
+      state,
+      category,
+    });
 
     const params = {
       page: pageIndex + 1,
@@ -67,6 +86,9 @@ export const useIndicatorStore = defineStore('indicator', () => {
       sortBy,
       sortOrder,
       searchTerm,
+      status,
+      state,
+      category,
     };
 
     const { data } = await api.get(endpoints.indicator.getAll, { params });
@@ -173,6 +195,31 @@ export const useIndicatorStore = defineStore('indicator', () => {
     }
   };
 
+  const setFilters = (filters) => {
+    serverParams.status = filters.status || '';
+    serverParams.state = filters.state || '';
+    serverParams.category = filters.category || '';
+    serverParams.pageIndex = 0;
+  };
+
+  const getFilters = async () => {
+    filterStatuses.value = [];
+    filterStates.value = [];
+    filterCategories.value = [];
+
+    try {
+      const { data } = await api.get(endpoints.indicator.filters);
+
+      filterStatuses.value = data.statuses;
+      filterStates.value = data.states;
+      filterCategories.value = data.categories;
+
+      return data;
+    } catch (error) {
+      throw { message: 'Failed to load filters.' };
+    }
+  };
+
   const resetForm = () => {
     form.value.clear();
     form.value.errors.clear();
@@ -187,6 +234,9 @@ export const useIndicatorStore = defineStore('indicator', () => {
       sortBy: 'id',
       sortOrder: 'desc',
       searchTerm: '',
+      status: null,
+      state: null,
+      category: null,
     });
 
     meta.value = {
@@ -210,6 +260,11 @@ export const useIndicatorStore = defineStore('indicator', () => {
     meta,
     serverParams,
     statuses,
+
+    filterStatuses,
+    filterStates,
+    filterCategories,
+
     getAll,
     find,
     create,
@@ -220,5 +275,8 @@ export const useIndicatorStore = defineStore('indicator', () => {
     resetServerParams,
     getStatuses,
     updateStatus,
+
+    setFilters,
+    getFilters,
   };
 });
