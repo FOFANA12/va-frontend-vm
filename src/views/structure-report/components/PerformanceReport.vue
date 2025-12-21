@@ -1,7 +1,7 @@
 <template>
   <div class="w-full mx-auto rounded-lg">
     <div class="card-header">
-      <h2 class="text-lg p-4 px-0 pt-2 pb-2">
+      <h2 class="text-lg p-4 px-0 pt-2 pb-2 text-primary-600 font-bold border-b-2 border-primary-200">
         {{ t('report.sections.budgetIndicator') }}
       </h2>
       <hr class="border-t border-gray-200 w-full mb-0" />
@@ -29,21 +29,21 @@
         </div>
 
         <!-- Spent Budget -->
-        <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-lg">
-          <p class="text-sm font-semibold text-emerald-700 mb-1">
+        <div class="p-4 bg-rose-50 border border-rose-200 rounded-lg">
+          <p class="text-sm font-semibold text-rose-700 mb-1">
             {{ t('report.spentBudget') }}
           </p>
-          <p class="text-lg font-bold text-emerald-900">
+          <p class="text-lg font-bold text-rose-900">
             {{ formatCurrency(data?.spent_budget, currentCurrencyCode) }}
           </p>
         </div>
 
         <!-- Available Budget -->
-        <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-          <p class="text-sm font-semibold text-slate-700 mb-1">
+        <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-lg">
+          <p class="text-sm font-semibold text-emerald-700 mb-1">
             {{ t('report.availableBudget') }}
           </p>
-          <p class="text-lg font-bold text-slate-900">
+          <p class="text-lg font-bold text-emerald-900">
             {{ formatCurrency(data?.available_budget, currentCurrencyCode) }}
           </p>
         </div>
@@ -52,7 +52,7 @@
       <ul class="divide-y divide-gray-200 bg-white rounded-lg mb-6">
         <li class="flex justify-between px-4 py-2">
           <span>{{ t('report.budgetToMobilize') }}</span>
-          <span class="font-bold text-gray-800">
+          <span class="font-bold text-red-600">
             {{ formatCurrency(data?.budget_to_mobilize, currentCurrencyCode) }}
           </span>
         </li>
@@ -66,7 +66,7 @@
 
   <div class="w-full mx-auto rounded-lg">
     <div class="card-header">
-      <h2 class="text-lg p-4 px-0 pt-2 pb-2">
+      <h2 class="text-lg p-4 px-0 pt-2 pb-2 text-primary-600 font-bold border-b-2 border-primary-200">
         {{ t('report.sections.realizationIndicator') }}
       </h2>
       <hr class="border-t border-gray-200 w-full mb-0" />
@@ -90,7 +90,7 @@
 
   <div class="w-full mx-auto rounded-lg mt-6">
     <div class="card-header">
-      <h2 class="text-lg p-4 px-0 pt-2 pb-2">
+      <h2 class="text-lg p-4 px-0 pt-2 pb-2 text-primary-600 font-bold border-b-2 border-primary-200">
         {{ t('report.sections.delayIndicator') }}
       </h2>
       <hr class="border-t border-gray-200 w-full mb-0" />

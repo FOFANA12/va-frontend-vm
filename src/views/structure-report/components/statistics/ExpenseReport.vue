@@ -1,101 +1,122 @@
 <template>
   <!-- Dépenses par structure -->
-  <div class="w-full mx-auto rounded-lg mb-6" v-if="expensesByStructure.length > 0">
+  <div class="w-full mx-auto rounded-lg mb-6">
     <div class="card-header">
-      <h2 class="text-lg p-4 px-0 pt-2 pb-2">
+      <h2
+        class="text-lg p-4 px-0 pt-2 pb-2 text-primary-600 font-bold border-b-2 border-primary-200"
+      >
         {{ t('report.sections.expensesByStructure') }}
       </h2>
       <hr class="border-t border-gray-200 w-full mb-0" />
     </div>
-    <div class="card-body pt-4">
-      <TableWithParticipation
-        :items="expensesByStructure"
-        labelKey="name"
-        valueKey="total_amount"
-        :total="expensesByStructureTotal"
-        :currency="currentCurrencyCode"
-      />
-    </div>
-    <div class="card-body pt-4">
-      <PieChart
-        :labels="expensesByStructure.map((s) => s.abbreviation)"
-        :datasets="[
-          {
-            data: expensesByStructure.map((s) => Number(s.total_amount) || 0),
-            backgroundColor: structureColors,
-          },
-        ]"
-        :height="500"
-        unit=""
-      />
+    <template v-if="expensesByStructure.length > 0">
+      <div class="card-body pt-4">
+        <TableWithParticipation
+          :items="expensesByStructure"
+          labelKey="name"
+          valueKey="total_amount"
+          :total="expensesByStructureTotal"
+          :currency="currentCurrencyCode"
+        />
+      </div>
+      <div class="card-body pt-4">
+        <PieChart
+          :labels="expensesByStructure.map((s) => s.abbreviation)"
+          :datasets="[
+            {
+              data: expensesByStructure.map((s) => Number(s.total_amount) || 0),
+              backgroundColor: structureColors,
+            },
+          ]"
+          :height="500"
+          unit=""
+        />
+      </div>
+    </template>
+    <div v-else class="p-8 text-center text-gray-400">
+      <p class="text-sm italic">{{ t('report.noData') }}</p>
     </div>
   </div>
 
   <!-- Dépenses par type de budget -->
-  <div class="w-full mx-auto rounded-lg mb-6" v-if="expensesByBudgetType.length > 0">
+  <div class="w-full mx-auto rounded-lg mb-6">
     <div class="card-header">
-      <h2 class="text-lg p-4 px-0 pt-2 pb-2">
+      <h2
+        class="text-lg p-4 px-0 pt-2 pb-2 text-primary-600 font-bold border-b-2 border-primary-200"
+      >
         {{ t('report.sections.expensesByBudgetType') }}
       </h2>
       <hr class="border-t border-gray-200 w-full mb-0" />
     </div>
-    <div class="card-body pt-4">
-      <TableWithParticipation
-        :items="expensesByBudgetType"
-        labelKey="name"
-        valueKey="total_amount"
-        :total="expensesByBudgetTypeTotal"
-        :currency="currentCurrencyCode"
-      />
-    </div>
-    <div class="card-body pt-4">
-      <HorizontalBarChart
-        :labels="expensesByBudgetType.map((b) => b.name)"
-        :datasets="[
-          {
-            label: t('report.participationRate'),
-            data: expensesByBudgetType.map((b) =>
-              calcParticipation(b.total_amount, expensesByBudgetTypeTotal)
-            ),
-            backgroundColor: budgetColors,
-          },
-        ]"
-        unit="%"
-      />
+    <template v-if="expensesByBudgetType.length > 0">
+      <div class="card-body pt-4">
+        <TableWithParticipation
+          :items="expensesByBudgetType"
+          labelKey="name"
+          valueKey="total_amount"
+          :total="expensesByBudgetTypeTotal"
+          :currency="currentCurrencyCode"
+        />
+      </div>
+      <div class="card-body pt-4">
+        <HorizontalBarChart
+          :labels="expensesByBudgetType.map((b) => b.name)"
+          :datasets="[
+            {
+              label: t('report.participationRate'),
+              data: expensesByBudgetType.map((b) =>
+                calcParticipation(b.total_amount, expensesByBudgetTypeTotal)
+              ),
+              backgroundColor: budgetColors,
+            },
+          ]"
+          unit="%"
+        />
+      </div>
+    </template>
+    <div v-else class="p-8 text-center text-gray-400">
+      <p class="text-sm italic">{{ t('report.noData') }}</p>
     </div>
   </div>
 
   <!-- Dépenses par type de dépense -->
-  <div class="w-full mx-auto rounded-lg mb-6" v-if="expensesByExpenseType.length > 0">
+  <div class="w-full mx-auto rounded-lg mb-6">
     <div class="card-header">
-      <h2 class="text-lg p-4 px-0 pt-2 pb-2">
+      <h2
+        class="text-lg p-4 px-0 pt-2 pb-2 text-primary-600 font-bold border-b-2 border-primary-200"
+      >
         {{ t('report.sections.expensesByExpenseType') }}
       </h2>
       <hr class="border-t border-gray-200 w-full mb-0" />
     </div>
-    <div class="card-body pt-4">
-      <TableWithParticipation
-        :items="expensesByExpenseType"
-        labelKey="name"
-        valueKey="total_amount"
-        :total="expensesByExpenseTypeTotal"
-        :currency="currentCurrencyCode"
-      />
-    </div>
-    <div class="card-body pt-4">
-      <HorizontalBarChart
-        :labels="expensesByExpenseType.map((e) => e.name)"
-        :datasets="[
-          {
-            label: t('report.participationRate'),
-            data: expensesByExpenseType.map((e) =>
-              calcParticipation(e.total_amount, expensesByExpenseTypeTotal)
-            ),
-            backgroundColor: expenseColors,
-          },
-        ]"
-        unit="%"
-      />
+    <template v-if="expensesByExpenseType.length > 0">
+      <div class="card-body pt-4">
+        <TableWithParticipation
+          :items="expensesByExpenseType"
+          labelKey="name"
+          valueKey="total_amount"
+          :total="expensesByExpenseTypeTotal"
+          :currency="currentCurrencyCode"
+        />
+      </div>
+      <div class="card-body pt-4">
+        <HorizontalBarChart
+          :labels="expensesByExpenseType.map((e) => e.name)"
+          :datasets="[
+            {
+              label: t('report.participationRate'),
+              data: expensesByExpenseType.map((e) =>
+                calcParticipation(e.total_amount, expensesByExpenseTypeTotal)
+              ),
+              backgroundColor: expenseColors,
+            },
+          ]"
+          unit="%"
+        />
+      </div>
+    </template>
+    <div v-else class="p-8 text-center text-gray-400">
+      <p class="text-sm italic">{{ t('report.noData') }}</p>
     </div>
   </div>
 </template>
@@ -128,7 +149,6 @@ const expensesByBudgetTypeTotal = computed(() =>
 const expensesByExpenseTypeTotal = computed(() =>
   expensesByExpenseType.value.reduce((sum, i) => sum + (Number(i.total_amount) || 0), 0)
 );
-
 
 const budgetColors = computed(() =>
   chroma.scale('Set2').mode('lch').colors(expensesByBudgetType.value.length)

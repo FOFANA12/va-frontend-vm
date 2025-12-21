@@ -88,13 +88,13 @@ const activeComponent = computed(() => {
   return cat ? cat.component : null;
 });
 
-// Watcher pour charger les données quand la sous-catégorie change
-watch(selectedSubCategory, async (newCat) => {
+watch([() => selectedSubCategory.value, () => props.structure], async ([newCat, newStruct]) => {
   reportData.value = null;
-  if (newCat) {
+
+  if (newCat && newStruct?.id) {
     const cat = subCategories.find((c) => c.key === newCat);
-    if (cat && props.structure) {
-      reportData.value = await cat.fetch(props.structure.id);
+    if (cat) {
+      reportData.value = await cat.fetch(newStruct.id);
     }
   }
 });

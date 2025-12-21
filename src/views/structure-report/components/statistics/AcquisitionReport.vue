@@ -2,7 +2,7 @@
   <!-- Acquisition par source de financement -->
   <div class="w-full mx-auto rounded-lg mb-6">
     <div class="card-header">
-      <h2 class="text-lg p-4 px-0 pt-2 pb-2">
+      <h2 class="text-lg p-4 px-0 pt-2 pb-2 text-primary-600 font-bold border-b-2 border-primary-200">
         {{ t('report.sections.acquisitionsByFundingSource') }}
       </h2>
       <hr class="border-t border-gray-200 w-full mb-0" />
@@ -62,7 +62,7 @@
   <!-- Acquisition par devise -->
   <div class="w-full mx-auto rounded-lg">
     <div class="card-header">
-      <h2 class="text-lg p-4 px-0 pt-2 pb-2">
+      <h2 class="text-lg p-4 px-0 pt-2 pb-2 text-primary-600 font-bold border-b-2 border-primary-200">
         {{ t('report.sections.acquisitionsByCurrency') }}
       </h2>
       <hr class="border-t border-gray-200 w-full mb-0" />
