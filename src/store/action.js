@@ -13,6 +13,7 @@ export const useActionStore = defineStore('action', () => {
   const regions = ref([]);
   const departments = ref([]);
   const municipalities = ref([]);
+  const chartTypes = ref([]);
 
   const actionDomains = ref([]);
   const strategicDomains = ref([]);
@@ -57,6 +58,7 @@ export const useActionStore = defineStore('action', () => {
       capability_domain: '',
 
       description: '',
+      chart_type: '',
       prerequisites: '',
       impacts: '',
       risks: '',
@@ -201,6 +203,7 @@ export const useActionStore = defineStore('action', () => {
     stakeholders.value = [];
     fundingSources.value = [];
     defaultCurrency.value = null;
+    chartTypes.value = [];
     users.value = [];
 
     try {
@@ -220,6 +223,7 @@ export const useActionStore = defineStore('action', () => {
       riskLevels.value = data.risk_levels;
       priorityLevels.value = data.priority_levels;
       generateDocumentTypes.value = data.generate_document_types;
+      chartTypes.value = data.chart_types;
       users.value = data.users;
 
       beneficiaries.value = data.beneficiaries;
@@ -303,6 +307,7 @@ export const useActionStore = defineStore('action', () => {
     riskLevels,
     priorityLevels,
     generateDocumentTypes,
+    chartTypes,
     users,
     beneficiaries,
     stakeholders,

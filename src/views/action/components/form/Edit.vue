@@ -267,6 +267,30 @@
             />
           </div>
 
+          
+          <!-- Charte type -->
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <SingleSelect
+              id="chart_type"
+              name="chart_type"
+              v-model="form.chart_type"
+              :label="t('indicator.form.chartType')"
+              :options="store.chartTypes"
+              :placeholder="t('indicator.form.chartTypePlaceholder')"
+              :error="form.errors.get('chart_type')"
+              :control-class="'px-3 py-2.5'"
+              :dropdown-class="'max-h-60'"
+              :option-class="'text-sm'"
+              :empty-message="t('common.select.noResults')"
+              :search-placeholder="t('common.select.searchPlaceholder')"
+              clearable
+              filterable
+              value-key="code"
+              label-key="name"
+              required
+            />
+          </div>
+
           <!-- State -->
           <div class="col-span-12 md:col-span-6 lg:col-span-4" v-if="context === 'edit'">
             <StatusField

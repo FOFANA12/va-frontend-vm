@@ -2,6 +2,21 @@ import { createColumnHelper } from '@tanstack/vue-table';
 import RowActions from './RowActions.vue';
 import StatusBadge from '@/components/ui/StatusBadge.vue';
 
+import {
+  ChartColumnBig,
+  ChartLine,
+  PieChart as ChartPie,
+  Gauge,
+  Table as TableIcon,
+} from 'lucide-vue-next';
+
+const chartIcons = {
+  BAR: ChartColumnBig,
+  LINE: ChartLine,
+  PIE: ChartPie,
+  GAUGE: Gauge,
+  TABLE: TableIcon,
+};
 const columnHelper = createColumnHelper();
 
 export function getColumns({ t, onEdit, onDelete, onView, onCopy, formatCurrency }) {
@@ -87,6 +102,19 @@ export function getColumns({ t, onEdit, onDelete, onView, onCopy, formatCurrency
       cell: (info) => {
         const value = info.getValue();
         return value != null ? `${Number(value).toFixed(2)} %` : '—';
+      },
+    }),
+
+    columnHelper.accessor('chart_type', {
+      header: () => t('indicator.table.chartType'),
+      cell: (info) => {
+        const chartType = info.getValue();
+        const Icon = chartIcons[chartType?.code] ?? null;
+
+        return h('div', { class: 'flex items-center space-x-2' }, [
+          Icon ? h(Icon, { class: 'w-4 h-4 text-green-500' }) : null,
+          h('span', {}, chartType?.label ?? ''),
+        ]);
       },
     }),
 

@@ -172,6 +172,17 @@
             />
           </div>
 
+          <!-- Charte type -->
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <InputReadonly
+              id="chart_type"
+              name="chart_type"
+              :label="t('indicator.form.chartType')"
+              :placeholder="t('indicator.form.chartTypePlaceholder')"
+              :modelValue="form.chart_type"
+            />
+          </div>
+
           <!-- State -->
           <div class="col-span-12 md:col-span-6 lg:col-span-4">
             <StatusField
